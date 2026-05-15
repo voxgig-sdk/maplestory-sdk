@@ -1,0 +1,32 @@
+{
+  "existing": {
+    "pet": {
+      "PET00": {
+        "animation": "ANIMATION01",
+        "pet_id": "PET01",
+        "region": "REGION01",
+        "version": "VERSION01",
+        "render_id": "RENDER01"
+      },
+      "PET01": {
+        "animation": "ANIMATION01",
+        "pet_id": "PET01",
+        "region": "REGION01",
+        "version": "VERSION01",
+        "render_id": "RENDER01"
+      },
+      "PET02": {
+        "animation": "ANIMATION01",
+        "pet_id": "PET01",
+        "region": "REGION01",
+        "version": "VERSION01",
+        "render_id": "RENDER01"
+      }
+    }
+  },
+  "new": {
+    "pet": {
+      "pet_ref01": {}
+    }
+  }
+}

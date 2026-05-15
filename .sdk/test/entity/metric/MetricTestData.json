@@ -1,0 +1,14 @@
+{
+  "existing": {
+    "metric": {
+      "METRIC00": {},
+      "METRIC01": {},
+      "METRIC02": {}
+    }
+  },
+  "new": {
+    "metric": {
+      "metric_ref01": {}
+    }
+  }
+}

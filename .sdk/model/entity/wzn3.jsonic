@@ -1,0 +1,99 @@
+# Entity: wzn3
+
+main: kit: entity: wzn3: {
+
+  alias: field: {}
+
+  name: "wzn3"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "path"
+                orig: "path"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "region"
+                orig: "region"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "version"
+                orig: "version"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                example: false
+                kind: "query"
+                name: "raw_image"
+                orig: "raw_image"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                kind: "query"
+                name: "region"
+                orig: "region"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "version"
+                orig: "version"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/wz/export/{region}/{version}/{path}"
+          parts: [
+            "api"
+            "wz"
+            "export"
+            "{region}"
+            "{version}"
+            "{path}"
+          ]
+          select: {
+            exist: [
+              "path"
+              "raw_image"
+              "region"
+              "version"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "export"
+      ]
+    ]
+  }
+
+
+
+}

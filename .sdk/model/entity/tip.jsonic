@@ -1,0 +1,64 @@
+# Entity: tip
+
+main: kit: entity: tip: {
+
+  alias: field: {}
+
+  name: "tip"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "region"
+                orig: "region"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "version"
+                orig: "version"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/{region}/{version}/tips"
+          parts: [
+            "api"
+            "{region}"
+            "{version}"
+            "tips"
+          ]
+          select: {
+            exist: [
+              "region"
+              "version"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "api"
+      ]
+    ]
+  }
+
+
+
+}

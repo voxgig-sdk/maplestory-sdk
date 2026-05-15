@@ -1,0 +1,54 @@
+# Entity: wzn
+
+main: kit: entity: wzn: {
+
+  alias: field: {}
+
+  name: "wzn"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "region"
+                orig: "region"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "version"
+                orig: "version"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/wz"
+          parts: [
+            "api"
+            "wz"
+          ]
+          select: {
+            exist: [
+              "region"
+              "version"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

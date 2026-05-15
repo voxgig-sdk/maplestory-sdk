@@ -1,0 +1,23 @@
+{
+  "existing": {
+    "z_map": {
+      "Z_MAP00": {
+        "region": "REGION01",
+        "version": "VERSION01"
+      },
+      "Z_MAP01": {
+        "region": "REGION01",
+        "version": "VERSION01"
+      },
+      "Z_MAP02": {
+        "region": "REGION01",
+        "version": "VERSION01"
+      }
+    }
+  },
+  "new": {
+    "z_map": {
+      "z_map_ref01": {}
+    }
+  }
+}

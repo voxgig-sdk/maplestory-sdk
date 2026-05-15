@@ -1,0 +1,33 @@
+# BasicNameFlow
+
+main: kit: flow: BasicNameFlow:
+{
+  entity: "name",
+  kind: "basic",
+  name: "BasicNameFlow",
+  step: [
+    {
+      input: {
+        ref: "name_ref01",
+        srcdatavar: "name_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "name01",
+        region: "region01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-name_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicNameFlow"
+}

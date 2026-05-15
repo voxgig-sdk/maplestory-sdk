@@ -1,0 +1,23 @@
+{
+  "existing": {
+    "wzn": {
+      "WZN00": {
+        "region": "REGION01",
+        "version": "VERSION01"
+      },
+      "WZN01": {
+        "region": "REGION01",
+        "version": "VERSION01"
+      },
+      "WZN02": {
+        "region": "REGION01",
+        "version": "VERSION01"
+      }
+    }
+  },
+  "new": {
+    "wzn": {
+      "wzn_ref01": {}
+    }
+  }
+}

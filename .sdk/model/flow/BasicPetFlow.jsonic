@@ -1,0 +1,33 @@
+# BasicPetFlow
+
+main: kit: flow: BasicPetFlow:
+{
+  entity: "pet",
+  kind: "basic",
+  name: "BasicPetFlow",
+  step: [
+    {
+      input: {
+        ref: "pet_ref01",
+        srcdatavar: "pet_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "pet01",
+        region: "region01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-pet_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicPetFlow"
+}

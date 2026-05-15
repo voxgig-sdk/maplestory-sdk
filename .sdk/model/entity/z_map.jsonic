@@ -1,0 +1,103 @@
+# Entity: z_map
+
+main: kit: entity: z_map: {
+
+  alias: field: {}
+
+  name: "z_map"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "region"
+                orig: "region"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "version"
+                orig: "version"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/{region}/{version}/zmap"
+          parts: [
+            "api"
+            "{region}"
+            "{version}"
+            "zmap"
+          ]
+          select: {
+            exist: [
+              "region"
+              "version"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "region"
+                orig: "region"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "version"
+                orig: "version"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/{region}/{version}/zmap/smap"
+          parts: [
+            "api"
+            "{region}"
+            "{version}"
+            "zmap"
+            "smap"
+          ]
+          select: {
+            exist: [
+              "region"
+              "version"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "api"
+      ]
+    ]
+  }
+
+
+
+}

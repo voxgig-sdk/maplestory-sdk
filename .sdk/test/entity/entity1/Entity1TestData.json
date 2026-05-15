@@ -1,0 +1,14 @@
+{
+  "existing": {
+    "entity1": {
+      "ENTITY100": {},
+      "ENTITY101": {},
+      "ENTITY102": {}
+    }
+  },
+  "new": {
+    "entity1": {
+      "entity1_ref01": {}
+    }
+  }
+}

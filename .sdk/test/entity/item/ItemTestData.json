@@ -1,0 +1,26 @@
+{
+  "existing": {
+    "item": {
+      "ITEM00": {
+        "region": "REGION01",
+        "version": "VERSION01",
+        "overall_category": "OVERALL_CATEGORY01"
+      },
+      "ITEM01": {
+        "region": "REGION01",
+        "version": "VERSION01",
+        "overall_category": "OVERALL_CATEGORY01"
+      },
+      "ITEM02": {
+        "region": "REGION01",
+        "version": "VERSION01",
+        "overall_category": "OVERALL_CATEGORY01"
+      }
+    }
+  },
+  "new": {
+    "item": {
+      "item_ref01": {}
+    }
+  }
+}

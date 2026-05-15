@@ -1,0 +1,34 @@
+# BasicAvatarFlow
+
+main: kit: flow: BasicAvatarFlow:
+{
+  entity: "avatar",
+  kind: "basic",
+  name: "BasicAvatarFlow",
+  step: [
+    {
+      input: {
+        ref: "avatar_ref01",
+        srcdatavar: "avatar_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        animation: "animation01",
+        id: "avatar01",
+        item: "item01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-avatar_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicAvatarFlow"
+}

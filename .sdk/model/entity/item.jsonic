@@ -1,0 +1,728 @@
+# Entity: item
+
+main: kit: entity: item: {
+
+  alias: field: {}
+
+  name: "item"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "region"
+                orig: "region"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "version"
+                orig: "version"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "cash_filter"
+                orig: "cash_filter"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                kind: "query"
+                name: "category_filter"
+                orig: "category_filter"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "count"
+                orig: "count"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "gender_filter"
+                orig: "gender_filter"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "job_filter"
+                orig: "job_filter"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "max_level_filter"
+                orig: "max_level_filter"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "min_level_filter"
+                orig: "min_level_filter"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "overall_category_filter"
+                orig: "overall_category_filter"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "search_for"
+                orig: "search_for"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: 0
+                kind: "query"
+                name: "start_position"
+                orig: "start_position"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "sub_category_filter"
+                orig: "sub_category_filter"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/{region}/{version}/item"
+          parts: [
+            "api"
+            "{region}"
+            "{version}"
+            "item"
+          ]
+          select: {
+            exist: [
+              "cash_filter"
+              "category_filter"
+              "count"
+              "gender_filter"
+              "job_filter"
+              "max_level_filter"
+              "min_level_filter"
+              "overall_category_filter"
+              "region"
+              "search_for"
+              "start_position"
+              "sub_category_filter"
+              "version"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "region"
+                orig: "region"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "version"
+                orig: "version"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "cash_filter"
+                orig: "cash_filter"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                kind: "query"
+                name: "category_filter"
+                orig: "category_filter"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "count"
+                orig: "count"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "gender_filter"
+                orig: "gender_filter"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "job_filter"
+                orig: "job_filter"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "max_level_filter"
+                orig: "max_level_filter"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "min_level_filter"
+                orig: "min_level_filter"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "overall_category_filter"
+                orig: "overall_category_filter"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "search_for"
+                orig: "search_for"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: 0
+                kind: "query"
+                name: "start_position"
+                orig: "start_position"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "sub_category_filter"
+                orig: "sub_category_filter"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/{region}/{version}/item/count"
+          parts: [
+            "api"
+            "{region}"
+            "{version}"
+            "item"
+            "count"
+          ]
+          select: {
+            "$action": "count"
+            exist: [
+              "cash_filter"
+              "category_filter"
+              "count"
+              "gender_filter"
+              "job_filter"
+              "max_level_filter"
+              "min_level_filter"
+              "overall_category_filter"
+              "region"
+              "search_for"
+              "start_position"
+              "sub_category_filter"
+              "version"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "region"
+                orig: "region"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "version"
+                orig: "version"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "cash_filter"
+                orig: "cash_filter"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                kind: "query"
+                name: "category_filter"
+                orig: "category_filter"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "count"
+                orig: "count"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "gender_filter"
+                orig: "gender_filter"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "job_filter"
+                orig: "job_filter"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "max_level_filter"
+                orig: "max_level_filter"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "min_level_filter"
+                orig: "min_level_filter"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "overall_category_filter"
+                orig: "overall_category_filter"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "search_for"
+                orig: "search_for"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: 0
+                kind: "query"
+                name: "start_position"
+                orig: "start_position"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "sub_category_filter"
+                orig: "sub_category_filter"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/{region}/{version}/item/list"
+          parts: [
+            "api"
+            "{region}"
+            "{version}"
+            "item"
+            "list"
+          ]
+          select: {
+            "$action": "list"
+            exist: [
+              "cash_filter"
+              "category_filter"
+              "count"
+              "gender_filter"
+              "job_filter"
+              "max_level_filter"
+              "min_level_filter"
+              "overall_category_filter"
+              "region"
+              "search_for"
+              "start_position"
+              "sub_category_filter"
+              "version"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "item_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "region"
+                orig: "region"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "version"
+                orig: "version"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/{region}/{version}/item/{itemId}"
+          parts: [
+            "api"
+            "{region}"
+            "{version}"
+            "item"
+            "{id}"
+          ]
+          rename: {
+            param: {
+              itemId: "id"
+            }
+          }
+          select: {
+            exist: [
+              "id"
+              "region"
+              "version"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "item_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "region"
+                orig: "region"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "version"
+                orig: "version"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/{region}/{version}/item/{itemId}/icon"
+          parts: [
+            "api"
+            "{region}"
+            "{version}"
+            "item"
+            "{id}"
+            "icon"
+          ]
+          rename: {
+            param: {
+              itemId: "id"
+            }
+          }
+          select: {
+            "$action": "icon"
+            exist: [
+              "id"
+              "region"
+              "version"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "item_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "region"
+                orig: "region"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "version"
+                orig: "version"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/{region}/{version}/item/{itemId}/iconRaw"
+          parts: [
+            "api"
+            "{region}"
+            "{version}"
+            "item"
+            "{id}"
+            "iconRaw"
+          ]
+          rename: {
+            param: {
+              itemId: "id"
+            }
+          }
+          select: {
+            "$action": "icon_raw"
+            exist: [
+              "id"
+              "region"
+              "version"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "item_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "region"
+                orig: "region"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "version"
+                orig: "version"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/{region}/{version}/item/{itemId}/name"
+          parts: [
+            "api"
+            "{region}"
+            "{version}"
+            "item"
+            "{id}"
+            "name"
+          ]
+          rename: {
+            param: {
+              itemId: "id"
+            }
+          }
+          select: {
+            "$action": "name"
+            exist: [
+              "id"
+              "region"
+              "version"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "overall_category"
+                orig: "overall_category"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "region"
+                orig: "region"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "version"
+                orig: "version"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/{region}/{version}/item/category/{overallCategory}"
+          parts: [
+            "api"
+            "{region}"
+            "{version}"
+            "item"
+            "category"
+            "{overall_category}"
+          ]
+          rename: {
+            param: {
+              overallCategory: "overall_category"
+            }
+          }
+          select: {
+            exist: [
+              "overall_category"
+              "region"
+              "version"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "region"
+                orig: "region"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "version"
+                orig: "version"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/{region}/{version}/item/category"
+          parts: [
+            "api"
+            "{region}"
+            "{version}"
+            "item"
+            "category"
+          ]
+          select: {
+            "$action": "category"
+            exist: [
+              "region"
+              "version"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "api"
+      ]
+      [
+        "api"
+        "category"
+      ]
+    ]
+  }
+
+
+
+}

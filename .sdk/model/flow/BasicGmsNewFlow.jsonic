@@ -1,0 +1,28 @@
+# BasicGmsNewFlow
+
+main: kit: flow: BasicGmsNewFlow:
+{
+  entity: "gms_new",
+  kind: "basic",
+  name: "BasicGmsNewFlow",
+  step: [
+    {
+      input: {
+        ref: "gms_new_ref01",
+        srcdatavar: "gms_new_ref01_data",
+        suffix: "_dt0"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-gms_new_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicGmsNewFlow"
+}

@@ -1,0 +1,33 @@
+# BasicZMapFlow
+
+main: kit: flow: BasicZMapFlow:
+{
+  entity: "z_map",
+  kind: "basic",
+  name: "BasicZMapFlow",
+  step: [
+    {
+      input: {
+        ref: "z_map_ref01",
+        srcdatavar: "z_map_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "z_map01",
+        region: "region01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-z_map_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicZMapFlow"
+}

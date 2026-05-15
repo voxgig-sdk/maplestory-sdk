@@ -1,0 +1,35 @@
+# BasicGuildMarkFlow
+
+main: kit: flow: BasicGuildMarkFlow:
+{
+  entity: "guild_mark",
+  kind: "basic",
+  name: "BasicGuildMarkFlow",
+  step: [
+    {
+      input: {
+        ref: "guild_mark_ref01",
+        srcdatavar: "guild_mark_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        guild_mark_id: "guild_mark01",
+        id: "guild_mark01",
+        region: "region01",
+        version: "version01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-guild_mark_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicGuildMarkFlow"
+}

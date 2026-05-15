@@ -1,0 +1,542 @@
+# Guide
+
+guide: {
+  metrics: count: entity: 32
+  metrics: count: path: 108
+  metrics: count: method: 108
+
+  entity: android: {
+    path: "/api/{region}/{version}/android": {
+      op: load: method: *GET
+    }
+    path: "/api/{region}/{version}/android/{androidId}": {
+      rename: param: "androidId": *"id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: avatar: {
+    path: "/api/character/{items}/actions": {
+      rename: param: "items": *"item"
+      op: load: method: *GET
+    }
+    path: "/api/character/{items}/download": {
+      rename: param: "items": *"item"
+      op: load: method: *GET
+    }
+    path: "/api/character/{items}/{animation}/animated": {
+      rename: param: "items": *"character_id"
+      op: load: method: *GET
+    }
+    path: "/api/character/{items}/{animation}/{frame}": {
+      rename: param: "items": *"item"
+      op: load: method: *GET
+    }
+    path: "/api/character/{items}/{animation}/{frame}/download": {
+      rename: param: "items": *"character_id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: cache: {
+    path: "/api/metrics/cache": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: character: {
+    path: "/api/{region}/{version}/Character": {
+      op: load: method: *GET
+    }
+    path: "/api/{region}/{version}/Character/actions/{items}": {
+      rename: param: "items": *"item"
+      op: load: method: *GET
+    }
+    path: "/api/{region}/{version}/Character/animated/{skinId}/{items}/{animation}/{frame}": {
+      rename: param: "items": *"item"
+      rename: param: "skinId": *"skin_id"
+      op: load: method: *GET
+    }
+    path: "/api/{region}/{version}/Character/center/{skinId}/{items}/{animation}/{frame}": {
+      rename: param: "items": *"item"
+      rename: param: "skinId": *"skin_id"
+      op: load: method: *GET
+    }
+    path: "/api/{region}/{version}/Character/compact/{skinId}/{items}/{animation}/{frame}": {
+      rename: param: "items": *"item"
+      rename: param: "skinId": *"skin_id"
+      op: load: method: *GET
+    }
+    path: "/api/{region}/{version}/Character/download/{skinId}/{items}": {
+      rename: param: "items": *"item"
+      rename: param: "skinId": *"skin_id"
+      op: load: method: *GET
+    }
+    path: "/api/{region}/{version}/Character/feetCenter/{skinId}/{items}/{animation}/{frame}": {
+      rename: param: "items": *"item"
+      rename: param: "skinId": *"skin_id"
+      op: load: method: *GET
+    }
+    path: "/api/{region}/{version}/Character/navelCenter/{skinId}/{items}/{animation}/{frame}": {
+      rename: param: "items": *"item"
+      rename: param: "skinId": *"skin_id"
+      op: load: method: *GET
+    }
+    path: "/api/{region}/{version}/Character/{skinId}/{items}/{animation}/{frame}": {
+      rename: param: "items": *"item"
+      rename: param: "skinId": *"skin_id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: chat: {
+    path: "/api/{region}/{version}/chat": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: cluster: {
+    path: "/api/metrics/cluster": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.cluster`")|top
+    }
+  }
+
+  entity: diff: {
+    path: "/api/{region}/{version}/diff": {
+      op: load: method: *GET
+    }
+    path: "/api/{region}/{version}/diff/grouped": {
+      action: "grouped": {}
+      op: load: method: *GET
+    }
+  }
+
+  entity: entity1: {
+    path: "/": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: gms_new: {
+    path: "/api/gms/latest/news/article/{id}": {
+      op: load: method: *GET
+    }
+    path: "/api/gms/latest/news/{type}": {
+      rename: param: "type": *"id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: guild_mark: {
+    path: "/api/{region}/{version}/GuildMark/background/{guildBackgroundId}/{guildBackgroundColorId}/mark/{guildMarkId}/{guildMarkColorId}": {
+      rename: param: "guildBackgroundColorId": *"guild_background_color_id"
+      rename: param: "guildBackgroundId": *"guild_background_id"
+      rename: param: "guildMarkColorId": *"guild_mark_color_id"
+      rename: param: "guildMarkId": *"guild_mark_id"
+      op: load: method: *GET
+    }
+    path: "/api/{region}/{version}/GuildMark/{guildMarkId}/{colorId}": {
+      rename: param: "colorId": *"color_id"
+      rename: param: "guildMarkId": *"guild_mark_id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: health: {
+    path: "/api/health/alive": {
+      action: "alive": {}
+      op: load: method: *GET
+    }
+    path: "/api/health/ready": {
+      action: "ready": {}
+      op: load: method: *GET
+    }
+    path: "/api/health/start": {
+      action: "start": {}
+      op: load: method: *GET
+    }
+  }
+
+  entity: item: {
+    path: "/api/{region}/{version}/item": {
+      op: load: method: *GET
+    }
+    path: "/api/{region}/{version}/item/category": {
+      action: "category": {}
+      op: load: method: *GET
+    }
+    path: "/api/{region}/{version}/item/category/{overallCategory}": {
+      rename: param: "overallCategory": *"overall_category"
+      op: load: method: *GET
+    }
+    path: "/api/{region}/{version}/item/count": {
+      action: "count": {}
+      op: load: method: *GET
+    }
+    path: "/api/{region}/{version}/item/list": {
+      action: "list": {}
+      op: load: method: *GET
+    }
+    path: "/api/{region}/{version}/item/{itemId}": {
+      rename: param: "itemId": *"id"
+      op: load: method: *GET
+    }
+    path: "/api/{region}/{version}/item/{itemId}/icon": {
+      action: "icon": {}
+      rename: param: "itemId": *"id"
+      op: load: method: *GET
+    }
+    path: "/api/{region}/{version}/item/{itemId}/iconRaw": {
+      action: "icon_raw": {}
+      rename: param: "itemId": *"id"
+      op: load: method: *GET
+    }
+    path: "/api/{region}/{version}/item/{itemId}/name": {
+      action: "name": {}
+      rename: param: "itemId": *"id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: job: {
+    path: "/api/{region}/{version}/job": {
+      op: load: method: *GET
+    }
+    path: "/api/{region}/{version}/job/count": {
+      action: "count": {}
+      op: load: method: *GET
+    }
+    path: "/api/{region}/{version}/job/skill/{skillId}": {
+      rename: param: "skillId": *"skill_id"
+      op: load: method: *GET
+    }
+    path: "/api/{region}/{version}/job/skilltree": {
+      action: "skilltree": {}
+      op: load: method: *GET
+    }
+    path: "/api/{region}/{version}/job/{jobId}": {
+      rename: param: "jobId": *"id"
+      op: load: method: *GET
+    }
+    path: "/api/{region}/{version}/job/{jobId}/skillbook": {
+      action: "skillbook": {}
+      rename: param: "jobId": *"id"
+      op: load: method: *GET
+    }
+    path: "/api/{region}/{version}/job/{jobId}/skillbook/{skillId}": {
+      rename: param: "jobId": *"id"
+      rename: param: "skillId": *"skill_id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: map: {
+    path: "/api/{region}/{version}/map": {
+      op: load: method: *GET
+    }
+    path: "/api/{region}/{version}/map/count": {
+      action: "count": {}
+      op: load: method: *GET
+    }
+    path: "/api/{region}/{version}/map/icon/{markName}": {
+      rename: param: "markName": *"mark_name"
+      op: load: method: *GET
+    }
+    path: "/api/{region}/{version}/map/worldmap": {
+      action: "worldmap": {}
+      op: load: method: *GET
+    }
+    path: "/api/{region}/{version}/map/worldmap/{map}": {
+      op: load: method: *GET
+    }
+    path: "/api/{region}/{version}/map/{mapId}": {
+      rename: param: "mapId": *"id"
+      op: load: method: *GET
+    }
+    path: "/api/{region}/{version}/map/{mapId}/bgm": {
+      action: "bgm": {}
+      rename: param: "mapId": *"id"
+      op: load: method: *GET
+    }
+    path: "/api/{region}/{version}/map/{mapId}/icon": {
+      action: "icon": {}
+      rename: param: "mapId": *"id"
+      op: load: method: *GET
+    }
+    path: "/api/{region}/{version}/map/{mapId}/minimap": {
+      action: "minimap": {}
+      rename: param: "mapId": *"id"
+      op: load: method: *GET
+    }
+    path: "/api/{region}/{version}/map/{mapId}/name": {
+      action: "name": {}
+      rename: param: "mapId": *"id"
+      op: load: method: *GET
+    }
+    path: "/api/{region}/{version}/map/{mapId}/render/layer/{layer}/{frame}": {
+      rename: param: "mapId": *"map_id"
+      op: load: method: *GET
+    }
+    path: "/api/{region}/{version}/map/{mapId}/render/{frame}": {
+      rename: param: "mapId": *"id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: metric: {
+    path: "/api/metrics/health": {
+      action: "health": {}
+      op: load: method: *GET
+    }
+  }
+
+  entity: mob: {
+    path: "/api/{region}/{version}/mob": {
+      op: load: method: *GET
+    }
+    path: "/api/{region}/{version}/mob/animated/{mobId}/{animation}": {
+      rename: param: "mobId": *"mob_id"
+      op: load: method: *GET
+    }
+    path: "/api/{region}/{version}/mob/count": {
+      action: "count": {}
+      op: load: method: *GET
+    }
+    path: "/api/{region}/{version}/mob/{mobId}": {
+      rename: param: "mobId": *"id"
+      op: load: method: *GET
+    }
+    path: "/api/{region}/{version}/mob/{mobId}/download": {
+      action: "download": {}
+      rename: param: "mobId": *"id"
+      op: load: method: *GET
+    }
+    path: "/api/{region}/{version}/mob/{mobId}/icon": {
+      action: "icon": {}
+      rename: param: "mobId": *"id"
+      op: load: method: *GET
+    }
+    path: "/api/{region}/{version}/mob/{mobId}/name": {
+      action: "name": {}
+      rename: param: "mobId": *"id"
+      op: load: method: *GET
+    }
+    path: "/api/{region}/{version}/mob/{mobId}/render/animated/{animation}": {
+      rename: param: "mobId": *"id"
+      op: load: method: *GET
+    }
+    path: "/api/{region}/{version}/mob/{mobId}/render/{animation}": {
+      rename: param: "mobId": *"id"
+      op: load: method: *GET
+    }
+    path: "/api/{region}/{version}/mob/{mobId}/render/{animation}/{frame}": {
+      rename: param: "mobId": *"mob_id"
+      op: load: method: *GET
+    }
+    path: "/api/{region}/{version}/mob/{mobId}/sound": {
+      action: "sound": {}
+      rename: param: "mobId": *"id"
+      op: load: method: *GET
+    }
+    path: "/api/{region}/{version}/mob/{mobId}/sound/{soundName}": {
+      rename: param: "mobId": *"id"
+      rename: param: "soundName": *"sound_name"
+      op: load: method: *GET
+    }
+  }
+
+  entity: music: {
+    path: "/api/{region}/{version}/music/{songPath}": {
+      rename: param: "songPath": *"id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: name: {
+    path: "/api/{region}/{version}/name": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: npc: {
+    path: "/api/{region}/{version}/npc": {
+      op: load: method: *GET
+    }
+    path: "/api/{region}/{version}/npc/count": {
+      action: "count": {}
+      op: load: method: *GET
+    }
+    path: "/api/{region}/{version}/npc/{npcId}": {
+      rename: param: "npcId": *"id"
+      op: load: method: *GET
+    }
+    path: "/api/{region}/{version}/npc/{npcId}/download": {
+      action: "download": {}
+      rename: param: "npcId": *"id"
+      op: load: method: *GET
+    }
+    path: "/api/{region}/{version}/npc/{npcId}/icon": {
+      action: "icon": {}
+      rename: param: "npcId": *"id"
+      op: load: method: *GET
+    }
+    path: "/api/{region}/{version}/npc/{npcId}/name": {
+      action: "name": {}
+      rename: param: "npcId": *"id"
+      op: load: method: *GET
+    }
+    path: "/api/{region}/{version}/npc/{npcId}/render/animated/{framebook}": {
+      rename: param: "npcId": *"id"
+      op: load: method: *GET
+    }
+    path: "/api/{region}/{version}/npc/{npcId}/render/{framebook}/{frame}": {
+      rename: param: "npcId": *"npc_id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: nxf: {
+    path: "/api/about": {
+      op: load: method: *GET
+    }
+    path: "/api/banners": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: performance_metric: {
+    path: "/api/metrics": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: pet: {
+    path: "/api/{region}/{version}/pet": {
+      op: load: method: *GET
+    }
+    path: "/api/{region}/{version}/pet/count": {
+      action: "count": {}
+      op: load: method: *GET
+    }
+    path: "/api/{region}/{version}/pet/{petId}": {
+      rename: param: "petId": *"id"
+      op: load: method: *GET
+    }
+    path: "/api/{region}/{version}/pet/{petId}/actions": {
+      action: "action": {}
+      rename: param: "petId": *"id"
+      op: load: method: *GET
+    }
+    path: "/api/{region}/{version}/pet/{petId}/download": {
+      action: "download": {}
+      rename: param: "petId": *"id"
+      op: load: method: *GET
+    }
+    path: "/api/{region}/{version}/pet/{petId}/name": {
+      action: "name": {}
+      rename: param: "petId": *"id"
+      op: load: method: *GET
+    }
+    path: "/api/{region}/{version}/pet/{petId}/render/{animation}/animated/{petEquip}": {
+      rename: param: "animation": *"render_id"
+      rename: param: "petEquip": *"pet_equip"
+      rename: param: "petId": *"id"
+      op: load: method: *GET
+    }
+    path: "/api/{region}/{version}/pet/{petId}/render/{animation}/{frame}/{petEquip}": {
+      rename: param: "petEquip": *"pet_equip"
+      rename: param: "petId": *"pet_id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: quest: {
+    path: "/api/{region}/{version}/quest": {
+      op: load: method: *GET
+    }
+    path: "/api/{region}/{version}/quest/category": {
+      action: "category": {}
+      op: load: method: *GET
+    }
+    path: "/api/{region}/{version}/quest/category/{category}": {
+      op: load: method: *GET
+    }
+    path: "/api/{region}/{version}/quest/count": {
+      action: "count": {}
+      op: load: method: *GET
+    }
+    path: "/api/{region}/{version}/quest/{questId}": {
+      rename: param: "questId": *"id"
+      op: load: method: *GET
+    }
+    path: "/api/{region}/{version}/quest/{questId}/icon": {
+      action: "icon": {}
+      rename: param: "questId": *"id"
+      op: load: method: *GET
+    }
+    path: "/api/{region}/{version}/quest/{questId}/name": {
+      action: "name": {}
+      rename: param: "questId": *"id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: system: {
+    path: "/api/metrics/system": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: tip: {
+    path: "/api/{region}/{version}/tips": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: wzn: {
+    path: "/api/wz": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: wzn2: {
+    path: "/api/wz/audio/{region}/{version}/{path}": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: wzn3: {
+    path: "/api/wz/export/{region}/{version}/{path}": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: wzn4: {
+    path: "/api/wz/img/{region}/{version}/{path}": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: wzn5: {
+    path: "/api/wz/lookup/{region}/{version}/{path}": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: wzn6: {
+    path: "/api/wz/{region}/{version}/{path}": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: z_map: {
+    path: "/api/{region}/{version}/zmap": {
+      op: load: method: *GET
+    }
+    path: "/api/{region}/{version}/zmap/smap": {
+      op: load: method: *GET
+    }
+  }
+
+}

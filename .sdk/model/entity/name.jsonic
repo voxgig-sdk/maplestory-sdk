@@ -1,0 +1,83 @@
+# Entity: name
+
+main: kit: entity: name: {
+
+  alias: field: {}
+
+  name: "name"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "region"
+                orig: "region"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "version"
+                orig: "version"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "name"
+                orig: "name"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: ""
+                kind: "query"
+                name: "ring_ids_joined"
+                orig: "ring_ids_joined"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/{region}/{version}/name"
+          parts: [
+            "api"
+            "{region}"
+            "{version}"
+            "name"
+          ]
+          select: {
+            exist: [
+              "name"
+              "region"
+              "ring_ids_joined"
+              "version"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "api"
+      ]
+    ]
+  }
+
+
+
+}

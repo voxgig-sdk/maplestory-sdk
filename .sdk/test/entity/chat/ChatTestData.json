@@ -1,0 +1,23 @@
+{
+  "existing": {
+    "chat": {
+      "CHAT00": {
+        "region": "REGION01",
+        "version": "VERSION01"
+      },
+      "CHAT01": {
+        "region": "REGION01",
+        "version": "VERSION01"
+      },
+      "CHAT02": {
+        "region": "REGION01",
+        "version": "VERSION01"
+      }
+    }
+  },
+  "new": {
+    "chat": {
+      "chat_ref01": {}
+    }
+  }
+}

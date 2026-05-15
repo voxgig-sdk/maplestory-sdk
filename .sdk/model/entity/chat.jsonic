@@ -1,0 +1,82 @@
+# Entity: chat
+
+main: kit: entity: chat: {
+
+  alias: field: {}
+
+  name: "chat"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "region"
+                orig: "region"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "version"
+                orig: "version"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "message"
+                orig: "message"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "ring_ids_joined"
+                orig: "ring_ids_joined"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/{region}/{version}/chat"
+          parts: [
+            "api"
+            "{region}"
+            "{version}"
+            "chat"
+          ]
+          select: {
+            exist: [
+              "message"
+              "region"
+              "ring_ids_joined"
+              "version"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "api"
+      ]
+    ]
+  }
+
+
+
+}

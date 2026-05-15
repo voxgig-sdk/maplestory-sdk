@@ -1,0 +1,34 @@
+# Entity: metric
+
+main: kit: entity: metric: {
+
+  alias: field: {}
+
+  name: "metric"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          method: "GET"
+          orig: "/api/metrics/health"
+          parts: [
+            "api"
+            "metrics"
+            "health"
+          ]
+          select: {
+            "$action": "health"
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

@@ -1,0 +1,23 @@
+{
+  "existing": {
+    "android": {
+      "ANDROID00": {
+        "region": "REGION01",
+        "version": "VERSION01"
+      },
+      "ANDROID01": {
+        "region": "REGION01",
+        "version": "VERSION01"
+      },
+      "ANDROID02": {
+        "region": "REGION01",
+        "version": "VERSION01"
+      }
+    }
+  },
+  "new": {
+    "android": {
+      "android_ref01": {}
+    }
+  }
+}

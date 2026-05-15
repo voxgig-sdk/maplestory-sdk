@@ -1,0 +1,374 @@
+# Entity: job
+
+main: kit: entity: job: {
+
+  alias: field: {}
+
+  name: "job"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "job_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "region"
+                orig: "region"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "skill_id"
+                orig: "skill_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "version"
+                orig: "version"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/{region}/{version}/job/{jobId}/skillbook/{skillId}"
+          parts: [
+            "api"
+            "{region}"
+            "{version}"
+            "job"
+            "{id}"
+            "skillbook"
+            "{skill_id}"
+          ]
+          rename: {
+            param: {
+              jobId: "id"
+              skillId: "skill_id"
+            }
+          }
+          select: {
+            exist: [
+              "id"
+              "region"
+              "skill_id"
+              "version"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "job_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "region"
+                orig: "region"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "version"
+                orig: "version"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/{region}/{version}/job/{jobId}"
+          parts: [
+            "api"
+            "{region}"
+            "{version}"
+            "job"
+            "{id}"
+          ]
+          rename: {
+            param: {
+              jobId: "id"
+            }
+          }
+          select: {
+            exist: [
+              "id"
+              "region"
+              "version"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "job_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "region"
+                orig: "region"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "version"
+                orig: "version"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/{region}/{version}/job/{jobId}/skillbook"
+          parts: [
+            "api"
+            "{region}"
+            "{version}"
+            "job"
+            "{id}"
+            "skillbook"
+          ]
+          rename: {
+            param: {
+              jobId: "id"
+            }
+          }
+          select: {
+            "$action": "skillbook"
+            exist: [
+              "id"
+              "region"
+              "version"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "region"
+                orig: "region"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "skill_id"
+                orig: "skill_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "version"
+                orig: "version"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/{region}/{version}/job/skill/{skillId}"
+          parts: [
+            "api"
+            "{region}"
+            "{version}"
+            "job"
+            "skill"
+            "{skill_id}"
+          ]
+          rename: {
+            param: {
+              skillId: "skill_id"
+            }
+          }
+          select: {
+            exist: [
+              "region"
+              "skill_id"
+              "version"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "region"
+                orig: "region"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "version"
+                orig: "version"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/{region}/{version}/job"
+          parts: [
+            "api"
+            "{region}"
+            "{version}"
+            "job"
+          ]
+          select: {
+            exist: [
+              "region"
+              "version"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "region"
+                orig: "region"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "version"
+                orig: "version"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/{region}/{version}/job/count"
+          parts: [
+            "api"
+            "{region}"
+            "{version}"
+            "job"
+            "count"
+          ]
+          select: {
+            "$action": "count"
+            exist: [
+              "region"
+              "version"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "region"
+                orig: "region"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "version"
+                orig: "version"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/{region}/{version}/job/skilltree"
+          parts: [
+            "api"
+            "{region}"
+            "{version}"
+            "job"
+            "skilltree"
+          ]
+          select: {
+            "$action": "skilltree"
+            exist: [
+              "region"
+              "version"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "api"
+      ]
+      [
+        "api"
+        "skill"
+      ]
+      [
+        "api"
+        "skillbook"
+      ]
+    ]
+  }
+
+
+
+}

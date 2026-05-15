@@ -1,0 +1,33 @@
+# BasicQuestFlow
+
+main: kit: flow: BasicQuestFlow:
+{
+  entity: "quest",
+  kind: "basic",
+  name: "BasicQuestFlow",
+  step: [
+    {
+      input: {
+        ref: "quest_ref01",
+        srcdatavar: "quest_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "quest01",
+        region: "region01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-quest_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicQuestFlow"
+}

@@ -1,0 +1,26 @@
+{
+  "existing": {
+    "job": {
+      "JOB00": {
+        "region": "REGION01",
+        "skill_id": "SKILL01",
+        "version": "VERSION01"
+      },
+      "JOB01": {
+        "region": "REGION01",
+        "skill_id": "SKILL01",
+        "version": "VERSION01"
+      },
+      "JOB02": {
+        "region": "REGION01",
+        "skill_id": "SKILL01",
+        "version": "VERSION01"
+      }
+    }
+  },
+  "new": {
+    "job": {
+      "job_ref01": {}
+    }
+  }
+}

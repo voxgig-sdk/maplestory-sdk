@@ -1,0 +1,28 @@
+# BasicNxfFlow
+
+main: kit: flow: BasicNxfFlow:
+{
+  entity: "nxf",
+  kind: "basic",
+  name: "BasicNxfFlow",
+  step: [
+    {
+      input: {
+        ref: "nxf_ref01",
+        srcdatavar: "nxf_ref01_data",
+        suffix: "_dt0"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-nxf_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicNxfFlow"
+}

@@ -1,0 +1,14 @@
+{
+  "existing": {
+    "gms_new": {
+      "GMS_NEW00": {},
+      "GMS_NEW01": {},
+      "GMS_NEW02": {}
+    }
+  },
+  "new": {
+    "gms_new": {
+      "gms_new_ref01": {}
+    }
+  }
+}

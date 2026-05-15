@@ -1,0 +1,46 @@
+{
+  "existing": {
+    "system": {
+      "SYSTEM00": {
+        "cpu_usage_percent": 70,
+        "gc_gen0_collection": "s47",
+        "gc_gen1_collection": "s48",
+        "gc_gen2_collection": "s49",
+        "thread_count": "s4a",
+        "total_memory_byte": "s4b",
+        "used_memory_byte": "s4c"
+      },
+      "SYSTEM01": {
+        "cpu_usage_percent": 140,
+        "gc_gen0_collection": "s8d",
+        "gc_gen1_collection": "s8e",
+        "gc_gen2_collection": "s8f",
+        "thread_count": "s90",
+        "total_memory_byte": "s91",
+        "used_memory_byte": "s92"
+      },
+      "SYSTEM02": {
+        "cpu_usage_percent": 210,
+        "gc_gen0_collection": "sd3",
+        "gc_gen1_collection": "sd4",
+        "gc_gen2_collection": "sd5",
+        "thread_count": "sd6",
+        "total_memory_byte": "sd7",
+        "used_memory_byte": "sd8"
+      }
+    }
+  },
+  "new": {
+    "system": {
+      "system_ref01": {
+        "cpu_usage_percent": 280,
+        "gc_gen0_collection": "s119",
+        "gc_gen1_collection": "s11a",
+        "gc_gen2_collection": "s11b",
+        "thread_count": "s11c",
+        "total_memory_byte": "s11d",
+        "used_memory_byte": "s11e"
+      }
+    }
+  }
+}

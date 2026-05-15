@@ -1,0 +1,38 @@
+{
+  "existing": {
+    "map": {
+      "MAP00": {
+        "frame": "FRAME01",
+        "layer": "LAYER01",
+        "map_id": "MAP01",
+        "region": "REGION01",
+        "version": "VERSION01",
+        "map": "MAP01",
+        "mark_name": "MARK_NAME01"
+      },
+      "MAP01": {
+        "frame": "FRAME01",
+        "layer": "LAYER01",
+        "map_id": "MAP01",
+        "region": "REGION01",
+        "version": "VERSION01",
+        "map": "MAP01",
+        "mark_name": "MARK_NAME01"
+      },
+      "MAP02": {
+        "frame": "FRAME01",
+        "layer": "LAYER01",
+        "map_id": "MAP01",
+        "region": "REGION01",
+        "version": "VERSION01",
+        "map": "MAP01",
+        "mark_name": "MARK_NAME01"
+      }
+    }
+  },
+  "new": {
+    "map": {
+      "map_ref01": {}
+    }
+  }
+}

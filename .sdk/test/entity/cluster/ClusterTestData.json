@@ -1,0 +1,30 @@
+{
+  "existing": {
+    "cluster": {
+      "CLUSTER00": {
+        "hostname": "s1e",
+        "last_seen": "s1f",
+        "metric": {}
+      },
+      "CLUSTER01": {
+        "hostname": "s3c",
+        "last_seen": "s3d",
+        "metric": {}
+      },
+      "CLUSTER02": {
+        "hostname": "s5a",
+        "last_seen": "s5b",
+        "metric": {}
+      }
+    }
+  },
+  "new": {
+    "cluster": {
+      "cluster_ref01": {
+        "hostname": "s78",
+        "last_seen": "s79",
+        "metric": {}
+      }
+    }
+  }
+}

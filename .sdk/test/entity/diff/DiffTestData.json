@@ -1,0 +1,23 @@
+{
+  "existing": {
+    "diff": {
+      "DIFF00": {
+        "region": "REGION01",
+        "version": "VERSION01"
+      },
+      "DIFF01": {
+        "region": "REGION01",
+        "version": "VERSION01"
+      },
+      "DIFF02": {
+        "region": "REGION01",
+        "version": "VERSION01"
+      }
+    }
+  },
+  "new": {
+    "diff": {
+      "diff_ref01": {}
+    }
+  }
+}

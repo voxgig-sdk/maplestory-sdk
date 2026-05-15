@@ -1,0 +1,547 @@
+# Entity: npc
+
+main: kit: entity: npc: {
+
+  alias: field: {}
+
+  name: "npc"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "framebook"
+                orig: "framebook"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "id"
+                orig: "npc_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "region"
+                orig: "region"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "version"
+                orig: "version"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "animation"
+                orig: "animation"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "bg_color"
+                orig: "bg_color"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/{region}/{version}/npc/{npcId}/render/animated/{framebook}"
+          parts: [
+            "api"
+            "{region}"
+            "{version}"
+            "npc"
+            "{id}"
+            "render"
+            "animated"
+            "{framebook}"
+          ]
+          rename: {
+            param: {
+              npcId: "id"
+            }
+          }
+          select: {
+            exist: [
+              "animation"
+              "bg_color"
+              "framebook"
+              "id"
+              "region"
+              "version"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "framebook"
+                orig: "framebook"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "npc_id"
+                orig: "npc_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "region"
+                orig: "region"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "version"
+                orig: "version"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "bg_color"
+                orig: "bg_color"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "frame"
+                orig: "frame"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/{region}/{version}/npc/{npcId}/render/{framebook}/{frame}"
+          parts: [
+            "api"
+            "{region}"
+            "{version}"
+            "npc"
+            "{npc_id}"
+            "render"
+            "{framebook}"
+            "{frame}"
+          ]
+          rename: {
+            param: {
+              npcId: "npc_id"
+            }
+          }
+          select: {
+            exist: [
+              "bg_color"
+              "frame"
+              "framebook"
+              "npc_id"
+              "region"
+              "version"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "region"
+                orig: "region"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "version"
+                orig: "version"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                example: 2147483647
+                kind: "query"
+                name: "count"
+                orig: "count"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: ""
+                kind: "query"
+                name: "search_for"
+                orig: "search_for"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: 0
+                kind: "query"
+                name: "start_at"
+                orig: "start_at"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/{region}/{version}/npc"
+          parts: [
+            "api"
+            "{region}"
+            "{version}"
+            "npc"
+          ]
+          select: {
+            exist: [
+              "count"
+              "region"
+              "search_for"
+              "start_at"
+              "version"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "region"
+                orig: "region"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "version"
+                orig: "version"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                example: 2147483647
+                kind: "query"
+                name: "count"
+                orig: "count"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: ""
+                kind: "query"
+                name: "search_for"
+                orig: "search_for"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: 0
+                kind: "query"
+                name: "start_at"
+                orig: "start_at"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/{region}/{version}/npc/count"
+          parts: [
+            "api"
+            "{region}"
+            "{version}"
+            "npc"
+            "count"
+          ]
+          select: {
+            "$action": "count"
+            exist: [
+              "count"
+              "region"
+              "search_for"
+              "start_at"
+              "version"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "npc_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "region"
+                orig: "region"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "version"
+                orig: "version"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/{region}/{version}/npc/{npcId}"
+          parts: [
+            "api"
+            "{region}"
+            "{version}"
+            "npc"
+            "{id}"
+          ]
+          rename: {
+            param: {
+              npcId: "id"
+            }
+          }
+          select: {
+            exist: [
+              "id"
+              "region"
+              "version"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "npc_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "region"
+                orig: "region"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "version"
+                orig: "version"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/{region}/{version}/npc/{npcId}/download"
+          parts: [
+            "api"
+            "{region}"
+            "{version}"
+            "npc"
+            "{id}"
+            "download"
+          ]
+          rename: {
+            param: {
+              npcId: "id"
+            }
+          }
+          select: {
+            "$action": "download"
+            exist: [
+              "id"
+              "region"
+              "version"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "npc_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "region"
+                orig: "region"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "version"
+                orig: "version"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/{region}/{version}/npc/{npcId}/icon"
+          parts: [
+            "api"
+            "{region}"
+            "{version}"
+            "npc"
+            "{id}"
+            "icon"
+          ]
+          rename: {
+            param: {
+              npcId: "id"
+            }
+          }
+          select: {
+            "$action": "icon"
+            exist: [
+              "id"
+              "region"
+              "version"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "npc_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "region"
+                orig: "region"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "version"
+                orig: "version"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/{region}/{version}/npc/{npcId}/name"
+          parts: [
+            "api"
+            "{region}"
+            "{version}"
+            "npc"
+            "{id}"
+            "name"
+          ]
+          rename: {
+            param: {
+              npcId: "id"
+            }
+          }
+          select: {
+            "$action": "name"
+            exist: [
+              "id"
+              "region"
+              "version"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "api"
+      ]
+      [
+        "api"
+        "animated"
+      ]
+      [
+        "api"
+        "npc"
+        "render"
+      ]
+    ]
+  }
+
+
+
+}

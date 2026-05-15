@@ -1,0 +1,26 @@
+# Entity: entity1
+
+main: kit: entity: entity1: {
+
+  alias: field: {}
+
+  name: "entity1"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          method: "GET"
+          orig: "/"
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

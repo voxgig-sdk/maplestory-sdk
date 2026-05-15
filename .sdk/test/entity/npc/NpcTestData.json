@@ -1,0 +1,29 @@
+{
+  "existing": {
+    "npc": {
+      "NPC00": {
+        "framebook": "FRAMEBOOK01",
+        "region": "REGION01",
+        "version": "VERSION01",
+        "npc_id": "NPC01"
+      },
+      "NPC01": {
+        "framebook": "FRAMEBOOK01",
+        "region": "REGION01",
+        "version": "VERSION01",
+        "npc_id": "NPC01"
+      },
+      "NPC02": {
+        "framebook": "FRAMEBOOK01",
+        "region": "REGION01",
+        "version": "VERSION01",
+        "npc_id": "NPC01"
+      }
+    }
+  },
+  "new": {
+    "npc": {
+      "npc_ref01": {}
+    }
+  }
+}

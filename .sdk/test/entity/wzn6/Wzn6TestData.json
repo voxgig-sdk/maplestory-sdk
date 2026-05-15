@@ -1,0 +1,26 @@
+{
+  "existing": {
+    "wzn6": {
+      "WZN600": {
+        "path": "PATH01",
+        "region": "REGION01",
+        "version": "VERSION01"
+      },
+      "WZN601": {
+        "path": "PATH01",
+        "region": "REGION01",
+        "version": "VERSION01"
+      },
+      "WZN602": {
+        "path": "PATH01",
+        "region": "REGION01",
+        "version": "VERSION01"
+      }
+    }
+  },
+  "new": {
+    "wzn6": {
+      "wzn6_ref01": {}
+    }
+  }
+}

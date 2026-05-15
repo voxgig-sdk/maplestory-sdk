@@ -1,0 +1,767 @@
+# Entity: map
+
+main: kit: entity: map: {
+
+  alias: field: {}
+
+  name: "map"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                example: 0
+                kind: "param"
+                name: "frame"
+                orig: "frame"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "layer"
+                orig: "layer"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "map_id"
+                orig: "map_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "region"
+                orig: "region"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "version"
+                orig: "version"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                example: false
+                kind: "query"
+                name: "filter_trash"
+                orig: "filter_trash"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                kind: "query"
+                name: "min_x"
+                orig: "min_x"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "min_y"
+                orig: "min_y"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/{region}/{version}/map/{mapId}/render/layer/{layer}/{frame}"
+          parts: [
+            "api"
+            "{region}"
+            "{version}"
+            "map"
+            "{map_id}"
+            "render"
+            "layer"
+            "{layer}"
+            "{frame}"
+          ]
+          rename: {
+            param: {
+              mapId: "map_id"
+            }
+          }
+          select: {
+            exist: [
+              "filter_trash"
+              "frame"
+              "layer"
+              "map_id"
+              "min_x"
+              "min_y"
+              "region"
+              "version"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                example: 0
+                kind: "param"
+                name: "frame"
+                orig: "frame"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "id"
+                orig: "map_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "region"
+                orig: "region"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "version"
+                orig: "version"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                example: false
+                kind: "query"
+                name: "show_life"
+                orig: "show_life"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                example: false
+                kind: "query"
+                name: "show_portal"
+                orig: "show_portal"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/{region}/{version}/map/{mapId}/render/{frame}"
+          parts: [
+            "api"
+            "{region}"
+            "{version}"
+            "map"
+            "{id}"
+            "render"
+            "{frame}"
+          ]
+          rename: {
+            param: {
+              mapId: "id"
+            }
+          }
+          select: {
+            exist: [
+              "frame"
+              "id"
+              "region"
+              "show_life"
+              "show_portal"
+              "version"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "region"
+                orig: "region"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "version"
+                orig: "version"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "count"
+                orig: "count"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "search_for"
+                orig: "search_for"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: 0
+                kind: "query"
+                name: "start_position"
+                orig: "start_position"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/{region}/{version}/map"
+          parts: [
+            "api"
+            "{region}"
+            "{version}"
+            "map"
+          ]
+          select: {
+            exist: [
+              "count"
+              "region"
+              "search_for"
+              "start_position"
+              "version"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "region"
+                orig: "region"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "version"
+                orig: "version"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "count"
+                orig: "count"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "search_for"
+                orig: "search_for"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: 0
+                kind: "query"
+                name: "start_position"
+                orig: "start_position"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/{region}/{version}/map/count"
+          parts: [
+            "api"
+            "{region}"
+            "{version}"
+            "map"
+            "count"
+          ]
+          select: {
+            "$action": "count"
+            exist: [
+              "count"
+              "region"
+              "search_for"
+              "start_position"
+              "version"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "map_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "region"
+                orig: "region"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "version"
+                orig: "version"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/{region}/{version}/map/{mapId}"
+          parts: [
+            "api"
+            "{region}"
+            "{version}"
+            "map"
+            "{id}"
+          ]
+          rename: {
+            param: {
+              mapId: "id"
+            }
+          }
+          select: {
+            exist: [
+              "id"
+              "region"
+              "version"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "map_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "region"
+                orig: "region"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "version"
+                orig: "version"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/{region}/{version}/map/{mapId}/bgm"
+          parts: [
+            "api"
+            "{region}"
+            "{version}"
+            "map"
+            "{id}"
+            "bgm"
+          ]
+          rename: {
+            param: {
+              mapId: "id"
+            }
+          }
+          select: {
+            "$action": "bgm"
+            exist: [
+              "id"
+              "region"
+              "version"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "map_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "region"
+                orig: "region"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "version"
+                orig: "version"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/{region}/{version}/map/{mapId}/icon"
+          parts: [
+            "api"
+            "{region}"
+            "{version}"
+            "map"
+            "{id}"
+            "icon"
+          ]
+          rename: {
+            param: {
+              mapId: "id"
+            }
+          }
+          select: {
+            "$action": "icon"
+            exist: [
+              "id"
+              "region"
+              "version"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "map_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "region"
+                orig: "region"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "version"
+                orig: "version"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/{region}/{version}/map/{mapId}/minimap"
+          parts: [
+            "api"
+            "{region}"
+            "{version}"
+            "map"
+            "{id}"
+            "minimap"
+          ]
+          rename: {
+            param: {
+              mapId: "id"
+            }
+          }
+          select: {
+            "$action": "minimap"
+            exist: [
+              "id"
+              "region"
+              "version"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "map_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "region"
+                orig: "region"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "version"
+                orig: "version"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/{region}/{version}/map/{mapId}/name"
+          parts: [
+            "api"
+            "{region}"
+            "{version}"
+            "map"
+            "{id}"
+            "name"
+          ]
+          rename: {
+            param: {
+              mapId: "id"
+            }
+          }
+          select: {
+            "$action": "name"
+            exist: [
+              "id"
+              "region"
+              "version"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "map"
+                orig: "map"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "region"
+                orig: "region"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "version"
+                orig: "version"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/{region}/{version}/map/worldmap/{map}"
+          parts: [
+            "api"
+            "{region}"
+            "{version}"
+            "map"
+            "worldmap"
+            "{map}"
+          ]
+          select: {
+            exist: [
+              "map"
+              "region"
+              "version"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "mark_name"
+                orig: "mark_name"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "region"
+                orig: "region"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "version"
+                orig: "version"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/{region}/{version}/map/icon/{markName}"
+          parts: [
+            "api"
+            "{region}"
+            "{version}"
+            "map"
+            "icon"
+            "{mark_name}"
+          ]
+          rename: {
+            param: {
+              markName: "mark_name"
+            }
+          }
+          select: {
+            exist: [
+              "mark_name"
+              "region"
+              "version"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "region"
+                orig: "region"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "version"
+                orig: "version"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/{region}/{version}/map/worldmap"
+          parts: [
+            "api"
+            "{region}"
+            "{version}"
+            "map"
+            "worldmap"
+          ]
+          select: {
+            "$action": "worldmap"
+            exist: [
+              "region"
+              "version"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "api"
+      ]
+      [
+        "api"
+        "icon"
+      ]
+      [
+        "api"
+        "worldmap"
+      ]
+      [
+        "api"
+        "render"
+      ]
+      [
+        "api"
+        "map"
+        "layer"
+      ]
+    ]
+  }
+
+
+
+}

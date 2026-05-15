@@ -1,0 +1,23 @@
+{
+  "existing": {
+    "name": {
+      "NAME00": {
+        "region": "REGION01",
+        "version": "VERSION01"
+      },
+      "NAME01": {
+        "region": "REGION01",
+        "version": "VERSION01"
+      },
+      "NAME02": {
+        "region": "REGION01",
+        "version": "VERSION01"
+      }
+    }
+  },
+  "new": {
+    "name": {
+      "name_ref01": {}
+    }
+  }
+}

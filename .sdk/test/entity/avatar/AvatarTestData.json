@@ -1,0 +1,29 @@
+{
+  "existing": {
+    "avatar": {
+      "AVATAR00": {
+        "animation": "ANIMATION01",
+        "character_id": "CHARACTER01",
+        "frame": "FRAME01",
+        "item": "ITEM01"
+      },
+      "AVATAR01": {
+        "animation": "ANIMATION01",
+        "character_id": "CHARACTER01",
+        "frame": "FRAME01",
+        "item": "ITEM01"
+      },
+      "AVATAR02": {
+        "animation": "ANIMATION01",
+        "character_id": "CHARACTER01",
+        "frame": "FRAME01",
+        "item": "ITEM01"
+      }
+    }
+  },
+  "new": {
+    "avatar": {
+      "avatar_ref01": {}
+    }
+  }
+}

@@ -1,0 +1,831 @@
+# Entity: mob
+
+main: kit: entity: mob: {
+
+  alias: field: {}
+
+  name: "mob"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "region"
+                orig: "region"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "version"
+                orig: "version"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "count"
+                orig: "count"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "max_level_filter"
+                orig: "max_level_filter"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "min_level_filter"
+                orig: "min_level_filter"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "search_for"
+                orig: "search_for"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: 0
+                kind: "query"
+                name: "start_position"
+                orig: "start_position"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/{region}/{version}/mob"
+          parts: [
+            "api"
+            "{region}"
+            "{version}"
+            "mob"
+          ]
+          select: {
+            exist: [
+              "count"
+              "max_level_filter"
+              "min_level_filter"
+              "region"
+              "search_for"
+              "start_position"
+              "version"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "region"
+                orig: "region"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "version"
+                orig: "version"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "count"
+                orig: "count"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "max_level_filter"
+                orig: "max_level_filter"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "min_level_filter"
+                orig: "min_level_filter"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "search_for"
+                orig: "search_for"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: 0
+                kind: "query"
+                name: "start_position"
+                orig: "start_position"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/{region}/{version}/mob/count"
+          parts: [
+            "api"
+            "{region}"
+            "{version}"
+            "mob"
+            "count"
+          ]
+          select: {
+            "$action": "count"
+            exist: [
+              "count"
+              "max_level_filter"
+              "min_level_filter"
+              "region"
+              "search_for"
+              "start_position"
+              "version"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "animation"
+                orig: "animation"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "id"
+                orig: "mob_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "region"
+                orig: "region"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "version"
+                orig: "version"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                example: ""
+                kind: "query"
+                name: "bg_color"
+                orig: "bg_color"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/{region}/{version}/mob/{mobId}/render/animated/{animation}"
+          parts: [
+            "api"
+            "{region}"
+            "{version}"
+            "mob"
+            "{id}"
+            "render"
+            "animated"
+            "{animation}"
+          ]
+          rename: {
+            param: {
+              mobId: "id"
+            }
+          }
+          select: {
+            exist: [
+              "animation"
+              "bg_color"
+              "id"
+              "region"
+              "version"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                example: "move"
+                kind: "param"
+                name: "animation"
+                orig: "animation"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "id"
+                orig: "mob_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "region"
+                orig: "region"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "version"
+                orig: "version"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                example: ""
+                kind: "query"
+                name: "bg_color"
+                orig: "bg_color"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/{region}/{version}/mob/{mobId}/render/{animation}"
+          parts: [
+            "api"
+            "{region}"
+            "{version}"
+            "mob"
+            "{id}"
+            "render"
+            "{animation}"
+          ]
+          rename: {
+            param: {
+              mobId: "id"
+            }
+          }
+          select: {
+            exist: [
+              "animation"
+              "bg_color"
+              "id"
+              "region"
+              "version"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "animation"
+                orig: "animation"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "mob_id"
+                orig: "mob_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "region"
+                orig: "region"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "version"
+                orig: "version"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                example: ""
+                kind: "query"
+                name: "bg_color"
+                orig: "bg_color"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/{region}/{version}/mob/animated/{mobId}/{animation}"
+          parts: [
+            "api"
+            "{region}"
+            "{version}"
+            "mob"
+            "animated"
+            "{mob_id}"
+            "{animation}"
+          ]
+          rename: {
+            param: {
+              mobId: "mob_id"
+            }
+          }
+          select: {
+            exist: [
+              "animation"
+              "bg_color"
+              "mob_id"
+              "region"
+              "version"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "animation"
+                orig: "animation"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                example: 0
+                kind: "param"
+                name: "frame"
+                orig: "frame"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "mob_id"
+                orig: "mob_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "region"
+                orig: "region"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "version"
+                orig: "version"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/{region}/{version}/mob/{mobId}/render/{animation}/{frame}"
+          parts: [
+            "api"
+            "{region}"
+            "{version}"
+            "mob"
+            "{mob_id}"
+            "render"
+            "{animation}"
+            "{frame}"
+          ]
+          rename: {
+            param: {
+              mobId: "mob_id"
+            }
+          }
+          select: {
+            exist: [
+              "animation"
+              "frame"
+              "mob_id"
+              "region"
+              "version"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "mob_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "region"
+                orig: "region"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "sound_name"
+                orig: "sound_name"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "version"
+                orig: "version"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/{region}/{version}/mob/{mobId}/sound/{soundName}"
+          parts: [
+            "api"
+            "{region}"
+            "{version}"
+            "mob"
+            "{id}"
+            "sound"
+            "{sound_name}"
+          ]
+          rename: {
+            param: {
+              mobId: "id"
+              soundName: "sound_name"
+            }
+          }
+          select: {
+            exist: [
+              "id"
+              "region"
+              "sound_name"
+              "version"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "mob_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "region"
+                orig: "region"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "version"
+                orig: "version"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/{region}/{version}/mob/{mobId}"
+          parts: [
+            "api"
+            "{region}"
+            "{version}"
+            "mob"
+            "{id}"
+          ]
+          rename: {
+            param: {
+              mobId: "id"
+            }
+          }
+          select: {
+            exist: [
+              "id"
+              "region"
+              "version"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "mob_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "region"
+                orig: "region"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "version"
+                orig: "version"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/{region}/{version}/mob/{mobId}/download"
+          parts: [
+            "api"
+            "{region}"
+            "{version}"
+            "mob"
+            "{id}"
+            "download"
+          ]
+          rename: {
+            param: {
+              mobId: "id"
+            }
+          }
+          select: {
+            "$action": "download"
+            exist: [
+              "id"
+              "region"
+              "version"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "mob_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "region"
+                orig: "region"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "version"
+                orig: "version"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/{region}/{version}/mob/{mobId}/icon"
+          parts: [
+            "api"
+            "{region}"
+            "{version}"
+            "mob"
+            "{id}"
+            "icon"
+          ]
+          rename: {
+            param: {
+              mobId: "id"
+            }
+          }
+          select: {
+            "$action": "icon"
+            exist: [
+              "id"
+              "region"
+              "version"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "mob_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "region"
+                orig: "region"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "version"
+                orig: "version"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/{region}/{version}/mob/{mobId}/name"
+          parts: [
+            "api"
+            "{region}"
+            "{version}"
+            "mob"
+            "{id}"
+            "name"
+          ]
+          rename: {
+            param: {
+              mobId: "id"
+            }
+          }
+          select: {
+            "$action": "name"
+            exist: [
+              "id"
+              "region"
+              "version"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "mob_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "region"
+                orig: "region"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "version"
+                orig: "version"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/{region}/{version}/mob/{mobId}/sound"
+          parts: [
+            "api"
+            "{region}"
+            "{version}"
+            "mob"
+            "{id}"
+            "sound"
+          ]
+          rename: {
+            param: {
+              mobId: "id"
+            }
+          }
+          select: {
+            "$action": "sound"
+            exist: [
+              "id"
+              "region"
+              "version"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "api"
+      ]
+      [
+        "api"
+        "animated"
+      ]
+      [
+        "api"
+        "render"
+      ]
+      [
+        "api"
+        "sound"
+      ]
+      [
+        "api"
+        "mob"
+        "render"
+      ]
+    ]
+  }
+
+
+
+}

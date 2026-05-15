@@ -1,0 +1,38 @@
+{
+  "existing": {
+    "guild_mark": {
+      "GUILD_MARK00": {
+        "guild_background_color_id": "GUILD_BACKGROUND_COLOR01",
+        "guild_background_id": "GUILD_BACKGROUND01",
+        "guild_mark_color_id": "GUILD_MARK_COLOR01",
+        "guild_mark_id": "GUILD_MARK01",
+        "region": "REGION01",
+        "version": "VERSION01",
+        "color_id": "COLOR01"
+      },
+      "GUILD_MARK01": {
+        "guild_background_color_id": "GUILD_BACKGROUND_COLOR01",
+        "guild_background_id": "GUILD_BACKGROUND01",
+        "guild_mark_color_id": "GUILD_MARK_COLOR01",
+        "guild_mark_id": "GUILD_MARK01",
+        "region": "REGION01",
+        "version": "VERSION01",
+        "color_id": "COLOR01"
+      },
+      "GUILD_MARK02": {
+        "guild_background_color_id": "GUILD_BACKGROUND_COLOR01",
+        "guild_background_id": "GUILD_BACKGROUND01",
+        "guild_mark_color_id": "GUILD_MARK_COLOR01",
+        "guild_mark_id": "GUILD_MARK01",
+        "region": "REGION01",
+        "version": "VERSION01",
+        "color_id": "COLOR01"
+      }
+    }
+  },
+  "new": {
+    "guild_mark": {
+      "guild_mark_ref01": {}
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "existing": {
+    "mob": {
+      "MOB00": {
+        "region": "REGION01",
+        "version": "VERSION01",
+        "animation": "ANIMATION01",
+        "mob_id": "MOB01",
+        "frame": "FRAME01",
+        "sound_name": "SOUND_NAME01"
+      },
+      "MOB01": {
+        "region": "REGION01",
+        "version": "VERSION01",
+        "animation": "ANIMATION01",
+        "mob_id": "MOB01",
+        "frame": "FRAME01",
+        "sound_name": "SOUND_NAME01"
+      },
+      "MOB02": {
+        "region": "REGION01",
+        "version": "VERSION01",
+        "animation": "ANIMATION01",
+        "mob_id": "MOB01",
+        "frame": "FRAME01",
+        "sound_name": "SOUND_NAME01"
+      }
+    }
+  },
+  "new": {
+    "mob": {
+      "mob_ref01": {}
+    }
+  }
+}

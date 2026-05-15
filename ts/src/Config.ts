@@ -1,0 +1,8796 @@
+
+import { BaseFeature } from './feature/base/BaseFeature'
+import { TestFeature } from './feature/test/TestFeature'
+
+
+
+const FEATURE_CLASS: Record<string, typeof BaseFeature> = {
+   test: TestFeature
+
+}
+
+
+class Config {
+
+  makeFeature(this: any, fn: string) {
+    const fc = FEATURE_CLASS[fn]
+    const fi = new fc()
+    // TODO: errors etc
+    return fi
+  }
+
+
+  main = {
+    name: 'ProjectName',
+  }
+
+
+  feature = {
+     test:     {
+      "options": {
+        "active": false
+      }
+    }
+
+  }
+
+
+  options = {
+    base: 'https://maplestory.io',
+
+    auth: {
+      prefix: 'Bearer',
+    },
+
+    headers: {
+      "content-type": "application/json"
+    },
+
+    entity: {
+      
+      android: {
+      },
+
+      avatar: {
+      },
+
+      cache: {
+      },
+
+      character: {
+      },
+
+      chat: {
+      },
+
+      cluster: {
+      },
+
+      diff: {
+      },
+
+      entity1: {
+      },
+
+      gms_new: {
+      },
+
+      guild_mark: {
+      },
+
+      health: {
+      },
+
+      item: {
+      },
+
+      job: {
+      },
+
+      map: {
+      },
+
+      metric: {
+      },
+
+      mob: {
+      },
+
+      music: {
+      },
+
+      name: {
+      },
+
+      npc: {
+      },
+
+      nxf: {
+      },
+
+      performance_metric: {
+      },
+
+      pet: {
+      },
+
+      quest: {
+      },
+
+      system: {
+      },
+
+      tip: {
+      },
+
+      wzn: {
+      },
+
+      wzn2: {
+      },
+
+      wzn3: {
+      },
+
+      wzn4: {
+      },
+
+      wzn5: {
+      },
+
+      wzn6: {
+      },
+
+      z_map: {
+      },
+
+    }
+  }
+
+
+  entity = {
+    "android": {
+      "fields": [],
+      "name": "android",
+      "op": {
+        "load": {
+          "name": "load",
+          "points": [
+            {
+              "args": {
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "id",
+                    "orig": "android_id",
+                    "reqd": true,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "region",
+                    "orig": "region",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "version",
+                    "orig": "version",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/api/{region}/{version}/android/{androidId}",
+              "parts": [
+                "api",
+                "{region}",
+                "{version}",
+                "android",
+                "{id}"
+              ],
+              "rename": {
+                "param": {
+                  "androidId": "id"
+                }
+              },
+              "select": {
+                "exist": [
+                  "id",
+                  "region",
+                  "version"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 0
+            },
+            {
+              "args": {
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "region",
+                    "orig": "region",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "version",
+                    "orig": "version",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/api/{region}/{version}/android",
+              "parts": [
+                "api",
+                "{region}",
+                "{version}",
+                "android"
+              ],
+              "select": {
+                "exist": [
+                  "region",
+                  "version"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 1
+            }
+          ],
+          "input": "data",
+          "key$": "load"
+        }
+      },
+      "relations": {
+        "ancestors": [
+          [
+            "api"
+          ]
+        ]
+      }
+    },
+    "avatar": {
+      "fields": [],
+      "name": "avatar",
+      "op": {
+        "load": {
+          "name": "load",
+          "points": [
+            {
+              "args": {
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "animation",
+                    "orig": "animation",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "character_id",
+                    "orig": "item",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "frame",
+                    "orig": "frame",
+                    "reqd": true,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  }
+                ],
+                "query": [
+                  {
+                    "example": "",
+                    "kind": "query",
+                    "name": "bg_color",
+                    "orig": "bg_color",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "flip_x",
+                    "orig": "flip_x",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "name",
+                    "orig": "name",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "padding",
+                    "orig": "padding",
+                    "reqd": false,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "render_mode",
+                    "orig": "render_mode",
+                    "reqd": false,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "resize",
+                    "orig": "resize",
+                    "reqd": false,
+                    "type": "`$NUMBER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "show_ear",
+                    "orig": "show_ear",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "show_high_lef_ear",
+                    "orig": "show_high_lef_ear",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "show_lef_ear",
+                    "orig": "show_lef_ear",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/api/character/{items}/{animation}/animated",
+              "parts": [
+                "api",
+                "character",
+                "{character_id}",
+                "{animation}",
+                "animated"
+              ],
+              "rename": {
+                "param": {
+                  "items": "character_id"
+                }
+              },
+              "select": {
+                "exist": [
+                  "animation",
+                  "bg_color",
+                  "character_id",
+                  "flip_x",
+                  "frame",
+                  "name",
+                  "padding",
+                  "render_mode",
+                  "resize",
+                  "show_ear",
+                  "show_high_lef_ear",
+                  "show_lef_ear"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 0
+            },
+            {
+              "args": {
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "animation",
+                    "orig": "animation",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "character_id",
+                    "orig": "item",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "frame",
+                    "orig": "frame",
+                    "reqd": true,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  }
+                ],
+                "query": [
+                  {
+                    "kind": "query",
+                    "name": "flip_x",
+                    "orig": "flip_x",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  },
+                  {
+                    "example": 0,
+                    "kind": "query",
+                    "name": "format",
+                    "orig": "format",
+                    "reqd": false,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "name",
+                    "orig": "name",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "padding",
+                    "orig": "padding",
+                    "reqd": false,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "render_mode",
+                    "orig": "render_mode",
+                    "reqd": false,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "resize",
+                    "orig": "resize",
+                    "reqd": false,
+                    "type": "`$NUMBER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "show_ear",
+                    "orig": "show_ear",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "show_high_lef_ear",
+                    "orig": "show_high_lef_ear",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "show_lef_ear",
+                    "orig": "show_lef_ear",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/api/character/{items}/{animation}/{frame}/download",
+              "parts": [
+                "api",
+                "character",
+                "{character_id}",
+                "{animation}",
+                "{frame}",
+                "download"
+              ],
+              "rename": {
+                "param": {
+                  "items": "character_id"
+                }
+              },
+              "select": {
+                "exist": [
+                  "animation",
+                  "character_id",
+                  "flip_x",
+                  "format",
+                  "frame",
+                  "name",
+                  "padding",
+                  "render_mode",
+                  "resize",
+                  "show_ear",
+                  "show_high_lef_ear",
+                  "show_lef_ear"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 1
+            },
+            {
+              "args": {
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "animation",
+                    "orig": "animation",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "frame",
+                    "orig": "frame",
+                    "reqd": true,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "item",
+                    "orig": "item",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ],
+                "query": [
+                  {
+                    "kind": "query",
+                    "name": "flip_x",
+                    "orig": "flip_x",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  },
+                  {
+                    "example": 0,
+                    "kind": "query",
+                    "name": "format",
+                    "orig": "format",
+                    "reqd": false,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "name",
+                    "orig": "name",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "padding",
+                    "orig": "padding",
+                    "reqd": false,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "render_mode",
+                    "orig": "render_mode",
+                    "reqd": false,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "resize",
+                    "orig": "resize",
+                    "reqd": false,
+                    "type": "`$NUMBER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "show_ear",
+                    "orig": "show_ear",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "show_high_lef_ear",
+                    "orig": "show_high_lef_ear",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "show_lef_ear",
+                    "orig": "show_lef_ear",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/api/character/{items}/download",
+              "parts": [
+                "api",
+                "character",
+                "{item}",
+                "download"
+              ],
+              "rename": {
+                "param": {
+                  "items": "item"
+                }
+              },
+              "select": {
+                "exist": [
+                  "animation",
+                  "flip_x",
+                  "format",
+                  "frame",
+                  "item",
+                  "name",
+                  "padding",
+                  "render_mode",
+                  "resize",
+                  "show_ear",
+                  "show_high_lef_ear",
+                  "show_lef_ear"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 2
+            },
+            {
+              "args": {
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "animation",
+                    "orig": "animation",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "frame",
+                    "orig": "frame",
+                    "reqd": true,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "item",
+                    "orig": "item",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ],
+                "query": [
+                  {
+                    "kind": "query",
+                    "name": "flip_x",
+                    "orig": "flip_x",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "name",
+                    "orig": "name",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "padding",
+                    "orig": "padding",
+                    "reqd": false,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "render_mode",
+                    "orig": "render_mode",
+                    "reqd": false,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "resize",
+                    "orig": "resize",
+                    "reqd": false,
+                    "type": "`$NUMBER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "show_ear",
+                    "orig": "show_ear",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "show_high_lef_ear",
+                    "orig": "show_high_lef_ear",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "show_lef_ear",
+                    "orig": "show_lef_ear",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/api/character/{items}/actions",
+              "parts": [
+                "api",
+                "character",
+                "{item}",
+                "actions"
+              ],
+              "rename": {
+                "param": {
+                  "items": "item"
+                }
+              },
+              "select": {
+                "exist": [
+                  "animation",
+                  "flip_x",
+                  "frame",
+                  "item",
+                  "name",
+                  "padding",
+                  "render_mode",
+                  "resize",
+                  "show_ear",
+                  "show_high_lef_ear",
+                  "show_lef_ear"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 3
+            },
+            {
+              "args": {
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "animation",
+                    "orig": "animation",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "frame",
+                    "orig": "frame",
+                    "reqd": true,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "item",
+                    "orig": "item",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ],
+                "query": [
+                  {
+                    "kind": "query",
+                    "name": "flip_x",
+                    "orig": "flip_x",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "name",
+                    "orig": "name",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "padding",
+                    "orig": "padding",
+                    "reqd": false,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "render_mode",
+                    "orig": "render_mode",
+                    "reqd": false,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "resize",
+                    "orig": "resize",
+                    "reqd": false,
+                    "type": "`$NUMBER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "show_ear",
+                    "orig": "show_ear",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "show_high_lef_ear",
+                    "orig": "show_high_lef_ear",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "show_lef_ear",
+                    "orig": "show_lef_ear",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/api/character/{items}/{animation}/{frame}",
+              "parts": [
+                "api",
+                "character",
+                "{item}",
+                "{animation}",
+                "{frame}"
+              ],
+              "rename": {
+                "param": {
+                  "items": "item"
+                }
+              },
+              "select": {
+                "exist": [
+                  "animation",
+                  "flip_x",
+                  "frame",
+                  "item",
+                  "name",
+                  "padding",
+                  "render_mode",
+                  "resize",
+                  "show_ear",
+                  "show_high_lef_ear",
+                  "show_lef_ear"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 4
+            }
+          ],
+          "input": "data",
+          "key$": "load"
+        }
+      },
+      "relations": {
+        "ancestors": [
+          [
+            "character"
+          ]
+        ]
+      }
+    },
+    "cache": {
+      "fields": [
+        {
+          "name": "eviction_count",
+          "req": false,
+          "type": "`$INTEGER`",
+          "active": true,
+          "index$": 0
+        },
+        {
+          "name": "hit_count",
+          "req": false,
+          "type": "`$INTEGER`",
+          "active": true,
+          "index$": 1
+        },
+        {
+          "name": "hit_ratio",
+          "req": false,
+          "type": "`$NUMBER`",
+          "active": true,
+          "index$": 2
+        },
+        {
+          "name": "memory_usage",
+          "req": false,
+          "type": "`$INTEGER`",
+          "active": true,
+          "index$": 3
+        },
+        {
+          "name": "miss_count",
+          "req": false,
+          "type": "`$INTEGER`",
+          "active": true,
+          "index$": 4
+        },
+        {
+          "name": "total_entry",
+          "req": false,
+          "type": "`$INTEGER`",
+          "active": true,
+          "index$": 5
+        }
+      ],
+      "name": "cache",
+      "op": {
+        "load": {
+          "name": "load",
+          "points": [
+            {
+              "method": "GET",
+              "orig": "/api/metrics/cache",
+              "parts": [
+                "api",
+                "metrics",
+                "cache"
+              ],
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "args": {},
+              "select": {},
+              "index$": 0
+            }
+          ],
+          "input": "data",
+          "key$": "load"
+        }
+      },
+      "relations": {
+        "ancestors": []
+      }
+    },
+    "character": {
+      "fields": [],
+      "name": "character",
+      "op": {
+        "load": {
+          "name": "load",
+          "points": [
+            {
+              "args": {
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "frame",
+                    "orig": "frame",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "region",
+                    "orig": "region",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "skin_id",
+                    "orig": "skin_id",
+                    "reqd": true,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "version",
+                    "orig": "version",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ],
+                "query": [
+                  {
+                    "kind": "query",
+                    "name": "animation",
+                    "orig": "animation",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "example": "",
+                    "kind": "query",
+                    "name": "bg_color",
+                    "orig": "bg_color",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "flip_x",
+                    "orig": "flip_x",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "item",
+                    "orig": "item",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "name",
+                    "orig": "name",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "padding",
+                    "orig": "padding",
+                    "reqd": false,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "padding",
+                    "orig": "padding",
+                    "reqd": false,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "render_mode",
+                    "orig": "render_mode",
+                    "reqd": false,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "resize",
+                    "orig": "resize",
+                    "reqd": false,
+                    "type": "`$NUMBER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "show_ear",
+                    "orig": "show_ear",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "show_ear",
+                    "orig": "show_ear",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "show_high_lef_ear",
+                    "orig": "show_high_lef_ear",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "show_high_lef_ear",
+                    "orig": "show_high_lef_ear",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "show_lef_ear",
+                    "orig": "show_lef_ear",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "show_lef_ear",
+                    "orig": "show_lef_ear",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/api/{region}/{version}/Character/animated/{skinId}/{items}/{animation}/{frame}",
+              "parts": [
+                "api",
+                "{region}",
+                "{version}",
+                "Character",
+                "animated",
+                "{skin_id}",
+                "{item}",
+                "{animation}",
+                "{frame}"
+              ],
+              "rename": {
+                "param": {
+                  "items": "item",
+                  "skinId": "skin_id"
+                }
+              },
+              "select": {
+                "exist": [
+                  "animation",
+                  "bg_color",
+                  "flip_x",
+                  "frame",
+                  "item",
+                  "name",
+                  "padding",
+                  "region",
+                  "render_mode",
+                  "resize",
+                  "show_ear",
+                  "show_high_lef_ear",
+                  "show_lef_ear",
+                  "skin_id",
+                  "version"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 0
+            },
+            {
+              "args": {
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "region",
+                    "orig": "region",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "skin_id",
+                    "orig": "skin_id",
+                    "reqd": true,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "version",
+                    "orig": "version",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ],
+                "query": [
+                  {
+                    "kind": "query",
+                    "name": "animation",
+                    "orig": "animation",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "flip_x",
+                    "orig": "flip_x",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  },
+                  {
+                    "example": 0,
+                    "kind": "query",
+                    "name": "frame",
+                    "orig": "frame",
+                    "reqd": false,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "example": "1102039",
+                    "kind": "query",
+                    "name": "item",
+                    "orig": "item",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "name",
+                    "orig": "name",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "padding",
+                    "orig": "padding",
+                    "reqd": false,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "render_mode",
+                    "orig": "render_mode",
+                    "reqd": false,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "resize",
+                    "orig": "resize",
+                    "reqd": false,
+                    "type": "`$NUMBER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "show_ear",
+                    "orig": "show_ear",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "show_high_lef_ear",
+                    "orig": "show_high_lef_ear",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "show_lef_ear",
+                    "orig": "show_lef_ear",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/api/{region}/{version}/Character/{skinId}/{items}/{animation}/{frame}",
+              "parts": [
+                "api",
+                "{region}",
+                "{version}",
+                "Character",
+                "{skin_id}",
+                "{item}",
+                "{animation}",
+                "{frame}"
+              ],
+              "rename": {
+                "param": {
+                  "items": "item",
+                  "skinId": "skin_id"
+                }
+              },
+              "select": {
+                "exist": [
+                  "animation",
+                  "flip_x",
+                  "frame",
+                  "item",
+                  "name",
+                  "padding",
+                  "region",
+                  "render_mode",
+                  "resize",
+                  "show_ear",
+                  "show_high_lef_ear",
+                  "show_lef_ear",
+                  "skin_id",
+                  "version"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 1
+            },
+            {
+              "args": {
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "region",
+                    "orig": "region",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "skin_id",
+                    "orig": "skin_id",
+                    "reqd": true,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "version",
+                    "orig": "version",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ],
+                "query": [
+                  {
+                    "kind": "query",
+                    "name": "animation",
+                    "orig": "animation",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "flip_x",
+                    "orig": "flip_x",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  },
+                  {
+                    "example": 0,
+                    "kind": "query",
+                    "name": "frame",
+                    "orig": "frame",
+                    "reqd": false,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "example": "1102039",
+                    "kind": "query",
+                    "name": "item",
+                    "orig": "item",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "name",
+                    "orig": "name",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "padding",
+                    "orig": "padding",
+                    "reqd": false,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "resize",
+                    "orig": "resize",
+                    "reqd": false,
+                    "type": "`$NUMBER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "show_ear",
+                    "orig": "show_ear",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "show_high_lef_ear",
+                    "orig": "show_high_lef_ear",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "show_lef_ear",
+                    "orig": "show_lef_ear",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/api/{region}/{version}/Character/center/{skinId}/{items}/{animation}/{frame}",
+              "parts": [
+                "api",
+                "{region}",
+                "{version}",
+                "Character",
+                "center",
+                "{skin_id}",
+                "{item}",
+                "{animation}",
+                "{frame}"
+              ],
+              "rename": {
+                "param": {
+                  "items": "item",
+                  "skinId": "skin_id"
+                }
+              },
+              "select": {
+                "exist": [
+                  "animation",
+                  "flip_x",
+                  "frame",
+                  "item",
+                  "name",
+                  "padding",
+                  "region",
+                  "resize",
+                  "show_ear",
+                  "show_high_lef_ear",
+                  "show_lef_ear",
+                  "skin_id",
+                  "version"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 2
+            },
+            {
+              "args": {
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "region",
+                    "orig": "region",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "skin_id",
+                    "orig": "skin_id",
+                    "reqd": true,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "version",
+                    "orig": "version",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ],
+                "query": [
+                  {
+                    "kind": "query",
+                    "name": "animation",
+                    "orig": "animation",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "flip_x",
+                    "orig": "flip_x",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  },
+                  {
+                    "example": 0,
+                    "kind": "query",
+                    "name": "frame",
+                    "orig": "frame",
+                    "reqd": false,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "example": "1102039",
+                    "kind": "query",
+                    "name": "item",
+                    "orig": "item",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "name",
+                    "orig": "name",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "padding",
+                    "orig": "padding",
+                    "reqd": false,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "resize",
+                    "orig": "resize",
+                    "reqd": false,
+                    "type": "`$NUMBER`",
+                    "active": true
+                  },
+                  {
+                    "example": false,
+                    "kind": "query",
+                    "name": "show_ear",
+                    "orig": "show_ear",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "show_ear",
+                    "orig": "show_ear",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "show_high_lef_ear",
+                    "orig": "show_high_lef_ear",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "show_lef_ear",
+                    "orig": "show_lef_ear",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/api/{region}/{version}/Character/compact/{skinId}/{items}/{animation}/{frame}",
+              "parts": [
+                "api",
+                "{region}",
+                "{version}",
+                "Character",
+                "compact",
+                "{skin_id}",
+                "{item}",
+                "{animation}",
+                "{frame}"
+              ],
+              "rename": {
+                "param": {
+                  "items": "item",
+                  "skinId": "skin_id"
+                }
+              },
+              "select": {
+                "exist": [
+                  "animation",
+                  "flip_x",
+                  "frame",
+                  "item",
+                  "name",
+                  "padding",
+                  "region",
+                  "resize",
+                  "show_ear",
+                  "show_high_lef_ear",
+                  "show_lef_ear",
+                  "skin_id",
+                  "version"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 3
+            },
+            {
+              "args": {
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "region",
+                    "orig": "region",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "skin_id",
+                    "orig": "skin_id",
+                    "reqd": true,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "version",
+                    "orig": "version",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ],
+                "query": [
+                  {
+                    "kind": "query",
+                    "name": "animation",
+                    "orig": "animation",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "flip_x",
+                    "orig": "flip_x",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  },
+                  {
+                    "example": 0,
+                    "kind": "query",
+                    "name": "frame",
+                    "orig": "frame",
+                    "reqd": false,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "example": "1102039",
+                    "kind": "query",
+                    "name": "item",
+                    "orig": "item",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "name",
+                    "orig": "name",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "padding",
+                    "orig": "padding",
+                    "reqd": false,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "resize",
+                    "orig": "resize",
+                    "reqd": false,
+                    "type": "`$NUMBER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "show_ear",
+                    "orig": "show_ear",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "show_high_lef_ear",
+                    "orig": "show_high_lef_ear",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "show_lef_ear",
+                    "orig": "show_lef_ear",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/api/{region}/{version}/Character/feetCenter/{skinId}/{items}/{animation}/{frame}",
+              "parts": [
+                "api",
+                "{region}",
+                "{version}",
+                "Character",
+                "feetCenter",
+                "{skin_id}",
+                "{item}",
+                "{animation}",
+                "{frame}"
+              ],
+              "rename": {
+                "param": {
+                  "items": "item",
+                  "skinId": "skin_id"
+                }
+              },
+              "select": {
+                "exist": [
+                  "animation",
+                  "flip_x",
+                  "frame",
+                  "item",
+                  "name",
+                  "padding",
+                  "region",
+                  "resize",
+                  "show_ear",
+                  "show_high_lef_ear",
+                  "show_lef_ear",
+                  "skin_id",
+                  "version"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 4
+            },
+            {
+              "args": {
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "region",
+                    "orig": "region",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "skin_id",
+                    "orig": "skin_id",
+                    "reqd": true,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "version",
+                    "orig": "version",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ],
+                "query": [
+                  {
+                    "kind": "query",
+                    "name": "animation",
+                    "orig": "animation",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "flip_x",
+                    "orig": "flip_x",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  },
+                  {
+                    "example": 0,
+                    "kind": "query",
+                    "name": "frame",
+                    "orig": "frame",
+                    "reqd": false,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "example": "1102039",
+                    "kind": "query",
+                    "name": "item",
+                    "orig": "item",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "name",
+                    "orig": "name",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "padding",
+                    "orig": "padding",
+                    "reqd": false,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "resize",
+                    "orig": "resize",
+                    "reqd": false,
+                    "type": "`$NUMBER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "show_ear",
+                    "orig": "show_ear",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "show_high_lef_ear",
+                    "orig": "show_high_lef_ear",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "show_lef_ear",
+                    "orig": "show_lef_ear",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/api/{region}/{version}/Character/navelCenter/{skinId}/{items}/{animation}/{frame}",
+              "parts": [
+                "api",
+                "{region}",
+                "{version}",
+                "Character",
+                "navelCenter",
+                "{skin_id}",
+                "{item}",
+                "{animation}",
+                "{frame}"
+              ],
+              "rename": {
+                "param": {
+                  "items": "item",
+                  "skinId": "skin_id"
+                }
+              },
+              "select": {
+                "exist": [
+                  "animation",
+                  "flip_x",
+                  "frame",
+                  "item",
+                  "name",
+                  "padding",
+                  "region",
+                  "resize",
+                  "show_ear",
+                  "show_high_lef_ear",
+                  "show_lef_ear",
+                  "skin_id",
+                  "version"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 5
+            },
+            {
+              "args": {
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "region",
+                    "orig": "region",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "skin_id",
+                    "orig": "skin_id",
+                    "reqd": true,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "version",
+                    "orig": "version",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ],
+                "query": [
+                  {
+                    "kind": "query",
+                    "name": "flip_x",
+                    "orig": "flip_x",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "format",
+                    "orig": "format",
+                    "reqd": false,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "example": "1102039",
+                    "kind": "query",
+                    "name": "item",
+                    "orig": "item",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "name",
+                    "orig": "name",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "example": 2,
+                    "kind": "query",
+                    "name": "padding",
+                    "orig": "padding",
+                    "reqd": false,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "padding",
+                    "orig": "padding",
+                    "reqd": false,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "render_mode",
+                    "orig": "render_mode",
+                    "reqd": false,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "resize",
+                    "orig": "resize",
+                    "reqd": false,
+                    "type": "`$NUMBER`",
+                    "active": true
+                  },
+                  {
+                    "example": false,
+                    "kind": "query",
+                    "name": "show_ear",
+                    "orig": "show_ear",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "show_ear",
+                    "orig": "show_ear",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  },
+                  {
+                    "example": false,
+                    "kind": "query",
+                    "name": "show_high_lef_ear",
+                    "orig": "show_high_lef_ear",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "show_high_lef_ear",
+                    "orig": "show_high_lef_ear",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  },
+                  {
+                    "example": false,
+                    "kind": "query",
+                    "name": "show_lef_ear",
+                    "orig": "show_lef_ear",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "show_lef_ear",
+                    "orig": "show_lef_ear",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/api/{region}/{version}/Character/download/{skinId}/{items}",
+              "parts": [
+                "api",
+                "{region}",
+                "{version}",
+                "Character",
+                "download",
+                "{skin_id}",
+                "{item}"
+              ],
+              "rename": {
+                "param": {
+                  "items": "item",
+                  "skinId": "skin_id"
+                }
+              },
+              "select": {
+                "exist": [
+                  "flip_x",
+                  "format",
+                  "item",
+                  "name",
+                  "padding",
+                  "region",
+                  "render_mode",
+                  "resize",
+                  "show_ear",
+                  "show_high_lef_ear",
+                  "show_lef_ear",
+                  "skin_id",
+                  "version"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 6
+            },
+            {
+              "args": {
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "region",
+                    "orig": "region",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "version",
+                    "orig": "version",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ],
+                "query": [
+                  {
+                    "kind": "query",
+                    "name": "flip_x",
+                    "orig": "flip_x",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  },
+                  {
+                    "example": "1102039",
+                    "kind": "query",
+                    "name": "item",
+                    "orig": "item",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "name",
+                    "orig": "name",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "padding",
+                    "orig": "padding",
+                    "reqd": false,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "resize",
+                    "orig": "resize",
+                    "reqd": false,
+                    "type": "`$NUMBER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "show_ear",
+                    "orig": "show_ear",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "show_high_lef_ear",
+                    "orig": "show_high_lef_ear",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "show_lef_ear",
+                    "orig": "show_lef_ear",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/api/{region}/{version}/Character/actions/{items}",
+              "parts": [
+                "api",
+                "{region}",
+                "{version}",
+                "Character",
+                "actions",
+                "{item}"
+              ],
+              "rename": {
+                "param": {
+                  "items": "item"
+                }
+              },
+              "select": {
+                "exist": [
+                  "flip_x",
+                  "item",
+                  "name",
+                  "padding",
+                  "region",
+                  "resize",
+                  "show_ear",
+                  "show_high_lef_ear",
+                  "show_lef_ear",
+                  "version"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 7
+            },
+            {
+              "args": {
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "region",
+                    "orig": "region",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "version",
+                    "orig": "version",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ],
+                "query": [
+                  {
+                    "kind": "query",
+                    "name": "flip_x",
+                    "orig": "flip_x",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "name",
+                    "orig": "name",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "padding",
+                    "orig": "padding",
+                    "reqd": false,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "resize",
+                    "orig": "resize",
+                    "reqd": false,
+                    "type": "`$NUMBER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "show_ear",
+                    "orig": "show_ear",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "show_high_lef_ear",
+                    "orig": "show_high_lef_ear",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "show_lef_ear",
+                    "orig": "show_lef_ear",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/api/{region}/{version}/Character",
+              "parts": [
+                "api",
+                "{region}",
+                "{version}",
+                "Character"
+              ],
+              "select": {
+                "exist": [
+                  "flip_x",
+                  "name",
+                  "padding",
+                  "region",
+                  "resize",
+                  "show_ear",
+                  "show_high_lef_ear",
+                  "show_lef_ear",
+                  "version"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 8
+            }
+          ],
+          "input": "data",
+          "key$": "load"
+        }
+      },
+      "relations": {
+        "ancestors": [
+          [
+            "api"
+          ],
+          [
+            "api",
+            "action"
+          ],
+          [
+            "api",
+            "animated"
+          ],
+          [
+            "api",
+            "center"
+          ],
+          [
+            "api",
+            "compact"
+          ],
+          [
+            "api",
+            "download"
+          ],
+          [
+            "api",
+            "feet_center"
+          ],
+          [
+            "api",
+            "navel_center"
+          ],
+          [
+            "api",
+            "character"
+          ]
+        ]
+      }
+    },
+    "chat": {
+      "fields": [],
+      "name": "chat",
+      "op": {
+        "load": {
+          "name": "load",
+          "points": [
+            {
+              "args": {
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "region",
+                    "orig": "region",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "version",
+                    "orig": "version",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ],
+                "query": [
+                  {
+                    "kind": "query",
+                    "name": "message",
+                    "orig": "message",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "ring_ids_joined",
+                    "orig": "ring_ids_joined",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/api/{region}/{version}/chat",
+              "parts": [
+                "api",
+                "{region}",
+                "{version}",
+                "chat"
+              ],
+              "select": {
+                "exist": [
+                  "message",
+                  "region",
+                  "ring_ids_joined",
+                  "version"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 0
+            }
+          ],
+          "input": "data",
+          "key$": "load"
+        }
+      },
+      "relations": {
+        "ancestors": [
+          [
+            "api"
+          ]
+        ]
+      }
+    },
+    "cluster": {
+      "fields": [
+        {
+          "name": "hostname",
+          "req": false,
+          "type": "`$STRING`",
+          "active": true,
+          "index$": 0
+        },
+        {
+          "name": "last_seen",
+          "req": false,
+          "type": "`$STRING`",
+          "active": true,
+          "index$": 1
+        },
+        {
+          "name": "metric",
+          "req": false,
+          "type": "`$OBJECT`",
+          "active": true,
+          "index$": 2
+        }
+      ],
+      "name": "cluster",
+      "op": {
+        "list": {
+          "name": "list",
+          "points": [
+            {
+              "method": "GET",
+              "orig": "/api/metrics/cluster",
+              "parts": [
+                "api",
+                "metrics",
+                "cluster"
+              ],
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "args": {},
+              "select": {},
+              "index$": 0
+            }
+          ],
+          "input": "data",
+          "key$": "list"
+        }
+      },
+      "relations": {
+        "ancestors": []
+      }
+    },
+    "diff": {
+      "fields": [],
+      "name": "diff",
+      "op": {
+        "load": {
+          "name": "load",
+          "points": [
+            {
+              "args": {
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "region",
+                    "orig": "region",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "version",
+                    "orig": "version",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/api/{region}/{version}/diff",
+              "parts": [
+                "api",
+                "{region}",
+                "{version}",
+                "diff"
+              ],
+              "select": {
+                "exist": [
+                  "region",
+                  "version"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 0
+            },
+            {
+              "args": {
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "region",
+                    "orig": "region",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "version",
+                    "orig": "version",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/api/{region}/{version}/diff/grouped",
+              "parts": [
+                "api",
+                "{region}",
+                "{version}",
+                "diff",
+                "grouped"
+              ],
+              "select": {
+                "$action": "grouped",
+                "exist": [
+                  "region",
+                  "version"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 1
+            }
+          ],
+          "input": "data",
+          "key$": "load"
+        }
+      },
+      "relations": {
+        "ancestors": [
+          [
+            "api"
+          ]
+        ]
+      }
+    },
+    "entity1": {
+      "fields": [],
+      "name": "entity1",
+      "op": {
+        "load": {
+          "name": "load",
+          "points": [
+            {
+              "method": "GET",
+              "orig": "/",
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "parts": [],
+              "args": {},
+              "select": {},
+              "index$": 0
+            }
+          ],
+          "input": "data",
+          "key$": "load"
+        }
+      },
+      "relations": {
+        "ancestors": []
+      }
+    },
+    "gms_new": {
+      "fields": [],
+      "name": "gms_new",
+      "op": {
+        "load": {
+          "name": "load",
+          "points": [
+            {
+              "args": {
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "id",
+                    "orig": "id",
+                    "reqd": true,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/api/gms/latest/news/article/{id}",
+              "parts": [
+                "api",
+                "gms",
+                "latest",
+                "news",
+                "article",
+                "{id}"
+              ],
+              "select": {
+                "exist": [
+                  "id"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 0
+            },
+            {
+              "args": {
+                "query": [
+                  {
+                    "example": "all",
+                    "kind": "query",
+                    "name": "type",
+                    "orig": "type",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/api/gms/latest/news/{type}",
+              "parts": [
+                "api",
+                "gms",
+                "latest",
+                "news",
+                "{id}"
+              ],
+              "rename": {
+                "param": {
+                  "type": "id"
+                }
+              },
+              "select": {
+                "exist": [
+                  "type"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 1
+            }
+          ],
+          "input": "data",
+          "key$": "load"
+        }
+      },
+      "relations": {
+        "ancestors": []
+      }
+    },
+    "guild_mark": {
+      "fields": [],
+      "name": "guild_mark",
+      "op": {
+        "load": {
+          "name": "load",
+          "points": [
+            {
+              "args": {
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "guild_background_color_id",
+                    "orig": "guild_background_color_id",
+                    "reqd": true,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "guild_background_id",
+                    "orig": "guild_background_id",
+                    "reqd": true,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "guild_mark_color_id",
+                    "orig": "guild_mark_color_id",
+                    "reqd": true,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "guild_mark_id",
+                    "orig": "guild_mark_id",
+                    "reqd": true,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "region",
+                    "orig": "region",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "version",
+                    "orig": "version",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/api/{region}/{version}/GuildMark/background/{guildBackgroundId}/{guildBackgroundColorId}/mark/{guildMarkId}/{guildMarkColorId}",
+              "parts": [
+                "api",
+                "{region}",
+                "{version}",
+                "GuildMark",
+                "background",
+                "{guild_background_id}",
+                "{guild_background_color_id}",
+                "mark",
+                "{guild_mark_id}",
+                "{guild_mark_color_id}"
+              ],
+              "rename": {
+                "param": {
+                  "guildBackgroundColorId": "guild_background_color_id",
+                  "guildBackgroundId": "guild_background_id",
+                  "guildMarkColorId": "guild_mark_color_id",
+                  "guildMarkId": "guild_mark_id"
+                }
+              },
+              "select": {
+                "exist": [
+                  "guild_background_color_id",
+                  "guild_background_id",
+                  "guild_mark_color_id",
+                  "guild_mark_id",
+                  "region",
+                  "version"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 0
+            },
+            {
+              "args": {
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "color_id",
+                    "orig": "color_id",
+                    "reqd": true,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "guild_mark_id",
+                    "orig": "guild_mark_id",
+                    "reqd": true,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "region",
+                    "orig": "region",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "version",
+                    "orig": "version",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/api/{region}/{version}/GuildMark/{guildMarkId}/{colorId}",
+              "parts": [
+                "api",
+                "{region}",
+                "{version}",
+                "GuildMark",
+                "{guild_mark_id}",
+                "{color_id}"
+              ],
+              "rename": {
+                "param": {
+                  "colorId": "color_id",
+                  "guildMarkId": "guild_mark_id"
+                }
+              },
+              "select": {
+                "exist": [
+                  "color_id",
+                  "guild_mark_id",
+                  "region",
+                  "version"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 1
+            }
+          ],
+          "input": "data",
+          "key$": "load"
+        }
+      },
+      "relations": {
+        "ancestors": [
+          [
+            "api",
+            "guild_mark"
+          ],
+          [
+            "api",
+            "background",
+            "mark"
+          ]
+        ]
+      }
+    },
+    "health": {
+      "fields": [],
+      "name": "health",
+      "op": {
+        "load": {
+          "name": "load",
+          "points": [
+            {
+              "method": "GET",
+              "orig": "/api/health/alive",
+              "parts": [
+                "api",
+                "health",
+                "alive"
+              ],
+              "select": {
+                "$action": "alive"
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "args": {},
+              "index$": 0
+            },
+            {
+              "method": "GET",
+              "orig": "/api/health/ready",
+              "parts": [
+                "api",
+                "health",
+                "ready"
+              ],
+              "select": {
+                "$action": "ready"
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "args": {},
+              "index$": 1
+            },
+            {
+              "method": "GET",
+              "orig": "/api/health/start",
+              "parts": [
+                "api",
+                "health",
+                "start"
+              ],
+              "select": {
+                "$action": "start"
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "args": {},
+              "index$": 2
+            }
+          ],
+          "input": "data",
+          "key$": "load"
+        }
+      },
+      "relations": {
+        "ancestors": []
+      }
+    },
+    "item": {
+      "fields": [],
+      "name": "item",
+      "op": {
+        "load": {
+          "name": "load",
+          "points": [
+            {
+              "args": {
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "region",
+                    "orig": "region",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "version",
+                    "orig": "version",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ],
+                "query": [
+                  {
+                    "kind": "query",
+                    "name": "cash_filter",
+                    "orig": "cash_filter",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "category_filter",
+                    "orig": "category_filter",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "count",
+                    "orig": "count",
+                    "reqd": false,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "gender_filter",
+                    "orig": "gender_filter",
+                    "reqd": false,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "job_filter",
+                    "orig": "job_filter",
+                    "reqd": false,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "max_level_filter",
+                    "orig": "max_level_filter",
+                    "reqd": false,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "min_level_filter",
+                    "orig": "min_level_filter",
+                    "reqd": false,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "overall_category_filter",
+                    "orig": "overall_category_filter",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "search_for",
+                    "orig": "search_for",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "example": 0,
+                    "kind": "query",
+                    "name": "start_position",
+                    "orig": "start_position",
+                    "reqd": false,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "sub_category_filter",
+                    "orig": "sub_category_filter",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/api/{region}/{version}/item",
+              "parts": [
+                "api",
+                "{region}",
+                "{version}",
+                "item"
+              ],
+              "select": {
+                "exist": [
+                  "cash_filter",
+                  "category_filter",
+                  "count",
+                  "gender_filter",
+                  "job_filter",
+                  "max_level_filter",
+                  "min_level_filter",
+                  "overall_category_filter",
+                  "region",
+                  "search_for",
+                  "start_position",
+                  "sub_category_filter",
+                  "version"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 0
+            },
+            {
+              "args": {
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "region",
+                    "orig": "region",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "version",
+                    "orig": "version",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ],
+                "query": [
+                  {
+                    "kind": "query",
+                    "name": "cash_filter",
+                    "orig": "cash_filter",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "category_filter",
+                    "orig": "category_filter",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "count",
+                    "orig": "count",
+                    "reqd": false,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "gender_filter",
+                    "orig": "gender_filter",
+                    "reqd": false,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "job_filter",
+                    "orig": "job_filter",
+                    "reqd": false,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "max_level_filter",
+                    "orig": "max_level_filter",
+                    "reqd": false,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "min_level_filter",
+                    "orig": "min_level_filter",
+                    "reqd": false,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "overall_category_filter",
+                    "orig": "overall_category_filter",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "search_for",
+                    "orig": "search_for",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "example": 0,
+                    "kind": "query",
+                    "name": "start_position",
+                    "orig": "start_position",
+                    "reqd": false,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "sub_category_filter",
+                    "orig": "sub_category_filter",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/api/{region}/{version}/item/count",
+              "parts": [
+                "api",
+                "{region}",
+                "{version}",
+                "item",
+                "count"
+              ],
+              "select": {
+                "$action": "count",
+                "exist": [
+                  "cash_filter",
+                  "category_filter",
+                  "count",
+                  "gender_filter",
+                  "job_filter",
+                  "max_level_filter",
+                  "min_level_filter",
+                  "overall_category_filter",
+                  "region",
+                  "search_for",
+                  "start_position",
+                  "sub_category_filter",
+                  "version"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 1
+            },
+            {
+              "args": {
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "region",
+                    "orig": "region",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "version",
+                    "orig": "version",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ],
+                "query": [
+                  {
+                    "kind": "query",
+                    "name": "cash_filter",
+                    "orig": "cash_filter",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "category_filter",
+                    "orig": "category_filter",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "count",
+                    "orig": "count",
+                    "reqd": false,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "gender_filter",
+                    "orig": "gender_filter",
+                    "reqd": false,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "job_filter",
+                    "orig": "job_filter",
+                    "reqd": false,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "max_level_filter",
+                    "orig": "max_level_filter",
+                    "reqd": false,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "min_level_filter",
+                    "orig": "min_level_filter",
+                    "reqd": false,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "overall_category_filter",
+                    "orig": "overall_category_filter",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "search_for",
+                    "orig": "search_for",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "example": 0,
+                    "kind": "query",
+                    "name": "start_position",
+                    "orig": "start_position",
+                    "reqd": false,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "sub_category_filter",
+                    "orig": "sub_category_filter",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/api/{region}/{version}/item/list",
+              "parts": [
+                "api",
+                "{region}",
+                "{version}",
+                "item",
+                "list"
+              ],
+              "select": {
+                "$action": "list",
+                "exist": [
+                  "cash_filter",
+                  "category_filter",
+                  "count",
+                  "gender_filter",
+                  "job_filter",
+                  "max_level_filter",
+                  "min_level_filter",
+                  "overall_category_filter",
+                  "region",
+                  "search_for",
+                  "start_position",
+                  "sub_category_filter",
+                  "version"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 2
+            },
+            {
+              "args": {
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "id",
+                    "orig": "item_id",
+                    "reqd": true,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "region",
+                    "orig": "region",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "version",
+                    "orig": "version",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/api/{region}/{version}/item/{itemId}",
+              "parts": [
+                "api",
+                "{region}",
+                "{version}",
+                "item",
+                "{id}"
+              ],
+              "rename": {
+                "param": {
+                  "itemId": "id"
+                }
+              },
+              "select": {
+                "exist": [
+                  "id",
+                  "region",
+                  "version"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 3
+            },
+            {
+              "args": {
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "id",
+                    "orig": "item_id",
+                    "reqd": true,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "region",
+                    "orig": "region",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "version",
+                    "orig": "version",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/api/{region}/{version}/item/{itemId}/icon",
+              "parts": [
+                "api",
+                "{region}",
+                "{version}",
+                "item",
+                "{id}",
+                "icon"
+              ],
+              "rename": {
+                "param": {
+                  "itemId": "id"
+                }
+              },
+              "select": {
+                "$action": "icon",
+                "exist": [
+                  "id",
+                  "region",
+                  "version"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 4
+            },
+            {
+              "args": {
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "id",
+                    "orig": "item_id",
+                    "reqd": true,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "region",
+                    "orig": "region",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "version",
+                    "orig": "version",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/api/{region}/{version}/item/{itemId}/iconRaw",
+              "parts": [
+                "api",
+                "{region}",
+                "{version}",
+                "item",
+                "{id}",
+                "iconRaw"
+              ],
+              "rename": {
+                "param": {
+                  "itemId": "id"
+                }
+              },
+              "select": {
+                "$action": "icon_raw",
+                "exist": [
+                  "id",
+                  "region",
+                  "version"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 5
+            },
+            {
+              "args": {
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "id",
+                    "orig": "item_id",
+                    "reqd": true,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "region",
+                    "orig": "region",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "version",
+                    "orig": "version",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/api/{region}/{version}/item/{itemId}/name",
+              "parts": [
+                "api",
+                "{region}",
+                "{version}",
+                "item",
+                "{id}",
+                "name"
+              ],
+              "rename": {
+                "param": {
+                  "itemId": "id"
+                }
+              },
+              "select": {
+                "$action": "name",
+                "exist": [
+                  "id",
+                  "region",
+                  "version"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 6
+            },
+            {
+              "args": {
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "overall_category",
+                    "orig": "overall_category",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "region",
+                    "orig": "region",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "version",
+                    "orig": "version",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/api/{region}/{version}/item/category/{overallCategory}",
+              "parts": [
+                "api",
+                "{region}",
+                "{version}",
+                "item",
+                "category",
+                "{overall_category}"
+              ],
+              "rename": {
+                "param": {
+                  "overallCategory": "overall_category"
+                }
+              },
+              "select": {
+                "exist": [
+                  "overall_category",
+                  "region",
+                  "version"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 7
+            },
+            {
+              "args": {
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "region",
+                    "orig": "region",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "version",
+                    "orig": "version",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/api/{region}/{version}/item/category",
+              "parts": [
+                "api",
+                "{region}",
+                "{version}",
+                "item",
+                "category"
+              ],
+              "select": {
+                "$action": "category",
+                "exist": [
+                  "region",
+                  "version"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 8
+            }
+          ],
+          "input": "data",
+          "key$": "load"
+        }
+      },
+      "relations": {
+        "ancestors": [
+          [
+            "api"
+          ],
+          [
+            "api",
+            "category"
+          ]
+        ]
+      }
+    },
+    "job": {
+      "fields": [],
+      "name": "job",
+      "op": {
+        "load": {
+          "name": "load",
+          "points": [
+            {
+              "args": {
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "id",
+                    "orig": "job_id",
+                    "reqd": true,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "region",
+                    "orig": "region",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "skill_id",
+                    "orig": "skill_id",
+                    "reqd": true,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "version",
+                    "orig": "version",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/api/{region}/{version}/job/{jobId}/skillbook/{skillId}",
+              "parts": [
+                "api",
+                "{region}",
+                "{version}",
+                "job",
+                "{id}",
+                "skillbook",
+                "{skill_id}"
+              ],
+              "rename": {
+                "param": {
+                  "jobId": "id",
+                  "skillId": "skill_id"
+                }
+              },
+              "select": {
+                "exist": [
+                  "id",
+                  "region",
+                  "skill_id",
+                  "version"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 0
+            },
+            {
+              "args": {
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "id",
+                    "orig": "job_id",
+                    "reqd": true,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "region",
+                    "orig": "region",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "version",
+                    "orig": "version",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/api/{region}/{version}/job/{jobId}",
+              "parts": [
+                "api",
+                "{region}",
+                "{version}",
+                "job",
+                "{id}"
+              ],
+              "rename": {
+                "param": {
+                  "jobId": "id"
+                }
+              },
+              "select": {
+                "exist": [
+                  "id",
+                  "region",
+                  "version"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 1
+            },
+            {
+              "args": {
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "id",
+                    "orig": "job_id",
+                    "reqd": true,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "region",
+                    "orig": "region",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "version",
+                    "orig": "version",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/api/{region}/{version}/job/{jobId}/skillbook",
+              "parts": [
+                "api",
+                "{region}",
+                "{version}",
+                "job",
+                "{id}",
+                "skillbook"
+              ],
+              "rename": {
+                "param": {
+                  "jobId": "id"
+                }
+              },
+              "select": {
+                "$action": "skillbook",
+                "exist": [
+                  "id",
+                  "region",
+                  "version"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 2
+            },
+            {
+              "args": {
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "region",
+                    "orig": "region",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "skill_id",
+                    "orig": "skill_id",
+                    "reqd": true,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "version",
+                    "orig": "version",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/api/{region}/{version}/job/skill/{skillId}",
+              "parts": [
+                "api",
+                "{region}",
+                "{version}",
+                "job",
+                "skill",
+                "{skill_id}"
+              ],
+              "rename": {
+                "param": {
+                  "skillId": "skill_id"
+                }
+              },
+              "select": {
+                "exist": [
+                  "region",
+                  "skill_id",
+                  "version"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 3
+            },
+            {
+              "args": {
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "region",
+                    "orig": "region",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "version",
+                    "orig": "version",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/api/{region}/{version}/job",
+              "parts": [
+                "api",
+                "{region}",
+                "{version}",
+                "job"
+              ],
+              "select": {
+                "exist": [
+                  "region",
+                  "version"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 4
+            },
+            {
+              "args": {
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "region",
+                    "orig": "region",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "version",
+                    "orig": "version",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/api/{region}/{version}/job/count",
+              "parts": [
+                "api",
+                "{region}",
+                "{version}",
+                "job",
+                "count"
+              ],
+              "select": {
+                "$action": "count",
+                "exist": [
+                  "region",
+                  "version"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 5
+            },
+            {
+              "args": {
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "region",
+                    "orig": "region",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "version",
+                    "orig": "version",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/api/{region}/{version}/job/skilltree",
+              "parts": [
+                "api",
+                "{region}",
+                "{version}",
+                "job",
+                "skilltree"
+              ],
+              "select": {
+                "$action": "skilltree",
+                "exist": [
+                  "region",
+                  "version"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 6
+            }
+          ],
+          "input": "data",
+          "key$": "load"
+        }
+      },
+      "relations": {
+        "ancestors": [
+          [
+            "api"
+          ],
+          [
+            "api",
+            "skill"
+          ],
+          [
+            "api",
+            "skillbook"
+          ]
+        ]
+      }
+    },
+    "map": {
+      "fields": [],
+      "name": "map",
+      "op": {
+        "load": {
+          "name": "load",
+          "points": [
+            {
+              "args": {
+                "params": [
+                  {
+                    "example": 0,
+                    "kind": "param",
+                    "name": "frame",
+                    "orig": "frame",
+                    "reqd": true,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "layer",
+                    "orig": "layer",
+                    "reqd": true,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "map_id",
+                    "orig": "map_id",
+                    "reqd": true,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "region",
+                    "orig": "region",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "version",
+                    "orig": "version",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ],
+                "query": [
+                  {
+                    "example": false,
+                    "kind": "query",
+                    "name": "filter_trash",
+                    "orig": "filter_trash",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "min_x",
+                    "orig": "min_x",
+                    "reqd": false,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "min_y",
+                    "orig": "min_y",
+                    "reqd": false,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/api/{region}/{version}/map/{mapId}/render/layer/{layer}/{frame}",
+              "parts": [
+                "api",
+                "{region}",
+                "{version}",
+                "map",
+                "{map_id}",
+                "render",
+                "layer",
+                "{layer}",
+                "{frame}"
+              ],
+              "rename": {
+                "param": {
+                  "mapId": "map_id"
+                }
+              },
+              "select": {
+                "exist": [
+                  "filter_trash",
+                  "frame",
+                  "layer",
+                  "map_id",
+                  "min_x",
+                  "min_y",
+                  "region",
+                  "version"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 0
+            },
+            {
+              "args": {
+                "params": [
+                  {
+                    "example": 0,
+                    "kind": "param",
+                    "name": "frame",
+                    "orig": "frame",
+                    "reqd": true,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "id",
+                    "orig": "map_id",
+                    "reqd": true,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "region",
+                    "orig": "region",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "version",
+                    "orig": "version",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ],
+                "query": [
+                  {
+                    "example": false,
+                    "kind": "query",
+                    "name": "show_life",
+                    "orig": "show_life",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  },
+                  {
+                    "example": false,
+                    "kind": "query",
+                    "name": "show_portal",
+                    "orig": "show_portal",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/api/{region}/{version}/map/{mapId}/render/{frame}",
+              "parts": [
+                "api",
+                "{region}",
+                "{version}",
+                "map",
+                "{id}",
+                "render",
+                "{frame}"
+              ],
+              "rename": {
+                "param": {
+                  "mapId": "id"
+                }
+              },
+              "select": {
+                "exist": [
+                  "frame",
+                  "id",
+                  "region",
+                  "show_life",
+                  "show_portal",
+                  "version"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 1
+            },
+            {
+              "args": {
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "region",
+                    "orig": "region",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "version",
+                    "orig": "version",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ],
+                "query": [
+                  {
+                    "kind": "query",
+                    "name": "count",
+                    "orig": "count",
+                    "reqd": false,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "search_for",
+                    "orig": "search_for",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "example": 0,
+                    "kind": "query",
+                    "name": "start_position",
+                    "orig": "start_position",
+                    "reqd": false,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/api/{region}/{version}/map",
+              "parts": [
+                "api",
+                "{region}",
+                "{version}",
+                "map"
+              ],
+              "select": {
+                "exist": [
+                  "count",
+                  "region",
+                  "search_for",
+                  "start_position",
+                  "version"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 2
+            },
+            {
+              "args": {
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "region",
+                    "orig": "region",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "version",
+                    "orig": "version",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ],
+                "query": [
+                  {
+                    "kind": "query",
+                    "name": "count",
+                    "orig": "count",
+                    "reqd": false,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "search_for",
+                    "orig": "search_for",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "example": 0,
+                    "kind": "query",
+                    "name": "start_position",
+                    "orig": "start_position",
+                    "reqd": false,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/api/{region}/{version}/map/count",
+              "parts": [
+                "api",
+                "{region}",
+                "{version}",
+                "map",
+                "count"
+              ],
+              "select": {
+                "$action": "count",
+                "exist": [
+                  "count",
+                  "region",
+                  "search_for",
+                  "start_position",
+                  "version"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 3
+            },
+            {
+              "args": {
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "id",
+                    "orig": "map_id",
+                    "reqd": true,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "region",
+                    "orig": "region",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "version",
+                    "orig": "version",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/api/{region}/{version}/map/{mapId}",
+              "parts": [
+                "api",
+                "{region}",
+                "{version}",
+                "map",
+                "{id}"
+              ],
+              "rename": {
+                "param": {
+                  "mapId": "id"
+                }
+              },
+              "select": {
+                "exist": [
+                  "id",
+                  "region",
+                  "version"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 4
+            },
+            {
+              "args": {
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "id",
+                    "orig": "map_id",
+                    "reqd": true,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "region",
+                    "orig": "region",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "version",
+                    "orig": "version",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/api/{region}/{version}/map/{mapId}/bgm",
+              "parts": [
+                "api",
+                "{region}",
+                "{version}",
+                "map",
+                "{id}",
+                "bgm"
+              ],
+              "rename": {
+                "param": {
+                  "mapId": "id"
+                }
+              },
+              "select": {
+                "$action": "bgm",
+                "exist": [
+                  "id",
+                  "region",
+                  "version"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 5
+            },
+            {
+              "args": {
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "id",
+                    "orig": "map_id",
+                    "reqd": true,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "region",
+                    "orig": "region",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "version",
+                    "orig": "version",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/api/{region}/{version}/map/{mapId}/icon",
+              "parts": [
+                "api",
+                "{region}",
+                "{version}",
+                "map",
+                "{id}",
+                "icon"
+              ],
+              "rename": {
+                "param": {
+                  "mapId": "id"
+                }
+              },
+              "select": {
+                "$action": "icon",
+                "exist": [
+                  "id",
+                  "region",
+                  "version"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 6
+            },
+            {
+              "args": {
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "id",
+                    "orig": "map_id",
+                    "reqd": true,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "region",
+                    "orig": "region",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "version",
+                    "orig": "version",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/api/{region}/{version}/map/{mapId}/minimap",
+              "parts": [
+                "api",
+                "{region}",
+                "{version}",
+                "map",
+                "{id}",
+                "minimap"
+              ],
+              "rename": {
+                "param": {
+                  "mapId": "id"
+                }
+              },
+              "select": {
+                "$action": "minimap",
+                "exist": [
+                  "id",
+                  "region",
+                  "version"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 7
+            },
+            {
+              "args": {
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "id",
+                    "orig": "map_id",
+                    "reqd": true,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "region",
+                    "orig": "region",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "version",
+                    "orig": "version",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/api/{region}/{version}/map/{mapId}/name",
+              "parts": [
+                "api",
+                "{region}",
+                "{version}",
+                "map",
+                "{id}",
+                "name"
+              ],
+              "rename": {
+                "param": {
+                  "mapId": "id"
+                }
+              },
+              "select": {
+                "$action": "name",
+                "exist": [
+                  "id",
+                  "region",
+                  "version"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 8
+            },
+            {
+              "args": {
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "map",
+                    "orig": "map",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "region",
+                    "orig": "region",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "version",
+                    "orig": "version",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/api/{region}/{version}/map/worldmap/{map}",
+              "parts": [
+                "api",
+                "{region}",
+                "{version}",
+                "map",
+                "worldmap",
+                "{map}"
+              ],
+              "select": {
+                "exist": [
+                  "map",
+                  "region",
+                  "version"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 9
+            },
+            {
+              "args": {
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "mark_name",
+                    "orig": "mark_name",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "region",
+                    "orig": "region",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "version",
+                    "orig": "version",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/api/{region}/{version}/map/icon/{markName}",
+              "parts": [
+                "api",
+                "{region}",
+                "{version}",
+                "map",
+                "icon",
+                "{mark_name}"
+              ],
+              "rename": {
+                "param": {
+                  "markName": "mark_name"
+                }
+              },
+              "select": {
+                "exist": [
+                  "mark_name",
+                  "region",
+                  "version"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 10
+            },
+            {
+              "args": {
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "region",
+                    "orig": "region",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "version",
+                    "orig": "version",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/api/{region}/{version}/map/worldmap",
+              "parts": [
+                "api",
+                "{region}",
+                "{version}",
+                "map",
+                "worldmap"
+              ],
+              "select": {
+                "$action": "worldmap",
+                "exist": [
+                  "region",
+                  "version"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 11
+            }
+          ],
+          "input": "data",
+          "key$": "load"
+        }
+      },
+      "relations": {
+        "ancestors": [
+          [
+            "api"
+          ],
+          [
+            "api",
+            "icon"
+          ],
+          [
+            "api",
+            "worldmap"
+          ],
+          [
+            "api",
+            "render"
+          ],
+          [
+            "api",
+            "map",
+            "layer"
+          ]
+        ]
+      }
+    },
+    "metric": {
+      "fields": [],
+      "name": "metric",
+      "op": {
+        "load": {
+          "name": "load",
+          "points": [
+            {
+              "method": "GET",
+              "orig": "/api/metrics/health",
+              "parts": [
+                "api",
+                "metrics",
+                "health"
+              ],
+              "select": {
+                "$action": "health"
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "args": {},
+              "index$": 0
+            }
+          ],
+          "input": "data",
+          "key$": "load"
+        }
+      },
+      "relations": {
+        "ancestors": []
+      }
+    },
+    "mob": {
+      "fields": [],
+      "name": "mob",
+      "op": {
+        "load": {
+          "name": "load",
+          "points": [
+            {
+              "args": {
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "region",
+                    "orig": "region",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "version",
+                    "orig": "version",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ],
+                "query": [
+                  {
+                    "kind": "query",
+                    "name": "count",
+                    "orig": "count",
+                    "reqd": false,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "max_level_filter",
+                    "orig": "max_level_filter",
+                    "reqd": false,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "min_level_filter",
+                    "orig": "min_level_filter",
+                    "reqd": false,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "search_for",
+                    "orig": "search_for",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "example": 0,
+                    "kind": "query",
+                    "name": "start_position",
+                    "orig": "start_position",
+                    "reqd": false,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/api/{region}/{version}/mob",
+              "parts": [
+                "api",
+                "{region}",
+                "{version}",
+                "mob"
+              ],
+              "select": {
+                "exist": [
+                  "count",
+                  "max_level_filter",
+                  "min_level_filter",
+                  "region",
+                  "search_for",
+                  "start_position",
+                  "version"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 0
+            },
+            {
+              "args": {
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "region",
+                    "orig": "region",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "version",
+                    "orig": "version",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ],
+                "query": [
+                  {
+                    "kind": "query",
+                    "name": "count",
+                    "orig": "count",
+                    "reqd": false,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "max_level_filter",
+                    "orig": "max_level_filter",
+                    "reqd": false,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "min_level_filter",
+                    "orig": "min_level_filter",
+                    "reqd": false,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "search_for",
+                    "orig": "search_for",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "example": 0,
+                    "kind": "query",
+                    "name": "start_position",
+                    "orig": "start_position",
+                    "reqd": false,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/api/{region}/{version}/mob/count",
+              "parts": [
+                "api",
+                "{region}",
+                "{version}",
+                "mob",
+                "count"
+              ],
+              "select": {
+                "$action": "count",
+                "exist": [
+                  "count",
+                  "max_level_filter",
+                  "min_level_filter",
+                  "region",
+                  "search_for",
+                  "start_position",
+                  "version"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 1
+            },
+            {
+              "args": {
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "animation",
+                    "orig": "animation",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "id",
+                    "orig": "mob_id",
+                    "reqd": true,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "region",
+                    "orig": "region",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "version",
+                    "orig": "version",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ],
+                "query": [
+                  {
+                    "example": "",
+                    "kind": "query",
+                    "name": "bg_color",
+                    "orig": "bg_color",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/api/{region}/{version}/mob/{mobId}/render/animated/{animation}",
+              "parts": [
+                "api",
+                "{region}",
+                "{version}",
+                "mob",
+                "{id}",
+                "render",
+                "animated",
+                "{animation}"
+              ],
+              "rename": {
+                "param": {
+                  "mobId": "id"
+                }
+              },
+              "select": {
+                "exist": [
+                  "animation",
+                  "bg_color",
+                  "id",
+                  "region",
+                  "version"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 2
+            },
+            {
+              "args": {
+                "params": [
+                  {
+                    "example": "move",
+                    "kind": "param",
+                    "name": "animation",
+                    "orig": "animation",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "id",
+                    "orig": "mob_id",
+                    "reqd": true,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "region",
+                    "orig": "region",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "version",
+                    "orig": "version",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ],
+                "query": [
+                  {
+                    "example": "",
+                    "kind": "query",
+                    "name": "bg_color",
+                    "orig": "bg_color",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/api/{region}/{version}/mob/{mobId}/render/{animation}",
+              "parts": [
+                "api",
+                "{region}",
+                "{version}",
+                "mob",
+                "{id}",
+                "render",
+                "{animation}"
+              ],
+              "rename": {
+                "param": {
+                  "mobId": "id"
+                }
+              },
+              "select": {
+                "exist": [
+                  "animation",
+                  "bg_color",
+                  "id",
+                  "region",
+                  "version"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 3
+            },
+            {
+              "args": {
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "animation",
+                    "orig": "animation",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "mob_id",
+                    "orig": "mob_id",
+                    "reqd": true,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "region",
+                    "orig": "region",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "version",
+                    "orig": "version",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ],
+                "query": [
+                  {
+                    "example": "",
+                    "kind": "query",
+                    "name": "bg_color",
+                    "orig": "bg_color",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/api/{region}/{version}/mob/animated/{mobId}/{animation}",
+              "parts": [
+                "api",
+                "{region}",
+                "{version}",
+                "mob",
+                "animated",
+                "{mob_id}",
+                "{animation}"
+              ],
+              "rename": {
+                "param": {
+                  "mobId": "mob_id"
+                }
+              },
+              "select": {
+                "exist": [
+                  "animation",
+                  "bg_color",
+                  "mob_id",
+                  "region",
+                  "version"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 4
+            },
+            {
+              "args": {
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "animation",
+                    "orig": "animation",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "example": 0,
+                    "kind": "param",
+                    "name": "frame",
+                    "orig": "frame",
+                    "reqd": true,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "mob_id",
+                    "orig": "mob_id",
+                    "reqd": true,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "region",
+                    "orig": "region",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "version",
+                    "orig": "version",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/api/{region}/{version}/mob/{mobId}/render/{animation}/{frame}",
+              "parts": [
+                "api",
+                "{region}",
+                "{version}",
+                "mob",
+                "{mob_id}",
+                "render",
+                "{animation}",
+                "{frame}"
+              ],
+              "rename": {
+                "param": {
+                  "mobId": "mob_id"
+                }
+              },
+              "select": {
+                "exist": [
+                  "animation",
+                  "frame",
+                  "mob_id",
+                  "region",
+                  "version"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 5
+            },
+            {
+              "args": {
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "id",
+                    "orig": "mob_id",
+                    "reqd": true,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "region",
+                    "orig": "region",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "sound_name",
+                    "orig": "sound_name",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "version",
+                    "orig": "version",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/api/{region}/{version}/mob/{mobId}/sound/{soundName}",
+              "parts": [
+                "api",
+                "{region}",
+                "{version}",
+                "mob",
+                "{id}",
+                "sound",
+                "{sound_name}"
+              ],
+              "rename": {
+                "param": {
+                  "mobId": "id",
+                  "soundName": "sound_name"
+                }
+              },
+              "select": {
+                "exist": [
+                  "id",
+                  "region",
+                  "sound_name",
+                  "version"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 6
+            },
+            {
+              "args": {
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "id",
+                    "orig": "mob_id",
+                    "reqd": true,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "region",
+                    "orig": "region",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "version",
+                    "orig": "version",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/api/{region}/{version}/mob/{mobId}",
+              "parts": [
+                "api",
+                "{region}",
+                "{version}",
+                "mob",
+                "{id}"
+              ],
+              "rename": {
+                "param": {
+                  "mobId": "id"
+                }
+              },
+              "select": {
+                "exist": [
+                  "id",
+                  "region",
+                  "version"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 7
+            },
+            {
+              "args": {
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "id",
+                    "orig": "mob_id",
+                    "reqd": true,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "region",
+                    "orig": "region",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "version",
+                    "orig": "version",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/api/{region}/{version}/mob/{mobId}/download",
+              "parts": [
+                "api",
+                "{region}",
+                "{version}",
+                "mob",
+                "{id}",
+                "download"
+              ],
+              "rename": {
+                "param": {
+                  "mobId": "id"
+                }
+              },
+              "select": {
+                "$action": "download",
+                "exist": [
+                  "id",
+                  "region",
+                  "version"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 8
+            },
+            {
+              "args": {
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "id",
+                    "orig": "mob_id",
+                    "reqd": true,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "region",
+                    "orig": "region",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "version",
+                    "orig": "version",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/api/{region}/{version}/mob/{mobId}/icon",
+              "parts": [
+                "api",
+                "{region}",
+                "{version}",
+                "mob",
+                "{id}",
+                "icon"
+              ],
+              "rename": {
+                "param": {
+                  "mobId": "id"
+                }
+              },
+              "select": {
+                "$action": "icon",
+                "exist": [
+                  "id",
+                  "region",
+                  "version"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 9
+            },
+            {
+              "args": {
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "id",
+                    "orig": "mob_id",
+                    "reqd": true,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "region",
+                    "orig": "region",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "version",
+                    "orig": "version",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/api/{region}/{version}/mob/{mobId}/name",
+              "parts": [
+                "api",
+                "{region}",
+                "{version}",
+                "mob",
+                "{id}",
+                "name"
+              ],
+              "rename": {
+                "param": {
+                  "mobId": "id"
+                }
+              },
+              "select": {
+                "$action": "name",
+                "exist": [
+                  "id",
+                  "region",
+                  "version"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 10
+            },
+            {
+              "args": {
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "id",
+                    "orig": "mob_id",
+                    "reqd": true,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "region",
+                    "orig": "region",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "version",
+                    "orig": "version",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/api/{region}/{version}/mob/{mobId}/sound",
+              "parts": [
+                "api",
+                "{region}",
+                "{version}",
+                "mob",
+                "{id}",
+                "sound"
+              ],
+              "rename": {
+                "param": {
+                  "mobId": "id"
+                }
+              },
+              "select": {
+                "$action": "sound",
+                "exist": [
+                  "id",
+                  "region",
+                  "version"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 11
+            }
+          ],
+          "input": "data",
+          "key$": "load"
+        }
+      },
+      "relations": {
+        "ancestors": [
+          [
+            "api"
+          ],
+          [
+            "api",
+            "animated"
+          ],
+          [
+            "api",
+            "render"
+          ],
+          [
+            "api",
+            "sound"
+          ],
+          [
+            "api",
+            "mob",
+            "render"
+          ]
+        ]
+      }
+    },
+    "music": {
+      "fields": [],
+      "name": "music",
+      "op": {
+        "load": {
+          "name": "load",
+          "points": [
+            {
+              "args": {
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "id",
+                    "orig": "song_path",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "region",
+                    "orig": "region",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "version",
+                    "orig": "version",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/api/{region}/{version}/music/{songPath}",
+              "parts": [
+                "api",
+                "{region}",
+                "{version}",
+                "music",
+                "{id}"
+              ],
+              "rename": {
+                "param": {
+                  "songPath": "id"
+                }
+              },
+              "select": {
+                "exist": [
+                  "id",
+                  "region",
+                  "version"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 0
+            }
+          ],
+          "input": "data",
+          "key$": "load"
+        }
+      },
+      "relations": {
+        "ancestors": [
+          [
+            "api"
+          ]
+        ]
+      }
+    },
+    "name": {
+      "fields": [],
+      "name": "name",
+      "op": {
+        "load": {
+          "name": "load",
+          "points": [
+            {
+              "args": {
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "region",
+                    "orig": "region",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "version",
+                    "orig": "version",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ],
+                "query": [
+                  {
+                    "kind": "query",
+                    "name": "name",
+                    "orig": "name",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "example": "",
+                    "kind": "query",
+                    "name": "ring_ids_joined",
+                    "orig": "ring_ids_joined",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/api/{region}/{version}/name",
+              "parts": [
+                "api",
+                "{region}",
+                "{version}",
+                "name"
+              ],
+              "select": {
+                "exist": [
+                  "name",
+                  "region",
+                  "ring_ids_joined",
+                  "version"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 0
+            }
+          ],
+          "input": "data",
+          "key$": "load"
+        }
+      },
+      "relations": {
+        "ancestors": [
+          [
+            "api"
+          ]
+        ]
+      }
+    },
+    "npc": {
+      "fields": [],
+      "name": "npc",
+      "op": {
+        "load": {
+          "name": "load",
+          "points": [
+            {
+              "args": {
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "framebook",
+                    "orig": "framebook",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "id",
+                    "orig": "npc_id",
+                    "reqd": true,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "region",
+                    "orig": "region",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "version",
+                    "orig": "version",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ],
+                "query": [
+                  {
+                    "kind": "query",
+                    "name": "animation",
+                    "orig": "animation",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "bg_color",
+                    "orig": "bg_color",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/api/{region}/{version}/npc/{npcId}/render/animated/{framebook}",
+              "parts": [
+                "api",
+                "{region}",
+                "{version}",
+                "npc",
+                "{id}",
+                "render",
+                "animated",
+                "{framebook}"
+              ],
+              "rename": {
+                "param": {
+                  "npcId": "id"
+                }
+              },
+              "select": {
+                "exist": [
+                  "animation",
+                  "bg_color",
+                  "framebook",
+                  "id",
+                  "region",
+                  "version"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 0
+            },
+            {
+              "args": {
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "framebook",
+                    "orig": "framebook",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "npc_id",
+                    "orig": "npc_id",
+                    "reqd": true,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "region",
+                    "orig": "region",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "version",
+                    "orig": "version",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ],
+                "query": [
+                  {
+                    "kind": "query",
+                    "name": "bg_color",
+                    "orig": "bg_color",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "frame",
+                    "orig": "frame",
+                    "reqd": false,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/api/{region}/{version}/npc/{npcId}/render/{framebook}/{frame}",
+              "parts": [
+                "api",
+                "{region}",
+                "{version}",
+                "npc",
+                "{npc_id}",
+                "render",
+                "{framebook}",
+                "{frame}"
+              ],
+              "rename": {
+                "param": {
+                  "npcId": "npc_id"
+                }
+              },
+              "select": {
+                "exist": [
+                  "bg_color",
+                  "frame",
+                  "framebook",
+                  "npc_id",
+                  "region",
+                  "version"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 1
+            },
+            {
+              "args": {
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "region",
+                    "orig": "region",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "version",
+                    "orig": "version",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ],
+                "query": [
+                  {
+                    "example": 2147483647,
+                    "kind": "query",
+                    "name": "count",
+                    "orig": "count",
+                    "reqd": false,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "example": "",
+                    "kind": "query",
+                    "name": "search_for",
+                    "orig": "search_for",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "example": 0,
+                    "kind": "query",
+                    "name": "start_at",
+                    "orig": "start_at",
+                    "reqd": false,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/api/{region}/{version}/npc",
+              "parts": [
+                "api",
+                "{region}",
+                "{version}",
+                "npc"
+              ],
+              "select": {
+                "exist": [
+                  "count",
+                  "region",
+                  "search_for",
+                  "start_at",
+                  "version"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 2
+            },
+            {
+              "args": {
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "region",
+                    "orig": "region",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "version",
+                    "orig": "version",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ],
+                "query": [
+                  {
+                    "example": 2147483647,
+                    "kind": "query",
+                    "name": "count",
+                    "orig": "count",
+                    "reqd": false,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "example": "",
+                    "kind": "query",
+                    "name": "search_for",
+                    "orig": "search_for",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "example": 0,
+                    "kind": "query",
+                    "name": "start_at",
+                    "orig": "start_at",
+                    "reqd": false,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/api/{region}/{version}/npc/count",
+              "parts": [
+                "api",
+                "{region}",
+                "{version}",
+                "npc",
+                "count"
+              ],
+              "select": {
+                "$action": "count",
+                "exist": [
+                  "count",
+                  "region",
+                  "search_for",
+                  "start_at",
+                  "version"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 3
+            },
+            {
+              "args": {
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "id",
+                    "orig": "npc_id",
+                    "reqd": true,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "region",
+                    "orig": "region",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "version",
+                    "orig": "version",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/api/{region}/{version}/npc/{npcId}",
+              "parts": [
+                "api",
+                "{region}",
+                "{version}",
+                "npc",
+                "{id}"
+              ],
+              "rename": {
+                "param": {
+                  "npcId": "id"
+                }
+              },
+              "select": {
+                "exist": [
+                  "id",
+                  "region",
+                  "version"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 4
+            },
+            {
+              "args": {
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "id",
+                    "orig": "npc_id",
+                    "reqd": true,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "region",
+                    "orig": "region",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "version",
+                    "orig": "version",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/api/{region}/{version}/npc/{npcId}/download",
+              "parts": [
+                "api",
+                "{region}",
+                "{version}",
+                "npc",
+                "{id}",
+                "download"
+              ],
+              "rename": {
+                "param": {
+                  "npcId": "id"
+                }
+              },
+              "select": {
+                "$action": "download",
+                "exist": [
+                  "id",
+                  "region",
+                  "version"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 5
+            },
+            {
+              "args": {
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "id",
+                    "orig": "npc_id",
+                    "reqd": true,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "region",
+                    "orig": "region",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "version",
+                    "orig": "version",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/api/{region}/{version}/npc/{npcId}/icon",
+              "parts": [
+                "api",
+                "{region}",
+                "{version}",
+                "npc",
+                "{id}",
+                "icon"
+              ],
+              "rename": {
+                "param": {
+                  "npcId": "id"
+                }
+              },
+              "select": {
+                "$action": "icon",
+                "exist": [
+                  "id",
+                  "region",
+                  "version"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 6
+            },
+            {
+              "args": {
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "id",
+                    "orig": "npc_id",
+                    "reqd": true,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "region",
+                    "orig": "region",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "version",
+                    "orig": "version",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/api/{region}/{version}/npc/{npcId}/name",
+              "parts": [
+                "api",
+                "{region}",
+                "{version}",
+                "npc",
+                "{id}",
+                "name"
+              ],
+              "rename": {
+                "param": {
+                  "npcId": "id"
+                }
+              },
+              "select": {
+                "$action": "name",
+                "exist": [
+                  "id",
+                  "region",
+                  "version"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 7
+            }
+          ],
+          "input": "data",
+          "key$": "load"
+        }
+      },
+      "relations": {
+        "ancestors": [
+          [
+            "api"
+          ],
+          [
+            "api",
+            "animated"
+          ],
+          [
+            "api",
+            "npc",
+            "render"
+          ]
+        ]
+      }
+    },
+    "nxf": {
+      "fields": [],
+      "name": "nxf",
+      "op": {
+        "load": {
+          "name": "load",
+          "points": [
+            {
+              "method": "GET",
+              "orig": "/api/about",
+              "parts": [
+                "api",
+                "about"
+              ],
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "args": {},
+              "select": {},
+              "index$": 0
+            },
+            {
+              "method": "GET",
+              "orig": "/api/banners",
+              "parts": [
+                "api",
+                "banners"
+              ],
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "args": {},
+              "select": {},
+              "index$": 1
+            }
+          ],
+          "input": "data",
+          "key$": "load"
+        }
+      },
+      "relations": {
+        "ancestors": []
+      }
+    },
+    "performance_metric": {
+      "fields": [
+        {
+          "name": "active_request",
+          "req": false,
+          "type": "`$INTEGER`",
+          "active": true,
+          "index$": 0
+        },
+        {
+          "name": "average_response_time_m",
+          "req": false,
+          "type": "`$NUMBER`",
+          "active": true,
+          "index$": 1
+        },
+        {
+          "name": "cache",
+          "req": false,
+          "type": "`$OBJECT`",
+          "active": true,
+          "index$": 2
+        },
+        {
+          "name": "errors_by_type",
+          "req": false,
+          "type": "`$OBJECT`",
+          "active": true,
+          "index$": 3
+        },
+        {
+          "name": "last_updated",
+          "req": false,
+          "type": "`$STRING`",
+          "active": true,
+          "index$": 4
+        },
+        {
+          "name": "memory_used_byte",
+          "req": false,
+          "type": "`$INTEGER`",
+          "active": true,
+          "index$": 5
+        },
+        {
+          "name": "redis_cache",
+          "req": false,
+          "type": "`$OBJECT`",
+          "active": true,
+          "index$": 6
+        },
+        {
+          "name": "requests_per_second",
+          "req": false,
+          "type": "`$NUMBER`",
+          "active": true,
+          "index$": 7
+        },
+        {
+          "name": "start_time",
+          "req": false,
+          "type": "`$STRING`",
+          "active": true,
+          "index$": 8
+        },
+        {
+          "name": "system",
+          "req": false,
+          "type": "`$OBJECT`",
+          "active": true,
+          "index$": 9
+        },
+        {
+          "name": "total_error",
+          "req": false,
+          "type": "`$INTEGER`",
+          "active": true,
+          "index$": 10
+        },
+        {
+          "name": "total_request",
+          "req": false,
+          "type": "`$INTEGER`",
+          "active": true,
+          "index$": 11
+        },
+        {
+          "name": "wz_properties_loaded",
+          "req": false,
+          "type": "`$INTEGER`",
+          "active": true,
+          "index$": 12
+        }
+      ],
+      "name": "performance_metric",
+      "op": {
+        "load": {
+          "name": "load",
+          "points": [
+            {
+              "method": "GET",
+              "orig": "/api/metrics",
+              "parts": [
+                "api",
+                "metrics"
+              ],
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "args": {},
+              "select": {},
+              "index$": 0
+            }
+          ],
+          "input": "data",
+          "key$": "load"
+        }
+      },
+      "relations": {
+        "ancestors": []
+      }
+    },
+    "pet": {
+      "fields": [],
+      "name": "pet",
+      "op": {
+        "load": {
+          "name": "load",
+          "points": [
+            {
+              "args": {
+                "params": [
+                  {
+                    "example": "stand0",
+                    "kind": "param",
+                    "name": "animation",
+                    "orig": "animation",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "pet_id",
+                    "orig": "pet_id",
+                    "reqd": true,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "region",
+                    "orig": "region",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "version",
+                    "orig": "version",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ],
+                "query": [
+                  {
+                    "example": 0,
+                    "kind": "query",
+                    "name": "frame",
+                    "orig": "frame",
+                    "reqd": false,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "example": -1,
+                    "kind": "query",
+                    "name": "pet_equip",
+                    "orig": "pet_equip",
+                    "reqd": false,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/api/{region}/{version}/pet/{petId}/render/{animation}/{frame}/{petEquip}",
+              "parts": [
+                "api",
+                "{region}",
+                "{version}",
+                "pet",
+                "{pet_id}",
+                "render",
+                "{animation}",
+                "{frame}",
+                "{pet_equip}"
+              ],
+              "rename": {
+                "param": {
+                  "petEquip": "pet_equip",
+                  "petId": "pet_id"
+                }
+              },
+              "select": {
+                "exist": [
+                  "animation",
+                  "frame",
+                  "pet_equip",
+                  "pet_id",
+                  "region",
+                  "version"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 0
+            },
+            {
+              "args": {
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "id",
+                    "orig": "pet_id",
+                    "reqd": true,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "region",
+                    "orig": "region",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "example": "stand0",
+                    "kind": "param",
+                    "name": "render_id",
+                    "orig": "animation",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "version",
+                    "orig": "version",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ],
+                "query": [
+                  {
+                    "example": "",
+                    "kind": "query",
+                    "name": "bg_color",
+                    "orig": "bg_color",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "example": -1,
+                    "kind": "query",
+                    "name": "pet_equip",
+                    "orig": "pet_equip",
+                    "reqd": false,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/api/{region}/{version}/pet/{petId}/render/{animation}/animated/{petEquip}",
+              "parts": [
+                "api",
+                "{region}",
+                "{version}",
+                "pet",
+                "{id}",
+                "render",
+                "{render_id}",
+                "animated",
+                "{pet_equip}"
+              ],
+              "rename": {
+                "param": {
+                  "animation": "render_id",
+                  "petEquip": "pet_equip",
+                  "petId": "id"
+                }
+              },
+              "select": {
+                "exist": [
+                  "bg_color",
+                  "id",
+                  "pet_equip",
+                  "region",
+                  "render_id",
+                  "version"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 1
+            },
+            {
+              "args": {
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "id",
+                    "orig": "pet_id",
+                    "reqd": true,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "region",
+                    "orig": "region",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "version",
+                    "orig": "version",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/api/{region}/{version}/pet/{petId}",
+              "parts": [
+                "api",
+                "{region}",
+                "{version}",
+                "pet",
+                "{id}"
+              ],
+              "rename": {
+                "param": {
+                  "petId": "id"
+                }
+              },
+              "select": {
+                "exist": [
+                  "id",
+                  "region",
+                  "version"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 2
+            },
+            {
+              "args": {
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "id",
+                    "orig": "pet_id",
+                    "reqd": true,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "region",
+                    "orig": "region",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "version",
+                    "orig": "version",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/api/{region}/{version}/pet/{petId}/actions",
+              "parts": [
+                "api",
+                "{region}",
+                "{version}",
+                "pet",
+                "{id}",
+                "actions"
+              ],
+              "rename": {
+                "param": {
+                  "petId": "id"
+                }
+              },
+              "select": {
+                "$action": "action",
+                "exist": [
+                  "id",
+                  "region",
+                  "version"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 3
+            },
+            {
+              "args": {
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "id",
+                    "orig": "pet_id",
+                    "reqd": true,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "region",
+                    "orig": "region",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "version",
+                    "orig": "version",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/api/{region}/{version}/pet/{petId}/download",
+              "parts": [
+                "api",
+                "{region}",
+                "{version}",
+                "pet",
+                "{id}",
+                "download"
+              ],
+              "rename": {
+                "param": {
+                  "petId": "id"
+                }
+              },
+              "select": {
+                "$action": "download",
+                "exist": [
+                  "id",
+                  "region",
+                  "version"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 4
+            },
+            {
+              "args": {
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "id",
+                    "orig": "pet_id",
+                    "reqd": true,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "region",
+                    "orig": "region",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "version",
+                    "orig": "version",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/api/{region}/{version}/pet/{petId}/name",
+              "parts": [
+                "api",
+                "{region}",
+                "{version}",
+                "pet",
+                "{id}",
+                "name"
+              ],
+              "rename": {
+                "param": {
+                  "petId": "id"
+                }
+              },
+              "select": {
+                "$action": "name",
+                "exist": [
+                  "id",
+                  "region",
+                  "version"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 5
+            },
+            {
+              "args": {
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "region",
+                    "orig": "region",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "version",
+                    "orig": "version",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/api/{region}/{version}/pet",
+              "parts": [
+                "api",
+                "{region}",
+                "{version}",
+                "pet"
+              ],
+              "select": {
+                "exist": [
+                  "region",
+                  "version"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 6
+            },
+            {
+              "args": {
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "region",
+                    "orig": "region",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "version",
+                    "orig": "version",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/api/{region}/{version}/pet/count",
+              "parts": [
+                "api",
+                "{region}",
+                "{version}",
+                "pet",
+                "count"
+              ],
+              "select": {
+                "$action": "count",
+                "exist": [
+                  "region",
+                  "version"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 7
+            }
+          ],
+          "input": "data",
+          "key$": "load"
+        }
+      },
+      "relations": {
+        "ancestors": [
+          [
+            "api"
+          ],
+          [
+            "api",
+            "render",
+            "animated"
+          ],
+          [
+            "api",
+            "pet",
+            "render"
+          ]
+        ]
+      }
+    },
+    "quest": {
+      "fields": [],
+      "name": "quest",
+      "op": {
+        "load": {
+          "name": "load",
+          "points": [
+            {
+              "args": {
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "region",
+                    "orig": "region",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "version",
+                    "orig": "version",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ],
+                "query": [
+                  {
+                    "kind": "query",
+                    "name": "count",
+                    "orig": "count",
+                    "reqd": false,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "search_for",
+                    "orig": "search_for",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "example": 0,
+                    "kind": "query",
+                    "name": "start_position",
+                    "orig": "start_position",
+                    "reqd": false,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/api/{region}/{version}/quest",
+              "parts": [
+                "api",
+                "{region}",
+                "{version}",
+                "quest"
+              ],
+              "select": {
+                "exist": [
+                  "count",
+                  "region",
+                  "search_for",
+                  "start_position",
+                  "version"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 0
+            },
+            {
+              "args": {
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "region",
+                    "orig": "region",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "version",
+                    "orig": "version",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ],
+                "query": [
+                  {
+                    "kind": "query",
+                    "name": "count",
+                    "orig": "count",
+                    "reqd": false,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "search_for",
+                    "orig": "search_for",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "example": 0,
+                    "kind": "query",
+                    "name": "start_position",
+                    "orig": "start_position",
+                    "reqd": false,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/api/{region}/{version}/quest/count",
+              "parts": [
+                "api",
+                "{region}",
+                "{version}",
+                "quest",
+                "count"
+              ],
+              "select": {
+                "$action": "count",
+                "exist": [
+                  "count",
+                  "region",
+                  "search_for",
+                  "start_position",
+                  "version"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 1
+            },
+            {
+              "args": {
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "category",
+                    "orig": "category",
+                    "reqd": true,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "region",
+                    "orig": "region",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "version",
+                    "orig": "version",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/api/{region}/{version}/quest/category/{category}",
+              "parts": [
+                "api",
+                "{region}",
+                "{version}",
+                "quest",
+                "category",
+                "{category}"
+              ],
+              "select": {
+                "exist": [
+                  "category",
+                  "region",
+                  "version"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 2
+            },
+            {
+              "args": {
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "id",
+                    "orig": "quest_id",
+                    "reqd": true,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "region",
+                    "orig": "region",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "version",
+                    "orig": "version",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/api/{region}/{version}/quest/{questId}",
+              "parts": [
+                "api",
+                "{region}",
+                "{version}",
+                "quest",
+                "{id}"
+              ],
+              "rename": {
+                "param": {
+                  "questId": "id"
+                }
+              },
+              "select": {
+                "exist": [
+                  "id",
+                  "region",
+                  "version"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 3
+            },
+            {
+              "args": {
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "id",
+                    "orig": "quest_id",
+                    "reqd": true,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "region",
+                    "orig": "region",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "version",
+                    "orig": "version",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/api/{region}/{version}/quest/{questId}/icon",
+              "parts": [
+                "api",
+                "{region}",
+                "{version}",
+                "quest",
+                "{id}",
+                "icon"
+              ],
+              "rename": {
+                "param": {
+                  "questId": "id"
+                }
+              },
+              "select": {
+                "$action": "icon",
+                "exist": [
+                  "id",
+                  "region",
+                  "version"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 4
+            },
+            {
+              "args": {
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "id",
+                    "orig": "quest_id",
+                    "reqd": true,
+                    "type": "`$INTEGER`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "region",
+                    "orig": "region",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "version",
+                    "orig": "version",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/api/{region}/{version}/quest/{questId}/name",
+              "parts": [
+                "api",
+                "{region}",
+                "{version}",
+                "quest",
+                "{id}",
+                "name"
+              ],
+              "rename": {
+                "param": {
+                  "questId": "id"
+                }
+              },
+              "select": {
+                "$action": "name",
+                "exist": [
+                  "id",
+                  "region",
+                  "version"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 5
+            },
+            {
+              "args": {
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "region",
+                    "orig": "region",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "version",
+                    "orig": "version",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/api/{region}/{version}/quest/category",
+              "parts": [
+                "api",
+                "{region}",
+                "{version}",
+                "quest",
+                "category"
+              ],
+              "select": {
+                "$action": "category",
+                "exist": [
+                  "region",
+                  "version"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 6
+            }
+          ],
+          "input": "data",
+          "key$": "load"
+        }
+      },
+      "relations": {
+        "ancestors": [
+          [
+            "api"
+          ],
+          [
+            "api",
+            "category"
+          ]
+        ]
+      }
+    },
+    "system": {
+      "fields": [
+        {
+          "name": "cpu_usage_percent",
+          "req": false,
+          "type": "`$NUMBER`",
+          "active": true,
+          "index$": 0
+        },
+        {
+          "name": "gc_gen0_collection",
+          "req": false,
+          "type": "`$INTEGER`",
+          "active": true,
+          "index$": 1
+        },
+        {
+          "name": "gc_gen1_collection",
+          "req": false,
+          "type": "`$INTEGER`",
+          "active": true,
+          "index$": 2
+        },
+        {
+          "name": "gc_gen2_collection",
+          "req": false,
+          "type": "`$INTEGER`",
+          "active": true,
+          "index$": 3
+        },
+        {
+          "name": "thread_count",
+          "req": false,
+          "type": "`$INTEGER`",
+          "active": true,
+          "index$": 4
+        },
+        {
+          "name": "total_memory_byte",
+          "req": false,
+          "type": "`$INTEGER`",
+          "active": true,
+          "index$": 5
+        },
+        {
+          "name": "used_memory_byte",
+          "req": false,
+          "type": "`$INTEGER`",
+          "active": true,
+          "index$": 6
+        }
+      ],
+      "name": "system",
+      "op": {
+        "load": {
+          "name": "load",
+          "points": [
+            {
+              "method": "GET",
+              "orig": "/api/metrics/system",
+              "parts": [
+                "api",
+                "metrics",
+                "system"
+              ],
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "args": {},
+              "select": {},
+              "index$": 0
+            }
+          ],
+          "input": "data",
+          "key$": "load"
+        }
+      },
+      "relations": {
+        "ancestors": []
+      }
+    },
+    "tip": {
+      "fields": [],
+      "name": "tip",
+      "op": {
+        "load": {
+          "name": "load",
+          "points": [
+            {
+              "args": {
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "region",
+                    "orig": "region",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "version",
+                    "orig": "version",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/api/{region}/{version}/tips",
+              "parts": [
+                "api",
+                "{region}",
+                "{version}",
+                "tips"
+              ],
+              "select": {
+                "exist": [
+                  "region",
+                  "version"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 0
+            }
+          ],
+          "input": "data",
+          "key$": "load"
+        }
+      },
+      "relations": {
+        "ancestors": [
+          [
+            "api"
+          ]
+        ]
+      }
+    },
+    "wzn": {
+      "fields": [],
+      "name": "wzn",
+      "op": {
+        "load": {
+          "name": "load",
+          "points": [
+            {
+              "args": {
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "region",
+                    "orig": "region",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "version",
+                    "orig": "version",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/api/wz",
+              "parts": [
+                "api",
+                "wz"
+              ],
+              "select": {
+                "exist": [
+                  "region",
+                  "version"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 0
+            }
+          ],
+          "input": "data",
+          "key$": "load"
+        }
+      },
+      "relations": {
+        "ancestors": []
+      }
+    },
+    "wzn2": {
+      "fields": [],
+      "name": "wzn2",
+      "op": {
+        "load": {
+          "name": "load",
+          "points": [
+            {
+              "args": {
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "path",
+                    "orig": "path",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "region",
+                    "orig": "region",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "version",
+                    "orig": "version",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ],
+                "query": [
+                  {
+                    "kind": "query",
+                    "name": "region",
+                    "orig": "region",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "version",
+                    "orig": "version",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/api/wz/audio/{region}/{version}/{path}",
+              "parts": [
+                "api",
+                "wz",
+                "audio",
+                "{region}",
+                "{version}",
+                "{path}"
+              ],
+              "select": {
+                "exist": [
+                  "path",
+                  "region",
+                  "version"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 0
+            }
+          ],
+          "input": "data",
+          "key$": "load"
+        }
+      },
+      "relations": {
+        "ancestors": [
+          [
+            "audio"
+          ]
+        ]
+      }
+    },
+    "wzn3": {
+      "fields": [],
+      "name": "wzn3",
+      "op": {
+        "load": {
+          "name": "load",
+          "points": [
+            {
+              "args": {
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "path",
+                    "orig": "path",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "region",
+                    "orig": "region",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "version",
+                    "orig": "version",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ],
+                "query": [
+                  {
+                    "example": false,
+                    "kind": "query",
+                    "name": "raw_image",
+                    "orig": "raw_image",
+                    "reqd": false,
+                    "type": "`$BOOLEAN`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "region",
+                    "orig": "region",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "version",
+                    "orig": "version",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/api/wz/export/{region}/{version}/{path}",
+              "parts": [
+                "api",
+                "wz",
+                "export",
+                "{region}",
+                "{version}",
+                "{path}"
+              ],
+              "select": {
+                "exist": [
+                  "path",
+                  "raw_image",
+                  "region",
+                  "version"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 0
+            }
+          ],
+          "input": "data",
+          "key$": "load"
+        }
+      },
+      "relations": {
+        "ancestors": [
+          [
+            "export"
+          ]
+        ]
+      }
+    },
+    "wzn4": {
+      "fields": [],
+      "name": "wzn4",
+      "op": {
+        "load": {
+          "name": "load",
+          "points": [
+            {
+              "args": {
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "path",
+                    "orig": "path",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "region",
+                    "orig": "region",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "version",
+                    "orig": "version",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ],
+                "query": [
+                  {
+                    "kind": "query",
+                    "name": "region",
+                    "orig": "region",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "version",
+                    "orig": "version",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/api/wz/img/{region}/{version}/{path}",
+              "parts": [
+                "api",
+                "wz",
+                "img",
+                "{region}",
+                "{version}",
+                "{path}"
+              ],
+              "select": {
+                "exist": [
+                  "path",
+                  "region",
+                  "version"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 0
+            }
+          ],
+          "input": "data",
+          "key$": "load"
+        }
+      },
+      "relations": {
+        "ancestors": [
+          [
+            "img"
+          ]
+        ]
+      }
+    },
+    "wzn5": {
+      "fields": [],
+      "name": "wzn5",
+      "op": {
+        "load": {
+          "name": "load",
+          "points": [
+            {
+              "args": {
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "path",
+                    "orig": "path",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "region",
+                    "orig": "region",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "version",
+                    "orig": "version",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ],
+                "query": [
+                  {
+                    "kind": "query",
+                    "name": "region",
+                    "orig": "region",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "version",
+                    "orig": "version",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/api/wz/lookup/{region}/{version}/{path}",
+              "parts": [
+                "api",
+                "wz",
+                "lookup",
+                "{region}",
+                "{version}",
+                "{path}"
+              ],
+              "select": {
+                "exist": [
+                  "path",
+                  "region",
+                  "version"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 0
+            }
+          ],
+          "input": "data",
+          "key$": "load"
+        }
+      },
+      "relations": {
+        "ancestors": [
+          [
+            "lookup"
+          ]
+        ]
+      }
+    },
+    "wzn6": {
+      "fields": [],
+      "name": "wzn6",
+      "op": {
+        "load": {
+          "name": "load",
+          "points": [
+            {
+              "args": {
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "path",
+                    "orig": "path",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "region",
+                    "orig": "region",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "version",
+                    "orig": "version",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ],
+                "query": [
+                  {
+                    "kind": "query",
+                    "name": "region",
+                    "orig": "region",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "query",
+                    "name": "version",
+                    "orig": "version",
+                    "reqd": false,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/api/wz/{region}/{version}/{path}",
+              "parts": [
+                "api",
+                "wz",
+                "{region}",
+                "{version}",
+                "{path}"
+              ],
+              "select": {
+                "exist": [
+                  "path",
+                  "region",
+                  "version"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 0
+            }
+          ],
+          "input": "data",
+          "key$": "load"
+        }
+      },
+      "relations": {
+        "ancestors": [
+          [
+            "wz"
+          ]
+        ]
+      }
+    },
+    "z_map": {
+      "fields": [],
+      "name": "z_map",
+      "op": {
+        "load": {
+          "name": "load",
+          "points": [
+            {
+              "args": {
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "region",
+                    "orig": "region",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "version",
+                    "orig": "version",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/api/{region}/{version}/zmap",
+              "parts": [
+                "api",
+                "{region}",
+                "{version}",
+                "zmap"
+              ],
+              "select": {
+                "exist": [
+                  "region",
+                  "version"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 0
+            },
+            {
+              "args": {
+                "params": [
+                  {
+                    "kind": "param",
+                    "name": "region",
+                    "orig": "region",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  },
+                  {
+                    "kind": "param",
+                    "name": "version",
+                    "orig": "version",
+                    "reqd": true,
+                    "type": "`$STRING`",
+                    "active": true
+                  }
+                ]
+              },
+              "method": "GET",
+              "orig": "/api/{region}/{version}/zmap/smap",
+              "parts": [
+                "api",
+                "{region}",
+                "{version}",
+                "zmap",
+                "smap"
+              ],
+              "select": {
+                "exist": [
+                  "region",
+                  "version"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "active": true,
+              "index$": 1
+            }
+          ],
+          "input": "data",
+          "key$": "load"
+        }
+      },
+      "relations": {
+        "ancestors": [
+          [
+            "api"
+          ]
+        ]
+      }
+    }
+  }
+}
+
+
+const config = new Config()
+
+export {
+  config
+}
+

@@ -1,0 +1,42 @@
+{
+  "existing": {
+    "cache": {
+      "CACHE00": {
+        "eviction_count": "s3c",
+        "hit_count": "s3d",
+        "hit_ratio": 62,
+        "memory_usage": "s3f",
+        "miss_count": "s40",
+        "total_entry": "s41"
+      },
+      "CACHE01": {
+        "eviction_count": "s78",
+        "hit_count": "s79",
+        "hit_ratio": 122,
+        "memory_usage": "s7b",
+        "miss_count": "s7c",
+        "total_entry": "s7d"
+      },
+      "CACHE02": {
+        "eviction_count": "sb4",
+        "hit_count": "sb5",
+        "hit_ratio": 182,
+        "memory_usage": "sb7",
+        "miss_count": "sb8",
+        "total_entry": "sb9"
+      }
+    }
+  },
+  "new": {
+    "cache": {
+      "cache_ref01": {
+        "eviction_count": "sf0",
+        "hit_count": "sf1",
+        "hit_ratio": 242,
+        "memory_usage": "sf3",
+        "miss_count": "sf4",
+        "total_entry": "sf5"
+      }
+    }
+  }
+}

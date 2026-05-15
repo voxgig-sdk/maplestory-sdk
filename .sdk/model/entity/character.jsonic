@@ -1,0 +1,1340 @@
+# Entity: character
+
+main: kit: entity: character: {
+
+  alias: field: {}
+
+  name: "character"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "frame"
+                orig: "frame"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "region"
+                orig: "region"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "skin_id"
+                orig: "skin_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "version"
+                orig: "version"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "animation"
+                orig: "animation"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: ""
+                kind: "query"
+                name: "bg_color"
+                orig: "bg_color"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "flip_x"
+                orig: "flip_x"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                kind: "query"
+                name: "item"
+                orig: "item"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "name"
+                orig: "name"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "padding"
+                orig: "padding"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "padding"
+                orig: "padding"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "render_mode"
+                orig: "render_mode"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "resize"
+                orig: "resize"
+                reqd: false
+                type: "`$NUMBER`"
+              }
+              {
+                kind: "query"
+                name: "show_ear"
+                orig: "show_ear"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                kind: "query"
+                name: "show_ear"
+                orig: "show_ear"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                kind: "query"
+                name: "show_high_lef_ear"
+                orig: "show_high_lef_ear"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                kind: "query"
+                name: "show_high_lef_ear"
+                orig: "show_high_lef_ear"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                kind: "query"
+                name: "show_lef_ear"
+                orig: "show_lef_ear"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                kind: "query"
+                name: "show_lef_ear"
+                orig: "show_lef_ear"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/{region}/{version}/Character/animated/{skinId}/{items}/{animation}/{frame}"
+          parts: [
+            "api"
+            "{region}"
+            "{version}"
+            "Character"
+            "animated"
+            "{skin_id}"
+            "{item}"
+            "{animation}"
+            "{frame}"
+          ]
+          rename: {
+            param: {
+              items: "item"
+              skinId: "skin_id"
+            }
+          }
+          select: {
+            exist: [
+              "animation"
+              "bg_color"
+              "flip_x"
+              "frame"
+              "item"
+              "name"
+              "padding"
+              "region"
+              "render_mode"
+              "resize"
+              "show_ear"
+              "show_high_lef_ear"
+              "show_lef_ear"
+              "skin_id"
+              "version"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "region"
+                orig: "region"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "skin_id"
+                orig: "skin_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "version"
+                orig: "version"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "animation"
+                orig: "animation"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "flip_x"
+                orig: "flip_x"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                example: 0
+                kind: "query"
+                name: "frame"
+                orig: "frame"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: "1102039"
+                kind: "query"
+                name: "item"
+                orig: "item"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "name"
+                orig: "name"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "padding"
+                orig: "padding"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "render_mode"
+                orig: "render_mode"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "resize"
+                orig: "resize"
+                reqd: false
+                type: "`$NUMBER`"
+              }
+              {
+                kind: "query"
+                name: "show_ear"
+                orig: "show_ear"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                kind: "query"
+                name: "show_high_lef_ear"
+                orig: "show_high_lef_ear"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                kind: "query"
+                name: "show_lef_ear"
+                orig: "show_lef_ear"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/{region}/{version}/Character/{skinId}/{items}/{animation}/{frame}"
+          parts: [
+            "api"
+            "{region}"
+            "{version}"
+            "Character"
+            "{skin_id}"
+            "{item}"
+            "{animation}"
+            "{frame}"
+          ]
+          rename: {
+            param: {
+              items: "item"
+              skinId: "skin_id"
+            }
+          }
+          select: {
+            exist: [
+              "animation"
+              "flip_x"
+              "frame"
+              "item"
+              "name"
+              "padding"
+              "region"
+              "render_mode"
+              "resize"
+              "show_ear"
+              "show_high_lef_ear"
+              "show_lef_ear"
+              "skin_id"
+              "version"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "region"
+                orig: "region"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "skin_id"
+                orig: "skin_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "version"
+                orig: "version"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "animation"
+                orig: "animation"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "flip_x"
+                orig: "flip_x"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                example: 0
+                kind: "query"
+                name: "frame"
+                orig: "frame"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: "1102039"
+                kind: "query"
+                name: "item"
+                orig: "item"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "name"
+                orig: "name"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "padding"
+                orig: "padding"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "resize"
+                orig: "resize"
+                reqd: false
+                type: "`$NUMBER`"
+              }
+              {
+                kind: "query"
+                name: "show_ear"
+                orig: "show_ear"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                kind: "query"
+                name: "show_high_lef_ear"
+                orig: "show_high_lef_ear"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                kind: "query"
+                name: "show_lef_ear"
+                orig: "show_lef_ear"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/{region}/{version}/Character/center/{skinId}/{items}/{animation}/{frame}"
+          parts: [
+            "api"
+            "{region}"
+            "{version}"
+            "Character"
+            "center"
+            "{skin_id}"
+            "{item}"
+            "{animation}"
+            "{frame}"
+          ]
+          rename: {
+            param: {
+              items: "item"
+              skinId: "skin_id"
+            }
+          }
+          select: {
+            exist: [
+              "animation"
+              "flip_x"
+              "frame"
+              "item"
+              "name"
+              "padding"
+              "region"
+              "resize"
+              "show_ear"
+              "show_high_lef_ear"
+              "show_lef_ear"
+              "skin_id"
+              "version"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "region"
+                orig: "region"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "skin_id"
+                orig: "skin_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "version"
+                orig: "version"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "animation"
+                orig: "animation"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "flip_x"
+                orig: "flip_x"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                example: 0
+                kind: "query"
+                name: "frame"
+                orig: "frame"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: "1102039"
+                kind: "query"
+                name: "item"
+                orig: "item"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "name"
+                orig: "name"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "padding"
+                orig: "padding"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "resize"
+                orig: "resize"
+                reqd: false
+                type: "`$NUMBER`"
+              }
+              {
+                example: false
+                kind: "query"
+                name: "show_ear"
+                orig: "show_ear"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                kind: "query"
+                name: "show_ear"
+                orig: "show_ear"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                kind: "query"
+                name: "show_high_lef_ear"
+                orig: "show_high_lef_ear"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                kind: "query"
+                name: "show_lef_ear"
+                orig: "show_lef_ear"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/{region}/{version}/Character/compact/{skinId}/{items}/{animation}/{frame}"
+          parts: [
+            "api"
+            "{region}"
+            "{version}"
+            "Character"
+            "compact"
+            "{skin_id}"
+            "{item}"
+            "{animation}"
+            "{frame}"
+          ]
+          rename: {
+            param: {
+              items: "item"
+              skinId: "skin_id"
+            }
+          }
+          select: {
+            exist: [
+              "animation"
+              "flip_x"
+              "frame"
+              "item"
+              "name"
+              "padding"
+              "region"
+              "resize"
+              "show_ear"
+              "show_high_lef_ear"
+              "show_lef_ear"
+              "skin_id"
+              "version"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "region"
+                orig: "region"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "skin_id"
+                orig: "skin_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "version"
+                orig: "version"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "animation"
+                orig: "animation"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "flip_x"
+                orig: "flip_x"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                example: 0
+                kind: "query"
+                name: "frame"
+                orig: "frame"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: "1102039"
+                kind: "query"
+                name: "item"
+                orig: "item"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "name"
+                orig: "name"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "padding"
+                orig: "padding"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "resize"
+                orig: "resize"
+                reqd: false
+                type: "`$NUMBER`"
+              }
+              {
+                kind: "query"
+                name: "show_ear"
+                orig: "show_ear"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                kind: "query"
+                name: "show_high_lef_ear"
+                orig: "show_high_lef_ear"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                kind: "query"
+                name: "show_lef_ear"
+                orig: "show_lef_ear"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/{region}/{version}/Character/feetCenter/{skinId}/{items}/{animation}/{frame}"
+          parts: [
+            "api"
+            "{region}"
+            "{version}"
+            "Character"
+            "feetCenter"
+            "{skin_id}"
+            "{item}"
+            "{animation}"
+            "{frame}"
+          ]
+          rename: {
+            param: {
+              items: "item"
+              skinId: "skin_id"
+            }
+          }
+          select: {
+            exist: [
+              "animation"
+              "flip_x"
+              "frame"
+              "item"
+              "name"
+              "padding"
+              "region"
+              "resize"
+              "show_ear"
+              "show_high_lef_ear"
+              "show_lef_ear"
+              "skin_id"
+              "version"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "region"
+                orig: "region"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "skin_id"
+                orig: "skin_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "version"
+                orig: "version"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "animation"
+                orig: "animation"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "flip_x"
+                orig: "flip_x"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                example: 0
+                kind: "query"
+                name: "frame"
+                orig: "frame"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: "1102039"
+                kind: "query"
+                name: "item"
+                orig: "item"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "name"
+                orig: "name"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "padding"
+                orig: "padding"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "resize"
+                orig: "resize"
+                reqd: false
+                type: "`$NUMBER`"
+              }
+              {
+                kind: "query"
+                name: "show_ear"
+                orig: "show_ear"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                kind: "query"
+                name: "show_high_lef_ear"
+                orig: "show_high_lef_ear"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                kind: "query"
+                name: "show_lef_ear"
+                orig: "show_lef_ear"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/{region}/{version}/Character/navelCenter/{skinId}/{items}/{animation}/{frame}"
+          parts: [
+            "api"
+            "{region}"
+            "{version}"
+            "Character"
+            "navelCenter"
+            "{skin_id}"
+            "{item}"
+            "{animation}"
+            "{frame}"
+          ]
+          rename: {
+            param: {
+              items: "item"
+              skinId: "skin_id"
+            }
+          }
+          select: {
+            exist: [
+              "animation"
+              "flip_x"
+              "frame"
+              "item"
+              "name"
+              "padding"
+              "region"
+              "resize"
+              "show_ear"
+              "show_high_lef_ear"
+              "show_lef_ear"
+              "skin_id"
+              "version"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "region"
+                orig: "region"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "skin_id"
+                orig: "skin_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "version"
+                orig: "version"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "flip_x"
+                orig: "flip_x"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                kind: "query"
+                name: "format"
+                orig: "format"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: "1102039"
+                kind: "query"
+                name: "item"
+                orig: "item"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "name"
+                orig: "name"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: 2
+                kind: "query"
+                name: "padding"
+                orig: "padding"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "padding"
+                orig: "padding"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "render_mode"
+                orig: "render_mode"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "resize"
+                orig: "resize"
+                reqd: false
+                type: "`$NUMBER`"
+              }
+              {
+                example: false
+                kind: "query"
+                name: "show_ear"
+                orig: "show_ear"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                kind: "query"
+                name: "show_ear"
+                orig: "show_ear"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                example: false
+                kind: "query"
+                name: "show_high_lef_ear"
+                orig: "show_high_lef_ear"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                kind: "query"
+                name: "show_high_lef_ear"
+                orig: "show_high_lef_ear"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                example: false
+                kind: "query"
+                name: "show_lef_ear"
+                orig: "show_lef_ear"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                kind: "query"
+                name: "show_lef_ear"
+                orig: "show_lef_ear"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/{region}/{version}/Character/download/{skinId}/{items}"
+          parts: [
+            "api"
+            "{region}"
+            "{version}"
+            "Character"
+            "download"
+            "{skin_id}"
+            "{item}"
+          ]
+          rename: {
+            param: {
+              items: "item"
+              skinId: "skin_id"
+            }
+          }
+          select: {
+            exist: [
+              "flip_x"
+              "format"
+              "item"
+              "name"
+              "padding"
+              "region"
+              "render_mode"
+              "resize"
+              "show_ear"
+              "show_high_lef_ear"
+              "show_lef_ear"
+              "skin_id"
+              "version"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "region"
+                orig: "region"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "version"
+                orig: "version"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "flip_x"
+                orig: "flip_x"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                example: "1102039"
+                kind: "query"
+                name: "item"
+                orig: "item"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "name"
+                orig: "name"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "padding"
+                orig: "padding"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "resize"
+                orig: "resize"
+                reqd: false
+                type: "`$NUMBER`"
+              }
+              {
+                kind: "query"
+                name: "show_ear"
+                orig: "show_ear"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                kind: "query"
+                name: "show_high_lef_ear"
+                orig: "show_high_lef_ear"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                kind: "query"
+                name: "show_lef_ear"
+                orig: "show_lef_ear"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/{region}/{version}/Character/actions/{items}"
+          parts: [
+            "api"
+            "{region}"
+            "{version}"
+            "Character"
+            "actions"
+            "{item}"
+          ]
+          rename: {
+            param: {
+              items: "item"
+            }
+          }
+          select: {
+            exist: [
+              "flip_x"
+              "item"
+              "name"
+              "padding"
+              "region"
+              "resize"
+              "show_ear"
+              "show_high_lef_ear"
+              "show_lef_ear"
+              "version"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "region"
+                orig: "region"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "version"
+                orig: "version"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "flip_x"
+                orig: "flip_x"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                kind: "query"
+                name: "name"
+                orig: "name"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "padding"
+                orig: "padding"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "resize"
+                orig: "resize"
+                reqd: false
+                type: "`$NUMBER`"
+              }
+              {
+                kind: "query"
+                name: "show_ear"
+                orig: "show_ear"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                kind: "query"
+                name: "show_high_lef_ear"
+                orig: "show_high_lef_ear"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                kind: "query"
+                name: "show_lef_ear"
+                orig: "show_lef_ear"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/{region}/{version}/Character"
+          parts: [
+            "api"
+            "{region}"
+            "{version}"
+            "Character"
+          ]
+          select: {
+            exist: [
+              "flip_x"
+              "name"
+              "padding"
+              "region"
+              "resize"
+              "show_ear"
+              "show_high_lef_ear"
+              "show_lef_ear"
+              "version"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "api"
+      ]
+      [
+        "api"
+        "action"
+      ]
+      [
+        "api"
+        "animated"
+      ]
+      [
+        "api"
+        "center"
+      ]
+      [
+        "api"
+        "compact"
+      ]
+      [
+        "api"
+        "download"
+      ]
+      [
+        "api"
+        "feet_center"
+      ]
+      [
+        "api"
+        "navel_center"
+      ]
+      [
+        "api"
+        "character"
+      ]
+    ]
+  }
+
+
+
+}

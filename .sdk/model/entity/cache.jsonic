@@ -1,0 +1,64 @@
+# Entity: cache
+
+main: kit: entity: cache: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "eviction_count"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "hit_count"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "hit_ratio"
+      req: false
+      type: "`$NUMBER`"
+    }
+    {
+      name: "memory_usage"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "miss_count"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "total_entry"
+      req: false
+      type: "`$INTEGER`"
+    }
+  ]
+
+  name: "cache"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          method: "GET"
+          orig: "/api/metrics/cache"
+          parts: [
+            "api"
+            "metrics"
+            "cache"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

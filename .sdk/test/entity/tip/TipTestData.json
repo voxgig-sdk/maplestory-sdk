@@ -1,0 +1,23 @@
+{
+  "existing": {
+    "tip": {
+      "TIP00": {
+        "region": "REGION01",
+        "version": "VERSION01"
+      },
+      "TIP01": {
+        "region": "REGION01",
+        "version": "VERSION01"
+      },
+      "TIP02": {
+        "region": "REGION01",
+        "version": "VERSION01"
+      }
+    }
+  },
+  "new": {
+    "tip": {
+      "tip_ref01": {}
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "existing": {
+    "quest": {
+      "QUEST00": {
+        "region": "REGION01",
+        "version": "VERSION01",
+        "category": "CATEGORY01"
+      },
+      "QUEST01": {
+        "region": "REGION01",
+        "version": "VERSION01",
+        "category": "CATEGORY01"
+      },
+      "QUEST02": {
+        "region": "REGION01",
+        "version": "VERSION01",
+        "category": "CATEGORY01"
+      }
+    }
+  },
+  "new": {
+    "quest": {
+      "quest_ref01": {}
+    }
+  }
+}

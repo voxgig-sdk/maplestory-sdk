@@ -1,0 +1,69 @@
+# Entity: system
+
+main: kit: entity: system: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "cpu_usage_percent"
+      req: false
+      type: "`$NUMBER`"
+    }
+    {
+      name: "gc_gen0_collection"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "gc_gen1_collection"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "gc_gen2_collection"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "thread_count"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "total_memory_byte"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "used_memory_byte"
+      req: false
+      type: "`$INTEGER`"
+    }
+  ]
+
+  name: "system"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          method: "GET"
+          orig: "/api/metrics/system"
+          parts: [
+            "api"
+            "metrics"
+            "system"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

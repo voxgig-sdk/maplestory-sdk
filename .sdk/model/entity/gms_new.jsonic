@@ -1,0 +1,87 @@
+# Entity: gms_new
+
+main: kit: entity: gms_new: {
+
+  alias: field: {}
+
+  name: "gms_new"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/gms/latest/news/article/{id}"
+          parts: [
+            "api"
+            "gms"
+            "latest"
+            "news"
+            "article"
+            "{id}"
+          ]
+          select: {
+            exist: [
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            query: [
+              {
+                example: "all"
+                kind: "query"
+                name: "type"
+                orig: "type"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/gms/latest/news/{type}"
+          parts: [
+            "api"
+            "gms"
+            "latest"
+            "news"
+            "{id}"
+          ]
+          rename: {
+            param: {
+              type: "id"
+            }
+          }
+          select: {
+            exist: [
+              "type"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

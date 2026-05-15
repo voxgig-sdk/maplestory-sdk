@@ -1,0 +1,22 @@
+# BasicClusterFlow
+
+main: kit: flow: BasicClusterFlow:
+{
+  entity: "cluster",
+  kind: "basic",
+  name: "BasicClusterFlow",
+  step: [
+    {
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "cluster_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicClusterFlow"
+}

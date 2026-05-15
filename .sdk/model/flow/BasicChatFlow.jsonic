@@ -1,0 +1,33 @@
+# BasicChatFlow
+
+main: kit: flow: BasicChatFlow:
+{
+  entity: "chat",
+  kind: "basic",
+  name: "BasicChatFlow",
+  step: [
+    {
+      input: {
+        ref: "chat_ref01",
+        srcdatavar: "chat_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "chat01",
+        region: "region01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-chat_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicChatFlow"
+}

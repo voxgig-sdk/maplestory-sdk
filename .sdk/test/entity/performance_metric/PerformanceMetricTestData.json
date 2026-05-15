@@ -1,0 +1,70 @@
+{
+  "existing": {
+    "performance_metric": {
+      "PERFORMANCE_METRIC00": {
+        "active_request": "s82",
+        "average_response_time_m": 131,
+        "cache": {},
+        "errors_by_type": {},
+        "last_updated": "s86",
+        "memory_used_byte": "s87",
+        "redis_cache": {},
+        "requests_per_second": 137,
+        "start_time": "s8a",
+        "system": {},
+        "total_error": "s8c",
+        "total_request": "s8d",
+        "wz_properties_loaded": "s8e"
+      },
+      "PERFORMANCE_METRIC01": {
+        "active_request": "s104",
+        "average_response_time_m": 261,
+        "cache": {},
+        "errors_by_type": {},
+        "last_updated": "s108",
+        "memory_used_byte": "s109",
+        "redis_cache": {},
+        "requests_per_second": 267,
+        "start_time": "s10c",
+        "system": {},
+        "total_error": "s10e",
+        "total_request": "s10f",
+        "wz_properties_loaded": "s110"
+      },
+      "PERFORMANCE_METRIC02": {
+        "active_request": "s186",
+        "average_response_time_m": 391,
+        "cache": {},
+        "errors_by_type": {},
+        "last_updated": "s18a",
+        "memory_used_byte": "s18b",
+        "redis_cache": {},
+        "requests_per_second": 397,
+        "start_time": "s18e",
+        "system": {},
+        "total_error": "s190",
+        "total_request": "s191",
+        "wz_properties_loaded": "s192"
+      }
+    }
+  },
+  "new": {
+    "performance_metric": {
+      "performance_metric_ref01": {
+        "active_request": "s208",
+        "average_response_time_m": 521,
+        "cache": {},
+        "errors_by_type": {},
+        "last_updated": "s20c",
+        "memory_used_byte": "s20d",
+        "redis_cache": {},
+        "requests_per_second": 527,
+        "start_time": "s210",
+        "system": {},
+        "total_error": "s212",
+        "total_request": "s213",
+        "wz_properties_loaded": "s214"
+      }
+    }
+  }
+}

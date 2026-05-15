@@ -1,0 +1,66 @@
+# Entity: health
+
+main: kit: entity: health: {
+
+  alias: field: {}
+
+  name: "health"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          method: "GET"
+          orig: "/api/health/alive"
+          parts: [
+            "api"
+            "health"
+            "alive"
+          ]
+          select: {
+            "$action": "alive"
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          method: "GET"
+          orig: "/api/health/ready"
+          parts: [
+            "api"
+            "health"
+            "ready"
+          ]
+          select: {
+            "$action": "ready"
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          method: "GET"
+          orig: "/api/health/start"
+          parts: [
+            "api"
+            "health"
+            "start"
+          ]
+          select: {
+            "$action": "start"
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

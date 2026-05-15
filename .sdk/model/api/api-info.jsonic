@@ -1,0 +1,27 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        email: "inumedia@inumedia.net"
+        name: "Senpai#1337"
+        url: "https://discord.gg/3SyrbAs"
+      }
+      description: "A simple API for MapleStory resources"
+      license: {
+        name: "Unlicensed"
+      }
+      servers: [
+        {
+          url: "https://maplestory.io"
+        }
+      ]
+      title: "MapleStory.IO"
+      version: "V3"
+    }
+  }
+}
+
+}

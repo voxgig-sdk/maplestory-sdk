@@ -1,0 +1,23 @@
+{
+  "existing": {
+    "music": {
+      "MUSIC00": {
+        "region": "REGION01",
+        "version": "VERSION01"
+      },
+      "MUSIC01": {
+        "region": "REGION01",
+        "version": "VERSION01"
+      },
+      "MUSIC02": {
+        "region": "REGION01",
+        "version": "VERSION01"
+      }
+    }
+  },
+  "new": {
+    "music": {
+      "music_ref01": {}
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "existing": {
+    "character": {
+      "CHARACTER00": {
+        "frame": "FRAME01",
+        "region": "REGION01",
+        "skin_id": "SKIN01",
+        "version": "VERSION01"
+      },
+      "CHARACTER01": {
+        "frame": "FRAME01",
+        "region": "REGION01",
+        "skin_id": "SKIN01",
+        "version": "VERSION01"
+      },
+      "CHARACTER02": {
+        "frame": "FRAME01",
+        "region": "REGION01",
+        "skin_id": "SKIN01",
+        "version": "VERSION01"
+      }
+    }
+  },
+  "new": {
+    "character": {
+      "character_ref01": {}
+    }
+  }
+}

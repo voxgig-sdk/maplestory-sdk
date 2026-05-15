@@ -1,0 +1,34 @@
+# BasicWzn2Flow
+
+main: kit: flow: BasicWzn2Flow:
+{
+  entity: "wzn2",
+  kind: "basic",
+  name: "BasicWzn2Flow",
+  step: [
+    {
+      input: {
+        ref: "wzn2_ref01",
+        srcdatavar: "wzn2_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "wzn201",
+        region: "region01",
+        version: "version01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-wzn2_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicWzn2Flow"
+}

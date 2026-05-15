@@ -1,0 +1,642 @@
+# Entity: avatar
+
+main: kit: entity: avatar: {
+
+  alias: field: {}
+
+  name: "avatar"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "animation"
+                orig: "animation"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "character_id"
+                orig: "item"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "frame"
+                orig: "frame"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+            query: [
+              {
+                example: ""
+                kind: "query"
+                name: "bg_color"
+                orig: "bg_color"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "flip_x"
+                orig: "flip_x"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                kind: "query"
+                name: "name"
+                orig: "name"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "padding"
+                orig: "padding"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "render_mode"
+                orig: "render_mode"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "resize"
+                orig: "resize"
+                reqd: false
+                type: "`$NUMBER`"
+              }
+              {
+                kind: "query"
+                name: "show_ear"
+                orig: "show_ear"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                kind: "query"
+                name: "show_high_lef_ear"
+                orig: "show_high_lef_ear"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                kind: "query"
+                name: "show_lef_ear"
+                orig: "show_lef_ear"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/character/{items}/{animation}/animated"
+          parts: [
+            "api"
+            "character"
+            "{character_id}"
+            "{animation}"
+            "animated"
+          ]
+          rename: {
+            param: {
+              items: "character_id"
+            }
+          }
+          select: {
+            exist: [
+              "animation"
+              "bg_color"
+              "character_id"
+              "flip_x"
+              "frame"
+              "name"
+              "padding"
+              "render_mode"
+              "resize"
+              "show_ear"
+              "show_high_lef_ear"
+              "show_lef_ear"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "animation"
+                orig: "animation"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "character_id"
+                orig: "item"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "frame"
+                orig: "frame"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "flip_x"
+                orig: "flip_x"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                example: 0
+                kind: "query"
+                name: "format"
+                orig: "format"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "name"
+                orig: "name"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "padding"
+                orig: "padding"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "render_mode"
+                orig: "render_mode"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "resize"
+                orig: "resize"
+                reqd: false
+                type: "`$NUMBER`"
+              }
+              {
+                kind: "query"
+                name: "show_ear"
+                orig: "show_ear"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                kind: "query"
+                name: "show_high_lef_ear"
+                orig: "show_high_lef_ear"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                kind: "query"
+                name: "show_lef_ear"
+                orig: "show_lef_ear"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/character/{items}/{animation}/{frame}/download"
+          parts: [
+            "api"
+            "character"
+            "{character_id}"
+            "{animation}"
+            "{frame}"
+            "download"
+          ]
+          rename: {
+            param: {
+              items: "character_id"
+            }
+          }
+          select: {
+            exist: [
+              "animation"
+              "character_id"
+              "flip_x"
+              "format"
+              "frame"
+              "name"
+              "padding"
+              "render_mode"
+              "resize"
+              "show_ear"
+              "show_high_lef_ear"
+              "show_lef_ear"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "animation"
+                orig: "animation"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "frame"
+                orig: "frame"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "item"
+                orig: "item"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "flip_x"
+                orig: "flip_x"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                example: 0
+                kind: "query"
+                name: "format"
+                orig: "format"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "name"
+                orig: "name"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "padding"
+                orig: "padding"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "render_mode"
+                orig: "render_mode"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "resize"
+                orig: "resize"
+                reqd: false
+                type: "`$NUMBER`"
+              }
+              {
+                kind: "query"
+                name: "show_ear"
+                orig: "show_ear"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                kind: "query"
+                name: "show_high_lef_ear"
+                orig: "show_high_lef_ear"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                kind: "query"
+                name: "show_lef_ear"
+                orig: "show_lef_ear"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/character/{items}/download"
+          parts: [
+            "api"
+            "character"
+            "{item}"
+            "download"
+          ]
+          rename: {
+            param: {
+              items: "item"
+            }
+          }
+          select: {
+            exist: [
+              "animation"
+              "flip_x"
+              "format"
+              "frame"
+              "item"
+              "name"
+              "padding"
+              "render_mode"
+              "resize"
+              "show_ear"
+              "show_high_lef_ear"
+              "show_lef_ear"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "animation"
+                orig: "animation"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "frame"
+                orig: "frame"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "item"
+                orig: "item"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "flip_x"
+                orig: "flip_x"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                kind: "query"
+                name: "name"
+                orig: "name"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "padding"
+                orig: "padding"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "render_mode"
+                orig: "render_mode"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "resize"
+                orig: "resize"
+                reqd: false
+                type: "`$NUMBER`"
+              }
+              {
+                kind: "query"
+                name: "show_ear"
+                orig: "show_ear"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                kind: "query"
+                name: "show_high_lef_ear"
+                orig: "show_high_lef_ear"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                kind: "query"
+                name: "show_lef_ear"
+                orig: "show_lef_ear"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/character/{items}/actions"
+          parts: [
+            "api"
+            "character"
+            "{item}"
+            "actions"
+          ]
+          rename: {
+            param: {
+              items: "item"
+            }
+          }
+          select: {
+            exist: [
+              "animation"
+              "flip_x"
+              "frame"
+              "item"
+              "name"
+              "padding"
+              "render_mode"
+              "resize"
+              "show_ear"
+              "show_high_lef_ear"
+              "show_lef_ear"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "animation"
+                orig: "animation"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "frame"
+                orig: "frame"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "item"
+                orig: "item"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "flip_x"
+                orig: "flip_x"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                kind: "query"
+                name: "name"
+                orig: "name"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "padding"
+                orig: "padding"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "render_mode"
+                orig: "render_mode"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "resize"
+                orig: "resize"
+                reqd: false
+                type: "`$NUMBER`"
+              }
+              {
+                kind: "query"
+                name: "show_ear"
+                orig: "show_ear"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                kind: "query"
+                name: "show_high_lef_ear"
+                orig: "show_high_lef_ear"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                kind: "query"
+                name: "show_lef_ear"
+                orig: "show_lef_ear"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/character/{items}/{animation}/{frame}"
+          parts: [
+            "api"
+            "character"
+            "{item}"
+            "{animation}"
+            "{frame}"
+          ]
+          rename: {
+            param: {
+              items: "item"
+            }
+          }
+          select: {
+            exist: [
+              "animation"
+              "flip_x"
+              "frame"
+              "item"
+              "name"
+              "padding"
+              "render_mode"
+              "resize"
+              "show_ear"
+              "show_high_lef_ear"
+              "show_lef_ear"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "character"
+      ]
+    ]
+  }
+
+
+
+}

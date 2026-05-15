@@ -1,0 +1,33 @@
+# BasicTipFlow
+
+main: kit: flow: BasicTipFlow:
+{
+  entity: "tip",
+  kind: "basic",
+  name: "BasicTipFlow",
+  step: [
+    {
+      input: {
+        ref: "tip_ref01",
+        srcdatavar: "tip_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "tip01",
+        region: "region01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-tip_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicTipFlow"
+}

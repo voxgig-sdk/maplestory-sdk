@@ -1,0 +1,42 @@
+# Entity: nxf
+
+main: kit: entity: nxf: {
+
+  alias: field: {}
+
+  name: "nxf"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          method: "GET"
+          orig: "/api/about"
+          parts: [
+            "api"
+            "about"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          method: "GET"
+          orig: "/api/banners"
+          parts: [
+            "api"
+            "banners"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

@@ -1,0 +1,33 @@
+# BasicAndroidFlow
+
+main: kit: flow: BasicAndroidFlow:
+{
+  entity: "android",
+  kind: "basic",
+  name: "BasicAndroidFlow",
+  step: [
+    {
+      input: {
+        ref: "android_ref01",
+        srcdatavar: "android_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "android01",
+        region: "region01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-android_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicAndroidFlow"
+}

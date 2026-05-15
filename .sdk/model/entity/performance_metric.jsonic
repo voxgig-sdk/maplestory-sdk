@@ -1,0 +1,98 @@
+# Entity: performance_metric
+
+main: kit: entity: performance_metric: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "active_request"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "average_response_time_m"
+      req: false
+      type: "`$NUMBER`"
+    }
+    {
+      name: "cache"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "errors_by_type"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "last_updated"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "memory_used_byte"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "redis_cache"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "requests_per_second"
+      req: false
+      type: "`$NUMBER`"
+    }
+    {
+      name: "start_time"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "system"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "total_error"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "total_request"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "wz_properties_loaded"
+      req: false
+      type: "`$INTEGER`"
+    }
+  ]
+
+  name: "performance_metric"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          method: "GET"
+          orig: "/api/metrics"
+          parts: [
+            "api"
+            "metrics"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

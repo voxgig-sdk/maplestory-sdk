@@ -1,0 +1,14 @@
+{
+  "existing": {
+    "health": {
+      "HEALTH00": {},
+      "HEALTH01": {},
+      "HEALTH02": {}
+    }
+  },
+  "new": {
+    "health": {
+      "health_ref01": {}
+    }
+  }
+}

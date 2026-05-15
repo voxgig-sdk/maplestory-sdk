@@ -1,0 +1,49 @@
+# Entity: cluster
+
+main: kit: entity: cluster: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "hostname"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "last_seen"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "metric"
+      req: false
+      type: "`$OBJECT`"
+    }
+  ]
+
+  name: "cluster"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          method: "GET"
+          orig: "/api/metrics/cluster"
+          parts: [
+            "api"
+            "metrics"
+            "cluster"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

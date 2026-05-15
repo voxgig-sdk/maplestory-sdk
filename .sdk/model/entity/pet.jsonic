@@ -1,0 +1,501 @@
+# Entity: pet
+
+main: kit: entity: pet: {
+
+  alias: field: {}
+
+  name: "pet"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                example: "stand0"
+                kind: "param"
+                name: "animation"
+                orig: "animation"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "pet_id"
+                orig: "pet_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "region"
+                orig: "region"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "version"
+                orig: "version"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                example: 0
+                kind: "query"
+                name: "frame"
+                orig: "frame"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: -1
+                kind: "query"
+                name: "pet_equip"
+                orig: "pet_equip"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/{region}/{version}/pet/{petId}/render/{animation}/{frame}/{petEquip}"
+          parts: [
+            "api"
+            "{region}"
+            "{version}"
+            "pet"
+            "{pet_id}"
+            "render"
+            "{animation}"
+            "{frame}"
+            "{pet_equip}"
+          ]
+          rename: {
+            param: {
+              petEquip: "pet_equip"
+              petId: "pet_id"
+            }
+          }
+          select: {
+            exist: [
+              "animation"
+              "frame"
+              "pet_equip"
+              "pet_id"
+              "region"
+              "version"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "pet_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "region"
+                orig: "region"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                example: "stand0"
+                kind: "param"
+                name: "render_id"
+                orig: "animation"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "version"
+                orig: "version"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                example: ""
+                kind: "query"
+                name: "bg_color"
+                orig: "bg_color"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: -1
+                kind: "query"
+                name: "pet_equip"
+                orig: "pet_equip"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/{region}/{version}/pet/{petId}/render/{animation}/animated/{petEquip}"
+          parts: [
+            "api"
+            "{region}"
+            "{version}"
+            "pet"
+            "{id}"
+            "render"
+            "{render_id}"
+            "animated"
+            "{pet_equip}"
+          ]
+          rename: {
+            param: {
+              animation: "render_id"
+              petEquip: "pet_equip"
+              petId: "id"
+            }
+          }
+          select: {
+            exist: [
+              "bg_color"
+              "id"
+              "pet_equip"
+              "region"
+              "render_id"
+              "version"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "pet_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "region"
+                orig: "region"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "version"
+                orig: "version"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/{region}/{version}/pet/{petId}"
+          parts: [
+            "api"
+            "{region}"
+            "{version}"
+            "pet"
+            "{id}"
+          ]
+          rename: {
+            param: {
+              petId: "id"
+            }
+          }
+          select: {
+            exist: [
+              "id"
+              "region"
+              "version"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "pet_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "region"
+                orig: "region"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "version"
+                orig: "version"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/{region}/{version}/pet/{petId}/actions"
+          parts: [
+            "api"
+            "{region}"
+            "{version}"
+            "pet"
+            "{id}"
+            "actions"
+          ]
+          rename: {
+            param: {
+              petId: "id"
+            }
+          }
+          select: {
+            "$action": "action"
+            exist: [
+              "id"
+              "region"
+              "version"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "pet_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "region"
+                orig: "region"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "version"
+                orig: "version"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/{region}/{version}/pet/{petId}/download"
+          parts: [
+            "api"
+            "{region}"
+            "{version}"
+            "pet"
+            "{id}"
+            "download"
+          ]
+          rename: {
+            param: {
+              petId: "id"
+            }
+          }
+          select: {
+            "$action": "download"
+            exist: [
+              "id"
+              "region"
+              "version"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "pet_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "region"
+                orig: "region"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "version"
+                orig: "version"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/{region}/{version}/pet/{petId}/name"
+          parts: [
+            "api"
+            "{region}"
+            "{version}"
+            "pet"
+            "{id}"
+            "name"
+          ]
+          rename: {
+            param: {
+              petId: "id"
+            }
+          }
+          select: {
+            "$action": "name"
+            exist: [
+              "id"
+              "region"
+              "version"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "region"
+                orig: "region"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "version"
+                orig: "version"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/{region}/{version}/pet"
+          parts: [
+            "api"
+            "{region}"
+            "{version}"
+            "pet"
+          ]
+          select: {
+            exist: [
+              "region"
+              "version"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "region"
+                orig: "region"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "version"
+                orig: "version"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/{region}/{version}/pet/count"
+          parts: [
+            "api"
+            "{region}"
+            "{version}"
+            "pet"
+            "count"
+          ]
+          select: {
+            "$action": "count"
+            exist: [
+              "region"
+              "version"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "api"
+      ]
+      [
+        "api"
+        "render"
+        "animated"
+      ]
+      [
+        "api"
+        "pet"
+        "render"
+      ]
+    ]
+  }
+
+
+
+}

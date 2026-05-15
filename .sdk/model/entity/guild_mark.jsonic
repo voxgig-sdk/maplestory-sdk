@@ -1,0 +1,178 @@
+# Entity: guild_mark
+
+main: kit: entity: guild_mark: {
+
+  alias: field: {}
+
+  name: "guild_mark"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "guild_background_color_id"
+                orig: "guild_background_color_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "guild_background_id"
+                orig: "guild_background_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "guild_mark_color_id"
+                orig: "guild_mark_color_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "guild_mark_id"
+                orig: "guild_mark_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "region"
+                orig: "region"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "version"
+                orig: "version"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/{region}/{version}/GuildMark/background/{guildBackgroundId}/{guildBackgroundColorId}/mark/{guildMarkId}/{guildMarkColorId}"
+          parts: [
+            "api"
+            "{region}"
+            "{version}"
+            "GuildMark"
+            "background"
+            "{guild_background_id}"
+            "{guild_background_color_id}"
+            "mark"
+            "{guild_mark_id}"
+            "{guild_mark_color_id}"
+          ]
+          rename: {
+            param: {
+              guildBackgroundColorId: "guild_background_color_id"
+              guildBackgroundId: "guild_background_id"
+              guildMarkColorId: "guild_mark_color_id"
+              guildMarkId: "guild_mark_id"
+            }
+          }
+          select: {
+            exist: [
+              "guild_background_color_id"
+              "guild_background_id"
+              "guild_mark_color_id"
+              "guild_mark_id"
+              "region"
+              "version"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "color_id"
+                orig: "color_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "guild_mark_id"
+                orig: "guild_mark_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "param"
+                name: "region"
+                orig: "region"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                kind: "param"
+                name: "version"
+                orig: "version"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/{region}/{version}/GuildMark/{guildMarkId}/{colorId}"
+          parts: [
+            "api"
+            "{region}"
+            "{version}"
+            "GuildMark"
+            "{guild_mark_id}"
+            "{color_id}"
+          ]
+          rename: {
+            param: {
+              colorId: "color_id"
+              guildMarkId: "guild_mark_id"
+            }
+          }
+          select: {
+            exist: [
+              "color_id"
+              "guild_mark_id"
+              "region"
+              "version"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "api"
+        "guild_mark"
+      ]
+      [
+        "api"
+        "background"
+        "mark"
+      ]
+    ]
+  }
+
+
+
+}

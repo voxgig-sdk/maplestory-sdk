@@ -1,0 +1,28 @@
+# BasicPerformanceMetricFlow
+
+main: kit: flow: BasicPerformanceMetricFlow:
+{
+  entity: "performance_metric",
+  kind: "basic",
+  name: "BasicPerformanceMetricFlow",
+  step: [
+    {
+      input: {
+        ref: "performance_metric_ref01",
+        srcdatavar: "performance_metric_ref01_data",
+        suffix: "_dt0"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-performance_metric_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicPerformanceMetricFlow"
+}
