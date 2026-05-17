@@ -6,8 +6,8 @@ import (
 	"strings"
 	"testing"
 
-	sdk "github.com/voxgig-sdk/maplestory-sdk"
-	"github.com/voxgig-sdk/maplestory-sdk/core"
+	sdk "github.com/voxgig-sdk/maplestory-sdk/go"
+	"github.com/voxgig-sdk/maplestory-sdk/go/core"
 )
 
 func TestJobDirect(t *testing.T) {

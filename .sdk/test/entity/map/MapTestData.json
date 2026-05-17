@@ -8,7 +8,8 @@
         "region": "REGION01",
         "version": "VERSION01",
         "map": "MAP01",
-        "mark_name": "MARK_NAME01"
+        "mark_name": "MARK_NAME01",
+        "id": "MAP00"
       },
       "MAP01": {
         "frame": "FRAME01",
@@ -17,7 +18,8 @@
         "region": "REGION01",
         "version": "VERSION01",
         "map": "MAP01",
-        "mark_name": "MARK_NAME01"
+        "mark_name": "MARK_NAME01",
+        "id": "MAP01"
       },
       "MAP02": {
         "frame": "FRAME01",
@@ -26,7 +28,8 @@
         "region": "REGION01",
         "version": "VERSION01",
         "map": "MAP01",
-        "mark_name": "MARK_NAME01"
+        "mark_name": "MARK_NAME01",
+        "id": "MAP02"
       }
     }
   },

@@ -3,15 +3,18 @@
     "z_map": {
       "Z_MAP00": {
         "region": "REGION01",
-        "version": "VERSION01"
+        "version": "VERSION01",
+        "id": "Z_MAP00"
       },
       "Z_MAP01": {
         "region": "REGION01",
-        "version": "VERSION01"
+        "version": "VERSION01",
+        "id": "Z_MAP01"
       },
       "Z_MAP02": {
         "region": "REGION01",
-        "version": "VERSION01"
+        "version": "VERSION01",
+        "id": "Z_MAP02"
       }
     }
   },

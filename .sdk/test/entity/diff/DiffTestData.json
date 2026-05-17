@@ -3,15 +3,18 @@
     "diff": {
       "DIFF00": {
         "region": "REGION01",
-        "version": "VERSION01"
+        "version": "VERSION01",
+        "id": "DIFF00"
       },
       "DIFF01": {
         "region": "REGION01",
-        "version": "VERSION01"
+        "version": "VERSION01",
+        "id": "DIFF01"
       },
       "DIFF02": {
         "region": "REGION01",
-        "version": "VERSION01"
+        "version": "VERSION01",
+        "id": "DIFF02"
       }
     }
   },

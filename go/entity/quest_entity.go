@@ -1,9 +1,9 @@
 package entity
 
 import (
-	"github.com/voxgig-sdk/maplestory-sdk/core"
+	"github.com/voxgig-sdk/maplestory-sdk/go/core"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/maplestory-sdk/go/utility/struct"
 )
 
 type QuestEntity struct {

@@ -3,15 +3,18 @@
     "music": {
       "MUSIC00": {
         "region": "REGION01",
-        "version": "VERSION01"
+        "version": "VERSION01",
+        "id": "MUSIC00"
       },
       "MUSIC01": {
         "region": "REGION01",
-        "version": "VERSION01"
+        "version": "VERSION01",
+        "id": "MUSIC01"
       },
       "MUSIC02": {
         "region": "REGION01",
-        "version": "VERSION01"
+        "version": "VERSION01",
+        "id": "MUSIC02"
       }
     }
   },

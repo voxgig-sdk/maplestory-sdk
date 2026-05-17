@@ -4,17 +4,20 @@
       "QUEST00": {
         "region": "REGION01",
         "version": "VERSION01",
-        "category": "CATEGORY01"
+        "category": "CATEGORY01",
+        "id": "QUEST00"
       },
       "QUEST01": {
         "region": "REGION01",
         "version": "VERSION01",
-        "category": "CATEGORY01"
+        "category": "CATEGORY01",
+        "id": "QUEST01"
       },
       "QUEST02": {
         "region": "REGION01",
         "version": "VERSION01",
-        "category": "CATEGORY01"
+        "category": "CATEGORY01",
+        "id": "QUEST02"
       }
     }
   },

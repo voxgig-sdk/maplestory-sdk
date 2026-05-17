@@ -7,7 +7,8 @@
         "animation": "ANIMATION01",
         "mob_id": "MOB01",
         "frame": "FRAME01",
-        "sound_name": "SOUND_NAME01"
+        "sound_name": "SOUND_NAME01",
+        "id": "MOB00"
       },
       "MOB01": {
         "region": "REGION01",
@@ -15,7 +16,8 @@
         "animation": "ANIMATION01",
         "mob_id": "MOB01",
         "frame": "FRAME01",
-        "sound_name": "SOUND_NAME01"
+        "sound_name": "SOUND_NAME01",
+        "id": "MOB01"
       },
       "MOB02": {
         "region": "REGION01",
@@ -23,7 +25,8 @@
         "animation": "ANIMATION01",
         "mob_id": "MOB01",
         "frame": "FRAME01",
-        "sound_name": "SOUND_NAME01"
+        "sound_name": "SOUND_NAME01",
+        "id": "MOB02"
       }
     }
   },

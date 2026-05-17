@@ -5,19 +5,22 @@
         "frame": "FRAME01",
         "region": "REGION01",
         "skin_id": "SKIN01",
-        "version": "VERSION01"
+        "version": "VERSION01",
+        "id": "CHARACTER00"
       },
       "CHARACTER01": {
         "frame": "FRAME01",
         "region": "REGION01",
         "skin_id": "SKIN01",
-        "version": "VERSION01"
+        "version": "VERSION01",
+        "id": "CHARACTER01"
       },
       "CHARACTER02": {
         "frame": "FRAME01",
         "region": "REGION01",
         "skin_id": "SKIN01",
-        "version": "VERSION01"
+        "version": "VERSION01",
+        "id": "CHARACTER02"
       }
     }
   },

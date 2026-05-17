@@ -3,15 +3,18 @@
     "wzn": {
       "WZN00": {
         "region": "REGION01",
-        "version": "VERSION01"
+        "version": "VERSION01",
+        "id": "WZN00"
       },
       "WZN01": {
         "region": "REGION01",
-        "version": "VERSION01"
+        "version": "VERSION01",
+        "id": "WZN01"
       },
       "WZN02": {
         "region": "REGION01",
-        "version": "VERSION01"
+        "version": "VERSION01",
+        "id": "WZN02"
       }
     }
   },

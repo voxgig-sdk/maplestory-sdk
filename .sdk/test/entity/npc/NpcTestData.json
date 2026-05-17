@@ -5,19 +5,22 @@
         "framebook": "FRAMEBOOK01",
         "region": "REGION01",
         "version": "VERSION01",
-        "npc_id": "NPC01"
+        "npc_id": "NPC01",
+        "id": "NPC00"
       },
       "NPC01": {
         "framebook": "FRAMEBOOK01",
         "region": "REGION01",
         "version": "VERSION01",
-        "npc_id": "NPC01"
+        "npc_id": "NPC01",
+        "id": "NPC01"
       },
       "NPC02": {
         "framebook": "FRAMEBOOK01",
         "region": "REGION01",
         "version": "VERSION01",
-        "npc_id": "NPC01"
+        "npc_id": "NPC01",
+        "id": "NPC02"
       }
     }
   },

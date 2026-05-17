@@ -4,9 +4,9 @@ import (
 	"strings"
 	"testing"
 
-	sdk "github.com/voxgig-sdk/maplestory-sdk"
+	sdk "github.com/voxgig-sdk/maplestory-sdk/go"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/maplestory-sdk/go/utility/struct"
 )
 
 func TestPrimaryUtility(t *testing.T) {

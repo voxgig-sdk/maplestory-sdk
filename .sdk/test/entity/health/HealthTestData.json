@@ -1,9 +1,15 @@
 {
   "existing": {
     "health": {
-      "HEALTH00": {},
-      "HEALTH01": {},
-      "HEALTH02": {}
+      "HEALTH00": {
+        "id": "HEALTH00"
+      },
+      "HEALTH01": {
+        "id": "HEALTH01"
+      },
+      "HEALTH02": {
+        "id": "HEALTH02"
+      }
     }
   },
   "new": {

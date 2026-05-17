@@ -3,15 +3,18 @@
     "android": {
       "ANDROID00": {
         "region": "REGION01",
-        "version": "VERSION01"
+        "version": "VERSION01",
+        "id": "ANDROID00"
       },
       "ANDROID01": {
         "region": "REGION01",
-        "version": "VERSION01"
+        "version": "VERSION01",
+        "id": "ANDROID01"
       },
       "ANDROID02": {
         "region": "REGION01",
-        "version": "VERSION01"
+        "version": "VERSION01",
+        "id": "ANDROID02"
       }
     }
   },

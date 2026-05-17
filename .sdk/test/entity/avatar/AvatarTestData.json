@@ -5,19 +5,22 @@
         "animation": "ANIMATION01",
         "character_id": "CHARACTER01",
         "frame": "FRAME01",
-        "item": "ITEM01"
+        "item": "ITEM01",
+        "id": "AVATAR00"
       },
       "AVATAR01": {
         "animation": "ANIMATION01",
         "character_id": "CHARACTER01",
         "frame": "FRAME01",
-        "item": "ITEM01"
+        "item": "ITEM01",
+        "id": "AVATAR01"
       },
       "AVATAR02": {
         "animation": "ANIMATION01",
         "character_id": "CHARACTER01",
         "frame": "FRAME01",
-        "item": "ITEM01"
+        "item": "ITEM01",
+        "id": "AVATAR02"
       }
     }
   },

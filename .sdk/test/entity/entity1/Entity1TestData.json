@@ -1,9 +1,15 @@
 {
   "existing": {
     "entity1": {
-      "ENTITY100": {},
-      "ENTITY101": {},
-      "ENTITY102": {}
+      "ENTITY100": {
+        "id": "ENTITY100"
+      },
+      "ENTITY101": {
+        "id": "ENTITY101"
+      },
+      "ENTITY102": {
+        "id": "ENTITY102"
+      }
     }
   },
   "new": {

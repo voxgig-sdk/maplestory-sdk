@@ -1,9 +1,15 @@
 {
   "existing": {
     "gms_new": {
-      "GMS_NEW00": {},
-      "GMS_NEW01": {},
-      "GMS_NEW02": {}
+      "GMS_NEW00": {
+        "id": "GMS_NEW00"
+      },
+      "GMS_NEW01": {
+        "id": "GMS_NEW01"
+      },
+      "GMS_NEW02": {
+        "id": "GMS_NEW02"
+      }
     }
   },
   "new": {

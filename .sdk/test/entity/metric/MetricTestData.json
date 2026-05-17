@@ -1,9 +1,15 @@
 {
   "existing": {
     "metric": {
-      "METRIC00": {},
-      "METRIC01": {},
-      "METRIC02": {}
+      "METRIC00": {
+        "id": "METRIC00"
+      },
+      "METRIC01": {
+        "id": "METRIC01"
+      },
+      "METRIC02": {
+        "id": "METRIC02"
+      }
     }
   },
   "new": {

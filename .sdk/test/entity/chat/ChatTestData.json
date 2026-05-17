@@ -3,15 +3,18 @@
     "chat": {
       "CHAT00": {
         "region": "REGION01",
-        "version": "VERSION01"
+        "version": "VERSION01",
+        "id": "CHAT00"
       },
       "CHAT01": {
         "region": "REGION01",
-        "version": "VERSION01"
+        "version": "VERSION01",
+        "id": "CHAT01"
       },
       "CHAT02": {
         "region": "REGION01",
-        "version": "VERSION01"
+        "version": "VERSION01",
+        "id": "CHAT02"
       }
     }
   },

@@ -4,17 +4,20 @@
       "ITEM00": {
         "region": "REGION01",
         "version": "VERSION01",
-        "overall_category": "OVERALL_CATEGORY01"
+        "overall_category": "OVERALL_CATEGORY01",
+        "id": "ITEM00"
       },
       "ITEM01": {
         "region": "REGION01",
         "version": "VERSION01",
-        "overall_category": "OVERALL_CATEGORY01"
+        "overall_category": "OVERALL_CATEGORY01",
+        "id": "ITEM01"
       },
       "ITEM02": {
         "region": "REGION01",
         "version": "VERSION01",
-        "overall_category": "OVERALL_CATEGORY01"
+        "overall_category": "OVERALL_CATEGORY01",
+        "id": "ITEM02"
       }
     }
   },

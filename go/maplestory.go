@@ -1,10 +1,10 @@
 package voxgigmaplestorysdk
 
 import (
-	"github.com/voxgig-sdk/maplestory-sdk/core"
-	"github.com/voxgig-sdk/maplestory-sdk/entity"
-	"github.com/voxgig-sdk/maplestory-sdk/feature"
-	_ "github.com/voxgig-sdk/maplestory-sdk/utility"
+	"github.com/voxgig-sdk/maplestory-sdk/go/core"
+	"github.com/voxgig-sdk/maplestory-sdk/go/entity"
+	"github.com/voxgig-sdk/maplestory-sdk/go/feature"
+	_ "github.com/voxgig-sdk/maplestory-sdk/go/utility"
 )
 
 // Type aliases preserve external API.

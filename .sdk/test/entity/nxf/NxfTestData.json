@@ -1,9 +1,15 @@
 {
   "existing": {
     "nxf": {
-      "NXF00": {},
-      "NXF01": {},
-      "NXF02": {}
+      "NXF00": {
+        "id": "NXF00"
+      },
+      "NXF01": {
+        "id": "NXF01"
+      },
+      "NXF02": {
+        "id": "NXF02"
+      }
     }
   },
   "new": {

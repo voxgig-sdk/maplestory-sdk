@@ -7,7 +7,8 @@
         "hit_ratio": 62,
         "memory_usage": "s3f",
         "miss_count": "s40",
-        "total_entry": "s41"
+        "total_entry": "s41",
+        "id": "CACHE00"
       },
       "CACHE01": {
         "eviction_count": "s78",
@@ -15,7 +16,8 @@
         "hit_ratio": 122,
         "memory_usage": "s7b",
         "miss_count": "s7c",
-        "total_entry": "s7d"
+        "total_entry": "s7d",
+        "id": "CACHE01"
       },
       "CACHE02": {
         "eviction_count": "sb4",
@@ -23,7 +25,8 @@
         "hit_ratio": 182,
         "memory_usage": "sb7",
         "miss_count": "sb8",
-        "total_entry": "sb9"
+        "total_entry": "sb9",
+        "id": "CACHE02"
       }
     }
   },

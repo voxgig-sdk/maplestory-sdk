@@ -14,7 +14,8 @@
         "system": {},
         "total_error": "s8c",
         "total_request": "s8d",
-        "wz_properties_loaded": "s8e"
+        "wz_properties_loaded": "s8e",
+        "id": "PERFORMANCE_METRIC00"
       },
       "PERFORMANCE_METRIC01": {
         "active_request": "s104",
@@ -29,7 +30,8 @@
         "system": {},
         "total_error": "s10e",
         "total_request": "s10f",
-        "wz_properties_loaded": "s110"
+        "wz_properties_loaded": "s110",
+        "id": "PERFORMANCE_METRIC01"
       },
       "PERFORMANCE_METRIC02": {
         "active_request": "s186",
@@ -44,7 +46,8 @@
         "system": {},
         "total_error": "s190",
         "total_request": "s191",
-        "wz_properties_loaded": "s192"
+        "wz_properties_loaded": "s192",
+        "id": "PERFORMANCE_METRIC02"
       }
     }
   },

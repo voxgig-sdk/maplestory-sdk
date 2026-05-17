@@ -4,7 +4,7 @@ import (
 	"log/slog"
 	"os"
 
-	"github.com/voxgig-sdk/maplestory-sdk/core"
+	"github.com/voxgig-sdk/maplestory-sdk/go/core"
 )
 
 type LogFeature struct {

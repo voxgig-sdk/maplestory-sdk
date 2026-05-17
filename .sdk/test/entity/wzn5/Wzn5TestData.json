@@ -4,17 +4,20 @@
       "WZN500": {
         "path": "PATH01",
         "region": "REGION01",
-        "version": "VERSION01"
+        "version": "VERSION01",
+        "id": "WZN500"
       },
       "WZN501": {
         "path": "PATH01",
         "region": "REGION01",
-        "version": "VERSION01"
+        "version": "VERSION01",
+        "id": "WZN501"
       },
       "WZN502": {
         "path": "PATH01",
         "region": "REGION01",
-        "version": "VERSION01"
+        "version": "VERSION01",
+        "id": "WZN502"
       }
     }
   },

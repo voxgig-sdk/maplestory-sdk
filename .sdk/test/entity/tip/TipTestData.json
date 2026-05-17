@@ -3,15 +3,18 @@
     "tip": {
       "TIP00": {
         "region": "REGION01",
-        "version": "VERSION01"
+        "version": "VERSION01",
+        "id": "TIP00"
       },
       "TIP01": {
         "region": "REGION01",
-        "version": "VERSION01"
+        "version": "VERSION01",
+        "id": "TIP01"
       },
       "TIP02": {
         "region": "REGION01",
-        "version": "VERSION01"
+        "version": "VERSION01",
+        "id": "TIP02"
       }
     }
   },

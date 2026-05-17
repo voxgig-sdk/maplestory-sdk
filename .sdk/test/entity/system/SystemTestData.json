@@ -8,7 +8,8 @@
         "gc_gen2_collection": "s49",
         "thread_count": "s4a",
         "total_memory_byte": "s4b",
-        "used_memory_byte": "s4c"
+        "used_memory_byte": "s4c",
+        "id": "SYSTEM00"
       },
       "SYSTEM01": {
         "cpu_usage_percent": 140,
@@ -17,7 +18,8 @@
         "gc_gen2_collection": "s8f",
         "thread_count": "s90",
         "total_memory_byte": "s91",
-        "used_memory_byte": "s92"
+        "used_memory_byte": "s92",
+        "id": "SYSTEM01"
       },
       "SYSTEM02": {
         "cpu_usage_percent": 210,
@@ -26,7 +28,8 @@
         "gc_gen2_collection": "sd5",
         "thread_count": "sd6",
         "total_memory_byte": "sd7",
-        "used_memory_byte": "sd8"
+        "used_memory_byte": "sd8",
+        "id": "SYSTEM02"
       }
     }
   },
