@@ -20,9 +20,6 @@ class MaplestoryConfig
             ],
             "options" => [
                 "base" => "https://maplestory.io",
-                "auth" => [
-                    "prefix" => "Bearer",
-                ],
                 "headers" => [
           'content-type' => 'application/json',
         ],

@@ -119,7 +119,6 @@ func clusterBasicSetup(extra map[string]any) *entityTestSetup {
 		"MAPLESTORY_TEST_CLUSTER_ENTID": idmap,
 		"MAPLESTORY_TEST_LIVE":      "FALSE",
 		"MAPLESTORY_TEST_EXPLAIN":   "FALSE",
-		"MAPLESTORY_APIKEY":         "NONE",
 	})
 
 	idmapResolved := core.ToMapAny(env["MAPLESTORY_TEST_CLUSTER_ENTID"])
@@ -130,7 +129,6 @@ func clusterBasicSetup(extra map[string]any) *entityTestSetup {
 	if env["MAPLESTORY_TEST_LIVE"] == "TRUE" {
 		mergedOpts := vs.Merge([]any{
 			map[string]any{
-				"apikey": env["MAPLESTORY_APIKEY"],
 			},
 			extra,
 		})

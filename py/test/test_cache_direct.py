@@ -59,14 +59,12 @@ def _cache_direct_setup(mockres):
     env = runner.env_override({
         "MAPLESTORY_TEST_CACHE_ENTID": {},
         "MAPLESTORY_TEST_LIVE": "FALSE",
-        "MAPLESTORY_APIKEY": "NONE",
     })
 
     live = env.get("MAPLESTORY_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {
-            "apikey": env.get("MAPLESTORY_APIKEY"),
         }
         client = MaplestorySDK(merged_opts)
         return {

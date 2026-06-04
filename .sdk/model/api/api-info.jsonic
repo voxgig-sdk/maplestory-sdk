@@ -20,8 +20,60 @@ main: {
       ]
       title: "MapleStory.IO"
       version: "V3"
+      tagline: "Community-run access to MapleStory game data and rendered sprites across regions and versions"
+      homepage: "https://maplestory.io"
+      docs_url: "https://maplestory.io"
+      license_short: "Unlicensed wrapper; all game data and assets are property of NEXON and subject to their Terms of Service."
+      license_md: `- The API itself is provided as a free community service with no explicit licence.
+- All media, icons, descriptions, and character information are the sole property of NEXON.
+- Use of returned assets is governed by NEXON's Terms of Service.
+- CORS is disabled on the upstream service; requests typically need to be proxied for browser use.`
+      about_md: `[MapleStory.IO](https://maplestory.io) is a community-maintained HTTP API that exposes MapleStory game data and rendered game assets. It is operated independently of NEXON and is described by its author as "provided out of love towards the MapleStory community and with a focus on building positive gaming experiences".
+
+The service indexes the game's WZ data files across multiple regions and client versions (for example \`GMS\` and other regional builds), and serves both structured game data and pre-rendered images.
+
+What you can fetch through the API:
+- Lists of supported regions and versions via \`GET /api/wz\`
+- Game objects such as NPCs, mobs, items, maps, jobs, quests, pets, and music, scoped to a region/version (e.g. \`GET /api/GMS/{version}/npc/{id}\`)
+- Rendered sprite images for entities (e.g. \`GET /api/GMS/{version}/mob/{id}/render/stand\`)
+- UI assets and icons drawn from the game's WZ image bundles (e.g. \`/api/wz/img/GMS/{version}/UI/...\`)
+
+Operational notes: the upstream community monitor reports high uptime and sub-200ms average response times, but the service does not enable CORS and provides no documented authentication or formal rate-limit policy. Treat both the data and the endpoint shape as community-best-effort.`
+      entity_desc: {
+        android: "MapleStory android companion data and renders, scoped by region and version."
+        avatar: "Composed character/avatar renders assembled from equipment and appearance parameters."
+        cache: "Cache control / cache status endpoints used by the upstream service."
+        character: "Character appearance and rendering endpoints used to compose avatars from equipped items."
+        chat: "Chat-related game resources surfaced by the upstream WZ data."
+        cluster: "Internal clustering / sharding endpoints exposed by the service."
+        diff: "Endpoints that compare game data between versions or regions."
+        entity1: "Generic entity lookup grouping exposed by the upstream WZ schema."
+        gms_new: "Endpoints scoped to newer GMS (Global MapleStory) client builds."
+        guild_mark: "Guild emblem / guild mark image resources."
+        health: "Service health and status endpoints for the upstream monitor."
+        item: "Item definitions, stats, icons, and renders (e.g. `/api/{region}/{version}/item/{id}`)."
+        job: "MapleStory job/class metadata and associated assets."
+        map: "In-game maps, including map metadata and rendered map imagery."
+        metric: "Operational metrics exposed by the service."
+        mob: "Monster (mob) definitions and sprite renders (e.g. `/api/{region}/{version}/mob/{id}/render/stand`)."
+        music: "Background music tracks bundled with the game's WZ data."
+        name: "Name lookup / search helpers across game entities."
+        npc: "NPC definitions, dialogue references, and sprite renders (e.g. `/api/{region}/{version}/npc/{id}/render/stand`)."
+        nxf: "NXF-format asset endpoints used by newer client builds."
+        performance_metric: "Performance telemetry endpoints for the service."
+        pet: "Pet definitions and sprite renders."
+        quest: "Quest metadata including objectives, rewards, and related references."
+        system: "System / administrative endpoints exposed by the service."
+        tip: "Loading-screen tips and similar miscellaneous text resources."
+        wzn: "Endpoints over the WZ/WZN packed asset format used by MapleStory clients."
+        wzn2: "Second-generation WZN asset endpoints for newer client builds."
+        wzn3: "Third-generation WZN asset endpoints."
+        wzn4: "Fourth-generation WZN asset endpoints."
+        wzn5: "Fifth-generation WZN asset endpoints."
+        wzn6: "Sixth-generation WZN asset endpoints."
+        z_map: "Auxiliary map data / index endpoints (the `z_` prefix indicates a secondary grouping in the upstream schema)."
+      }
+      auth: false
     }
   }
-}
-
 }

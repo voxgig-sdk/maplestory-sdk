@@ -78,14 +78,12 @@ function tip_direct_setup($mockres)
     $env = Runner::env_override([
         "MAPLESTORY_TEST_TIP_ENTID" => [],
         "MAPLESTORY_TEST_LIVE" => "FALSE",
-        "MAPLESTORY_APIKEY" => "NONE",
     ]);
 
     $live = $env["MAPLESTORY_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [
-            "apikey" => $env["MAPLESTORY_APIKEY"],
         ];
         $client = new MaplestorySDK($merged_opts);
         return [
