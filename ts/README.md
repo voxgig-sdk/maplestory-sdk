@@ -10,7 +10,7 @@ The TypeScript SDK for the Maplestory API — a type-safe, entity-oriented clien
 
 ## Install
 ```bash
-npm install maplestory
+npm install @voxgig-sdk/maplestory
 ```
 ## Tutorial: your first API call
 

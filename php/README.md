@@ -10,7 +10,7 @@ The PHP SDK for the Maplestory API — an entity-oriented client using PHP conve
 
 ## Install
 ```bash
-composer require voxgig/maplestory-sdk
+composer require voxgig-sdk/maplestory
 ```
 
 

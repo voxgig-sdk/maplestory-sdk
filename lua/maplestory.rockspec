@@ -8,12 +8,14 @@ source = {
   dir = "maplestory-sdk/lua"
 }
 description = {
-  summary = "Maplestory SDK for Lua",
-  license = "MIT"
+  summary = "Unofficial generated Lua SDK for the MapleStory.IO public API. Not affiliated with or endorsed by the upstream API provider.",
+  homepage = "https://github.com/voxgig-sdk/maplestory-sdk",
+  issues_url = "https://github.com/voxgig-sdk/maplestory-sdk/issues",
+  license = "MIT",
+  labels = { "voxgig", "sdk", "generated-sdk", "openapi", "api-client", "maplestory" }
 }
 dependencies = {
   "lua >= 5.3",
-  "dkjson >= 2.5",
   "dkjson >= 2.5",
 }
 build = {

@@ -10,7 +10,7 @@ The Lua SDK for the Maplestory API — an entity-oriented client using Lua conve
 
 ## Install
 ```bash
-luarocks install maplestory-sdk
+luarocks install voxgig-sdk-maplestory
 ```
 
 If the module is not yet published, add the source directory to

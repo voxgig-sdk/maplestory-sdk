@@ -10,7 +10,7 @@ The Python SDK for the Maplestory API — an entity-oriented client following Py
 
 ## Install
 ```bash
-pip install maplestory-sdk
+pip install voxgig-sdk-maplestory
 ```
 
 Or install from source:

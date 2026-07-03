@@ -10,13 +10,13 @@ The Ruby SDK for the Maplestory API — an entity-oriented client using idiomati
 
 ## Install
 ```bash
-gem install maplestory-sdk
+gem install voxgig-sdk-maplestory
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "maplestory-sdk"
+gem "voxgig-sdk-maplestory"
 ```
 
 Then run:
