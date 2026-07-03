@@ -91,6 +91,7 @@ function wzn6_basic_setup(extra)
     ["MAPLESTORY_TEST_WZN__ENTID"] = idmap,
     ["MAPLESTORY_TEST_LIVE"] = "FALSE",
     ["MAPLESTORY_TEST_EXPLAIN"] = "FALSE",
+    ["MAPLESTORY_APIKEY"] = "NONE",
   })
 
   local idmap_resolved = helpers.to_map(
@@ -102,6 +103,7 @@ function wzn6_basic_setup(extra)
   if env["MAPLESTORY_TEST_LIVE"] == "TRUE" then
     local merged_opts = vs.merge({
       {
+        apikey = env["MAPLESTORY_APIKEY"],
       },
       extra or {},
     })

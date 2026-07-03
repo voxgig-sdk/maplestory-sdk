@@ -75,12 +75,14 @@ function job_direct_setup(mockres)
   local env = runner.env_override({
     ["MAPLESTORY_TEST_JOB_ENTID"] = {},
     ["MAPLESTORY_TEST_LIVE"] = "FALSE",
+    ["MAPLESTORY_APIKEY"] = "NONE",
   })
 
   local live = env["MAPLESTORY_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {
+      apikey = env["MAPLESTORY_APIKEY"],
     }
     local client = sdk.new(merged_opts)
     return {

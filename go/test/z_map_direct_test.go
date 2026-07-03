@@ -121,12 +121,14 @@ func z_mapDirectSetup(mockres any) *z_mapDirectSetupResult {
 	env := envOverride(map[string]any{
 		"MAPLESTORY_TEST_Z_MAP_ENTID": map[string]any{},
 		"MAPLESTORY_TEST_LIVE":    "FALSE",
+		"MAPLESTORY_APIKEY":       "NONE",
 	})
 
 	live := env["MAPLESTORY_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
+			"apikey": env["MAPLESTORY_APIKEY"],
 		}
 		client := sdk.NewMaplestorySDK(mergedOpts)
 

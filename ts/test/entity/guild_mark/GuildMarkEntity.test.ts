@@ -111,6 +111,7 @@ function basicSetup(extra?: any) {
     'MAPLESTORY_TEST_GUILD_MARK_ENTID': idmap,
     'MAPLESTORY_TEST_LIVE': 'FALSE',
     'MAPLESTORY_TEST_EXPLAIN': 'FALSE',
+    'MAPLESTORY_APIKEY': 'NONE',
   })
 
   idmap = env['MAPLESTORY_TEST_GUILD_MARK_ENTID']
@@ -120,6 +121,7 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new MaplestorySDK(merge([
       {
+        apikey: env.MAPLESTORY_APIKEY,
       },
       extra
     ]))

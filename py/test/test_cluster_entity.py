@@ -92,6 +92,7 @@ def _cluster_basic_setup(extra):
         "MAPLESTORY_TEST_CLUSTER_ENTID": idmap,
         "MAPLESTORY_TEST_LIVE": "FALSE",
         "MAPLESTORY_TEST_EXPLAIN": "FALSE",
+        "MAPLESTORY_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -102,6 +103,7 @@ def _cluster_basic_setup(extra):
     if env.get("MAPLESTORY_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
+                "apikey": env.get("MAPLESTORY_APIKEY"),
             },
             extra or {},
         ])

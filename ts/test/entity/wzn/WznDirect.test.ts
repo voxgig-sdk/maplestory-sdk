@@ -74,12 +74,14 @@ function directSetup(mockres?: any) {
   const env = envOverride({
     'MAPLESTORY_TEST_WZN_ENTID': {},
     'MAPLESTORY_TEST_LIVE': 'FALSE',
+    'MAPLESTORY_APIKEY': 'NONE',
   })
 
   const live = 'TRUE' === env.MAPLESTORY_TEST_LIVE
 
   if (live) {
     const client = new MaplestorySDK({
+      apikey: env.MAPLESTORY_APIKEY,
     })
 
     let idmap: any = env['MAPLESTORY_TEST_WZN_ENTID']

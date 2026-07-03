@@ -1,22 +1,8 @@
 # Maplestory SDK
 
-Community-run access to MapleStory game data and rendered sprites across regions and versions
+MapleStory.IO client, generated from the OpenAPI spec.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
-
-## About MapleStory.IO
-
-[MapleStory.IO](https://maplestory.io) is a community-maintained HTTP API that exposes MapleStory game data and rendered game assets. It is operated independently of NEXON and is described by its author as "provided out of love towards the MapleStory community and with a focus on building positive gaming experiences".
-
-The service indexes the game's WZ data files across multiple regions and client versions (for example `GMS` and other regional builds), and serves both structured game data and pre-rendered images.
-
-What you can fetch through the API:
-- Lists of supported regions and versions via `GET /api/wz`
-- Game objects such as NPCs, mobs, items, maps, jobs, quests, pets, and music, scoped to a region/version (e.g. `GET /api/GMS/{version}/npc/{id}`)
-- Rendered sprite images for entities (e.g. `GET /api/GMS/{version}/mob/{id}/render/stand`)
-- UI assets and icons drawn from the game's WZ image bundles (e.g. `/api/wz/img/GMS/{version}/UI/...`)
-
-Operational notes: the upstream community monitor reports high uptime and sub-200ms average response times, but the service does not enable CORS and provides no documented authentication or formal rate-limit policy. Treat both the data and the endpoint shape as community-best-effort.
 
 ## Try it
 
@@ -50,27 +36,31 @@ gem install maplestory-sdk
 luarocks install maplestory-sdk
 ```
 
-## 30-second quickstart
+## Quickstart
 
 ### TypeScript
 
 ```ts
 import { MaplestorySDK } from 'maplestory'
 
-const client = new MaplestorySDK({})
+const client = new MaplestorySDK({
+  apikey: process.env.MAPLESTORY_APIKEY,
+})
 
+// Load android data
+const android = await client.Android().load({})
+console.log(android.data)
 ```
 
-See the [TypeScript README](ts/README.md) for the
-full guide, or scroll down for the same example in other languages.
+See the [TypeScript README](ts/README.md) for the full guide.
 
-## What's in the box
+## Surfaces
 
-| Surface | Use it for | Path |
-| --- | --- | --- |
-| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
-| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
-| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+| Surface | Path |
+| --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | `go-cli/` |
+| **MCP server** | `go-mcp/` |
 
 ## Use it from an AI agent (MCP)
 
@@ -100,38 +90,38 @@ The API exposes 32 entities:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **Android** | MapleStory android companion data and renders, scoped by region and version. | `/api/{region}/{version}/android/{androidId}` |
-| **Avatar** | Composed character/avatar renders assembled from equipment and appearance parameters. | `/api/character/{items}/{animation}/animated` |
-| **Cache** | Cache control / cache status endpoints used by the upstream service. | `/api/metrics/cache` |
-| **Character** | Character appearance and rendering endpoints used to compose avatars from equipped items. | `/api/{region}/{version}/Character/animated/{skinId}/{items}/{animation}/{frame}` |
-| **Chat** | Chat-related game resources surfaced by the upstream WZ data. | `/api/{region}/{version}/chat` |
-| **Cluster** | Internal clustering / sharding endpoints exposed by the service. | `/api/metrics/cluster` |
-| **Diff** | Endpoints that compare game data between versions or regions. | `/api/{region}/{version}/diff` |
-| **Entity1** | Generic entity lookup grouping exposed by the upstream WZ schema. | `/` |
-| **GmsNew** | Endpoints scoped to newer GMS (Global MapleStory) client builds. | `/api/gms/latest/news/article/{id}` |
-| **GuildMark** | Guild emblem / guild mark image resources. | `/api/{region}/{version}/GuildMark/background/{guildBackgroundId}/{guildBackgroundColorId}/mark/{guildMarkId}/{guildMarkColorId}` |
-| **Health** | Service health and status endpoints for the upstream monitor. | `/api/health/alive` |
-| **Item** | Item definitions, stats, icons, and renders (e.g. `/api/{region}/{version}/item/{id}`). | `/api/{region}/{version}/item` |
-| **Job** | MapleStory job/class metadata and associated assets. | `/api/{region}/{version}/job/{jobId}/skillbook/{skillId}` |
-| **Map** | In-game maps, including map metadata and rendered map imagery. | `/api/{region}/{version}/map/{mapId}/render/layer/{layer}/{frame}` |
-| **Metric** | Operational metrics exposed by the service. | `/api/metrics/health` |
-| **Mob** | Monster (mob) definitions and sprite renders (e.g. `/api/{region}/{version}/mob/{id}/render/stand`). | `/api/{region}/{version}/mob` |
-| **Music** | Background music tracks bundled with the game's WZ data. | `/api/{region}/{version}/music/{songPath}` |
-| **Name** | Name lookup / search helpers across game entities. | `/api/{region}/{version}/name` |
-| **Npc** | NPC definitions, dialogue references, and sprite renders (e.g. `/api/{region}/{version}/npc/{id}/render/stand`). | `/api/{region}/{version}/npc/{npcId}/render/animated/{framebook}` |
-| **Nxf** | NXF-format asset endpoints used by newer client builds. | `/api/about` |
-| **PerformanceMetric** | Performance telemetry endpoints for the service. | `/api/metrics` |
-| **Pet** | Pet definitions and sprite renders. | `/api/{region}/{version}/pet/{petId}/render/{animation}/{frame}/{petEquip}` |
-| **Quest** | Quest metadata including objectives, rewards, and related references. | `/api/{region}/{version}/quest` |
-| **System** | System / administrative endpoints exposed by the service. | `/api/metrics/system` |
-| **Tip** | Loading-screen tips and similar miscellaneous text resources. | `/api/{region}/{version}/tips` |
-| **Wzn** | Endpoints over the WZ/WZN packed asset format used by MapleStory clients. | `/api/wz` |
-| **Wzn2** | Second-generation WZN asset endpoints for newer client builds. | `/api/wz/audio/{region}/{version}/{path}` |
-| **Wzn3** | Third-generation WZN asset endpoints. | `/api/wz/export/{region}/{version}/{path}` |
-| **Wzn4** | Fourth-generation WZN asset endpoints. | `/api/wz/img/{region}/{version}/{path}` |
-| **Wzn5** | Fifth-generation WZN asset endpoints. | `/api/wz/lookup/{region}/{version}/{path}` |
-| **Wzn6** | Sixth-generation WZN asset endpoints. | `/api/wz/{region}/{version}/{path}` |
-| **ZMap** | Auxiliary map data / index endpoints (the `z_` prefix indicates a secondary grouping in the upstream schema). | `/api/{region}/{version}/zmap` |
+| **Android** |  | `/api/{region}/{version}/android/{androidId}` |
+| **Avatar** |  | `/api/character/{items}/{animation}/animated` |
+| **Cache** |  | `/api/metrics/cache` |
+| **Character** |  | `/api/{region}/{version}/Character/animated/{skinId}/{items}/{animation}/{frame}` |
+| **Chat** |  | `/api/{region}/{version}/chat` |
+| **Cluster** |  | `/api/metrics/cluster` |
+| **Diff** |  | `/api/{region}/{version}/diff` |
+| **Entity1** |  | `/` |
+| **GmsNew** |  | `/api/gms/latest/news/article/{id}` |
+| **GuildMark** |  | `/api/{region}/{version}/GuildMark/background/{guildBackgroundId}/{guildBackgroundColorId}/mark/{guildMarkId}/{guildMarkColorId}` |
+| **Health** |  | `/api/health/alive` |
+| **Item** |  | `/api/{region}/{version}/item` |
+| **Job** |  | `/api/{region}/{version}/job/{jobId}/skillbook/{skillId}` |
+| **Map** |  | `/api/{region}/{version}/map/{mapId}/render/layer/{layer}/{frame}` |
+| **Metric** |  | `/api/metrics/health` |
+| **Mob** |  | `/api/{region}/{version}/mob` |
+| **Music** |  | `/api/{region}/{version}/music/{songPath}` |
+| **Name** |  | `/api/{region}/{version}/name` |
+| **Npc** |  | `/api/{region}/{version}/npc/{npcId}/render/animated/{framebook}` |
+| **Nxf** |  | `/api/about` |
+| **PerformanceMetric** |  | `/api/metrics` |
+| **Pet** |  | `/api/{region}/{version}/pet/{petId}/render/{animation}/{frame}/{petEquip}` |
+| **Quest** |  | `/api/{region}/{version}/quest` |
+| **System** |  | `/api/metrics/system` |
+| **Tip** |  | `/api/{region}/{version}/tips` |
+| **Wzn** |  | `/api/wz` |
+| **Wzn2** |  | `/api/wz/audio/{region}/{version}/{path}` |
+| **Wzn3** |  | `/api/wz/export/{region}/{version}/{path}` |
+| **Wzn4** |  | `/api/wz/img/{region}/{version}/{path}` |
+| **Wzn5** |  | `/api/wz/lookup/{region}/{version}/{path}` |
+| **Wzn6** |  | `/api/wz/{region}/{version}/{path}` |
+| **ZMap** |  | `/api/{region}/{version}/zmap` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -141,15 +131,17 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
+import os
 from maplestory_sdk import MaplestorySDK
 
-client = MaplestorySDK({})
+client = MaplestorySDK({
+    "apikey": os.environ.get("MAPLESTORY_APIKEY"),
+})
 
 
 # Load a specific android
-android, err = client.Android(None).load(
-    {"id": "example_id"}, None
-)
+android, err = client.Android().load({"id": "example_id"})
+print(android)
 ```
 
 ### PHP
@@ -158,13 +150,14 @@ android, err = client.Android(None).load(
 <?php
 require_once 'maplestory_sdk.php';
 
-$client = new MaplestorySDK([]);
+$client = new MaplestorySDK([
+    "apikey" => getenv("MAPLESTORY_APIKEY"),
+]);
 
 
 // Load a specific android
-[$android, $err] = $client->Android(null)->load(
-    ["id" => "example_id"], null
-);
+[$android, $err] = $client->Android()->load(["id" => "example_id"]);
+print_r($android);
 ```
 
 ### Golang
@@ -172,8 +165,13 @@ $client = new MaplestorySDK([]);
 ```go
 import sdk "github.com/voxgig-sdk/maplestory-sdk/go"
 
-client := sdk.NewMaplestorySDK(map[string]any{})
+client := sdk.NewMaplestorySDK(map[string]any{
+    "apikey": os.Getenv("MAPLESTORY_APIKEY"),
+})
 
+// Load android data
+android, err := client.Android(nil).Load(map[string]any{}, nil)
+fmt.Println(android)
 ```
 
 ### Ruby
@@ -181,13 +179,14 @@ client := sdk.NewMaplestorySDK(map[string]any{})
 ```ruby
 require_relative "Maplestory_sdk"
 
-client = MaplestorySDK.new({})
+client = MaplestorySDK.new({
+  "apikey" => ENV["MAPLESTORY_APIKEY"],
+})
 
 
 # Load a specific android
-android, err = client.Android(nil).load(
-  { "id" => "example_id" }, nil
-)
+android, err = client.Android().load({ "id" => "example_id" })
+puts android
 ```
 
 ### Lua
@@ -195,13 +194,14 @@ android, err = client.Android(nil).load(
 ```lua
 local sdk = require("maplestory_sdk")
 
-local client = sdk.new({})
+local client = sdk.new({
+  apikey = os.getenv("MAPLESTORY_APIKEY"),
+})
 
 
 -- Load a specific android
-local android, err = client:Android(nil):load(
-  { id = "example_id" }, nil
-)
+local android, err = client:Android():load({ id = "example_id" })
+print(android)
 ```
 
 ## Unit testing in offline mode
@@ -220,25 +220,21 @@ const result = await client.Android().load({ id: 'test01' })
 ### Python
 
 ```python
-client = MaplestorySDK.test(None, None)
-result, err = client.Android(None).load(
-    {"id": "test01"}, None
-)
+client = MaplestorySDK.test()
+result, err = client.Android().load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
-$client = MaplestorySDK::test(null, null);
-[$result, $err] = $client->Android(null)->load(
-    ["id" => "test01"], null
-);
+$client = MaplestorySDK::test();
+[$result, $err] = $client->Android()->load(["id" => "test01"]);
 ```
 
 ### Golang
 
 ```go
-client := sdk.TestSDK(nil, nil)
+client := sdk.Test()
 result, err := client.Android(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
@@ -247,19 +243,15 @@ result, err := client.Android(nil).Load(
 ### Ruby
 
 ```ruby
-client = MaplestorySDK.test(nil, nil)
-result, err = client.Android(nil).load(
-  { "id" => "test01" }, nil
-)
+client = MaplestorySDK.test
+result, err = client.Android().load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:Android(nil):load(
-  { id = "test01" }, nil
-)
+local client = sdk.test()
+local result, err = client:Android():load({ id = "test01" })
 ```
 
 ## How it works
@@ -363,15 +355,6 @@ local result, err = client:direct({
 - [Golang](go/README.md)
 - [Ruby](rb/README.md)
 - [Lua](lua/README.md)
-
-## Using the MapleStory.IO
-
-- Upstream: [https://maplestory.io](https://maplestory.io)
-
-- The API itself is provided as a free community service with no explicit licence.
-- All media, icons, descriptions, and character information are the sole property of NEXON.
-- Use of returned assets is governed by NEXON's Terms of Service.
-- CORS is disabled on the upstream service; requests typically need to be proxied for browser use.
 
 ---
 
