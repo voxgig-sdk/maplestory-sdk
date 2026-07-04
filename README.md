@@ -26,9 +26,9 @@ import { MaplestorySDK } from '@voxgig-sdk/maplestory'
 
 const client = new MaplestorySDK()
 
-// Load android data
-const android = await client.android.load({})
-console.log(android.data)
+// Load android data (returns a Android)
+const android = await client.Android().load()
+console.log(android)
 ```
 
 See the [TypeScript README](ts/README.md) for the full guide.
@@ -115,8 +115,8 @@ from maplestory_sdk import MaplestorySDK
 client = MaplestorySDK()
 
 
-# Load a specific android
-android = client.android.load({"id": "example_id"})
+# Load a specific android (returns the record, raises on error)
+android = client.Android().load({"id": "example_id"})
 print(android)
 ```
 
@@ -129,8 +129,8 @@ require_once 'maplestory_sdk.php';
 $client = new MaplestorySDK();
 
 
-// Load a specific android
-$android = $client->android()->load(["id" => "example_id"]);
+// Load a specific android (returns the bare record; throws on error)
+$android = $client->Android()->load(["id" => "example_id"]);
 print_r($android);
 ```
 
@@ -154,8 +154,8 @@ require_relative "Maplestory_sdk"
 client = MaplestorySDK.new
 
 
-# Load a specific android
-android = client.android.load({ "id" => "example_id" })
+# Load a specific android (returns the bare record; raises on error)
+android = client.Android.load({ "id" => "example_id" })
 puts android
 ```
 
@@ -168,7 +168,7 @@ local client = sdk.new()
 
 
 -- Load a specific android
-local android, err = client:android():load({ id = "example_id" })
+local android, err = client:Android():load({ id = "example_id" })
 print(android)
 ```
 
@@ -181,22 +181,27 @@ in-memory mock, so unit tests run offline.
 
 ```ts
 const client = MaplestorySDK.test()
-const result = await client.android.load({ id: 'test01' })
-// result.ok === true, result.data contains mock data
+const android = await client.Android().load({ id: 'test01' })
+// android is a bare Android populated with mock data
+console.log(android)
 ```
 
 ### Python
 
 ```python
 client = MaplestorySDK.test()
-result = client.android.load({"id": "test01"})
+android = client.Android().load({"id": "test01"})
+print(android)
 ```
 
 ### PHP
 
 ```php
-$client = MaplestorySDK::test();
-$result = $client->android()->load(["id" => "test01"]);
+// Seed fixture data so offline calls resolve without a live server.
+$client = MaplestorySDK::test([
+    "entity" => ["android" => ["test01" => ["id" => "test01"]]],
+]);
+$android = $client->Android()->load(["id" => "test01"]);
 ```
 
 ### Golang
@@ -211,15 +216,18 @@ result, err := client.Android(nil).Load(
 ### Ruby
 
 ```ruby
-client = MaplestorySDK.test
-result = client.android.load({ "id" => "test01" })
+# Seed fixture data so offline calls resolve without a live server.
+client = MaplestorySDK.test({
+  "entity" => { "android" => { "test01" => { "id" => "test01" } } },
+})
+android = client.Android.load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:android():load({ id = "test01" })
+local result, err = client:Android():load({ id = "test01" })
 ```
 
 ## How it works
@@ -267,6 +275,9 @@ const result = await client.direct({
   method: 'GET',
   params: { id: 'example' },
 })
+if (result instanceof Error) {
+  throw result
+}
 console.log(result.data)
 ```
 

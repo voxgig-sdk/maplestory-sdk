@@ -233,10 +233,10 @@ class MaplestorySDK
 
     private $_android = null;
 
-    // Idiomatic facade: $client->android()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Android() (PHP method
-    // names are case-insensitive).
-    public function android($data = null)
+    // Canonical facade: $client->Android()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->android()
+    // resolves here too.
+    public function Android($data = null)
     {
         require_once __DIR__ . '/entity/android_entity.php';
         if ($data === null) {
@@ -251,10 +251,10 @@ class MaplestorySDK
 
     private $_avatar = null;
 
-    // Idiomatic facade: $client->avatar()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Avatar() (PHP method
-    // names are case-insensitive).
-    public function avatar($data = null)
+    // Canonical facade: $client->Avatar()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->avatar()
+    // resolves here too.
+    public function Avatar($data = null)
     {
         require_once __DIR__ . '/entity/avatar_entity.php';
         if ($data === null) {
@@ -269,10 +269,10 @@ class MaplestorySDK
 
     private $_cache = null;
 
-    // Idiomatic facade: $client->cache()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Cache() (PHP method
-    // names are case-insensitive).
-    public function cache($data = null)
+    // Canonical facade: $client->Cache()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->cache()
+    // resolves here too.
+    public function Cache($data = null)
     {
         require_once __DIR__ . '/entity/cache_entity.php';
         if ($data === null) {
@@ -287,10 +287,10 @@ class MaplestorySDK
 
     private $_character = null;
 
-    // Idiomatic facade: $client->character()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Character() (PHP method
-    // names are case-insensitive).
-    public function character($data = null)
+    // Canonical facade: $client->Character()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->character()
+    // resolves here too.
+    public function Character($data = null)
     {
         require_once __DIR__ . '/entity/character_entity.php';
         if ($data === null) {
@@ -305,10 +305,10 @@ class MaplestorySDK
 
     private $_chat = null;
 
-    // Idiomatic facade: $client->chat()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Chat() (PHP method
-    // names are case-insensitive).
-    public function chat($data = null)
+    // Canonical facade: $client->Chat()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->chat()
+    // resolves here too.
+    public function Chat($data = null)
     {
         require_once __DIR__ . '/entity/chat_entity.php';
         if ($data === null) {
@@ -323,10 +323,10 @@ class MaplestorySDK
 
     private $_cluster = null;
 
-    // Idiomatic facade: $client->cluster()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Cluster() (PHP method
-    // names are case-insensitive).
-    public function cluster($data = null)
+    // Canonical facade: $client->Cluster()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->cluster()
+    // resolves here too.
+    public function Cluster($data = null)
     {
         require_once __DIR__ . '/entity/cluster_entity.php';
         if ($data === null) {
@@ -341,10 +341,10 @@ class MaplestorySDK
 
     private $_diff = null;
 
-    // Idiomatic facade: $client->diff()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Diff() (PHP method
-    // names are case-insensitive).
-    public function diff($data = null)
+    // Canonical facade: $client->Diff()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->diff()
+    // resolves here too.
+    public function Diff($data = null)
     {
         require_once __DIR__ . '/entity/diff_entity.php';
         if ($data === null) {
@@ -359,10 +359,10 @@ class MaplestorySDK
 
     private $_entity1 = null;
 
-    // Idiomatic facade: $client->entity1()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Entity1() (PHP method
-    // names are case-insensitive).
-    public function entity1($data = null)
+    // Canonical facade: $client->Entity1()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->entity1()
+    // resolves here too.
+    public function Entity1($data = null)
     {
         require_once __DIR__ . '/entity/entity1_entity.php';
         if ($data === null) {
@@ -377,10 +377,10 @@ class MaplestorySDK
 
     private $_gms_new = null;
 
-    // Idiomatic facade: $client->gms_new()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias GmsNew() (PHP method
-    // names are case-insensitive).
-    public function gms_new($data = null)
+    // Canonical facade: $client->GmsNew()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->gms_new()
+    // resolves here too.
+    public function GmsNew($data = null)
     {
         require_once __DIR__ . '/entity/gms_new_entity.php';
         if ($data === null) {
@@ -395,10 +395,10 @@ class MaplestorySDK
 
     private $_guild_mark = null;
 
-    // Idiomatic facade: $client->guild_mark()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias GuildMark() (PHP method
-    // names are case-insensitive).
-    public function guild_mark($data = null)
+    // Canonical facade: $client->GuildMark()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->guild_mark()
+    // resolves here too.
+    public function GuildMark($data = null)
     {
         require_once __DIR__ . '/entity/guild_mark_entity.php';
         if ($data === null) {
@@ -413,10 +413,10 @@ class MaplestorySDK
 
     private $_health = null;
 
-    // Idiomatic facade: $client->health()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Health() (PHP method
-    // names are case-insensitive).
-    public function health($data = null)
+    // Canonical facade: $client->Health()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->health()
+    // resolves here too.
+    public function Health($data = null)
     {
         require_once __DIR__ . '/entity/health_entity.php';
         if ($data === null) {
@@ -431,10 +431,10 @@ class MaplestorySDK
 
     private $_item = null;
 
-    // Idiomatic facade: $client->item()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Item() (PHP method
-    // names are case-insensitive).
-    public function item($data = null)
+    // Canonical facade: $client->Item()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->item()
+    // resolves here too.
+    public function Item($data = null)
     {
         require_once __DIR__ . '/entity/item_entity.php';
         if ($data === null) {
@@ -449,10 +449,10 @@ class MaplestorySDK
 
     private $_job = null;
 
-    // Idiomatic facade: $client->job()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Job() (PHP method
-    // names are case-insensitive).
-    public function job($data = null)
+    // Canonical facade: $client->Job()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->job()
+    // resolves here too.
+    public function Job($data = null)
     {
         require_once __DIR__ . '/entity/job_entity.php';
         if ($data === null) {
@@ -467,10 +467,10 @@ class MaplestorySDK
 
     private $_map = null;
 
-    // Idiomatic facade: $client->map()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Map() (PHP method
-    // names are case-insensitive).
-    public function map($data = null)
+    // Canonical facade: $client->Map()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->map()
+    // resolves here too.
+    public function Map($data = null)
     {
         require_once __DIR__ . '/entity/map_entity.php';
         if ($data === null) {
@@ -485,10 +485,10 @@ class MaplestorySDK
 
     private $_metric = null;
 
-    // Idiomatic facade: $client->metric()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Metric() (PHP method
-    // names are case-insensitive).
-    public function metric($data = null)
+    // Canonical facade: $client->Metric()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->metric()
+    // resolves here too.
+    public function Metric($data = null)
     {
         require_once __DIR__ . '/entity/metric_entity.php';
         if ($data === null) {
@@ -503,10 +503,10 @@ class MaplestorySDK
 
     private $_mob = null;
 
-    // Idiomatic facade: $client->mob()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Mob() (PHP method
-    // names are case-insensitive).
-    public function mob($data = null)
+    // Canonical facade: $client->Mob()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->mob()
+    // resolves here too.
+    public function Mob($data = null)
     {
         require_once __DIR__ . '/entity/mob_entity.php';
         if ($data === null) {
@@ -521,10 +521,10 @@ class MaplestorySDK
 
     private $_music = null;
 
-    // Idiomatic facade: $client->music()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Music() (PHP method
-    // names are case-insensitive).
-    public function music($data = null)
+    // Canonical facade: $client->Music()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->music()
+    // resolves here too.
+    public function Music($data = null)
     {
         require_once __DIR__ . '/entity/music_entity.php';
         if ($data === null) {
@@ -539,10 +539,10 @@ class MaplestorySDK
 
     private $_name = null;
 
-    // Idiomatic facade: $client->name()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Name() (PHP method
-    // names are case-insensitive).
-    public function name($data = null)
+    // Canonical facade: $client->Name()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->name()
+    // resolves here too.
+    public function Name($data = null)
     {
         require_once __DIR__ . '/entity/name_entity.php';
         if ($data === null) {
@@ -557,10 +557,10 @@ class MaplestorySDK
 
     private $_npc = null;
 
-    // Idiomatic facade: $client->npc()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Npc() (PHP method
-    // names are case-insensitive).
-    public function npc($data = null)
+    // Canonical facade: $client->Npc()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->npc()
+    // resolves here too.
+    public function Npc($data = null)
     {
         require_once __DIR__ . '/entity/npc_entity.php';
         if ($data === null) {
@@ -575,10 +575,10 @@ class MaplestorySDK
 
     private $_nxf = null;
 
-    // Idiomatic facade: $client->nxf()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Nxf() (PHP method
-    // names are case-insensitive).
-    public function nxf($data = null)
+    // Canonical facade: $client->Nxf()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->nxf()
+    // resolves here too.
+    public function Nxf($data = null)
     {
         require_once __DIR__ . '/entity/nxf_entity.php';
         if ($data === null) {
@@ -593,10 +593,10 @@ class MaplestorySDK
 
     private $_performance_metric = null;
 
-    // Idiomatic facade: $client->performance_metric()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias PerformanceMetric() (PHP method
-    // names are case-insensitive).
-    public function performance_metric($data = null)
+    // Canonical facade: $client->PerformanceMetric()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->performance_metric()
+    // resolves here too.
+    public function PerformanceMetric($data = null)
     {
         require_once __DIR__ . '/entity/performance_metric_entity.php';
         if ($data === null) {
@@ -611,10 +611,10 @@ class MaplestorySDK
 
     private $_pet = null;
 
-    // Idiomatic facade: $client->pet()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Pet() (PHP method
-    // names are case-insensitive).
-    public function pet($data = null)
+    // Canonical facade: $client->Pet()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->pet()
+    // resolves here too.
+    public function Pet($data = null)
     {
         require_once __DIR__ . '/entity/pet_entity.php';
         if ($data === null) {
@@ -629,10 +629,10 @@ class MaplestorySDK
 
     private $_quest = null;
 
-    // Idiomatic facade: $client->quest()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Quest() (PHP method
-    // names are case-insensitive).
-    public function quest($data = null)
+    // Canonical facade: $client->Quest()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->quest()
+    // resolves here too.
+    public function Quest($data = null)
     {
         require_once __DIR__ . '/entity/quest_entity.php';
         if ($data === null) {
@@ -647,10 +647,10 @@ class MaplestorySDK
 
     private $_system = null;
 
-    // Idiomatic facade: $client->system()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias System() (PHP method
-    // names are case-insensitive).
-    public function system($data = null)
+    // Canonical facade: $client->System()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->system()
+    // resolves here too.
+    public function System($data = null)
     {
         require_once __DIR__ . '/entity/system_entity.php';
         if ($data === null) {
@@ -665,10 +665,10 @@ class MaplestorySDK
 
     private $_tip = null;
 
-    // Idiomatic facade: $client->tip()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Tip() (PHP method
-    // names are case-insensitive).
-    public function tip($data = null)
+    // Canonical facade: $client->Tip()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->tip()
+    // resolves here too.
+    public function Tip($data = null)
     {
         require_once __DIR__ . '/entity/tip_entity.php';
         if ($data === null) {
@@ -683,10 +683,10 @@ class MaplestorySDK
 
     private $_wzn = null;
 
-    // Idiomatic facade: $client->wzn()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Wzn() (PHP method
-    // names are case-insensitive).
-    public function wzn($data = null)
+    // Canonical facade: $client->Wzn()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->wzn()
+    // resolves here too.
+    public function Wzn($data = null)
     {
         require_once __DIR__ . '/entity/wzn_entity.php';
         if ($data === null) {
@@ -701,10 +701,10 @@ class MaplestorySDK
 
     private $_wzn2 = null;
 
-    // Idiomatic facade: $client->wzn2()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Wzn2() (PHP method
-    // names are case-insensitive).
-    public function wzn2($data = null)
+    // Canonical facade: $client->Wzn2()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->wzn2()
+    // resolves here too.
+    public function Wzn2($data = null)
     {
         require_once __DIR__ . '/entity/wzn2_entity.php';
         if ($data === null) {
@@ -719,10 +719,10 @@ class MaplestorySDK
 
     private $_wzn3 = null;
 
-    // Idiomatic facade: $client->wzn3()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Wzn3() (PHP method
-    // names are case-insensitive).
-    public function wzn3($data = null)
+    // Canonical facade: $client->Wzn3()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->wzn3()
+    // resolves here too.
+    public function Wzn3($data = null)
     {
         require_once __DIR__ . '/entity/wzn3_entity.php';
         if ($data === null) {
@@ -737,10 +737,10 @@ class MaplestorySDK
 
     private $_wzn4 = null;
 
-    // Idiomatic facade: $client->wzn4()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Wzn4() (PHP method
-    // names are case-insensitive).
-    public function wzn4($data = null)
+    // Canonical facade: $client->Wzn4()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->wzn4()
+    // resolves here too.
+    public function Wzn4($data = null)
     {
         require_once __DIR__ . '/entity/wzn4_entity.php';
         if ($data === null) {
@@ -755,10 +755,10 @@ class MaplestorySDK
 
     private $_wzn5 = null;
 
-    // Idiomatic facade: $client->wzn5()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Wzn5() (PHP method
-    // names are case-insensitive).
-    public function wzn5($data = null)
+    // Canonical facade: $client->Wzn5()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->wzn5()
+    // resolves here too.
+    public function Wzn5($data = null)
     {
         require_once __DIR__ . '/entity/wzn5_entity.php';
         if ($data === null) {
@@ -773,10 +773,10 @@ class MaplestorySDK
 
     private $_wzn6 = null;
 
-    // Idiomatic facade: $client->wzn6()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Wzn6() (PHP method
-    // names are case-insensitive).
-    public function wzn6($data = null)
+    // Canonical facade: $client->Wzn6()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->wzn6()
+    // resolves here too.
+    public function Wzn6($data = null)
     {
         require_once __DIR__ . '/entity/wzn6_entity.php';
         if ($data === null) {
@@ -791,10 +791,10 @@ class MaplestorySDK
 
     private $_z_map = null;
 
-    // Idiomatic facade: $client->z_map()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias ZMap() (PHP method
-    // names are case-insensitive).
-    public function z_map($data = null)
+    // Canonical facade: $client->ZMap()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->z_map()
+    // resolves here too.
+    public function ZMap($data = null)
     {
         require_once __DIR__ . '/entity/z_map_entity.php';
         if ($data === null) {

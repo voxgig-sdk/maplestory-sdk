@@ -209,7 +209,7 @@ Prepare a fetch definition without sending the request. Returns the
 ## AndroidEntity
 
 ```php
-$android = $client->android();
+$android = $client->Android();
 ```
 
 ### Operations
@@ -219,7 +219,7 @@ $android = $client->android();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->android()->load(["id" => "android_id"]);
+$result = $client->Android()->load(["id" => "android_id"]);
 ```
 
 ### Common Methods
@@ -255,7 +255,7 @@ Return the entity name.
 ## AvatarEntity
 
 ```php
-$avatar = $client->avatar();
+$avatar = $client->Avatar();
 ```
 
 ### Operations
@@ -265,7 +265,7 @@ $avatar = $client->avatar();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->avatar()->load(["id" => "avatar_id"]);
+$result = $client->Avatar()->load(["id" => "avatar_id"]);
 ```
 
 ### Common Methods
@@ -301,7 +301,7 @@ Return the entity name.
 ## CacheEntity
 
 ```php
-$cache = $client->cache();
+$cache = $client->Cache();
 ```
 
 ### Fields
@@ -322,7 +322,7 @@ $cache = $client->cache();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->cache()->load(["id" => "cache_id"]);
+$result = $client->Cache()->load(["id" => "cache_id"]);
 ```
 
 ### Common Methods
@@ -358,7 +358,7 @@ Return the entity name.
 ## CharacterEntity
 
 ```php
-$character = $client->character();
+$character = $client->Character();
 ```
 
 ### Operations
@@ -368,7 +368,7 @@ $character = $client->character();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->character()->load(["id" => "character_id"]);
+$result = $client->Character()->load(["id" => "character_id"]);
 ```
 
 ### Common Methods
@@ -404,7 +404,7 @@ Return the entity name.
 ## ChatEntity
 
 ```php
-$chat = $client->chat();
+$chat = $client->Chat();
 ```
 
 ### Operations
@@ -414,7 +414,7 @@ $chat = $client->chat();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->chat()->load(["id" => "chat_id"]);
+$result = $client->Chat()->load(["id" => "chat_id"]);
 ```
 
 ### Common Methods
@@ -450,7 +450,7 @@ Return the entity name.
 ## ClusterEntity
 
 ```php
-$cluster = $client->cluster();
+$cluster = $client->Cluster();
 ```
 
 ### Fields
@@ -468,7 +468,7 @@ $cluster = $client->cluster();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->cluster()->list([]);
+$results = $client->Cluster()->list([]);
 ```
 
 ### Common Methods
@@ -504,7 +504,7 @@ Return the entity name.
 ## DiffEntity
 
 ```php
-$diff = $client->diff();
+$diff = $client->Diff();
 ```
 
 ### Operations
@@ -514,7 +514,7 @@ $diff = $client->diff();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->diff()->load(["id" => "diff_id"]);
+$result = $client->Diff()->load(["id" => "diff_id"]);
 ```
 
 ### Common Methods
@@ -550,7 +550,7 @@ Return the entity name.
 ## Entity1Entity
 
 ```php
-$entity1 = $client->entity1();
+$entity1 = $client->Entity1();
 ```
 
 ### Operations
@@ -560,7 +560,7 @@ $entity1 = $client->entity1();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->entity1()->load(["id" => "entity1_id"]);
+$result = $client->Entity1()->load(["id" => "entity1_id"]);
 ```
 
 ### Common Methods
@@ -596,7 +596,7 @@ Return the entity name.
 ## GmsNewEntity
 
 ```php
-$gms_new = $client->gms_new();
+$gms_new = $client->GmsNew();
 ```
 
 ### Operations
@@ -606,7 +606,7 @@ $gms_new = $client->gms_new();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->gms_new()->load(["id" => "gms_new_id"]);
+$result = $client->GmsNew()->load(["id" => "gms_new_id"]);
 ```
 
 ### Common Methods
@@ -642,7 +642,7 @@ Return the entity name.
 ## GuildMarkEntity
 
 ```php
-$guild_mark = $client->guild_mark();
+$guild_mark = $client->GuildMark();
 ```
 
 ### Operations
@@ -652,7 +652,7 @@ $guild_mark = $client->guild_mark();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->guild_mark()->load(["id" => "guild_mark_id"]);
+$result = $client->GuildMark()->load(["id" => "guild_mark_id"]);
 ```
 
 ### Common Methods
@@ -688,7 +688,7 @@ Return the entity name.
 ## HealthEntity
 
 ```php
-$health = $client->health();
+$health = $client->Health();
 ```
 
 ### Operations
@@ -698,7 +698,7 @@ $health = $client->health();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->health()->load(["id" => "health_id"]);
+$result = $client->Health()->load(["id" => "health_id"]);
 ```
 
 ### Common Methods
@@ -734,7 +734,7 @@ Return the entity name.
 ## ItemEntity
 
 ```php
-$item = $client->item();
+$item = $client->Item();
 ```
 
 ### Operations
@@ -744,7 +744,7 @@ $item = $client->item();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->item()->load(["id" => "item_id"]);
+$result = $client->Item()->load(["id" => "item_id"]);
 ```
 
 ### Common Methods
@@ -780,7 +780,7 @@ Return the entity name.
 ## JobEntity
 
 ```php
-$job = $client->job();
+$job = $client->Job();
 ```
 
 ### Operations
@@ -790,7 +790,7 @@ $job = $client->job();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->job()->load(["id" => "job_id"]);
+$result = $client->Job()->load(["id" => "job_id"]);
 ```
 
 ### Common Methods
@@ -826,7 +826,7 @@ Return the entity name.
 ## MapEntity
 
 ```php
-$map = $client->map();
+$map = $client->Map();
 ```
 
 ### Operations
@@ -836,7 +836,7 @@ $map = $client->map();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->map()->load(["id" => "map_id"]);
+$result = $client->Map()->load(["id" => "map_id"]);
 ```
 
 ### Common Methods
@@ -872,7 +872,7 @@ Return the entity name.
 ## MetricEntity
 
 ```php
-$metric = $client->metric();
+$metric = $client->Metric();
 ```
 
 ### Operations
@@ -882,7 +882,7 @@ $metric = $client->metric();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->metric()->load(["id" => "metric_id"]);
+$result = $client->Metric()->load(["id" => "metric_id"]);
 ```
 
 ### Common Methods
@@ -918,7 +918,7 @@ Return the entity name.
 ## MobEntity
 
 ```php
-$mob = $client->mob();
+$mob = $client->Mob();
 ```
 
 ### Operations
@@ -928,7 +928,7 @@ $mob = $client->mob();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->mob()->load(["id" => "mob_id"]);
+$result = $client->Mob()->load(["id" => "mob_id"]);
 ```
 
 ### Common Methods
@@ -964,7 +964,7 @@ Return the entity name.
 ## MusicEntity
 
 ```php
-$music = $client->music();
+$music = $client->Music();
 ```
 
 ### Operations
@@ -974,7 +974,7 @@ $music = $client->music();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->music()->load(["id" => "music_id"]);
+$result = $client->Music()->load(["id" => "music_id"]);
 ```
 
 ### Common Methods
@@ -1010,7 +1010,7 @@ Return the entity name.
 ## NameEntity
 
 ```php
-$name = $client->name();
+$name = $client->Name();
 ```
 
 ### Operations
@@ -1020,7 +1020,7 @@ $name = $client->name();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->name()->load(["id" => "name_id"]);
+$result = $client->Name()->load(["id" => "name_id"]);
 ```
 
 ### Common Methods
@@ -1056,7 +1056,7 @@ Return the entity name.
 ## NpcEntity
 
 ```php
-$npc = $client->npc();
+$npc = $client->Npc();
 ```
 
 ### Operations
@@ -1066,7 +1066,7 @@ $npc = $client->npc();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->npc()->load(["id" => "npc_id"]);
+$result = $client->Npc()->load(["id" => "npc_id"]);
 ```
 
 ### Common Methods
@@ -1102,7 +1102,7 @@ Return the entity name.
 ## NxfEntity
 
 ```php
-$nxf = $client->nxf();
+$nxf = $client->Nxf();
 ```
 
 ### Operations
@@ -1112,7 +1112,7 @@ $nxf = $client->nxf();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->nxf()->load(["id" => "nxf_id"]);
+$result = $client->Nxf()->load(["id" => "nxf_id"]);
 ```
 
 ### Common Methods
@@ -1148,7 +1148,7 @@ Return the entity name.
 ## PerformanceMetricEntity
 
 ```php
-$performance_metric = $client->performance_metric();
+$performance_metric = $client->PerformanceMetric();
 ```
 
 ### Fields
@@ -1176,7 +1176,7 @@ $performance_metric = $client->performance_metric();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->performance_metric()->load(["id" => "performance_metric_id"]);
+$result = $client->PerformanceMetric()->load(["id" => "performance_metric_id"]);
 ```
 
 ### Common Methods
@@ -1212,7 +1212,7 @@ Return the entity name.
 ## PetEntity
 
 ```php
-$pet = $client->pet();
+$pet = $client->Pet();
 ```
 
 ### Operations
@@ -1222,7 +1222,7 @@ $pet = $client->pet();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->pet()->load(["id" => "pet_id"]);
+$result = $client->Pet()->load(["id" => "pet_id"]);
 ```
 
 ### Common Methods
@@ -1258,7 +1258,7 @@ Return the entity name.
 ## QuestEntity
 
 ```php
-$quest = $client->quest();
+$quest = $client->Quest();
 ```
 
 ### Operations
@@ -1268,7 +1268,7 @@ $quest = $client->quest();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->quest()->load(["id" => "quest_id"]);
+$result = $client->Quest()->load(["id" => "quest_id"]);
 ```
 
 ### Common Methods
@@ -1304,7 +1304,7 @@ Return the entity name.
 ## SystemEntity
 
 ```php
-$system = $client->system();
+$system = $client->System();
 ```
 
 ### Fields
@@ -1326,7 +1326,7 @@ $system = $client->system();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->system()->load(["id" => "system_id"]);
+$result = $client->System()->load(["id" => "system_id"]);
 ```
 
 ### Common Methods
@@ -1362,7 +1362,7 @@ Return the entity name.
 ## TipEntity
 
 ```php
-$tip = $client->tip();
+$tip = $client->Tip();
 ```
 
 ### Operations
@@ -1372,7 +1372,7 @@ $tip = $client->tip();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->tip()->load(["id" => "tip_id"]);
+$result = $client->Tip()->load(["id" => "tip_id"]);
 ```
 
 ### Common Methods
@@ -1408,7 +1408,7 @@ Return the entity name.
 ## WznEntity
 
 ```php
-$wzn = $client->wzn();
+$wzn = $client->Wzn();
 ```
 
 ### Operations
@@ -1418,7 +1418,7 @@ $wzn = $client->wzn();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->wzn()->load(["id" => "wzn_id"]);
+$result = $client->Wzn()->load(["id" => "wzn_id"]);
 ```
 
 ### Common Methods
@@ -1454,7 +1454,7 @@ Return the entity name.
 ## Wzn2Entity
 
 ```php
-$wzn2 = $client->wzn2();
+$wzn2 = $client->Wzn2();
 ```
 
 ### Operations
@@ -1464,7 +1464,7 @@ $wzn2 = $client->wzn2();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->wzn2()->load(["id" => "wzn2_id"]);
+$result = $client->Wzn2()->load(["id" => "wzn2_id"]);
 ```
 
 ### Common Methods
@@ -1500,7 +1500,7 @@ Return the entity name.
 ## Wzn3Entity
 
 ```php
-$wzn3 = $client->wzn3();
+$wzn3 = $client->Wzn3();
 ```
 
 ### Operations
@@ -1510,7 +1510,7 @@ $wzn3 = $client->wzn3();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->wzn3()->load(["id" => "wzn3_id"]);
+$result = $client->Wzn3()->load(["id" => "wzn3_id"]);
 ```
 
 ### Common Methods
@@ -1546,7 +1546,7 @@ Return the entity name.
 ## Wzn4Entity
 
 ```php
-$wzn4 = $client->wzn4();
+$wzn4 = $client->Wzn4();
 ```
 
 ### Operations
@@ -1556,7 +1556,7 @@ $wzn4 = $client->wzn4();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->wzn4()->load(["id" => "wzn4_id"]);
+$result = $client->Wzn4()->load(["id" => "wzn4_id"]);
 ```
 
 ### Common Methods
@@ -1592,7 +1592,7 @@ Return the entity name.
 ## Wzn5Entity
 
 ```php
-$wzn5 = $client->wzn5();
+$wzn5 = $client->Wzn5();
 ```
 
 ### Operations
@@ -1602,7 +1602,7 @@ $wzn5 = $client->wzn5();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->wzn5()->load(["id" => "wzn5_id"]);
+$result = $client->Wzn5()->load(["id" => "wzn5_id"]);
 ```
 
 ### Common Methods
@@ -1638,7 +1638,7 @@ Return the entity name.
 ## Wzn6Entity
 
 ```php
-$wzn6 = $client->wzn6();
+$wzn6 = $client->Wzn6();
 ```
 
 ### Operations
@@ -1648,7 +1648,7 @@ $wzn6 = $client->wzn6();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->wzn6()->load(["id" => "wzn6_id"]);
+$result = $client->Wzn6()->load(["id" => "wzn6_id"]);
 ```
 
 ### Common Methods
@@ -1684,7 +1684,7 @@ Return the entity name.
 ## ZMapEntity
 
 ```php
-$z_map = $client->z_map();
+$z_map = $client->ZMap();
 ```
 
 ### Operations
@@ -1694,7 +1694,7 @@ $z_map = $client->z_map();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->z_map()->load(["id" => "z_map_id"]);
+$result = $client->ZMap()->load(["id" => "z_map_id"]);
 ```
 
 ### Common Methods

@@ -30,36 +30,30 @@ go mod edit -replace github.com/voxgig-sdk/maplestory-sdk/go=../maplestory-sdk/g
 This tutorial walks through creating a client, listing entities, and
 loading a specific record.
 
-### 1. Create a client
+### Quickstart
+
+A complete program: create a client, then call the entity operations.
+Each operation returns `(value, error)` — the value is the data itself
+(there is no `{ok, data}` wrapper), so check `err` and use the value
+directly.
 
 ```go
 package main
 
 import (
     "fmt"
-
     sdk "github.com/voxgig-sdk/maplestory-sdk/go"
-    "github.com/voxgig-sdk/maplestory-sdk/go/core"
 )
 
 func main() {
     client := sdk.New()
-```
 
-### 3. Load an android
-
-```go
-    result, err = client.Android(nil).Load(
-        map[string]any{"id": "example_id"}, nil,
-    )
+    // Load a single android — the value is the loaded record.
+    android, err := client.Android(nil).Load(map[string]any{"id": "example_id"}, nil)
     if err != nil {
         panic(err)
     }
-
-    rm = core.ToMapAny(result)
-    if rm["ok"] == true {
-        fmt.Println(rm["data"])
-    }
+    fmt.Println(android)
 }
 ```
 
@@ -110,10 +104,13 @@ Create a mock client for unit testing — no server required:
 ```go
 client := sdk.Test()
 
-result, err := client.Android(nil).Load(
+android, err := client.Android(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
-// result contains mock response data
+if err != nil {
+    panic(err)
+}
+fmt.Println(android) // the loaded mock data
 ```
 
 ### Use a custom fetch function
@@ -190,18 +187,18 @@ Creates a test-mode client with mock transport. Both arguments may be `nil`.
 | `GetUtility` | `() *Utility` | Copy of the SDK utility object. |
 | `Prepare` | `(fetchargs map[string]any) (map[string]any, error)` | Build an HTTP request definition without sending. |
 | `Direct` | `(fetchargs map[string]any) (map[string]any, error)` | Build and send an HTTP request. |
-| `Android` | `(data map[string]any) MaplestoryEntity` | Create a Android entity instance. |
-| `Avatar` | `(data map[string]any) MaplestoryEntity` | Create a Avatar entity instance. |
+| `Android` | `(data map[string]any) MaplestoryEntity` | Create an Android entity instance. |
+| `Avatar` | `(data map[string]any) MaplestoryEntity` | Create an Avatar entity instance. |
 | `Cache` | `(data map[string]any) MaplestoryEntity` | Create a Cache entity instance. |
 | `Character` | `(data map[string]any) MaplestoryEntity` | Create a Character entity instance. |
 | `Chat` | `(data map[string]any) MaplestoryEntity` | Create a Chat entity instance. |
 | `Cluster` | `(data map[string]any) MaplestoryEntity` | Create a Cluster entity instance. |
 | `Diff` | `(data map[string]any) MaplestoryEntity` | Create a Diff entity instance. |
-| `Entity1` | `(data map[string]any) MaplestoryEntity` | Create a Entity1 entity instance. |
+| `Entity1` | `(data map[string]any) MaplestoryEntity` | Create an Entity1 entity instance. |
 | `GmsNew` | `(data map[string]any) MaplestoryEntity` | Create a GmsNew entity instance. |
 | `GuildMark` | `(data map[string]any) MaplestoryEntity` | Create a GuildMark entity instance. |
 | `Health` | `(data map[string]any) MaplestoryEntity` | Create a Health entity instance. |
-| `Item` | `(data map[string]any) MaplestoryEntity` | Create a Item entity instance. |
+| `Item` | `(data map[string]any) MaplestoryEntity` | Create an Item entity instance. |
 | `Job` | `(data map[string]any) MaplestoryEntity` | Create a Job entity instance. |
 | `Map` | `(data map[string]any) MaplestoryEntity` | Create a Map entity instance. |
 | `Metric` | `(data map[string]any) MaplestoryEntity` | Create a Metric entity instance. |
@@ -241,17 +238,24 @@ All entities implement the `MaplestoryEntity` interface.
 
 ### Result shape
 
-Entity operations return `(any, error)`. The `any` value is a
-`map[string]any` with these keys:
+Entity operations return `(value, error)`. The `value` is the
+operation's data **directly** — there is no wrapper:
 
-| Key | Type | Description |
-| --- | --- | --- |
-| `"ok"` | `bool` | `true` if the HTTP status is 2xx. |
-| `"status"` | `int` | HTTP status code. |
-| `"headers"` | `map[string]any` | Response headers. |
-| `"data"` | `any` | Parsed JSON response body. |
+| Operation | `value` |
+| --- | --- |
+| `Load` / `Create` / `Update` / `Remove` | the entity record (`map[string]any`) |
+| `List` | a `[]any` of entity records |
 
-On error, `"ok"` is `false` and `"err"` contains the error value.
+Check `err` first, then use the value directly (or the typed
+`...Typed` variants, which return the entity's model struct and a typed
+slice):
+
+    android, err := client.Android(nil).Load(map[string]any{"id": "example_id"}, nil)
+    if err != nil { /* handle */ }
+    // android is the loaded record
+
+Only `Direct()` returns a response envelope — a `map[string]any` with
+`"ok"`, `"status"`, `"headers"`, and `"data"` keys.
 
 ### Entities
 
@@ -590,7 +594,11 @@ Create an instance: `android := client.Android(nil)`
 #### Example: Load
 
 ```go
-result, err := client.Android(nil).Load(map[string]any{"id": "android_id"}, nil)
+android, err := client.Android(nil).Load(map[string]any{"id": "android_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(android) // the loaded record
 ```
 
 
@@ -607,7 +615,11 @@ Create an instance: `avatar := client.Avatar(nil)`
 #### Example: Load
 
 ```go
-result, err := client.Avatar(nil).Load(map[string]any{"id": "avatar_id"}, nil)
+avatar, err := client.Avatar(nil).Load(map[string]any{"id": "avatar_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(avatar) // the loaded record
 ```
 
 
@@ -635,7 +647,11 @@ Create an instance: `cache := client.Cache(nil)`
 #### Example: Load
 
 ```go
-result, err := client.Cache(nil).Load(map[string]any{"id": "cache_id"}, nil)
+cache, err := client.Cache(nil).Load(map[string]any{"id": "cache_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(cache) // the loaded record
 ```
 
 
@@ -652,7 +668,11 @@ Create an instance: `character := client.Character(nil)`
 #### Example: Load
 
 ```go
-result, err := client.Character(nil).Load(map[string]any{"id": "character_id"}, nil)
+character, err := client.Character(nil).Load(map[string]any{"id": "character_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(character) // the loaded record
 ```
 
 
@@ -669,7 +689,11 @@ Create an instance: `chat := client.Chat(nil)`
 #### Example: Load
 
 ```go
-result, err := client.Chat(nil).Load(map[string]any{"id": "chat_id"}, nil)
+chat, err := client.Chat(nil).Load(map[string]any{"id": "chat_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(chat) // the loaded record
 ```
 
 
@@ -694,7 +718,11 @@ Create an instance: `cluster := client.Cluster(nil)`
 #### Example: List
 
 ```go
-results, err := client.Cluster(nil).List(nil, nil)
+clusters, err := client.Cluster(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(clusters) // the array of records
 ```
 
 
@@ -711,7 +739,11 @@ Create an instance: `diff := client.Diff(nil)`
 #### Example: Load
 
 ```go
-result, err := client.Diff(nil).Load(map[string]any{"id": "diff_id"}, nil)
+diff, err := client.Diff(nil).Load(map[string]any{"id": "diff_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(diff) // the loaded record
 ```
 
 
@@ -728,7 +760,11 @@ Create an instance: `entity1 := client.Entity1(nil)`
 #### Example: Load
 
 ```go
-result, err := client.Entity1(nil).Load(map[string]any{"id": "entity1_id"}, nil)
+entity1, err := client.Entity1(nil).Load(map[string]any{"id": "entity1_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(entity1) // the loaded record
 ```
 
 
@@ -745,7 +781,11 @@ Create an instance: `gms_new := client.GmsNew(nil)`
 #### Example: Load
 
 ```go
-result, err := client.GmsNew(nil).Load(map[string]any{"id": "gms_new_id"}, nil)
+gms_new, err := client.GmsNew(nil).Load(map[string]any{"id": "gms_new_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(gms_new) // the loaded record
 ```
 
 
@@ -762,7 +802,11 @@ Create an instance: `guild_mark := client.GuildMark(nil)`
 #### Example: Load
 
 ```go
-result, err := client.GuildMark(nil).Load(map[string]any{"id": "guild_mark_id"}, nil)
+guild_mark, err := client.GuildMark(nil).Load(map[string]any{"id": "guild_mark_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(guild_mark) // the loaded record
 ```
 
 
@@ -779,7 +823,11 @@ Create an instance: `health := client.Health(nil)`
 #### Example: Load
 
 ```go
-result, err := client.Health(nil).Load(map[string]any{"id": "health_id"}, nil)
+health, err := client.Health(nil).Load(map[string]any{"id": "health_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(health) // the loaded record
 ```
 
 
@@ -796,7 +844,11 @@ Create an instance: `item := client.Item(nil)`
 #### Example: Load
 
 ```go
-result, err := client.Item(nil).Load(map[string]any{"id": "item_id"}, nil)
+item, err := client.Item(nil).Load(map[string]any{"id": "item_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(item) // the loaded record
 ```
 
 
@@ -813,7 +865,11 @@ Create an instance: `job := client.Job(nil)`
 #### Example: Load
 
 ```go
-result, err := client.Job(nil).Load(map[string]any{"id": "job_id"}, nil)
+job, err := client.Job(nil).Load(map[string]any{"id": "job_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(job) // the loaded record
 ```
 
 
@@ -830,7 +886,11 @@ Create an instance: `map := client.Map(nil)`
 #### Example: Load
 
 ```go
-result, err := client.Map(nil).Load(map[string]any{"id": "map_id"}, nil)
+map, err := client.Map(nil).Load(map[string]any{"id": "map_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(map) // the loaded record
 ```
 
 
@@ -847,7 +907,11 @@ Create an instance: `metric := client.Metric(nil)`
 #### Example: Load
 
 ```go
-result, err := client.Metric(nil).Load(map[string]any{"id": "metric_id"}, nil)
+metric, err := client.Metric(nil).Load(map[string]any{"id": "metric_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(metric) // the loaded record
 ```
 
 
@@ -864,7 +928,11 @@ Create an instance: `mob := client.Mob(nil)`
 #### Example: Load
 
 ```go
-result, err := client.Mob(nil).Load(map[string]any{"id": "mob_id"}, nil)
+mob, err := client.Mob(nil).Load(map[string]any{"id": "mob_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(mob) // the loaded record
 ```
 
 
@@ -881,7 +949,11 @@ Create an instance: `music := client.Music(nil)`
 #### Example: Load
 
 ```go
-result, err := client.Music(nil).Load(map[string]any{"id": "music_id"}, nil)
+music, err := client.Music(nil).Load(map[string]any{"id": "music_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(music) // the loaded record
 ```
 
 
@@ -898,7 +970,11 @@ Create an instance: `name := client.Name(nil)`
 #### Example: Load
 
 ```go
-result, err := client.Name(nil).Load(map[string]any{"id": "name_id"}, nil)
+name, err := client.Name(nil).Load(map[string]any{"id": "name_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(name) // the loaded record
 ```
 
 
@@ -915,7 +991,11 @@ Create an instance: `npc := client.Npc(nil)`
 #### Example: Load
 
 ```go
-result, err := client.Npc(nil).Load(map[string]any{"id": "npc_id"}, nil)
+npc, err := client.Npc(nil).Load(map[string]any{"id": "npc_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(npc) // the loaded record
 ```
 
 
@@ -932,7 +1012,11 @@ Create an instance: `nxf := client.Nxf(nil)`
 #### Example: Load
 
 ```go
-result, err := client.Nxf(nil).Load(map[string]any{"id": "nxf_id"}, nil)
+nxf, err := client.Nxf(nil).Load(map[string]any{"id": "nxf_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(nxf) // the loaded record
 ```
 
 
@@ -967,7 +1051,11 @@ Create an instance: `performance_metric := client.PerformanceMetric(nil)`
 #### Example: Load
 
 ```go
-result, err := client.PerformanceMetric(nil).Load(map[string]any{"id": "performance_metric_id"}, nil)
+performance_metric, err := client.PerformanceMetric(nil).Load(map[string]any{"id": "performance_metric_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(performance_metric) // the loaded record
 ```
 
 
@@ -984,7 +1072,11 @@ Create an instance: `pet := client.Pet(nil)`
 #### Example: Load
 
 ```go
-result, err := client.Pet(nil).Load(map[string]any{"id": "pet_id"}, nil)
+pet, err := client.Pet(nil).Load(map[string]any{"id": "pet_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(pet) // the loaded record
 ```
 
 
@@ -1001,7 +1093,11 @@ Create an instance: `quest := client.Quest(nil)`
 #### Example: Load
 
 ```go
-result, err := client.Quest(nil).Load(map[string]any{"id": "quest_id"}, nil)
+quest, err := client.Quest(nil).Load(map[string]any{"id": "quest_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(quest) // the loaded record
 ```
 
 
@@ -1030,7 +1126,11 @@ Create an instance: `system := client.System(nil)`
 #### Example: Load
 
 ```go
-result, err := client.System(nil).Load(map[string]any{"id": "system_id"}, nil)
+system, err := client.System(nil).Load(map[string]any{"id": "system_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(system) // the loaded record
 ```
 
 
@@ -1047,7 +1147,11 @@ Create an instance: `tip := client.Tip(nil)`
 #### Example: Load
 
 ```go
-result, err := client.Tip(nil).Load(map[string]any{"id": "tip_id"}, nil)
+tip, err := client.Tip(nil).Load(map[string]any{"id": "tip_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(tip) // the loaded record
 ```
 
 
@@ -1064,7 +1168,11 @@ Create an instance: `wzn := client.Wzn(nil)`
 #### Example: Load
 
 ```go
-result, err := client.Wzn(nil).Load(map[string]any{"id": "wzn_id"}, nil)
+wzn, err := client.Wzn(nil).Load(map[string]any{"id": "wzn_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(wzn) // the loaded record
 ```
 
 
@@ -1081,7 +1189,11 @@ Create an instance: `wzn2 := client.Wzn2(nil)`
 #### Example: Load
 
 ```go
-result, err := client.Wzn2(nil).Load(map[string]any{"id": "wzn2_id"}, nil)
+wzn2, err := client.Wzn2(nil).Load(map[string]any{"id": "wzn2_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(wzn2) // the loaded record
 ```
 
 
@@ -1098,7 +1210,11 @@ Create an instance: `wzn3 := client.Wzn3(nil)`
 #### Example: Load
 
 ```go
-result, err := client.Wzn3(nil).Load(map[string]any{"id": "wzn3_id"}, nil)
+wzn3, err := client.Wzn3(nil).Load(map[string]any{"id": "wzn3_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(wzn3) // the loaded record
 ```
 
 
@@ -1115,7 +1231,11 @@ Create an instance: `wzn4 := client.Wzn4(nil)`
 #### Example: Load
 
 ```go
-result, err := client.Wzn4(nil).Load(map[string]any{"id": "wzn4_id"}, nil)
+wzn4, err := client.Wzn4(nil).Load(map[string]any{"id": "wzn4_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(wzn4) // the loaded record
 ```
 
 
@@ -1132,7 +1252,11 @@ Create an instance: `wzn5 := client.Wzn5(nil)`
 #### Example: Load
 
 ```go
-result, err := client.Wzn5(nil).Load(map[string]any{"id": "wzn5_id"}, nil)
+wzn5, err := client.Wzn5(nil).Load(map[string]any{"id": "wzn5_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(wzn5) // the loaded record
 ```
 
 
@@ -1149,7 +1273,11 @@ Create an instance: `wzn6 := client.Wzn6(nil)`
 #### Example: Load
 
 ```go
-result, err := client.Wzn6(nil).Load(map[string]any{"id": "wzn6_id"}, nil)
+wzn6, err := client.Wzn6(nil).Load(map[string]any{"id": "wzn6_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(wzn6) // the loaded record
 ```
 
 
@@ -1166,7 +1294,11 @@ Create an instance: `z_map := client.ZMap(nil)`
 #### Example: Load
 
 ```go
-result, err := client.ZMap(nil).Load(map[string]any{"id": "z_map_id"}, nil)
+z_map, err := client.ZMap(nil).Load(map[string]any{"id": "z_map_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(z_map) // the loaded record
 ```
 
 

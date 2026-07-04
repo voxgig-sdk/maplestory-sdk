@@ -4,134 +4,119 @@
 # params (op.<name>.points[].args.params[]). Field/param types come from the
 # canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 # @voxgig/apidef VALID_CANON). Do not edit by hand.
+#
+# These are TypedDicts, not dataclasses: the SDK ops return/accept plain dicts
+# at runtime, and a TypedDict IS a dict shape, so the types match the runtime.
+# Optional (req:false) keys are modelled as TypedDict key-optionality
+# (total=False), split into a required base + total=False subclass when a type
+# has both required and optional keys.
 
 from __future__ import annotations
 
-from dataclasses import dataclass
-from typing import Optional, Any
+from typing import TypedDict, Any
 
 
-@dataclass
-class Android:
+class Android(TypedDict):
     pass
 
 
-@dataclass
-class AndroidLoadMatch:
+class AndroidLoadMatch(TypedDict):
     id: int
     region: str
     version: str
 
 
-@dataclass
-class Avatar:
+class Avatar(TypedDict):
     pass
 
 
-@dataclass
-class AvatarLoadMatch:
+class AvatarLoadMatch(TypedDict):
     animation: str
     character_id: str
     frame: int
     item: str
 
 
-@dataclass
-class Cache:
-    eviction_count: Optional[int] = None
-    hit_count: Optional[int] = None
-    hit_ratio: Optional[float] = None
-    memory_usage: Optional[int] = None
-    miss_count: Optional[int] = None
-    total_entry: Optional[int] = None
+class Cache(TypedDict, total=False):
+    eviction_count: int
+    hit_count: int
+    hit_ratio: float
+    memory_usage: int
+    miss_count: int
+    total_entry: int
 
 
-@dataclass
-class CacheLoadMatch:
-    eviction_count: Optional[int] = None
-    hit_count: Optional[int] = None
-    hit_ratio: Optional[float] = None
-    memory_usage: Optional[int] = None
-    miss_count: Optional[int] = None
-    total_entry: Optional[int] = None
+class CacheLoadMatch(TypedDict, total=False):
+    eviction_count: int
+    hit_count: int
+    hit_ratio: float
+    memory_usage: int
+    miss_count: int
+    total_entry: int
 
 
-@dataclass
-class Character:
+class Character(TypedDict):
     pass
 
 
-@dataclass
-class CharacterLoadMatch:
+class CharacterLoadMatch(TypedDict):
     frame: str
     region: str
     skin_id: int
     version: str
 
 
-@dataclass
-class Chat:
+class Chat(TypedDict):
     pass
 
 
-@dataclass
-class ChatLoadMatch:
+class ChatLoadMatch(TypedDict):
     region: str
     version: str
 
 
-@dataclass
-class Cluster:
-    hostname: Optional[str] = None
-    last_seen: Optional[str] = None
-    metric: Optional[dict] = None
+class Cluster(TypedDict, total=False):
+    hostname: str
+    last_seen: str
+    metric: dict
 
 
-@dataclass
-class ClusterListMatch:
-    hostname: Optional[str] = None
-    last_seen: Optional[str] = None
-    metric: Optional[dict] = None
+class ClusterListMatch(TypedDict, total=False):
+    hostname: str
+    last_seen: str
+    metric: dict
 
 
-@dataclass
-class Diff:
+class Diff(TypedDict):
     pass
 
 
-@dataclass
-class DiffLoadMatch:
+class DiffLoadMatch(TypedDict):
     region: str
     version: str
 
 
-@dataclass
-class Entity1:
+class Entity1(TypedDict):
     pass
 
 
-@dataclass
-class Entity1LoadMatch:
+class Entity1LoadMatch(TypedDict):
     pass
 
 
-@dataclass
-class GmsNew:
+class GmsNew(TypedDict):
     pass
 
 
-@dataclass
-class GmsNewLoadMatch:
+class GmsNewLoadMatch(TypedDict):
     id: int
 
 
-@dataclass
-class GuildMark:
+class GuildMark(TypedDict):
     pass
 
 
-@dataclass
-class GuildMarkLoadMatch:
+class GuildMarkLoadMatch(TypedDict):
     guild_background_color_id: int
     guild_background_id: int
     guild_mark_color_id: int
@@ -141,49 +126,41 @@ class GuildMarkLoadMatch:
     color_id: int
 
 
-@dataclass
-class Health:
+class Health(TypedDict):
     pass
 
 
-@dataclass
-class HealthLoadMatch:
+class HealthLoadMatch(TypedDict):
     pass
 
 
-@dataclass
-class Item:
+class Item(TypedDict):
     pass
 
 
-@dataclass
-class ItemLoadMatch:
+class ItemLoadMatch(TypedDict):
     region: str
     version: str
     id: int
     overall_category: str
 
 
-@dataclass
-class Job:
+class Job(TypedDict):
     pass
 
 
-@dataclass
-class JobLoadMatch:
+class JobLoadMatch(TypedDict):
     id: int
     region: str
     skill_id: int
     version: str
 
 
-@dataclass
-class Map:
+class Map(TypedDict):
     pass
 
 
-@dataclass
-class MapLoadMatch:
+class MapLoadMatch(TypedDict):
     frame: int
     layer: int
     map_id: int
@@ -194,23 +171,19 @@ class MapLoadMatch:
     mark_name: str
 
 
-@dataclass
-class Metric:
+class Metric(TypedDict):
     pass
 
 
-@dataclass
-class MetricLoadMatch:
+class MetricLoadMatch(TypedDict):
     pass
 
 
-@dataclass
-class Mob:
+class Mob(TypedDict):
     pass
 
 
-@dataclass
-class MobLoadMatch:
+class MobLoadMatch(TypedDict):
     region: str
     version: str
     animation: str
@@ -220,36 +193,30 @@ class MobLoadMatch:
     sound_name: str
 
 
-@dataclass
-class Music:
+class Music(TypedDict):
     pass
 
 
-@dataclass
-class MusicLoadMatch:
+class MusicLoadMatch(TypedDict):
     id: str
     region: str
     version: str
 
 
-@dataclass
-class Name:
+class Name(TypedDict):
     pass
 
 
-@dataclass
-class NameLoadMatch:
+class NameLoadMatch(TypedDict):
     region: str
     version: str
 
 
-@dataclass
-class Npc:
+class Npc(TypedDict):
     pass
 
 
-@dataclass
-class NpcLoadMatch:
+class NpcLoadMatch(TypedDict):
     framebook: str
     id: int
     region: str
@@ -257,57 +224,51 @@ class NpcLoadMatch:
     npc_id: int
 
 
-@dataclass
-class Nxf:
+class Nxf(TypedDict):
     pass
 
 
-@dataclass
-class NxfLoadMatch:
+class NxfLoadMatch(TypedDict):
     pass
 
 
-@dataclass
-class PerformanceMetric:
-    active_request: Optional[int] = None
-    average_response_time_m: Optional[float] = None
-    cache: Optional[dict] = None
-    errors_by_type: Optional[dict] = None
-    last_updated: Optional[str] = None
-    memory_used_byte: Optional[int] = None
-    redis_cache: Optional[dict] = None
-    requests_per_second: Optional[float] = None
-    start_time: Optional[str] = None
-    system: Optional[dict] = None
-    total_error: Optional[int] = None
-    total_request: Optional[int] = None
-    wz_properties_loaded: Optional[int] = None
+class PerformanceMetric(TypedDict, total=False):
+    active_request: int
+    average_response_time_m: float
+    cache: dict
+    errors_by_type: dict
+    last_updated: str
+    memory_used_byte: int
+    redis_cache: dict
+    requests_per_second: float
+    start_time: str
+    system: dict
+    total_error: int
+    total_request: int
+    wz_properties_loaded: int
 
 
-@dataclass
-class PerformanceMetricLoadMatch:
-    active_request: Optional[int] = None
-    average_response_time_m: Optional[float] = None
-    cache: Optional[dict] = None
-    errors_by_type: Optional[dict] = None
-    last_updated: Optional[str] = None
-    memory_used_byte: Optional[int] = None
-    redis_cache: Optional[dict] = None
-    requests_per_second: Optional[float] = None
-    start_time: Optional[str] = None
-    system: Optional[dict] = None
-    total_error: Optional[int] = None
-    total_request: Optional[int] = None
-    wz_properties_loaded: Optional[int] = None
+class PerformanceMetricLoadMatch(TypedDict, total=False):
+    active_request: int
+    average_response_time_m: float
+    cache: dict
+    errors_by_type: dict
+    last_updated: str
+    memory_used_byte: int
+    redis_cache: dict
+    requests_per_second: float
+    start_time: str
+    system: dict
+    total_error: int
+    total_request: int
+    wz_properties_loaded: int
 
 
-@dataclass
-class Pet:
+class Pet(TypedDict):
     pass
 
 
-@dataclass
-class PetLoadMatch:
+class PetLoadMatch(TypedDict):
     animation: str
     pet_id: int
     region: str
@@ -316,130 +277,109 @@ class PetLoadMatch:
     render_id: str
 
 
-@dataclass
-class Quest:
+class Quest(TypedDict):
     pass
 
 
-@dataclass
-class QuestLoadMatch:
+class QuestLoadMatch(TypedDict):
     region: str
     version: str
     category: int
     id: int
 
 
-@dataclass
-class System:
-    cpu_usage_percent: Optional[float] = None
-    gc_gen0_collection: Optional[int] = None
-    gc_gen1_collection: Optional[int] = None
-    gc_gen2_collection: Optional[int] = None
-    thread_count: Optional[int] = None
-    total_memory_byte: Optional[int] = None
-    used_memory_byte: Optional[int] = None
+class System(TypedDict, total=False):
+    cpu_usage_percent: float
+    gc_gen0_collection: int
+    gc_gen1_collection: int
+    gc_gen2_collection: int
+    thread_count: int
+    total_memory_byte: int
+    used_memory_byte: int
 
 
-@dataclass
-class SystemLoadMatch:
-    cpu_usage_percent: Optional[float] = None
-    gc_gen0_collection: Optional[int] = None
-    gc_gen1_collection: Optional[int] = None
-    gc_gen2_collection: Optional[int] = None
-    thread_count: Optional[int] = None
-    total_memory_byte: Optional[int] = None
-    used_memory_byte: Optional[int] = None
+class SystemLoadMatch(TypedDict, total=False):
+    cpu_usage_percent: float
+    gc_gen0_collection: int
+    gc_gen1_collection: int
+    gc_gen2_collection: int
+    thread_count: int
+    total_memory_byte: int
+    used_memory_byte: int
 
 
-@dataclass
-class Tip:
+class Tip(TypedDict):
     pass
 
 
-@dataclass
-class TipLoadMatch:
+class TipLoadMatch(TypedDict):
     region: str
     version: str
 
 
-@dataclass
-class Wzn:
+class Wzn(TypedDict):
     pass
 
 
-@dataclass
-class WznLoadMatch:
+class WznLoadMatch(TypedDict):
     region: str
     version: str
 
 
-@dataclass
-class Wzn2:
+class Wzn2(TypedDict):
     pass
 
 
-@dataclass
-class Wzn2LoadMatch:
+class Wzn2LoadMatch(TypedDict):
     path: str
     region: str
     version: str
 
 
-@dataclass
-class Wzn3:
+class Wzn3(TypedDict):
     pass
 
 
-@dataclass
-class Wzn3LoadMatch:
+class Wzn3LoadMatch(TypedDict):
     path: str
     region: str
     version: str
 
 
-@dataclass
-class Wzn4:
+class Wzn4(TypedDict):
     pass
 
 
-@dataclass
-class Wzn4LoadMatch:
+class Wzn4LoadMatch(TypedDict):
     path: str
     region: str
     version: str
 
 
-@dataclass
-class Wzn5:
+class Wzn5(TypedDict):
     pass
 
 
-@dataclass
-class Wzn5LoadMatch:
+class Wzn5LoadMatch(TypedDict):
     path: str
     region: str
     version: str
 
 
-@dataclass
-class Wzn6:
+class Wzn6(TypedDict):
     pass
 
 
-@dataclass
-class Wzn6LoadMatch:
+class Wzn6LoadMatch(TypedDict):
     path: str
     region: str
     version: str
 
 
-@dataclass
-class ZMap:
+class ZMap(TypedDict):
     pass
 
 
-@dataclass
-class ZMapLoadMatch:
+class ZMapLoadMatch(TypedDict):
     region: str
     version: str
-

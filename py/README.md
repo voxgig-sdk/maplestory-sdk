@@ -33,10 +33,12 @@ client = MaplestorySDK()
 
 ### 3. Load an android
 
+`load()` returns the bare record (a `dict`) and raises on error.
+
 ```python
 try:
-    result = client.android.load({"id": "example_id"})
-    print(result)
+    android = client.Android().load({"id": "example_id"})
+    print(android)
 except Exception as err:
     print(f"load failed: {err}")
 ```
@@ -84,8 +86,9 @@ Create a mock client for unit testing — no server required:
 ```python
 client = MaplestorySDK.test()
 
-result = client.android.load({"id": "test01"})
-# result contains mock response data
+# Entity ops return the bare record and raise on error.
+android = client.Android().load({"id": "test01"})
+# android contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -161,18 +164,18 @@ Creates a test-mode client with mock transport. Both arguments may be `None`.
 | `get_utility` | `() -> Utility` | Copy of the SDK utility object. |
 | `prepare` | `(fetchargs) -> dict` | Build an HTTP request definition without sending. Raises on error. |
 | `direct` | `(fetchargs) -> dict` | Build and send an HTTP request. Returns a result dict (branch on `ok`). |
-| `Android` | `(data) -> AndroidEntity` | Create a Android entity instance. |
-| `Avatar` | `(data) -> AvatarEntity` | Create a Avatar entity instance. |
+| `Android` | `(data) -> AndroidEntity` | Create an Android entity instance. |
+| `Avatar` | `(data) -> AvatarEntity` | Create an Avatar entity instance. |
 | `Cache` | `(data) -> CacheEntity` | Create a Cache entity instance. |
 | `Character` | `(data) -> CharacterEntity` | Create a Character entity instance. |
 | `Chat` | `(data) -> ChatEntity` | Create a Chat entity instance. |
 | `Cluster` | `(data) -> ClusterEntity` | Create a Cluster entity instance. |
 | `Diff` | `(data) -> DiffEntity` | Create a Diff entity instance. |
-| `Entity1` | `(data) -> Entity1Entity` | Create a Entity1 entity instance. |
+| `Entity1` | `(data) -> Entity1Entity` | Create an Entity1 entity instance. |
 | `GmsNew` | `(data) -> GmsNewEntity` | Create a GmsNew entity instance. |
 | `GuildMark` | `(data) -> GuildMarkEntity` | Create a GuildMark entity instance. |
 | `Health` | `(data) -> HealthEntity` | Create a Health entity instance. |
-| `Item` | `(data) -> ItemEntity` | Create a Item entity instance. |
+| `Item` | `(data) -> ItemEntity` | Create an Item entity instance. |
 | `Job` | `(data) -> JobEntity` | Create a Job entity instance. |
 | `Map` | `(data) -> MapEntity` | Create a Map entity instance. |
 | `Metric` | `(data) -> MetricEntity` | Create a Metric entity instance. |
@@ -556,7 +559,7 @@ API path: `/api/{region}/{version}/zmap`
 
 ### Android
 
-Create an instance: `const android = client.android`
+Create an instance: `android = client.Android()`
 
 #### Operations
 
@@ -566,14 +569,14 @@ Create an instance: `const android = client.android`
 
 #### Example: Load
 
-```ts
-const android = await client.android.load({ id: 'android_id' })
+```python
+android = client.Android().load({"id": "android_id"})
 ```
 
 
 ### Avatar
 
-Create an instance: `const avatar = client.avatar`
+Create an instance: `avatar = client.Avatar()`
 
 #### Operations
 
@@ -583,14 +586,14 @@ Create an instance: `const avatar = client.avatar`
 
 #### Example: Load
 
-```ts
-const avatar = await client.avatar.load({ id: 'avatar_id' })
+```python
+avatar = client.Avatar().load({"id": "avatar_id"})
 ```
 
 
 ### Cache
 
-Create an instance: `const cache = client.cache`
+Create an instance: `cache = client.Cache()`
 
 #### Operations
 
@@ -611,14 +614,14 @@ Create an instance: `const cache = client.cache`
 
 #### Example: Load
 
-```ts
-const cache = await client.cache.load({ id: 'cache_id' })
+```python
+cache = client.Cache().load({"id": "cache_id"})
 ```
 
 
 ### Character
 
-Create an instance: `const character = client.character`
+Create an instance: `character = client.Character()`
 
 #### Operations
 
@@ -628,14 +631,14 @@ Create an instance: `const character = client.character`
 
 #### Example: Load
 
-```ts
-const character = await client.character.load({ id: 'character_id' })
+```python
+character = client.Character().load({"id": "character_id"})
 ```
 
 
 ### Chat
 
-Create an instance: `const chat = client.chat`
+Create an instance: `chat = client.Chat()`
 
 #### Operations
 
@@ -645,14 +648,14 @@ Create an instance: `const chat = client.chat`
 
 #### Example: Load
 
-```ts
-const chat = await client.chat.load({ id: 'chat_id' })
+```python
+chat = client.Chat().load({"id": "chat_id"})
 ```
 
 
 ### Cluster
 
-Create an instance: `const cluster = client.cluster`
+Create an instance: `cluster = client.Cluster()`
 
 #### Operations
 
@@ -670,14 +673,14 @@ Create an instance: `const cluster = client.cluster`
 
 #### Example: List
 
-```ts
-const clusters = await client.cluster.list()
+```python
+clusters = client.Cluster().list({})
 ```
 
 
 ### Diff
 
-Create an instance: `const diff = client.diff`
+Create an instance: `diff = client.Diff()`
 
 #### Operations
 
@@ -687,14 +690,14 @@ Create an instance: `const diff = client.diff`
 
 #### Example: Load
 
-```ts
-const diff = await client.diff.load({ id: 'diff_id' })
+```python
+diff = client.Diff().load({"id": "diff_id"})
 ```
 
 
 ### Entity1
 
-Create an instance: `const entity1 = client.entity1`
+Create an instance: `entity1 = client.Entity1()`
 
 #### Operations
 
@@ -704,14 +707,14 @@ Create an instance: `const entity1 = client.entity1`
 
 #### Example: Load
 
-```ts
-const entity1 = await client.entity1.load({ id: 'entity1_id' })
+```python
+entity1 = client.Entity1().load({"id": "entity1_id"})
 ```
 
 
 ### GmsNew
 
-Create an instance: `const gms_new = client.gms_new`
+Create an instance: `gms_new = client.GmsNew()`
 
 #### Operations
 
@@ -721,14 +724,14 @@ Create an instance: `const gms_new = client.gms_new`
 
 #### Example: Load
 
-```ts
-const gms_new = await client.gms_new.load({ id: 'gms_new_id' })
+```python
+gms_new = client.GmsNew().load({"id": "gms_new_id"})
 ```
 
 
 ### GuildMark
 
-Create an instance: `const guild_mark = client.guild_mark`
+Create an instance: `guild_mark = client.GuildMark()`
 
 #### Operations
 
@@ -738,14 +741,14 @@ Create an instance: `const guild_mark = client.guild_mark`
 
 #### Example: Load
 
-```ts
-const guild_mark = await client.guild_mark.load({ id: 'guild_mark_id' })
+```python
+guild_mark = client.GuildMark().load({"id": "guild_mark_id"})
 ```
 
 
 ### Health
 
-Create an instance: `const health = client.health`
+Create an instance: `health = client.Health()`
 
 #### Operations
 
@@ -755,14 +758,14 @@ Create an instance: `const health = client.health`
 
 #### Example: Load
 
-```ts
-const health = await client.health.load({ id: 'health_id' })
+```python
+health = client.Health().load({"id": "health_id"})
 ```
 
 
 ### Item
 
-Create an instance: `const item = client.item`
+Create an instance: `item = client.Item()`
 
 #### Operations
 
@@ -772,14 +775,14 @@ Create an instance: `const item = client.item`
 
 #### Example: Load
 
-```ts
-const item = await client.item.load({ id: 'item_id' })
+```python
+item = client.Item().load({"id": "item_id"})
 ```
 
 
 ### Job
 
-Create an instance: `const job = client.job`
+Create an instance: `job = client.Job()`
 
 #### Operations
 
@@ -789,14 +792,14 @@ Create an instance: `const job = client.job`
 
 #### Example: Load
 
-```ts
-const job = await client.job.load({ id: 'job_id' })
+```python
+job = client.Job().load({"id": "job_id"})
 ```
 
 
 ### Map
 
-Create an instance: `const map = client.map`
+Create an instance: `map = client.Map()`
 
 #### Operations
 
@@ -806,14 +809,14 @@ Create an instance: `const map = client.map`
 
 #### Example: Load
 
-```ts
-const map = await client.map.load({ id: 'map_id' })
+```python
+map = client.Map().load({"id": "map_id"})
 ```
 
 
 ### Metric
 
-Create an instance: `const metric = client.metric`
+Create an instance: `metric = client.Metric()`
 
 #### Operations
 
@@ -823,14 +826,14 @@ Create an instance: `const metric = client.metric`
 
 #### Example: Load
 
-```ts
-const metric = await client.metric.load({ id: 'metric_id' })
+```python
+metric = client.Metric().load({"id": "metric_id"})
 ```
 
 
 ### Mob
 
-Create an instance: `const mob = client.mob`
+Create an instance: `mob = client.Mob()`
 
 #### Operations
 
@@ -840,14 +843,14 @@ Create an instance: `const mob = client.mob`
 
 #### Example: Load
 
-```ts
-const mob = await client.mob.load({ id: 'mob_id' })
+```python
+mob = client.Mob().load({"id": "mob_id"})
 ```
 
 
 ### Music
 
-Create an instance: `const music = client.music`
+Create an instance: `music = client.Music()`
 
 #### Operations
 
@@ -857,14 +860,14 @@ Create an instance: `const music = client.music`
 
 #### Example: Load
 
-```ts
-const music = await client.music.load({ id: 'music_id' })
+```python
+music = client.Music().load({"id": "music_id"})
 ```
 
 
 ### Name
 
-Create an instance: `const name = client.name`
+Create an instance: `name = client.Name()`
 
 #### Operations
 
@@ -874,14 +877,14 @@ Create an instance: `const name = client.name`
 
 #### Example: Load
 
-```ts
-const name = await client.name.load({ id: 'name_id' })
+```python
+name = client.Name().load({"id": "name_id"})
 ```
 
 
 ### Npc
 
-Create an instance: `const npc = client.npc`
+Create an instance: `npc = client.Npc()`
 
 #### Operations
 
@@ -891,14 +894,14 @@ Create an instance: `const npc = client.npc`
 
 #### Example: Load
 
-```ts
-const npc = await client.npc.load({ id: 'npc_id' })
+```python
+npc = client.Npc().load({"id": "npc_id"})
 ```
 
 
 ### Nxf
 
-Create an instance: `const nxf = client.nxf`
+Create an instance: `nxf = client.Nxf()`
 
 #### Operations
 
@@ -908,14 +911,14 @@ Create an instance: `const nxf = client.nxf`
 
 #### Example: Load
 
-```ts
-const nxf = await client.nxf.load({ id: 'nxf_id' })
+```python
+nxf = client.Nxf().load({"id": "nxf_id"})
 ```
 
 
 ### PerformanceMetric
 
-Create an instance: `const performance_metric = client.performance_metric`
+Create an instance: `performance_metric = client.PerformanceMetric()`
 
 #### Operations
 
@@ -943,14 +946,14 @@ Create an instance: `const performance_metric = client.performance_metric`
 
 #### Example: Load
 
-```ts
-const performance_metric = await client.performance_metric.load({ id: 'performance_metric_id' })
+```python
+performance_metric = client.PerformanceMetric().load({"id": "performance_metric_id"})
 ```
 
 
 ### Pet
 
-Create an instance: `const pet = client.pet`
+Create an instance: `pet = client.Pet()`
 
 #### Operations
 
@@ -960,14 +963,14 @@ Create an instance: `const pet = client.pet`
 
 #### Example: Load
 
-```ts
-const pet = await client.pet.load({ id: 'pet_id' })
+```python
+pet = client.Pet().load({"id": "pet_id"})
 ```
 
 
 ### Quest
 
-Create an instance: `const quest = client.quest`
+Create an instance: `quest = client.Quest()`
 
 #### Operations
 
@@ -977,14 +980,14 @@ Create an instance: `const quest = client.quest`
 
 #### Example: Load
 
-```ts
-const quest = await client.quest.load({ id: 'quest_id' })
+```python
+quest = client.Quest().load({"id": "quest_id"})
 ```
 
 
 ### System
 
-Create an instance: `const system = client.system`
+Create an instance: `system = client.System()`
 
 #### Operations
 
@@ -1006,14 +1009,14 @@ Create an instance: `const system = client.system`
 
 #### Example: Load
 
-```ts
-const system = await client.system.load({ id: 'system_id' })
+```python
+system = client.System().load({"id": "system_id"})
 ```
 
 
 ### Tip
 
-Create an instance: `const tip = client.tip`
+Create an instance: `tip = client.Tip()`
 
 #### Operations
 
@@ -1023,14 +1026,14 @@ Create an instance: `const tip = client.tip`
 
 #### Example: Load
 
-```ts
-const tip = await client.tip.load({ id: 'tip_id' })
+```python
+tip = client.Tip().load({"id": "tip_id"})
 ```
 
 
 ### Wzn
 
-Create an instance: `const wzn = client.wzn`
+Create an instance: `wzn = client.Wzn()`
 
 #### Operations
 
@@ -1040,14 +1043,14 @@ Create an instance: `const wzn = client.wzn`
 
 #### Example: Load
 
-```ts
-const wzn = await client.wzn.load({ id: 'wzn_id' })
+```python
+wzn = client.Wzn().load({"id": "wzn_id"})
 ```
 
 
 ### Wzn2
 
-Create an instance: `const wzn2 = client.wzn2`
+Create an instance: `wzn2 = client.Wzn2()`
 
 #### Operations
 
@@ -1057,14 +1060,14 @@ Create an instance: `const wzn2 = client.wzn2`
 
 #### Example: Load
 
-```ts
-const wzn2 = await client.wzn2.load({ id: 'wzn2_id' })
+```python
+wzn2 = client.Wzn2().load({"id": "wzn2_id"})
 ```
 
 
 ### Wzn3
 
-Create an instance: `const wzn3 = client.wzn3`
+Create an instance: `wzn3 = client.Wzn3()`
 
 #### Operations
 
@@ -1074,14 +1077,14 @@ Create an instance: `const wzn3 = client.wzn3`
 
 #### Example: Load
 
-```ts
-const wzn3 = await client.wzn3.load({ id: 'wzn3_id' })
+```python
+wzn3 = client.Wzn3().load({"id": "wzn3_id"})
 ```
 
 
 ### Wzn4
 
-Create an instance: `const wzn4 = client.wzn4`
+Create an instance: `wzn4 = client.Wzn4()`
 
 #### Operations
 
@@ -1091,14 +1094,14 @@ Create an instance: `const wzn4 = client.wzn4`
 
 #### Example: Load
 
-```ts
-const wzn4 = await client.wzn4.load({ id: 'wzn4_id' })
+```python
+wzn4 = client.Wzn4().load({"id": "wzn4_id"})
 ```
 
 
 ### Wzn5
 
-Create an instance: `const wzn5 = client.wzn5`
+Create an instance: `wzn5 = client.Wzn5()`
 
 #### Operations
 
@@ -1108,14 +1111,14 @@ Create an instance: `const wzn5 = client.wzn5`
 
 #### Example: Load
 
-```ts
-const wzn5 = await client.wzn5.load({ id: 'wzn5_id' })
+```python
+wzn5 = client.Wzn5().load({"id": "wzn5_id"})
 ```
 
 
 ### Wzn6
 
-Create an instance: `const wzn6 = client.wzn6`
+Create an instance: `wzn6 = client.Wzn6()`
 
 #### Operations
 
@@ -1125,14 +1128,14 @@ Create an instance: `const wzn6 = client.wzn6`
 
 #### Example: Load
 
-```ts
-const wzn6 = await client.wzn6.load({ id: 'wzn6_id' })
+```python
+wzn6 = client.Wzn6().load({"id": "wzn6_id"})
 ```
 
 
 ### ZMap
 
-Create an instance: `const z_map = client.z_map`
+Create an instance: `z_map = client.ZMap()`
 
 #### Operations
 
@@ -1142,8 +1145,8 @@ Create an instance: `const z_map = client.z_map`
 
 #### Example: Load
 
-```ts
-const z_map = await client.z_map.load({ id: 'z_map_id' })
+```python
+z_map = client.ZMap().load({"id": "z_map_id"})
 ```
 
 
@@ -1217,7 +1220,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-android = client.android
+android = client.Android()
 android.load({"id": "example_id"})
 
 # android.data_get() now returns the loaded android data

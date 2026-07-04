@@ -244,8 +244,9 @@ end
 
 
 
--- Idiomatic facade: client:android():list() / client:android():load({ id = ... })
-function MaplestorySDK:android(data)
+-- Idiomatic facade: client:Android():list() / client:Android():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function MaplestorySDK:Android(data)
   local EntityMod = require("entity.android_entity")
   if data == nil then
     if self._android == nil then
@@ -256,15 +257,10 @@ function MaplestorySDK:android(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:android() instead.
-function MaplestorySDK:Android(data)
-  local EntityMod = require("entity.android_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:avatar():list() / client:avatar():load({ id = ... })
-function MaplestorySDK:avatar(data)
+-- Idiomatic facade: client:Avatar():list() / client:Avatar():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function MaplestorySDK:Avatar(data)
   local EntityMod = require("entity.avatar_entity")
   if data == nil then
     if self._avatar == nil then
@@ -275,15 +271,10 @@ function MaplestorySDK:avatar(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:avatar() instead.
-function MaplestorySDK:Avatar(data)
-  local EntityMod = require("entity.avatar_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:cache():list() / client:cache():load({ id = ... })
-function MaplestorySDK:cache(data)
+-- Idiomatic facade: client:Cache():list() / client:Cache():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function MaplestorySDK:Cache(data)
   local EntityMod = require("entity.cache_entity")
   if data == nil then
     if self._cache == nil then
@@ -294,15 +285,10 @@ function MaplestorySDK:cache(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:cache() instead.
-function MaplestorySDK:Cache(data)
-  local EntityMod = require("entity.cache_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:character():list() / client:character():load({ id = ... })
-function MaplestorySDK:character(data)
+-- Idiomatic facade: client:Character():list() / client:Character():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function MaplestorySDK:Character(data)
   local EntityMod = require("entity.character_entity")
   if data == nil then
     if self._character == nil then
@@ -313,15 +299,10 @@ function MaplestorySDK:character(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:character() instead.
-function MaplestorySDK:Character(data)
-  local EntityMod = require("entity.character_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:chat():list() / client:chat():load({ id = ... })
-function MaplestorySDK:chat(data)
+-- Idiomatic facade: client:Chat():list() / client:Chat():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function MaplestorySDK:Chat(data)
   local EntityMod = require("entity.chat_entity")
   if data == nil then
     if self._chat == nil then
@@ -332,15 +313,10 @@ function MaplestorySDK:chat(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:chat() instead.
-function MaplestorySDK:Chat(data)
-  local EntityMod = require("entity.chat_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:cluster():list() / client:cluster():load({ id = ... })
-function MaplestorySDK:cluster(data)
+-- Idiomatic facade: client:Cluster():list() / client:Cluster():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function MaplestorySDK:Cluster(data)
   local EntityMod = require("entity.cluster_entity")
   if data == nil then
     if self._cluster == nil then
@@ -351,15 +327,10 @@ function MaplestorySDK:cluster(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:cluster() instead.
-function MaplestorySDK:Cluster(data)
-  local EntityMod = require("entity.cluster_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:diff():list() / client:diff():load({ id = ... })
-function MaplestorySDK:diff(data)
+-- Idiomatic facade: client:Diff():list() / client:Diff():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function MaplestorySDK:Diff(data)
   local EntityMod = require("entity.diff_entity")
   if data == nil then
     if self._diff == nil then
@@ -370,15 +341,10 @@ function MaplestorySDK:diff(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:diff() instead.
-function MaplestorySDK:Diff(data)
-  local EntityMod = require("entity.diff_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:entity1():list() / client:entity1():load({ id = ... })
-function MaplestorySDK:entity1(data)
+-- Idiomatic facade: client:Entity1():list() / client:Entity1():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function MaplestorySDK:Entity1(data)
   local EntityMod = require("entity.entity1_entity")
   if data == nil then
     if self._entity1 == nil then
@@ -389,15 +355,10 @@ function MaplestorySDK:entity1(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:entity1() instead.
-function MaplestorySDK:Entity1(data)
-  local EntityMod = require("entity.entity1_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:gms_new():list() / client:gms_new():load({ id = ... })
-function MaplestorySDK:gms_new(data)
+-- Idiomatic facade: client:GmsNew():list() / client:GmsNew():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function MaplestorySDK:GmsNew(data)
   local EntityMod = require("entity.gms_new_entity")
   if data == nil then
     if self._gms_new == nil then
@@ -408,15 +369,10 @@ function MaplestorySDK:gms_new(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:gms_new() instead.
-function MaplestorySDK:GmsNew(data)
-  local EntityMod = require("entity.gms_new_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:guild_mark():list() / client:guild_mark():load({ id = ... })
-function MaplestorySDK:guild_mark(data)
+-- Idiomatic facade: client:GuildMark():list() / client:GuildMark():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function MaplestorySDK:GuildMark(data)
   local EntityMod = require("entity.guild_mark_entity")
   if data == nil then
     if self._guild_mark == nil then
@@ -427,15 +383,10 @@ function MaplestorySDK:guild_mark(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:guild_mark() instead.
-function MaplestorySDK:GuildMark(data)
-  local EntityMod = require("entity.guild_mark_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:health():list() / client:health():load({ id = ... })
-function MaplestorySDK:health(data)
+-- Idiomatic facade: client:Health():list() / client:Health():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function MaplestorySDK:Health(data)
   local EntityMod = require("entity.health_entity")
   if data == nil then
     if self._health == nil then
@@ -446,15 +397,10 @@ function MaplestorySDK:health(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:health() instead.
-function MaplestorySDK:Health(data)
-  local EntityMod = require("entity.health_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:item():list() / client:item():load({ id = ... })
-function MaplestorySDK:item(data)
+-- Idiomatic facade: client:Item():list() / client:Item():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function MaplestorySDK:Item(data)
   local EntityMod = require("entity.item_entity")
   if data == nil then
     if self._item == nil then
@@ -465,15 +411,10 @@ function MaplestorySDK:item(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:item() instead.
-function MaplestorySDK:Item(data)
-  local EntityMod = require("entity.item_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:job():list() / client:job():load({ id = ... })
-function MaplestorySDK:job(data)
+-- Idiomatic facade: client:Job():list() / client:Job():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function MaplestorySDK:Job(data)
   local EntityMod = require("entity.job_entity")
   if data == nil then
     if self._job == nil then
@@ -484,15 +425,10 @@ function MaplestorySDK:job(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:job() instead.
-function MaplestorySDK:Job(data)
-  local EntityMod = require("entity.job_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:map():list() / client:map():load({ id = ... })
-function MaplestorySDK:map(data)
+-- Idiomatic facade: client:Map():list() / client:Map():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function MaplestorySDK:Map(data)
   local EntityMod = require("entity.map_entity")
   if data == nil then
     if self._map == nil then
@@ -503,15 +439,10 @@ function MaplestorySDK:map(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:map() instead.
-function MaplestorySDK:Map(data)
-  local EntityMod = require("entity.map_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:metric():list() / client:metric():load({ id = ... })
-function MaplestorySDK:metric(data)
+-- Idiomatic facade: client:Metric():list() / client:Metric():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function MaplestorySDK:Metric(data)
   local EntityMod = require("entity.metric_entity")
   if data == nil then
     if self._metric == nil then
@@ -522,15 +453,10 @@ function MaplestorySDK:metric(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:metric() instead.
-function MaplestorySDK:Metric(data)
-  local EntityMod = require("entity.metric_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:mob():list() / client:mob():load({ id = ... })
-function MaplestorySDK:mob(data)
+-- Idiomatic facade: client:Mob():list() / client:Mob():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function MaplestorySDK:Mob(data)
   local EntityMod = require("entity.mob_entity")
   if data == nil then
     if self._mob == nil then
@@ -541,15 +467,10 @@ function MaplestorySDK:mob(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:mob() instead.
-function MaplestorySDK:Mob(data)
-  local EntityMod = require("entity.mob_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:music():list() / client:music():load({ id = ... })
-function MaplestorySDK:music(data)
+-- Idiomatic facade: client:Music():list() / client:Music():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function MaplestorySDK:Music(data)
   local EntityMod = require("entity.music_entity")
   if data == nil then
     if self._music == nil then
@@ -560,15 +481,10 @@ function MaplestorySDK:music(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:music() instead.
-function MaplestorySDK:Music(data)
-  local EntityMod = require("entity.music_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:name():list() / client:name():load({ id = ... })
-function MaplestorySDK:name(data)
+-- Idiomatic facade: client:Name():list() / client:Name():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function MaplestorySDK:Name(data)
   local EntityMod = require("entity.name_entity")
   if data == nil then
     if self._name == nil then
@@ -579,15 +495,10 @@ function MaplestorySDK:name(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:name() instead.
-function MaplestorySDK:Name(data)
-  local EntityMod = require("entity.name_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:npc():list() / client:npc():load({ id = ... })
-function MaplestorySDK:npc(data)
+-- Idiomatic facade: client:Npc():list() / client:Npc():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function MaplestorySDK:Npc(data)
   local EntityMod = require("entity.npc_entity")
   if data == nil then
     if self._npc == nil then
@@ -598,15 +509,10 @@ function MaplestorySDK:npc(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:npc() instead.
-function MaplestorySDK:Npc(data)
-  local EntityMod = require("entity.npc_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:nxf():list() / client:nxf():load({ id = ... })
-function MaplestorySDK:nxf(data)
+-- Idiomatic facade: client:Nxf():list() / client:Nxf():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function MaplestorySDK:Nxf(data)
   local EntityMod = require("entity.nxf_entity")
   if data == nil then
     if self._nxf == nil then
@@ -617,15 +523,10 @@ function MaplestorySDK:nxf(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:nxf() instead.
-function MaplestorySDK:Nxf(data)
-  local EntityMod = require("entity.nxf_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:performance_metric():list() / client:performance_metric():load({ id = ... })
-function MaplestorySDK:performance_metric(data)
+-- Idiomatic facade: client:PerformanceMetric():list() / client:PerformanceMetric():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function MaplestorySDK:PerformanceMetric(data)
   local EntityMod = require("entity.performance_metric_entity")
   if data == nil then
     if self._performance_metric == nil then
@@ -636,15 +537,10 @@ function MaplestorySDK:performance_metric(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:performance_metric() instead.
-function MaplestorySDK:PerformanceMetric(data)
-  local EntityMod = require("entity.performance_metric_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:pet():list() / client:pet():load({ id = ... })
-function MaplestorySDK:pet(data)
+-- Idiomatic facade: client:Pet():list() / client:Pet():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function MaplestorySDK:Pet(data)
   local EntityMod = require("entity.pet_entity")
   if data == nil then
     if self._pet == nil then
@@ -655,15 +551,10 @@ function MaplestorySDK:pet(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:pet() instead.
-function MaplestorySDK:Pet(data)
-  local EntityMod = require("entity.pet_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:quest():list() / client:quest():load({ id = ... })
-function MaplestorySDK:quest(data)
+-- Idiomatic facade: client:Quest():list() / client:Quest():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function MaplestorySDK:Quest(data)
   local EntityMod = require("entity.quest_entity")
   if data == nil then
     if self._quest == nil then
@@ -674,15 +565,10 @@ function MaplestorySDK:quest(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:quest() instead.
-function MaplestorySDK:Quest(data)
-  local EntityMod = require("entity.quest_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:system():list() / client:system():load({ id = ... })
-function MaplestorySDK:system(data)
+-- Idiomatic facade: client:System():list() / client:System():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function MaplestorySDK:System(data)
   local EntityMod = require("entity.system_entity")
   if data == nil then
     if self._system == nil then
@@ -693,15 +579,10 @@ function MaplestorySDK:system(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:system() instead.
-function MaplestorySDK:System(data)
-  local EntityMod = require("entity.system_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:tip():list() / client:tip():load({ id = ... })
-function MaplestorySDK:tip(data)
+-- Idiomatic facade: client:Tip():list() / client:Tip():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function MaplestorySDK:Tip(data)
   local EntityMod = require("entity.tip_entity")
   if data == nil then
     if self._tip == nil then
@@ -712,15 +593,10 @@ function MaplestorySDK:tip(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:tip() instead.
-function MaplestorySDK:Tip(data)
-  local EntityMod = require("entity.tip_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:wzn():list() / client:wzn():load({ id = ... })
-function MaplestorySDK:wzn(data)
+-- Idiomatic facade: client:Wzn():list() / client:Wzn():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function MaplestorySDK:Wzn(data)
   local EntityMod = require("entity.wzn_entity")
   if data == nil then
     if self._wzn == nil then
@@ -731,15 +607,10 @@ function MaplestorySDK:wzn(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:wzn() instead.
-function MaplestorySDK:Wzn(data)
-  local EntityMod = require("entity.wzn_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:wzn2():list() / client:wzn2():load({ id = ... })
-function MaplestorySDK:wzn2(data)
+-- Idiomatic facade: client:Wzn2():list() / client:Wzn2():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function MaplestorySDK:Wzn2(data)
   local EntityMod = require("entity.wzn2_entity")
   if data == nil then
     if self._wzn2 == nil then
@@ -750,15 +621,10 @@ function MaplestorySDK:wzn2(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:wzn2() instead.
-function MaplestorySDK:Wzn2(data)
-  local EntityMod = require("entity.wzn2_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:wzn3():list() / client:wzn3():load({ id = ... })
-function MaplestorySDK:wzn3(data)
+-- Idiomatic facade: client:Wzn3():list() / client:Wzn3():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function MaplestorySDK:Wzn3(data)
   local EntityMod = require("entity.wzn3_entity")
   if data == nil then
     if self._wzn3 == nil then
@@ -769,15 +635,10 @@ function MaplestorySDK:wzn3(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:wzn3() instead.
-function MaplestorySDK:Wzn3(data)
-  local EntityMod = require("entity.wzn3_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:wzn4():list() / client:wzn4():load({ id = ... })
-function MaplestorySDK:wzn4(data)
+-- Idiomatic facade: client:Wzn4():list() / client:Wzn4():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function MaplestorySDK:Wzn4(data)
   local EntityMod = require("entity.wzn4_entity")
   if data == nil then
     if self._wzn4 == nil then
@@ -788,15 +649,10 @@ function MaplestorySDK:wzn4(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:wzn4() instead.
-function MaplestorySDK:Wzn4(data)
-  local EntityMod = require("entity.wzn4_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:wzn5():list() / client:wzn5():load({ id = ... })
-function MaplestorySDK:wzn5(data)
+-- Idiomatic facade: client:Wzn5():list() / client:Wzn5():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function MaplestorySDK:Wzn5(data)
   local EntityMod = require("entity.wzn5_entity")
   if data == nil then
     if self._wzn5 == nil then
@@ -807,15 +663,10 @@ function MaplestorySDK:wzn5(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:wzn5() instead.
-function MaplestorySDK:Wzn5(data)
-  local EntityMod = require("entity.wzn5_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:wzn6():list() / client:wzn6():load({ id = ... })
-function MaplestorySDK:wzn6(data)
+-- Idiomatic facade: client:Wzn6():list() / client:Wzn6():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function MaplestorySDK:Wzn6(data)
   local EntityMod = require("entity.wzn6_entity")
   if data == nil then
     if self._wzn6 == nil then
@@ -826,15 +677,10 @@ function MaplestorySDK:wzn6(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:wzn6() instead.
-function MaplestorySDK:Wzn6(data)
-  local EntityMod = require("entity.wzn6_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:z_map():list() / client:z_map():load({ id = ... })
-function MaplestorySDK:z_map(data)
+-- Idiomatic facade: client:ZMap():list() / client:ZMap():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function MaplestorySDK:ZMap(data)
   local EntityMod = require("entity.z_map_entity")
   if data == nil then
     if self._z_map == nil then
@@ -842,12 +688,6 @@ function MaplestorySDK:z_map(data)
     end
     return self._z_map
   end
-  return EntityMod.new(self, data)
-end
-
--- Deprecated: use client:z_map() instead.
-function MaplestorySDK:ZMap(data)
-  local EntityMod = require("entity.z_map_entity")
   return EntityMod.new(self, data)
 end
 
