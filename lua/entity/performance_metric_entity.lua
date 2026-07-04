@@ -79,6 +79,10 @@ end
 
 
 
+---@param reqmatch PerformanceMetricLoadMatch
+---@param ctrl? table
+---@return PerformanceMetric
+---@return string? err
 function PerformanceMetricEntity:load(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

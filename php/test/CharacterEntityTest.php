@@ -49,8 +49,7 @@ class CharacterEntityTest extends TestCase
         // LOAD
         $character_ref01_ent = $client->Character(null);
         $character_ref01_match_dt0 = [];
-        [$character_ref01_data_dt0_loaded, $err] = $character_ref01_ent->load($character_ref01_match_dt0, null);
-        $this->assertNull($err);
+        $character_ref01_data_dt0_loaded = $character_ref01_ent->load($character_ref01_match_dt0, null);
         $this->assertNotNull($character_ref01_data_dt0_loaded);
 
     }
@@ -85,7 +84,6 @@ function character_basic_setup($extra)
         "MAPLESTORY_TEST_CHARACTER_ENTID" => $idmap,
         "MAPLESTORY_TEST_LIVE" => "FALSE",
         "MAPLESTORY_TEST_EXPLAIN" => "FALSE",
-        "MAPLESTORY_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -97,7 +95,6 @@ function character_basic_setup($extra)
     if ($env["MAPLESTORY_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["MAPLESTORY_APIKEY"],
             ],
             $extra ?? [],
         ]);

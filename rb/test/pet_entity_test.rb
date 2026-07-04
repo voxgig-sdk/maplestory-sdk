@@ -42,8 +42,7 @@ class PetEntityTest < Minitest::Test
     # LOAD
     pet_ref01_ent = client.Pet(nil)
     pet_ref01_match_dt0 = {}
-    pet_ref01_data_dt0_loaded, err = pet_ref01_ent.load(pet_ref01_match_dt0, nil)
-    assert_nil err
+    pet_ref01_data_dt0_loaded = pet_ref01_ent.load(pet_ref01_match_dt0, nil)
     assert !pet_ref01_data_dt0_loaded.nil?
 
   end
@@ -82,7 +81,6 @@ def pet_basic_setup(extra)
     "MAPLESTORY_TEST_PET_ENTID" => idmap,
     "MAPLESTORY_TEST_LIVE" => "FALSE",
     "MAPLESTORY_TEST_EXPLAIN" => "FALSE",
-    "MAPLESTORY_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -94,7 +92,6 @@ def pet_basic_setup(extra)
   if env["MAPLESTORY_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["MAPLESTORY_APIKEY"],
       },
       extra || {},
     ])

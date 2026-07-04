@@ -79,6 +79,10 @@ end
 
 
 
+---@param reqmatch ZMapLoadMatch
+---@param ctrl? table
+---@return ZMap
+---@return string? err
 function ZMapEntity:load(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

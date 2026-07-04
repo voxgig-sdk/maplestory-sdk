@@ -49,8 +49,7 @@ class TestAndroidEntity:
         # LOAD
         android_ref01_ent = client.Android(None)
         android_ref01_match_dt0 = {}
-        android_ref01_data_dt0_loaded, err = android_ref01_ent.load(android_ref01_match_dt0, None)
-        assert err is None
+        android_ref01_data_dt0_loaded = android_ref01_ent.load(android_ref01_match_dt0, None)
         assert android_ref01_data_dt0_loaded is not None
 
 
@@ -91,7 +90,6 @@ def _android_basic_setup(extra):
         "MAPLESTORY_TEST_ANDROID_ENTID": idmap,
         "MAPLESTORY_TEST_LIVE": "FALSE",
         "MAPLESTORY_TEST_EXPLAIN": "FALSE",
-        "MAPLESTORY_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -102,7 +100,6 @@ def _android_basic_setup(extra):
     if env.get("MAPLESTORY_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("MAPLESTORY_APIKEY"),
             },
             extra or {},
         ])

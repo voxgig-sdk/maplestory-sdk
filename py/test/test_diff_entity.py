@@ -49,8 +49,7 @@ class TestDiffEntity:
         # LOAD
         diff_ref01_ent = client.Diff(None)
         diff_ref01_match_dt0 = {}
-        diff_ref01_data_dt0_loaded, err = diff_ref01_ent.load(diff_ref01_match_dt0, None)
-        assert err is None
+        diff_ref01_data_dt0_loaded = diff_ref01_ent.load(diff_ref01_match_dt0, None)
         assert diff_ref01_data_dt0_loaded is not None
 
 
@@ -91,7 +90,6 @@ def _diff_basic_setup(extra):
         "MAPLESTORY_TEST_DIFF_ENTID": idmap,
         "MAPLESTORY_TEST_LIVE": "FALSE",
         "MAPLESTORY_TEST_EXPLAIN": "FALSE",
-        "MAPLESTORY_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -102,7 +100,6 @@ def _diff_basic_setup(extra):
     if env.get("MAPLESTORY_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("MAPLESTORY_APIKEY"),
             },
             extra or {},
         ])

@@ -45,6 +45,7 @@ class MetricEntity
     end
   end
 
+  # @return [Metric, Hash] the current Metric data
   def data_get
     @_utility.feature_hook.call(@_entctx, "GetData")
     VoxgigStruct.clone(@_data)
@@ -57,12 +58,18 @@ class MetricEntity
     end
   end
 
+  # @return [Hash] the current match filter (any subset of Metric fields)
   def match_get
     @_utility.feature_hook.call(@_entctx, "GetMatch")
     VoxgigStruct.clone(@_match)
   end
 
   
+  # Load a single Metric.
+  #
+  # @param reqmatch [MetricLoadMatch, Hash, nil] match criteria (id/query fields)
+  # @param ctrl [Object, nil] optional per-call control
+  # @return [Metric, Hash] the loaded Metric; raises MaplestoryError on failure
   def load(reqmatch, ctrl = nil)
     utility = @_utility
     ctx = utility.make_context.call({

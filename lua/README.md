@@ -9,12 +9,9 @@ The Lua SDK for the Maplestory API — an entity-oriented client using Lua conve
 
 
 ## Install
-```bash
-luarocks install voxgig-sdk-maplestory
-```
-
-If the module is not yet published, add the source directory to
-your `LUA_PATH`:
+This package is not yet published to LuaRocks. Install it from the
+GitHub release tag (`lua/vX.Y.Z`, see [Releases](https://github.com/voxgig-sdk/maplestory-sdk/releases)),
+or add the source directory to your `LUA_PATH`:
 
 ```bash
 export LUA_PATH="path/to/lua/?.lua;path/to/lua/?/init.lua;;"
@@ -31,15 +28,13 @@ loading a specific record.
 ```lua
 local sdk = require("maplestory_sdk")
 
-local client = sdk.new({
-  apikey = os.getenv("MAPLESTORY_APIKEY"),
-})
+local client = sdk.new()
 ```
 
-### 3. Load a android
+### 3. Load an android
 
 ```lua
-local result, err = client:Android():load({ id = "example_id" })
+local result, err = client:android():load({ id = "example_id" })
 if err then error(err) end
 print(result)
 ```
@@ -87,7 +82,7 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:Maplestory():load({ id = "test01" })
+local result, err = client:android():load({ id = "test01" })
 -- result contains mock response data
 ```
 
@@ -121,7 +116,6 @@ Create a `.env.local` file at the project root:
 
 ```
 MAPLESTORY_TEST_LIVE=TRUE
-MAPLESTORY_APIKEY=<your-key>
 ```
 
 Then run:
@@ -144,7 +138,6 @@ Creates a new SDK client.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
@@ -559,7 +552,7 @@ API path: `/api/{region}/{version}/zmap`
 
 ### Android
 
-Create an instance: `const android = client.Android()`
+Create an instance: `const android = client.android`
 
 #### Operations
 
@@ -570,13 +563,13 @@ Create an instance: `const android = client.Android()`
 #### Example: Load
 
 ```ts
-const android = await client.Android().load({ id: 'android_id' })
+const android = await client.android.load({ id: 'android_id' })
 ```
 
 
 ### Avatar
 
-Create an instance: `const avatar = client.Avatar()`
+Create an instance: `const avatar = client.avatar`
 
 #### Operations
 
@@ -587,13 +580,13 @@ Create an instance: `const avatar = client.Avatar()`
 #### Example: Load
 
 ```ts
-const avatar = await client.Avatar().load({ id: 'avatar_id' })
+const avatar = await client.avatar.load({ id: 'avatar_id' })
 ```
 
 
 ### Cache
 
-Create an instance: `const cache = client.Cache()`
+Create an instance: `const cache = client.cache`
 
 #### Operations
 
@@ -615,13 +608,13 @@ Create an instance: `const cache = client.Cache()`
 #### Example: Load
 
 ```ts
-const cache = await client.Cache().load({ id: 'cache_id' })
+const cache = await client.cache.load({ id: 'cache_id' })
 ```
 
 
 ### Character
 
-Create an instance: `const character = client.Character()`
+Create an instance: `const character = client.character`
 
 #### Operations
 
@@ -632,13 +625,13 @@ Create an instance: `const character = client.Character()`
 #### Example: Load
 
 ```ts
-const character = await client.Character().load({ id: 'character_id' })
+const character = await client.character.load({ id: 'character_id' })
 ```
 
 
 ### Chat
 
-Create an instance: `const chat = client.Chat()`
+Create an instance: `const chat = client.chat`
 
 #### Operations
 
@@ -649,13 +642,13 @@ Create an instance: `const chat = client.Chat()`
 #### Example: Load
 
 ```ts
-const chat = await client.Chat().load({ id: 'chat_id' })
+const chat = await client.chat.load({ id: 'chat_id' })
 ```
 
 
 ### Cluster
 
-Create an instance: `const cluster = client.Cluster()`
+Create an instance: `const cluster = client.cluster`
 
 #### Operations
 
@@ -674,13 +667,13 @@ Create an instance: `const cluster = client.Cluster()`
 #### Example: List
 
 ```ts
-const clusters = await client.Cluster().list()
+const clusters = await client.cluster.list()
 ```
 
 
 ### Diff
 
-Create an instance: `const diff = client.Diff()`
+Create an instance: `const diff = client.diff`
 
 #### Operations
 
@@ -691,13 +684,13 @@ Create an instance: `const diff = client.Diff()`
 #### Example: Load
 
 ```ts
-const diff = await client.Diff().load({ id: 'diff_id' })
+const diff = await client.diff.load({ id: 'diff_id' })
 ```
 
 
 ### Entity1
 
-Create an instance: `const entity1 = client.Entity1()`
+Create an instance: `const entity1 = client.entity1`
 
 #### Operations
 
@@ -708,13 +701,13 @@ Create an instance: `const entity1 = client.Entity1()`
 #### Example: Load
 
 ```ts
-const entity1 = await client.Entity1().load({ id: 'entity1_id' })
+const entity1 = await client.entity1.load({ id: 'entity1_id' })
 ```
 
 
 ### GmsNew
 
-Create an instance: `const gms_new = client.GmsNew()`
+Create an instance: `const gms_new = client.gms_new`
 
 #### Operations
 
@@ -725,13 +718,13 @@ Create an instance: `const gms_new = client.GmsNew()`
 #### Example: Load
 
 ```ts
-const gms_new = await client.GmsNew().load({ id: 'gms_new_id' })
+const gms_new = await client.gms_new.load({ id: 'gms_new_id' })
 ```
 
 
 ### GuildMark
 
-Create an instance: `const guild_mark = client.GuildMark()`
+Create an instance: `const guild_mark = client.guild_mark`
 
 #### Operations
 
@@ -742,13 +735,13 @@ Create an instance: `const guild_mark = client.GuildMark()`
 #### Example: Load
 
 ```ts
-const guild_mark = await client.GuildMark().load({ id: 'guild_mark_id' })
+const guild_mark = await client.guild_mark.load({ id: 'guild_mark_id' })
 ```
 
 
 ### Health
 
-Create an instance: `const health = client.Health()`
+Create an instance: `const health = client.health`
 
 #### Operations
 
@@ -759,13 +752,13 @@ Create an instance: `const health = client.Health()`
 #### Example: Load
 
 ```ts
-const health = await client.Health().load({ id: 'health_id' })
+const health = await client.health.load({ id: 'health_id' })
 ```
 
 
 ### Item
 
-Create an instance: `const item = client.Item()`
+Create an instance: `const item = client.item`
 
 #### Operations
 
@@ -776,13 +769,13 @@ Create an instance: `const item = client.Item()`
 #### Example: Load
 
 ```ts
-const item = await client.Item().load({ id: 'item_id' })
+const item = await client.item.load({ id: 'item_id' })
 ```
 
 
 ### Job
 
-Create an instance: `const job = client.Job()`
+Create an instance: `const job = client.job`
 
 #### Operations
 
@@ -793,13 +786,13 @@ Create an instance: `const job = client.Job()`
 #### Example: Load
 
 ```ts
-const job = await client.Job().load({ id: 'job_id' })
+const job = await client.job.load({ id: 'job_id' })
 ```
 
 
 ### Map
 
-Create an instance: `const map = client.Map()`
+Create an instance: `const map = client.map`
 
 #### Operations
 
@@ -810,13 +803,13 @@ Create an instance: `const map = client.Map()`
 #### Example: Load
 
 ```ts
-const map = await client.Map().load({ id: 'map_id' })
+const map = await client.map.load({ id: 'map_id' })
 ```
 
 
 ### Metric
 
-Create an instance: `const metric = client.Metric()`
+Create an instance: `const metric = client.metric`
 
 #### Operations
 
@@ -827,13 +820,13 @@ Create an instance: `const metric = client.Metric()`
 #### Example: Load
 
 ```ts
-const metric = await client.Metric().load({ id: 'metric_id' })
+const metric = await client.metric.load({ id: 'metric_id' })
 ```
 
 
 ### Mob
 
-Create an instance: `const mob = client.Mob()`
+Create an instance: `const mob = client.mob`
 
 #### Operations
 
@@ -844,13 +837,13 @@ Create an instance: `const mob = client.Mob()`
 #### Example: Load
 
 ```ts
-const mob = await client.Mob().load({ id: 'mob_id' })
+const mob = await client.mob.load({ id: 'mob_id' })
 ```
 
 
 ### Music
 
-Create an instance: `const music = client.Music()`
+Create an instance: `const music = client.music`
 
 #### Operations
 
@@ -861,13 +854,13 @@ Create an instance: `const music = client.Music()`
 #### Example: Load
 
 ```ts
-const music = await client.Music().load({ id: 'music_id' })
+const music = await client.music.load({ id: 'music_id' })
 ```
 
 
 ### Name
 
-Create an instance: `const name = client.Name()`
+Create an instance: `const name = client.name`
 
 #### Operations
 
@@ -878,13 +871,13 @@ Create an instance: `const name = client.Name()`
 #### Example: Load
 
 ```ts
-const name = await client.Name().load({ id: 'name_id' })
+const name = await client.name.load({ id: 'name_id' })
 ```
 
 
 ### Npc
 
-Create an instance: `const npc = client.Npc()`
+Create an instance: `const npc = client.npc`
 
 #### Operations
 
@@ -895,13 +888,13 @@ Create an instance: `const npc = client.Npc()`
 #### Example: Load
 
 ```ts
-const npc = await client.Npc().load({ id: 'npc_id' })
+const npc = await client.npc.load({ id: 'npc_id' })
 ```
 
 
 ### Nxf
 
-Create an instance: `const nxf = client.Nxf()`
+Create an instance: `const nxf = client.nxf`
 
 #### Operations
 
@@ -912,13 +905,13 @@ Create an instance: `const nxf = client.Nxf()`
 #### Example: Load
 
 ```ts
-const nxf = await client.Nxf().load({ id: 'nxf_id' })
+const nxf = await client.nxf.load({ id: 'nxf_id' })
 ```
 
 
 ### PerformanceMetric
 
-Create an instance: `const performance_metric = client.PerformanceMetric()`
+Create an instance: `const performance_metric = client.performance_metric`
 
 #### Operations
 
@@ -947,13 +940,13 @@ Create an instance: `const performance_metric = client.PerformanceMetric()`
 #### Example: Load
 
 ```ts
-const performance_metric = await client.PerformanceMetric().load({ id: 'performance_metric_id' })
+const performance_metric = await client.performance_metric.load({ id: 'performance_metric_id' })
 ```
 
 
 ### Pet
 
-Create an instance: `const pet = client.Pet()`
+Create an instance: `const pet = client.pet`
 
 #### Operations
 
@@ -964,13 +957,13 @@ Create an instance: `const pet = client.Pet()`
 #### Example: Load
 
 ```ts
-const pet = await client.Pet().load({ id: 'pet_id' })
+const pet = await client.pet.load({ id: 'pet_id' })
 ```
 
 
 ### Quest
 
-Create an instance: `const quest = client.Quest()`
+Create an instance: `const quest = client.quest`
 
 #### Operations
 
@@ -981,13 +974,13 @@ Create an instance: `const quest = client.Quest()`
 #### Example: Load
 
 ```ts
-const quest = await client.Quest().load({ id: 'quest_id' })
+const quest = await client.quest.load({ id: 'quest_id' })
 ```
 
 
 ### System
 
-Create an instance: `const system = client.System()`
+Create an instance: `const system = client.system`
 
 #### Operations
 
@@ -1010,13 +1003,13 @@ Create an instance: `const system = client.System()`
 #### Example: Load
 
 ```ts
-const system = await client.System().load({ id: 'system_id' })
+const system = await client.system.load({ id: 'system_id' })
 ```
 
 
 ### Tip
 
-Create an instance: `const tip = client.Tip()`
+Create an instance: `const tip = client.tip`
 
 #### Operations
 
@@ -1027,13 +1020,13 @@ Create an instance: `const tip = client.Tip()`
 #### Example: Load
 
 ```ts
-const tip = await client.Tip().load({ id: 'tip_id' })
+const tip = await client.tip.load({ id: 'tip_id' })
 ```
 
 
 ### Wzn
 
-Create an instance: `const wzn = client.Wzn()`
+Create an instance: `const wzn = client.wzn`
 
 #### Operations
 
@@ -1044,13 +1037,13 @@ Create an instance: `const wzn = client.Wzn()`
 #### Example: Load
 
 ```ts
-const wzn = await client.Wzn().load({ id: 'wzn_id' })
+const wzn = await client.wzn.load({ id: 'wzn_id' })
 ```
 
 
 ### Wzn2
 
-Create an instance: `const wzn2 = client.Wzn2()`
+Create an instance: `const wzn2 = client.wzn2`
 
 #### Operations
 
@@ -1061,13 +1054,13 @@ Create an instance: `const wzn2 = client.Wzn2()`
 #### Example: Load
 
 ```ts
-const wzn2 = await client.Wzn2().load({ id: 'wzn2_id' })
+const wzn2 = await client.wzn2.load({ id: 'wzn2_id' })
 ```
 
 
 ### Wzn3
 
-Create an instance: `const wzn3 = client.Wzn3()`
+Create an instance: `const wzn3 = client.wzn3`
 
 #### Operations
 
@@ -1078,13 +1071,13 @@ Create an instance: `const wzn3 = client.Wzn3()`
 #### Example: Load
 
 ```ts
-const wzn3 = await client.Wzn3().load({ id: 'wzn3_id' })
+const wzn3 = await client.wzn3.load({ id: 'wzn3_id' })
 ```
 
 
 ### Wzn4
 
-Create an instance: `const wzn4 = client.Wzn4()`
+Create an instance: `const wzn4 = client.wzn4`
 
 #### Operations
 
@@ -1095,13 +1088,13 @@ Create an instance: `const wzn4 = client.Wzn4()`
 #### Example: Load
 
 ```ts
-const wzn4 = await client.Wzn4().load({ id: 'wzn4_id' })
+const wzn4 = await client.wzn4.load({ id: 'wzn4_id' })
 ```
 
 
 ### Wzn5
 
-Create an instance: `const wzn5 = client.Wzn5()`
+Create an instance: `const wzn5 = client.wzn5`
 
 #### Operations
 
@@ -1112,13 +1105,13 @@ Create an instance: `const wzn5 = client.Wzn5()`
 #### Example: Load
 
 ```ts
-const wzn5 = await client.Wzn5().load({ id: 'wzn5_id' })
+const wzn5 = await client.wzn5.load({ id: 'wzn5_id' })
 ```
 
 
 ### Wzn6
 
-Create an instance: `const wzn6 = client.Wzn6()`
+Create an instance: `const wzn6 = client.wzn6`
 
 #### Operations
 
@@ -1129,13 +1122,13 @@ Create an instance: `const wzn6 = client.Wzn6()`
 #### Example: Load
 
 ```ts
-const wzn6 = await client.Wzn6().load({ id: 'wzn6_id' })
+const wzn6 = await client.wzn6.load({ id: 'wzn6_id' })
 ```
 
 
 ### ZMap
 
-Create an instance: `const z_map = client.ZMap()`
+Create an instance: `const z_map = client.z_map`
 
 #### Operations
 
@@ -1146,7 +1139,7 @@ Create an instance: `const z_map = client.ZMap()`
 #### Example: Load
 
 ```ts
-const z_map = await client.ZMap().load({ id: 'z_map_id' })
+const z_map = await client.z_map.load({ id: 'z_map_id' })
 ```
 
 
@@ -1221,11 +1214,11 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
-local moon = client:Moon(nil)
-moon:load({ planet_id = "earth", id = "luna" }, nil)
+local android = client:android()
+android:load({ id = "example_id" })
 
--- moon:data_get() now returns the loaded moon data
--- moon:match_get() returns the last match criteria
+-- android:data_get() now returns the loaded android data
+-- android:match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

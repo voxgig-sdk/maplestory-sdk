@@ -42,8 +42,7 @@ class DiffEntityTest < Minitest::Test
     # LOAD
     diff_ref01_ent = client.Diff(nil)
     diff_ref01_match_dt0 = {}
-    diff_ref01_data_dt0_loaded, err = diff_ref01_ent.load(diff_ref01_match_dt0, nil)
-    assert_nil err
+    diff_ref01_data_dt0_loaded = diff_ref01_ent.load(diff_ref01_match_dt0, nil)
     assert !diff_ref01_data_dt0_loaded.nil?
 
   end
@@ -82,7 +81,6 @@ def diff_basic_setup(extra)
     "MAPLESTORY_TEST_DIFF_ENTID" => idmap,
     "MAPLESTORY_TEST_LIVE" => "FALSE",
     "MAPLESTORY_TEST_EXPLAIN" => "FALSE",
-    "MAPLESTORY_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -94,7 +92,6 @@ def diff_basic_setup(extra)
   if env["MAPLESTORY_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["MAPLESTORY_APIKEY"],
       },
       extra || {},
     ])

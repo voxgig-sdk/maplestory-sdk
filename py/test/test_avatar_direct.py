@@ -31,7 +31,7 @@ class TestAvatarDirect:
             params["animation"] = "direct01"
             params["character_id"] = "direct02"
 
-        result, err = client.direct({
+        result = client.direct({
             "path": "api/character/{character_id}/{animation}/animated",
             "method": "GET",
             "params": params,
@@ -41,8 +41,8 @@ class TestAvatarDirect:
             # Live mode is lenient: synthetic IDs frequently 4xx. Skip
             # rather than fail when the load endpoint isn't reachable
             # with the IDs we can construct from setup.idmap.
-            if err is not None:
-                pytest.skip(f"load call failed (likely synthetic IDs against live API): {err}")
+            if result.get("err") is not None:
+                pytest.skip(f"load call failed (likely synthetic IDs against live API): {result.get('err')}")
                 return
             if not result.get("ok"):
                 pytest.skip("load call not ok (likely synthetic IDs against live API)")
@@ -52,7 +52,6 @@ class TestAvatarDirect:
                 pytest.skip(f"expected 2xx status, got {status}")
                 return
         else:
-            assert err is None
             assert result["ok"] is True
             assert helpers.to_int(result["status"]) == 200
             assert result["data"] is not None
@@ -70,14 +69,12 @@ def _avatar_direct_setup(mockres):
     env = runner.env_override({
         "MAPLESTORY_TEST_AVATAR_ENTID": {},
         "MAPLESTORY_TEST_LIVE": "FALSE",
-        "MAPLESTORY_APIKEY": "NONE",
     })
 
     live = env.get("MAPLESTORY_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {
-            "apikey": env.get("MAPLESTORY_APIKEY"),
         }
         client = MaplestorySDK(merged_opts)
         return {

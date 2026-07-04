@@ -49,8 +49,7 @@ class TestAvatarEntity:
         # LOAD
         avatar_ref01_ent = client.Avatar(None)
         avatar_ref01_match_dt0 = {}
-        avatar_ref01_data_dt0_loaded, err = avatar_ref01_ent.load(avatar_ref01_match_dt0, None)
-        assert err is None
+        avatar_ref01_data_dt0_loaded = avatar_ref01_ent.load(avatar_ref01_match_dt0, None)
         assert avatar_ref01_data_dt0_loaded is not None
 
 
@@ -91,7 +90,6 @@ def _avatar_basic_setup(extra):
         "MAPLESTORY_TEST_AVATAR_ENTID": idmap,
         "MAPLESTORY_TEST_LIVE": "FALSE",
         "MAPLESTORY_TEST_EXPLAIN": "FALSE",
-        "MAPLESTORY_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -102,7 +100,6 @@ def _avatar_basic_setup(extra):
     if env.get("MAPLESTORY_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("MAPLESTORY_APIKEY"),
             },
             extra or {},
         ])

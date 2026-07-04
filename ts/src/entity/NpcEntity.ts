@@ -14,9 +14,13 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  Npc,
+  NpcLoadMatch,
+} from '../MaplestoryTypes'
 
 // TODO: needs Entity superclass
-class NpcEntity extends MaplestoryEntityBase {
+class NpcEntity extends MaplestoryEntityBase<Npc> {
 
   constructor(client: MaplestorySDK, entopts: any) {
     super(client, entopts)
@@ -32,7 +36,7 @@ class NpcEntity extends MaplestoryEntityBase {
 
 
 
-  async load(this: any, reqmatch?: any, ctrl?: Control) {
+  async load(this: any, reqmatch?: NpcLoadMatch, ctrl?: Control): Promise<Npc> {
 
     const utility = this._utility
 
@@ -136,7 +140,9 @@ class NpcEntity extends MaplestoryEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<Npc> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

@@ -14,9 +14,13 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  Nxf,
+  NxfLoadMatch,
+} from '../MaplestoryTypes'
 
 // TODO: needs Entity superclass
-class NxfEntity extends MaplestoryEntityBase {
+class NxfEntity extends MaplestoryEntityBase<Nxf> {
 
   constructor(client: MaplestorySDK, entopts: any) {
     super(client, entopts)
@@ -32,7 +36,7 @@ class NxfEntity extends MaplestoryEntityBase {
 
 
 
-  async load(this: any, reqmatch?: any, ctrl?: Control) {
+  async load(this: any, reqmatch?: NxfLoadMatch, ctrl?: Control): Promise<Nxf> {
 
     const utility = this._utility
 
@@ -136,7 +140,9 @@ class NxfEntity extends MaplestoryEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<Nxf> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

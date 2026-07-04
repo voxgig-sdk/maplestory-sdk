@@ -1,7 +1,13 @@
 # Maplestory SDK Wzn6 entity
 
+from __future__ import annotations
+
 from utility.voxgig_struct import voxgig_struct as vs
 from core import helpers
+from maplestory_types import (
+    Wzn6,
+    Wzn6LoadMatch,
+)
 
 
 class Wzn6Entity:
@@ -44,7 +50,7 @@ class Wzn6Entity:
             self._data = helpers.to_map(vs.clone(args)) or {}
             self._utility.feature_hook(self._entctx, "SetData")
 
-    def data_get(self):
+    def data_get(self) -> Wzn6:
         self._utility.feature_hook(self._entctx, "GetData")
         return vs.clone(self._data)
 
@@ -53,12 +59,12 @@ class Wzn6Entity:
             self._match = helpers.to_map(vs.clone(args)) or {}
             self._utility.feature_hook(self._entctx, "SetMatch")
 
-    def match_get(self):
+    def match_get(self) -> Wzn6:
         self._utility.feature_hook(self._entctx, "GetMatch")
         return vs.clone(self._match)
 
     
-    def load(self, reqmatch, ctrl=None):
+    def load(self, reqmatch: Wzn6LoadMatch, ctrl=None) -> Wzn6:
         utility = self._utility
         ctx = utility.make_context({
             "opname": "load",

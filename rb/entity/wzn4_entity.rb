@@ -45,6 +45,7 @@ class Wzn4Entity
     end
   end
 
+  # @return [Wzn4, Hash] the current Wzn4 data
   def data_get
     @_utility.feature_hook.call(@_entctx, "GetData")
     VoxgigStruct.clone(@_data)
@@ -57,12 +58,18 @@ class Wzn4Entity
     end
   end
 
+  # @return [Hash] the current match filter (any subset of Wzn4 fields)
   def match_get
     @_utility.feature_hook.call(@_entctx, "GetMatch")
     VoxgigStruct.clone(@_match)
   end
 
   
+  # Load a single Wzn4.
+  #
+  # @param reqmatch [Wzn4LoadMatch, Hash, nil] match criteria (id/query fields)
+  # @param ctrl [Object, nil] optional per-call control
+  # @return [Wzn4, Hash] the loaded Wzn4; raises MaplestoryError on failure
   def load(reqmatch, ctrl = nil)
     utility = @_utility
     ctx = utility.make_context.call({

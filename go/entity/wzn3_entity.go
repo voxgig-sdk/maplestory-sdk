@@ -85,6 +85,27 @@ func (e *Wzn3Entity) Match(args ...any) any {
 	return out
 }
 
+// DataTyped is the statically-typed accessor for this entity's data. With no
+// argument it returns the current data as an Wzn3; with an argument it
+// sets the data and returns the stored value. It delegates to the untyped Data
+// (identical runtime) and converts at the typed boundary.
+func (e *Wzn3Entity) DataTyped(data ...Wzn3) Wzn3 {
+	if len(data) > 0 {
+		return typedFrom[Wzn3](e.Data(asMap(data[0])))
+	}
+	return typedFrom[Wzn3](e.Data())
+}
+
+// MatchTyped mirrors DataTyped for the entity's match filter. The match is a
+// partial of the entity, so it round-trips through Wzn3 (all fields
+// optional at the wire level).
+func (e *Wzn3Entity) MatchTyped(match ...Wzn3) Wzn3 {
+	if len(match) > 0 {
+		return typedFrom[Wzn3](e.Match(asMap(match[0])))
+	}
+	return typedFrom[Wzn3](e.Match())
+}
+
 
 func (e *Wzn3Entity) Load(reqmatch map[string]any, ctrl map[string]any) (any, error) {
 	utility := e.utility
@@ -109,6 +130,17 @@ func (e *Wzn3Entity) Load(reqmatch map[string]any, ctrl map[string]any) (any, er
 			}
 		}
 	})
+}
+
+// LoadTyped is the statically-typed variant of Load: it takes an
+// Wzn3LoadMatch and returns an Wzn3. It delegates to the untyped
+// Load (identical runtime) and converts at the typed boundary.
+func (e *Wzn3Entity) LoadTyped(reqmatch Wzn3LoadMatch, ctrl map[string]any) (Wzn3, error) {
+	res, err := e.Load(asMap(reqmatch), ctrl)
+	if err != nil {
+		return Wzn3{}, err
+	}
+	return typedFrom[Wzn3](res), nil
 }
 
 

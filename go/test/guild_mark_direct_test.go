@@ -137,14 +137,12 @@ func guild_markDirectSetup(mockres any) *guild_markDirectSetupResult {
 	env := envOverride(map[string]any{
 		"MAPLESTORY_TEST_GUILD_MARK_ENTID": map[string]any{},
 		"MAPLESTORY_TEST_LIVE":    "FALSE",
-		"MAPLESTORY_APIKEY":       "NONE",
 	})
 
 	live := env["MAPLESTORY_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
-			"apikey": env["MAPLESTORY_APIKEY"],
 		}
 		client := sdk.NewMaplestorySDK(mergedOpts)
 

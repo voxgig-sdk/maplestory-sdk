@@ -42,8 +42,7 @@ class Wzn3EntityTest < Minitest::Test
     # LOAD
     wzn3_ref01_ent = client.Wzn3(nil)
     wzn3_ref01_match_dt0 = {}
-    wzn3_ref01_data_dt0_loaded, err = wzn3_ref01_ent.load(wzn3_ref01_match_dt0, nil)
-    assert_nil err
+    wzn3_ref01_data_dt0_loaded = wzn3_ref01_ent.load(wzn3_ref01_match_dt0, nil)
     assert !wzn3_ref01_data_dt0_loaded.nil?
 
   end
@@ -82,7 +81,6 @@ def wzn3_basic_setup(extra)
     "MAPLESTORY_TEST_WZN__ENTID" => idmap,
     "MAPLESTORY_TEST_LIVE" => "FALSE",
     "MAPLESTORY_TEST_EXPLAIN" => "FALSE",
-    "MAPLESTORY_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -94,7 +92,6 @@ def wzn3_basic_setup(extra)
   if env["MAPLESTORY_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["MAPLESTORY_APIKEY"],
       },
       extra || {},
     ])

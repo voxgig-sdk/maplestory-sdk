@@ -50,8 +50,7 @@ class ClusterEntityTest extends TestCase
         $cluster_ref01_ent = $client->Cluster(null);
         $cluster_ref01_match = [];
 
-        [$cluster_ref01_list_result, $err] = $cluster_ref01_ent->list($cluster_ref01_match, null);
-        $this->assertNull($err);
+        $cluster_ref01_list_result = $cluster_ref01_ent->list($cluster_ref01_match, null);
         $this->assertIsArray($cluster_ref01_list_result);
 
     }
@@ -86,7 +85,6 @@ function cluster_basic_setup($extra)
         "MAPLESTORY_TEST_CLUSTER_ENTID" => $idmap,
         "MAPLESTORY_TEST_LIVE" => "FALSE",
         "MAPLESTORY_TEST_EXPLAIN" => "FALSE",
-        "MAPLESTORY_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -98,7 +96,6 @@ function cluster_basic_setup($extra)
     if ($env["MAPLESTORY_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["MAPLESTORY_APIKEY"],
             ],
             $extra ?? [],
         ]);

@@ -49,8 +49,7 @@ class TestNxfEntity:
         # LOAD
         nxf_ref01_ent = client.Nxf(None)
         nxf_ref01_match_dt0 = {}
-        nxf_ref01_data_dt0_loaded, err = nxf_ref01_ent.load(nxf_ref01_match_dt0, None)
-        assert err is None
+        nxf_ref01_data_dt0_loaded = nxf_ref01_ent.load(nxf_ref01_match_dt0, None)
         assert nxf_ref01_data_dt0_loaded is not None
 
 
@@ -91,7 +90,6 @@ def _nxf_basic_setup(extra):
         "MAPLESTORY_TEST_NXF_ENTID": idmap,
         "MAPLESTORY_TEST_LIVE": "FALSE",
         "MAPLESTORY_TEST_EXPLAIN": "FALSE",
-        "MAPLESTORY_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -102,7 +100,6 @@ def _nxf_basic_setup(extra):
     if env.get("MAPLESTORY_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("MAPLESTORY_APIKEY"),
             },
             extra or {},
         ])

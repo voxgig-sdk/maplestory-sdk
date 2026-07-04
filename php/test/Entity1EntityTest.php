@@ -49,8 +49,7 @@ class Entity1EntityTest extends TestCase
         // LOAD
         $entity1_ref01_ent = $client->Entity1(null);
         $entity1_ref01_match_dt0 = [];
-        [$entity1_ref01_data_dt0_loaded, $err] = $entity1_ref01_ent->load($entity1_ref01_match_dt0, null);
-        $this->assertNull($err);
+        $entity1_ref01_data_dt0_loaded = $entity1_ref01_ent->load($entity1_ref01_match_dt0, null);
         $this->assertNotNull($entity1_ref01_data_dt0_loaded);
 
     }
@@ -85,7 +84,6 @@ function entity1_basic_setup($extra)
         "MAPLESTORY_TEST_ENTITY__ENTID" => $idmap,
         "MAPLESTORY_TEST_LIVE" => "FALSE",
         "MAPLESTORY_TEST_EXPLAIN" => "FALSE",
-        "MAPLESTORY_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -97,7 +95,6 @@ function entity1_basic_setup($extra)
     if ($env["MAPLESTORY_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["MAPLESTORY_APIKEY"],
             ],
             $extra ?? [],
         ]);

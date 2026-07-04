@@ -49,8 +49,7 @@ class DiffEntityTest extends TestCase
         // LOAD
         $diff_ref01_ent = $client->Diff(null);
         $diff_ref01_match_dt0 = [];
-        [$diff_ref01_data_dt0_loaded, $err] = $diff_ref01_ent->load($diff_ref01_match_dt0, null);
-        $this->assertNull($err);
+        $diff_ref01_data_dt0_loaded = $diff_ref01_ent->load($diff_ref01_match_dt0, null);
         $this->assertNotNull($diff_ref01_data_dt0_loaded);
 
     }
@@ -85,7 +84,6 @@ function diff_basic_setup($extra)
         "MAPLESTORY_TEST_DIFF_ENTID" => $idmap,
         "MAPLESTORY_TEST_LIVE" => "FALSE",
         "MAPLESTORY_TEST_EXPLAIN" => "FALSE",
-        "MAPLESTORY_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -97,7 +95,6 @@ function diff_basic_setup($extra)
     if ($env["MAPLESTORY_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["MAPLESTORY_APIKEY"],
             ],
             $extra ?? [],
         ]);

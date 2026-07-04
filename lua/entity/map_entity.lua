@@ -79,6 +79,10 @@ end
 
 
 
+---@param reqmatch MapLoadMatch
+---@param ctrl? table
+---@return Map
+---@return string? err
 function MapEntity:load(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

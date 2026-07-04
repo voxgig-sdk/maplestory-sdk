@@ -14,9 +14,13 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  Mob,
+  MobLoadMatch,
+} from '../MaplestoryTypes'
 
 // TODO: needs Entity superclass
-class MobEntity extends MaplestoryEntityBase {
+class MobEntity extends MaplestoryEntityBase<Mob> {
 
   constructor(client: MaplestorySDK, entopts: any) {
     super(client, entopts)
@@ -32,7 +36,7 @@ class MobEntity extends MaplestoryEntityBase {
 
 
 
-  async load(this: any, reqmatch?: any, ctrl?: Control) {
+  async load(this: any, reqmatch?: MobLoadMatch, ctrl?: Control): Promise<Mob> {
 
     const utility = this._utility
 
@@ -136,7 +140,9 @@ class MobEntity extends MaplestoryEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<Mob> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

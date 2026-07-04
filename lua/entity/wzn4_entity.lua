@@ -79,6 +79,10 @@ end
 
 
 
+---@param reqmatch Wzn4LoadMatch
+---@param ctrl? table
+---@return Wzn4
+---@return string? err
 function Wzn4Entity:load(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

@@ -14,9 +14,13 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  Music,
+  MusicLoadMatch,
+} from '../MaplestoryTypes'
 
 // TODO: needs Entity superclass
-class MusicEntity extends MaplestoryEntityBase {
+class MusicEntity extends MaplestoryEntityBase<Music> {
 
   constructor(client: MaplestorySDK, entopts: any) {
     super(client, entopts)
@@ -32,7 +36,7 @@ class MusicEntity extends MaplestoryEntityBase {
 
 
 
-  async load(this: any, reqmatch?: any, ctrl?: Control) {
+  async load(this: any, reqmatch?: MusicLoadMatch, ctrl?: Control): Promise<Music> {
 
     const utility = this._utility
 
@@ -136,7 +140,9 @@ class MusicEntity extends MaplestoryEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<Music> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

@@ -49,8 +49,7 @@ class GmsNewEntityTest extends TestCase
         // LOAD
         $gms_new_ref01_ent = $client->GmsNew(null);
         $gms_new_ref01_match_dt0 = [];
-        [$gms_new_ref01_data_dt0_loaded, $err] = $gms_new_ref01_ent->load($gms_new_ref01_match_dt0, null);
-        $this->assertNull($err);
+        $gms_new_ref01_data_dt0_loaded = $gms_new_ref01_ent->load($gms_new_ref01_match_dt0, null);
         $this->assertNotNull($gms_new_ref01_data_dt0_loaded);
 
     }
@@ -85,7 +84,6 @@ function gms_new_basic_setup($extra)
         "MAPLESTORY_TEST_GMS_NEW_ENTID" => $idmap,
         "MAPLESTORY_TEST_LIVE" => "FALSE",
         "MAPLESTORY_TEST_EXPLAIN" => "FALSE",
-        "MAPLESTORY_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -97,7 +95,6 @@ function gms_new_basic_setup($extra)
     if ($env["MAPLESTORY_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["MAPLESTORY_APIKEY"],
             ],
             $extra ?? [],
         ]);

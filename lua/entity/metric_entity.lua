@@ -79,6 +79,10 @@ end
 
 
 
+---@param reqmatch MetricLoadMatch
+---@param ctrl? table
+---@return Metric
+---@return string? err
 function MetricEntity:load(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

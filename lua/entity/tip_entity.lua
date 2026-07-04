@@ -79,6 +79,10 @@ end
 
 
 
+---@param reqmatch TipLoadMatch
+---@param ctrl? table
+---@return Tip
+---@return string? err
 function TipEntity:load(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

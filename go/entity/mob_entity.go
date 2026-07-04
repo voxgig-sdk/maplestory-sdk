@@ -85,6 +85,27 @@ func (e *MobEntity) Match(args ...any) any {
 	return out
 }
 
+// DataTyped is the statically-typed accessor for this entity's data. With no
+// argument it returns the current data as an Mob; with an argument it
+// sets the data and returns the stored value. It delegates to the untyped Data
+// (identical runtime) and converts at the typed boundary.
+func (e *MobEntity) DataTyped(data ...Mob) Mob {
+	if len(data) > 0 {
+		return typedFrom[Mob](e.Data(asMap(data[0])))
+	}
+	return typedFrom[Mob](e.Data())
+}
+
+// MatchTyped mirrors DataTyped for the entity's match filter. The match is a
+// partial of the entity, so it round-trips through Mob (all fields
+// optional at the wire level).
+func (e *MobEntity) MatchTyped(match ...Mob) Mob {
+	if len(match) > 0 {
+		return typedFrom[Mob](e.Match(asMap(match[0])))
+	}
+	return typedFrom[Mob](e.Match())
+}
+
 
 func (e *MobEntity) Load(reqmatch map[string]any, ctrl map[string]any) (any, error) {
 	utility := e.utility
@@ -109,6 +130,17 @@ func (e *MobEntity) Load(reqmatch map[string]any, ctrl map[string]any) (any, err
 			}
 		}
 	})
+}
+
+// LoadTyped is the statically-typed variant of Load: it takes an
+// MobLoadMatch and returns an Mob. It delegates to the untyped
+// Load (identical runtime) and converts at the typed boundary.
+func (e *MobEntity) LoadTyped(reqmatch MobLoadMatch, ctrl map[string]any) (Mob, error) {
+	res, err := e.Load(asMap(reqmatch), ctrl)
+	if err != nil {
+		return Mob{}, err
+	}
+	return typedFrom[Mob](res), nil
 }
 
 

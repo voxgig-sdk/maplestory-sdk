@@ -42,8 +42,7 @@ class NpcEntityTest < Minitest::Test
     # LOAD
     npc_ref01_ent = client.Npc(nil)
     npc_ref01_match_dt0 = {}
-    npc_ref01_data_dt0_loaded, err = npc_ref01_ent.load(npc_ref01_match_dt0, nil)
-    assert_nil err
+    npc_ref01_data_dt0_loaded = npc_ref01_ent.load(npc_ref01_match_dt0, nil)
     assert !npc_ref01_data_dt0_loaded.nil?
 
   end
@@ -82,7 +81,6 @@ def npc_basic_setup(extra)
     "MAPLESTORY_TEST_NPC_ENTID" => idmap,
     "MAPLESTORY_TEST_LIVE" => "FALSE",
     "MAPLESTORY_TEST_EXPLAIN" => "FALSE",
-    "MAPLESTORY_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -94,7 +92,6 @@ def npc_basic_setup(extra)
   if env["MAPLESTORY_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["MAPLESTORY_APIKEY"],
       },
       extra || {},
     ])

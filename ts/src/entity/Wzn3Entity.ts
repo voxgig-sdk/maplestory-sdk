@@ -14,9 +14,13 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  Wzn3,
+  Wzn3LoadMatch,
+} from '../MaplestoryTypes'
 
 // TODO: needs Entity superclass
-class Wzn3Entity extends MaplestoryEntityBase {
+class Wzn3Entity extends MaplestoryEntityBase<Wzn3> {
 
   constructor(client: MaplestorySDK, entopts: any) {
     super(client, entopts)
@@ -32,7 +36,7 @@ class Wzn3Entity extends MaplestoryEntityBase {
 
 
 
-  async load(this: any, reqmatch?: any, ctrl?: Control) {
+  async load(this: any, reqmatch?: Wzn3LoadMatch, ctrl?: Control): Promise<Wzn3> {
 
     const utility = this._utility
 
@@ -136,7 +140,9 @@ class Wzn3Entity extends MaplestoryEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<Wzn3> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

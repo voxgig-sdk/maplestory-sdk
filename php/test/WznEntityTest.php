@@ -49,8 +49,7 @@ class WznEntityTest extends TestCase
         // LOAD
         $wzn_ref01_ent = $client->Wzn(null);
         $wzn_ref01_match_dt0 = [];
-        [$wzn_ref01_data_dt0_loaded, $err] = $wzn_ref01_ent->load($wzn_ref01_match_dt0, null);
-        $this->assertNull($err);
+        $wzn_ref01_data_dt0_loaded = $wzn_ref01_ent->load($wzn_ref01_match_dt0, null);
         $this->assertNotNull($wzn_ref01_data_dt0_loaded);
 
     }
@@ -85,7 +84,6 @@ function wzn_basic_setup($extra)
         "MAPLESTORY_TEST_WZN_ENTID" => $idmap,
         "MAPLESTORY_TEST_LIVE" => "FALSE",
         "MAPLESTORY_TEST_EXPLAIN" => "FALSE",
-        "MAPLESTORY_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -97,7 +95,6 @@ function wzn_basic_setup($extra)
     if ($env["MAPLESTORY_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["MAPLESTORY_APIKEY"],
             ],
             $extra ?? [],
         ]);

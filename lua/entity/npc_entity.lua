@@ -79,6 +79,10 @@ end
 
 
 
+---@param reqmatch NpcLoadMatch
+---@param ctrl? table
+---@return Npc
+---@return string? err
 function NpcEntity:load(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

@@ -49,8 +49,7 @@ class TestZMapEntity:
         # LOAD
         z_map_ref01_ent = client.ZMap(None)
         z_map_ref01_match_dt0 = {}
-        z_map_ref01_data_dt0_loaded, err = z_map_ref01_ent.load(z_map_ref01_match_dt0, None)
-        assert err is None
+        z_map_ref01_data_dt0_loaded = z_map_ref01_ent.load(z_map_ref01_match_dt0, None)
         assert z_map_ref01_data_dt0_loaded is not None
 
 
@@ -91,7 +90,6 @@ def _z_map_basic_setup(extra):
         "MAPLESTORY_TEST_Z_MAP_ENTID": idmap,
         "MAPLESTORY_TEST_LIVE": "FALSE",
         "MAPLESTORY_TEST_EXPLAIN": "FALSE",
-        "MAPLESTORY_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -102,7 +100,6 @@ def _z_map_basic_setup(extra):
     if env.get("MAPLESTORY_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("MAPLESTORY_APIKEY"),
             },
             extra or {},
         ])

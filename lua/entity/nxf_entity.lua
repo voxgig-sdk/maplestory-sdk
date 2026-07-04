@@ -79,6 +79,10 @@ end
 
 
 
+---@param reqmatch NxfLoadMatch
+---@param ctrl? table
+---@return Nxf
+---@return string? err
 function NxfEntity:load(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

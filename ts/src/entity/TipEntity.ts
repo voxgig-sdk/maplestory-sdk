@@ -14,9 +14,13 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  Tip,
+  TipLoadMatch,
+} from '../MaplestoryTypes'
 
 // TODO: needs Entity superclass
-class TipEntity extends MaplestoryEntityBase {
+class TipEntity extends MaplestoryEntityBase<Tip> {
 
   constructor(client: MaplestorySDK, entopts: any) {
     super(client, entopts)
@@ -32,7 +36,7 @@ class TipEntity extends MaplestoryEntityBase {
 
 
 
-  async load(this: any, reqmatch?: any, ctrl?: Control) {
+  async load(this: any, reqmatch?: TipLoadMatch, ctrl?: Control): Promise<Tip> {
 
     const utility = this._utility
 
@@ -136,7 +140,9 @@ class TipEntity extends MaplestoryEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<Tip> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

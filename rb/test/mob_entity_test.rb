@@ -42,8 +42,7 @@ class MobEntityTest < Minitest::Test
     # LOAD
     mob_ref01_ent = client.Mob(nil)
     mob_ref01_match_dt0 = {}
-    mob_ref01_data_dt0_loaded, err = mob_ref01_ent.load(mob_ref01_match_dt0, nil)
-    assert_nil err
+    mob_ref01_data_dt0_loaded = mob_ref01_ent.load(mob_ref01_match_dt0, nil)
     assert !mob_ref01_data_dt0_loaded.nil?
 
   end
@@ -82,7 +81,6 @@ def mob_basic_setup(extra)
     "MAPLESTORY_TEST_MOB_ENTID" => idmap,
     "MAPLESTORY_TEST_LIVE" => "FALSE",
     "MAPLESTORY_TEST_EXPLAIN" => "FALSE",
-    "MAPLESTORY_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -94,7 +92,6 @@ def mob_basic_setup(extra)
   if env["MAPLESTORY_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["MAPLESTORY_APIKEY"],
       },
       extra || {},
     ])

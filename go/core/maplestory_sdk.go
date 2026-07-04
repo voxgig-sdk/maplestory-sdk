@@ -245,161 +245,257 @@ func (sdk *MaplestorySDK) Direct(fetchargs map[string]any) (map[string]any, erro
 }
 
 
+// Android returns a Android entity bound to this client.
+// Idiomatic usage: client.Android(nil).List(nil, nil) or
+// client.Android(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *MaplestorySDK) Android(data map[string]any) MaplestoryEntity {
 	return NewAndroidEntityFunc(sdk, data)
 }
 
 
+// Avatar returns a Avatar entity bound to this client.
+// Idiomatic usage: client.Avatar(nil).List(nil, nil) or
+// client.Avatar(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *MaplestorySDK) Avatar(data map[string]any) MaplestoryEntity {
 	return NewAvatarEntityFunc(sdk, data)
 }
 
 
+// Cache returns a Cache entity bound to this client.
+// Idiomatic usage: client.Cache(nil).List(nil, nil) or
+// client.Cache(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *MaplestorySDK) Cache(data map[string]any) MaplestoryEntity {
 	return NewCacheEntityFunc(sdk, data)
 }
 
 
+// Character returns a Character entity bound to this client.
+// Idiomatic usage: client.Character(nil).List(nil, nil) or
+// client.Character(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *MaplestorySDK) Character(data map[string]any) MaplestoryEntity {
 	return NewCharacterEntityFunc(sdk, data)
 }
 
 
+// Chat returns a Chat entity bound to this client.
+// Idiomatic usage: client.Chat(nil).List(nil, nil) or
+// client.Chat(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *MaplestorySDK) Chat(data map[string]any) MaplestoryEntity {
 	return NewChatEntityFunc(sdk, data)
 }
 
 
+// Cluster returns a Cluster entity bound to this client.
+// Idiomatic usage: client.Cluster(nil).List(nil, nil) or
+// client.Cluster(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *MaplestorySDK) Cluster(data map[string]any) MaplestoryEntity {
 	return NewClusterEntityFunc(sdk, data)
 }
 
 
+// Diff returns a Diff entity bound to this client.
+// Idiomatic usage: client.Diff(nil).List(nil, nil) or
+// client.Diff(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *MaplestorySDK) Diff(data map[string]any) MaplestoryEntity {
 	return NewDiffEntityFunc(sdk, data)
 }
 
 
+// Entity1 returns a Entity1 entity bound to this client.
+// Idiomatic usage: client.Entity1(nil).List(nil, nil) or
+// client.Entity1(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *MaplestorySDK) Entity1(data map[string]any) MaplestoryEntity {
 	return NewEntity1EntityFunc(sdk, data)
 }
 
 
+// GmsNew returns a GmsNew entity bound to this client.
+// Idiomatic usage: client.GmsNew(nil).List(nil, nil) or
+// client.GmsNew(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *MaplestorySDK) GmsNew(data map[string]any) MaplestoryEntity {
 	return NewGmsNewEntityFunc(sdk, data)
 }
 
 
+// GuildMark returns a GuildMark entity bound to this client.
+// Idiomatic usage: client.GuildMark(nil).List(nil, nil) or
+// client.GuildMark(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *MaplestorySDK) GuildMark(data map[string]any) MaplestoryEntity {
 	return NewGuildMarkEntityFunc(sdk, data)
 }
 
 
+// Health returns a Health entity bound to this client.
+// Idiomatic usage: client.Health(nil).List(nil, nil) or
+// client.Health(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *MaplestorySDK) Health(data map[string]any) MaplestoryEntity {
 	return NewHealthEntityFunc(sdk, data)
 }
 
 
+// Item returns a Item entity bound to this client.
+// Idiomatic usage: client.Item(nil).List(nil, nil) or
+// client.Item(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *MaplestorySDK) Item(data map[string]any) MaplestoryEntity {
 	return NewItemEntityFunc(sdk, data)
 }
 
 
+// Job returns a Job entity bound to this client.
+// Idiomatic usage: client.Job(nil).List(nil, nil) or
+// client.Job(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *MaplestorySDK) Job(data map[string]any) MaplestoryEntity {
 	return NewJobEntityFunc(sdk, data)
 }
 
 
+// Map returns a Map entity bound to this client.
+// Idiomatic usage: client.Map(nil).List(nil, nil) or
+// client.Map(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *MaplestorySDK) Map(data map[string]any) MaplestoryEntity {
 	return NewMapEntityFunc(sdk, data)
 }
 
 
+// Metric returns a Metric entity bound to this client.
+// Idiomatic usage: client.Metric(nil).List(nil, nil) or
+// client.Metric(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *MaplestorySDK) Metric(data map[string]any) MaplestoryEntity {
 	return NewMetricEntityFunc(sdk, data)
 }
 
 
+// Mob returns a Mob entity bound to this client.
+// Idiomatic usage: client.Mob(nil).List(nil, nil) or
+// client.Mob(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *MaplestorySDK) Mob(data map[string]any) MaplestoryEntity {
 	return NewMobEntityFunc(sdk, data)
 }
 
 
+// Music returns a Music entity bound to this client.
+// Idiomatic usage: client.Music(nil).List(nil, nil) or
+// client.Music(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *MaplestorySDK) Music(data map[string]any) MaplestoryEntity {
 	return NewMusicEntityFunc(sdk, data)
 }
 
 
+// Name returns a Name entity bound to this client.
+// Idiomatic usage: client.Name(nil).List(nil, nil) or
+// client.Name(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *MaplestorySDK) Name(data map[string]any) MaplestoryEntity {
 	return NewNameEntityFunc(sdk, data)
 }
 
 
+// Npc returns a Npc entity bound to this client.
+// Idiomatic usage: client.Npc(nil).List(nil, nil) or
+// client.Npc(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *MaplestorySDK) Npc(data map[string]any) MaplestoryEntity {
 	return NewNpcEntityFunc(sdk, data)
 }
 
 
+// Nxf returns a Nxf entity bound to this client.
+// Idiomatic usage: client.Nxf(nil).List(nil, nil) or
+// client.Nxf(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *MaplestorySDK) Nxf(data map[string]any) MaplestoryEntity {
 	return NewNxfEntityFunc(sdk, data)
 }
 
 
+// PerformanceMetric returns a PerformanceMetric entity bound to this client.
+// Idiomatic usage: client.PerformanceMetric(nil).List(nil, nil) or
+// client.PerformanceMetric(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *MaplestorySDK) PerformanceMetric(data map[string]any) MaplestoryEntity {
 	return NewPerformanceMetricEntityFunc(sdk, data)
 }
 
 
+// Pet returns a Pet entity bound to this client.
+// Idiomatic usage: client.Pet(nil).List(nil, nil) or
+// client.Pet(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *MaplestorySDK) Pet(data map[string]any) MaplestoryEntity {
 	return NewPetEntityFunc(sdk, data)
 }
 
 
+// Quest returns a Quest entity bound to this client.
+// Idiomatic usage: client.Quest(nil).List(nil, nil) or
+// client.Quest(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *MaplestorySDK) Quest(data map[string]any) MaplestoryEntity {
 	return NewQuestEntityFunc(sdk, data)
 }
 
 
+// System returns a System entity bound to this client.
+// Idiomatic usage: client.System(nil).List(nil, nil) or
+// client.System(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *MaplestorySDK) System(data map[string]any) MaplestoryEntity {
 	return NewSystemEntityFunc(sdk, data)
 }
 
 
+// Tip returns a Tip entity bound to this client.
+// Idiomatic usage: client.Tip(nil).List(nil, nil) or
+// client.Tip(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *MaplestorySDK) Tip(data map[string]any) MaplestoryEntity {
 	return NewTipEntityFunc(sdk, data)
 }
 
 
+// Wzn returns a Wzn entity bound to this client.
+// Idiomatic usage: client.Wzn(nil).List(nil, nil) or
+// client.Wzn(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *MaplestorySDK) Wzn(data map[string]any) MaplestoryEntity {
 	return NewWznEntityFunc(sdk, data)
 }
 
 
+// Wzn2 returns a Wzn2 entity bound to this client.
+// Idiomatic usage: client.Wzn2(nil).List(nil, nil) or
+// client.Wzn2(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *MaplestorySDK) Wzn2(data map[string]any) MaplestoryEntity {
 	return NewWzn2EntityFunc(sdk, data)
 }
 
 
+// Wzn3 returns a Wzn3 entity bound to this client.
+// Idiomatic usage: client.Wzn3(nil).List(nil, nil) or
+// client.Wzn3(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *MaplestorySDK) Wzn3(data map[string]any) MaplestoryEntity {
 	return NewWzn3EntityFunc(sdk, data)
 }
 
 
+// Wzn4 returns a Wzn4 entity bound to this client.
+// Idiomatic usage: client.Wzn4(nil).List(nil, nil) or
+// client.Wzn4(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *MaplestorySDK) Wzn4(data map[string]any) MaplestoryEntity {
 	return NewWzn4EntityFunc(sdk, data)
 }
 
 
+// Wzn5 returns a Wzn5 entity bound to this client.
+// Idiomatic usage: client.Wzn5(nil).List(nil, nil) or
+// client.Wzn5(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *MaplestorySDK) Wzn5(data map[string]any) MaplestoryEntity {
 	return NewWzn5EntityFunc(sdk, data)
 }
 
 
+// Wzn6 returns a Wzn6 entity bound to this client.
+// Idiomatic usage: client.Wzn6(nil).List(nil, nil) or
+// client.Wzn6(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *MaplestorySDK) Wzn6(data map[string]any) MaplestoryEntity {
 	return NewWzn6EntityFunc(sdk, data)
 }
 
 
+// ZMap returns a ZMap entity bound to this client.
+// Idiomatic usage: client.ZMap(nil).List(nil, nil) or
+// client.ZMap(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *MaplestorySDK) ZMap(data map[string]any) MaplestoryEntity {
 	return NewZMapEntityFunc(sdk, data)
 }

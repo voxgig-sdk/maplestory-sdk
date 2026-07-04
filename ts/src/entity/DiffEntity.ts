@@ -14,9 +14,13 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  Diff,
+  DiffLoadMatch,
+} from '../MaplestoryTypes'
 
 // TODO: needs Entity superclass
-class DiffEntity extends MaplestoryEntityBase {
+class DiffEntity extends MaplestoryEntityBase<Diff> {
 
   constructor(client: MaplestorySDK, entopts: any) {
     super(client, entopts)
@@ -32,7 +36,7 @@ class DiffEntity extends MaplestoryEntityBase {
 
 
 
-  async load(this: any, reqmatch?: any, ctrl?: Control) {
+  async load(this: any, reqmatch?: DiffLoadMatch, ctrl?: Control): Promise<Diff> {
 
     const utility = this._utility
 
@@ -136,7 +140,9 @@ class DiffEntity extends MaplestoryEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<Diff> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

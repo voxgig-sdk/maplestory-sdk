@@ -85,6 +85,27 @@ func (e *GmsNewEntity) Match(args ...any) any {
 	return out
 }
 
+// DataTyped is the statically-typed accessor for this entity's data. With no
+// argument it returns the current data as an GmsNew; with an argument it
+// sets the data and returns the stored value. It delegates to the untyped Data
+// (identical runtime) and converts at the typed boundary.
+func (e *GmsNewEntity) DataTyped(data ...GmsNew) GmsNew {
+	if len(data) > 0 {
+		return typedFrom[GmsNew](e.Data(asMap(data[0])))
+	}
+	return typedFrom[GmsNew](e.Data())
+}
+
+// MatchTyped mirrors DataTyped for the entity's match filter. The match is a
+// partial of the entity, so it round-trips through GmsNew (all fields
+// optional at the wire level).
+func (e *GmsNewEntity) MatchTyped(match ...GmsNew) GmsNew {
+	if len(match) > 0 {
+		return typedFrom[GmsNew](e.Match(asMap(match[0])))
+	}
+	return typedFrom[GmsNew](e.Match())
+}
+
 
 func (e *GmsNewEntity) Load(reqmatch map[string]any, ctrl map[string]any) (any, error) {
 	utility := e.utility
@@ -109,6 +130,17 @@ func (e *GmsNewEntity) Load(reqmatch map[string]any, ctrl map[string]any) (any, 
 			}
 		}
 	})
+}
+
+// LoadTyped is the statically-typed variant of Load: it takes an
+// GmsNewLoadMatch and returns an GmsNew. It delegates to the untyped
+// Load (identical runtime) and converts at the typed boundary.
+func (e *GmsNewEntity) LoadTyped(reqmatch GmsNewLoadMatch, ctrl map[string]any) (GmsNew, error) {
+	res, err := e.Load(asMap(reqmatch), ctrl)
+	if err != nil {
+		return GmsNew{}, err
+	}
+	return typedFrom[GmsNew](res), nil
 }
 
 

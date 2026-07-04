@@ -14,9 +14,13 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  Chat,
+  ChatLoadMatch,
+} from '../MaplestoryTypes'
 
 // TODO: needs Entity superclass
-class ChatEntity extends MaplestoryEntityBase {
+class ChatEntity extends MaplestoryEntityBase<Chat> {
 
   constructor(client: MaplestorySDK, entopts: any) {
     super(client, entopts)
@@ -32,7 +36,7 @@ class ChatEntity extends MaplestoryEntityBase {
 
 
 
-  async load(this: any, reqmatch?: any, ctrl?: Control) {
+  async load(this: any, reqmatch?: ChatLoadMatch, ctrl?: Control): Promise<Chat> {
 
     const utility = this._utility
 
@@ -136,7 +140,9 @@ class ChatEntity extends MaplestoryEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<Chat> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

@@ -81,6 +81,10 @@ end
 
 
 
+---@param reqmatch ClusterListMatch
+---@param ctrl? table
+---@return Cluster[]
+---@return string? err
 function ClusterEntity:list(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

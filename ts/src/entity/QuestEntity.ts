@@ -14,9 +14,13 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  Quest,
+  QuestLoadMatch,
+} from '../MaplestoryTypes'
 
 // TODO: needs Entity superclass
-class QuestEntity extends MaplestoryEntityBase {
+class QuestEntity extends MaplestoryEntityBase<Quest> {
 
   constructor(client: MaplestorySDK, entopts: any) {
     super(client, entopts)
@@ -32,7 +36,7 @@ class QuestEntity extends MaplestoryEntityBase {
 
 
 
-  async load(this: any, reqmatch?: any, ctrl?: Control) {
+  async load(this: any, reqmatch?: QuestLoadMatch, ctrl?: Control): Promise<Quest> {
 
     const utility = this._utility
 
@@ -136,7 +140,9 @@ class QuestEntity extends MaplestoryEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<Quest> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

@@ -79,6 +79,10 @@ end
 
 
 
+---@param reqmatch PetLoadMatch
+---@param ctrl? table
+---@return Pet
+---@return string? err
 function PetEntity:load(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

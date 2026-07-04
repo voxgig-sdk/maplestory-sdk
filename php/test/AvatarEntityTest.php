@@ -49,8 +49,7 @@ class AvatarEntityTest extends TestCase
         // LOAD
         $avatar_ref01_ent = $client->Avatar(null);
         $avatar_ref01_match_dt0 = [];
-        [$avatar_ref01_data_dt0_loaded, $err] = $avatar_ref01_ent->load($avatar_ref01_match_dt0, null);
-        $this->assertNull($err);
+        $avatar_ref01_data_dt0_loaded = $avatar_ref01_ent->load($avatar_ref01_match_dt0, null);
         $this->assertNotNull($avatar_ref01_data_dt0_loaded);
 
     }
@@ -85,7 +84,6 @@ function avatar_basic_setup($extra)
         "MAPLESTORY_TEST_AVATAR_ENTID" => $idmap,
         "MAPLESTORY_TEST_LIVE" => "FALSE",
         "MAPLESTORY_TEST_EXPLAIN" => "FALSE",
-        "MAPLESTORY_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -97,7 +95,6 @@ function avatar_basic_setup($extra)
     if ($env["MAPLESTORY_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["MAPLESTORY_APIKEY"],
             ],
             $extra ?? [],
         ]);

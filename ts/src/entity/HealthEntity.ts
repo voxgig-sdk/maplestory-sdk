@@ -14,9 +14,13 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  Health,
+  HealthLoadMatch,
+} from '../MaplestoryTypes'
 
 // TODO: needs Entity superclass
-class HealthEntity extends MaplestoryEntityBase {
+class HealthEntity extends MaplestoryEntityBase<Health> {
 
   constructor(client: MaplestorySDK, entopts: any) {
     super(client, entopts)
@@ -32,7 +36,7 @@ class HealthEntity extends MaplestoryEntityBase {
 
 
 
-  async load(this: any, reqmatch?: any, ctrl?: Control) {
+  async load(this: any, reqmatch?: HealthLoadMatch, ctrl?: Control): Promise<Health> {
 
     const utility = this._utility
 
@@ -136,7 +140,9 @@ class HealthEntity extends MaplestoryEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<Health> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

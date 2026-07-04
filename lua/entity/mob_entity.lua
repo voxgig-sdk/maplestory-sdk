@@ -79,6 +79,10 @@ end
 
 
 
+---@param reqmatch MobLoadMatch
+---@param ctrl? table
+---@return Mob
+---@return string? err
 function MobEntity:load(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

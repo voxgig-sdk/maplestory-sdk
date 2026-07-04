@@ -42,8 +42,7 @@ class ChatEntityTest < Minitest::Test
     # LOAD
     chat_ref01_ent = client.Chat(nil)
     chat_ref01_match_dt0 = {}
-    chat_ref01_data_dt0_loaded, err = chat_ref01_ent.load(chat_ref01_match_dt0, nil)
-    assert_nil err
+    chat_ref01_data_dt0_loaded = chat_ref01_ent.load(chat_ref01_match_dt0, nil)
     assert !chat_ref01_data_dt0_loaded.nil?
 
   end
@@ -82,7 +81,6 @@ def chat_basic_setup(extra)
     "MAPLESTORY_TEST_CHAT_ENTID" => idmap,
     "MAPLESTORY_TEST_LIVE" => "FALSE",
     "MAPLESTORY_TEST_EXPLAIN" => "FALSE",
-    "MAPLESTORY_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -94,7 +92,6 @@ def chat_basic_setup(extra)
   if env["MAPLESTORY_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["MAPLESTORY_APIKEY"],
       },
       extra || {},
     ])

@@ -79,6 +79,10 @@ end
 
 
 
+---@param reqmatch AndroidLoadMatch
+---@param ctrl? table
+---@return Android
+---@return string? err
 function AndroidEntity:load(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

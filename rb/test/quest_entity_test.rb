@@ -42,8 +42,7 @@ class QuestEntityTest < Minitest::Test
     # LOAD
     quest_ref01_ent = client.Quest(nil)
     quest_ref01_match_dt0 = {}
-    quest_ref01_data_dt0_loaded, err = quest_ref01_ent.load(quest_ref01_match_dt0, nil)
-    assert_nil err
+    quest_ref01_data_dt0_loaded = quest_ref01_ent.load(quest_ref01_match_dt0, nil)
     assert !quest_ref01_data_dt0_loaded.nil?
 
   end
@@ -82,7 +81,6 @@ def quest_basic_setup(extra)
     "MAPLESTORY_TEST_QUEST_ENTID" => idmap,
     "MAPLESTORY_TEST_LIVE" => "FALSE",
     "MAPLESTORY_TEST_EXPLAIN" => "FALSE",
-    "MAPLESTORY_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -94,7 +92,6 @@ def quest_basic_setup(extra)
   if env["MAPLESTORY_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["MAPLESTORY_APIKEY"],
       },
       extra || {},
     ])

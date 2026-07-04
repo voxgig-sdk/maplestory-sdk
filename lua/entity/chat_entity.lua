@@ -79,6 +79,10 @@ end
 
 
 
+---@param reqmatch ChatLoadMatch
+---@param ctrl? table
+---@return Chat
+---@return string? err
 function ChatEntity:load(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

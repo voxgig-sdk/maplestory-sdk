@@ -85,6 +85,27 @@ func (e *ZMapEntity) Match(args ...any) any {
 	return out
 }
 
+// DataTyped is the statically-typed accessor for this entity's data. With no
+// argument it returns the current data as an ZMap; with an argument it
+// sets the data and returns the stored value. It delegates to the untyped Data
+// (identical runtime) and converts at the typed boundary.
+func (e *ZMapEntity) DataTyped(data ...ZMap) ZMap {
+	if len(data) > 0 {
+		return typedFrom[ZMap](e.Data(asMap(data[0])))
+	}
+	return typedFrom[ZMap](e.Data())
+}
+
+// MatchTyped mirrors DataTyped for the entity's match filter. The match is a
+// partial of the entity, so it round-trips through ZMap (all fields
+// optional at the wire level).
+func (e *ZMapEntity) MatchTyped(match ...ZMap) ZMap {
+	if len(match) > 0 {
+		return typedFrom[ZMap](e.Match(asMap(match[0])))
+	}
+	return typedFrom[ZMap](e.Match())
+}
+
 
 func (e *ZMapEntity) Load(reqmatch map[string]any, ctrl map[string]any) (any, error) {
 	utility := e.utility
@@ -109,6 +130,17 @@ func (e *ZMapEntity) Load(reqmatch map[string]any, ctrl map[string]any) (any, er
 			}
 		}
 	})
+}
+
+// LoadTyped is the statically-typed variant of Load: it takes an
+// ZMapLoadMatch and returns an ZMap. It delegates to the untyped
+// Load (identical runtime) and converts at the typed boundary.
+func (e *ZMapEntity) LoadTyped(reqmatch ZMapLoadMatch, ctrl map[string]any) (ZMap, error) {
+	res, err := e.Load(asMap(reqmatch), ctrl)
+	if err != nil {
+		return ZMap{}, err
+	}
+	return typedFrom[ZMap](res), nil
 }
 
 

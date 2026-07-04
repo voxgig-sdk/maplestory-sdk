@@ -42,8 +42,7 @@ class JobEntityTest < Minitest::Test
     # LOAD
     job_ref01_ent = client.Job(nil)
     job_ref01_match_dt0 = {}
-    job_ref01_data_dt0_loaded, err = job_ref01_ent.load(job_ref01_match_dt0, nil)
-    assert_nil err
+    job_ref01_data_dt0_loaded = job_ref01_ent.load(job_ref01_match_dt0, nil)
     assert !job_ref01_data_dt0_loaded.nil?
 
   end
@@ -82,7 +81,6 @@ def job_basic_setup(extra)
     "MAPLESTORY_TEST_JOB_ENTID" => idmap,
     "MAPLESTORY_TEST_LIVE" => "FALSE",
     "MAPLESTORY_TEST_EXPLAIN" => "FALSE",
-    "MAPLESTORY_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -94,7 +92,6 @@ def job_basic_setup(extra)
   if env["MAPLESTORY_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["MAPLESTORY_APIKEY"],
       },
       extra || {},
     ])

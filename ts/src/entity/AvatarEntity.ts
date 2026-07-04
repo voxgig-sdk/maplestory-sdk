@@ -14,9 +14,13 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  Avatar,
+  AvatarLoadMatch,
+} from '../MaplestoryTypes'
 
 // TODO: needs Entity superclass
-class AvatarEntity extends MaplestoryEntityBase {
+class AvatarEntity extends MaplestoryEntityBase<Avatar> {
 
   constructor(client: MaplestorySDK, entopts: any) {
     super(client, entopts)
@@ -32,7 +36,7 @@ class AvatarEntity extends MaplestoryEntityBase {
 
 
 
-  async load(this: any, reqmatch?: any, ctrl?: Control) {
+  async load(this: any, reqmatch?: AvatarLoadMatch, ctrl?: Control): Promise<Avatar> {
 
     const utility = this._utility
 
@@ -136,7 +140,9 @@ class AvatarEntity extends MaplestoryEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<Avatar> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

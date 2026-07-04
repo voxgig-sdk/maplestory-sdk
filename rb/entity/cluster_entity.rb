@@ -45,6 +45,7 @@ class ClusterEntity
     end
   end
 
+  # @return [Cluster, Hash] the current Cluster data
   def data_get
     @_utility.feature_hook.call(@_entctx, "GetData")
     VoxgigStruct.clone(@_data)
@@ -57,6 +58,7 @@ class ClusterEntity
     end
   end
 
+  # @return [Hash] the current match filter (any subset of Cluster fields)
   def match_get
     @_utility.feature_hook.call(@_entctx, "GetMatch")
     VoxgigStruct.clone(@_match)
@@ -65,6 +67,11 @@ class ClusterEntity
   
 
   
+  # List Cluster items matching the given filter.
+  #
+  # @param reqmatch [ClusterListMatch, Hash, nil] match filter (any subset of Cluster fields)
+  # @param ctrl [Object, nil] optional per-call control
+  # @return [Array<Cluster>, Array] the matching Cluster items; raises MaplestoryError on failure
   def list(reqmatch, ctrl = nil)
     utility = @_utility
     ctx = utility.make_context.call({

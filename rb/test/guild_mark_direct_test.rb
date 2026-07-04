@@ -30,7 +30,7 @@ class GuildMarkDirectTest < Minitest::Test
       params["version"] = "direct06"
     end
 
-    result, err = client.direct({
+    result = client.direct({
       "path" => "api/{region}/{version}/GuildMark/background/{guild_background_id}/{guild_background_color_id}/mark/{guild_mark_id}/{guild_mark_color_id}",
       "method" => "GET",
       "params" => params,
@@ -40,8 +40,8 @@ class GuildMarkDirectTest < Minitest::Test
       # Live mode is lenient: synthetic IDs frequently 4xx. Skip rather
       # than fail when the load endpoint isn't reachable with the IDs
       # we can construct from setup.idmap.
-      if !err.nil?
-        skip("load call failed (likely synthetic IDs against live API): #{err}")
+      if !result["err"].nil?
+        skip("load call failed (likely synthetic IDs against live API): #{result["err"]}")
         return
       end
       unless result["ok"]
@@ -54,7 +54,7 @@ class GuildMarkDirectTest < Minitest::Test
         return
       end
     else
-      assert_nil err
+      assert_nil result["err"]
       assert result["ok"]
       assert_equal 200, Helpers.to_int(result["status"])
       assert !result["data"].nil?
@@ -76,14 +76,12 @@ def guild_mark_direct_setup(mockres)
   env = Runner.env_override({
     "MAPLESTORY_TEST_GUILD_MARK_ENTID" => {},
     "MAPLESTORY_TEST_LIVE" => "FALSE",
-    "MAPLESTORY_APIKEY" => "NONE",
   })
 
   live = env["MAPLESTORY_TEST_LIVE"] == "TRUE"
 
   if live
     merged_opts = {
-      "apikey" => env["MAPLESTORY_APIKEY"],
     }
     client = MaplestorySDK.new(merged_opts)
     return {

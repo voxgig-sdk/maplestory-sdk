@@ -14,9 +14,6 @@ func MakeConfig() map[string]any {
 		},
 		"options": map[string]any{
 			"base": "https://maplestory.io",
-			"auth": map[string]any{
-				"prefix": "Bearer",
-			},
 			"headers": map[string]any{
 				"content-type": "application/json",
 			},
@@ -75,6 +72,7 @@ func MakeConfig() map[string]any {
 											"orig": "android_id",
 											"reqd": true,
 											"type": "`$INTEGER`",
+											"index$": 0,
 										},
 										map[string]any{
 											"active": true,
@@ -83,6 +81,7 @@ func MakeConfig() map[string]any {
 											"orig": "region",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 1,
 										},
 										map[string]any{
 											"active": true,
@@ -91,6 +90,7 @@ func MakeConfig() map[string]any {
 											"orig": "version",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 2,
 										},
 									},
 								},
@@ -132,6 +132,7 @@ func MakeConfig() map[string]any {
 											"orig": "region",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 0,
 										},
 										map[string]any{
 											"active": true,
@@ -140,6 +141,7 @@ func MakeConfig() map[string]any {
 											"orig": "version",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 1,
 										},
 									},
 								},
@@ -194,6 +196,7 @@ func MakeConfig() map[string]any {
 											"orig": "animation",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 0,
 										},
 										map[string]any{
 											"active": true,
@@ -202,6 +205,7 @@ func MakeConfig() map[string]any {
 											"orig": "item",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 1,
 										},
 										map[string]any{
 											"active": true,
@@ -210,6 +214,7 @@ func MakeConfig() map[string]any {
 											"orig": "frame",
 											"reqd": true,
 											"type": "`$INTEGER`",
+											"index$": 2,
 										},
 									},
 									"query": []any{
@@ -335,6 +340,7 @@ func MakeConfig() map[string]any {
 											"orig": "animation",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 0,
 										},
 										map[string]any{
 											"active": true,
@@ -343,6 +349,7 @@ func MakeConfig() map[string]any {
 											"orig": "item",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 1,
 										},
 										map[string]any{
 											"active": true,
@@ -351,6 +358,7 @@ func MakeConfig() map[string]any {
 											"orig": "frame",
 											"reqd": true,
 											"type": "`$INTEGER`",
+											"index$": 2,
 										},
 									},
 									"query": []any{
@@ -477,6 +485,7 @@ func MakeConfig() map[string]any {
 											"orig": "animation",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 0,
 										},
 										map[string]any{
 											"active": true,
@@ -485,6 +494,7 @@ func MakeConfig() map[string]any {
 											"orig": "frame",
 											"reqd": true,
 											"type": "`$INTEGER`",
+											"index$": 1,
 										},
 										map[string]any{
 											"active": true,
@@ -493,6 +503,7 @@ func MakeConfig() map[string]any {
 											"orig": "item",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 2,
 										},
 									},
 									"query": []any{
@@ -617,6 +628,7 @@ func MakeConfig() map[string]any {
 											"orig": "animation",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 0,
 										},
 										map[string]any{
 											"active": true,
@@ -625,6 +637,7 @@ func MakeConfig() map[string]any {
 											"orig": "frame",
 											"reqd": true,
 											"type": "`$INTEGER`",
+											"index$": 1,
 										},
 										map[string]any{
 											"active": true,
@@ -633,6 +646,7 @@ func MakeConfig() map[string]any {
 											"orig": "item",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 2,
 										},
 									},
 									"query": []any{
@@ -747,6 +761,7 @@ func MakeConfig() map[string]any {
 											"orig": "animation",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 0,
 										},
 										map[string]any{
 											"active": true,
@@ -755,6 +770,7 @@ func MakeConfig() map[string]any {
 											"orig": "frame",
 											"reqd": true,
 											"type": "`$INTEGER`",
+											"index$": 1,
 										},
 										map[string]any{
 											"active": true,
@@ -763,6 +779,7 @@ func MakeConfig() map[string]any {
 											"orig": "item",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 2,
 										},
 									},
 									"query": []any{
@@ -974,6 +991,7 @@ func MakeConfig() map[string]any {
 											"orig": "frame",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 0,
 										},
 										map[string]any{
 											"active": true,
@@ -982,6 +1000,7 @@ func MakeConfig() map[string]any {
 											"orig": "region",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 1,
 										},
 										map[string]any{
 											"active": true,
@@ -990,6 +1009,7 @@ func MakeConfig() map[string]any {
 											"orig": "skin_id",
 											"reqd": true,
 											"type": "`$INTEGER`",
+											"index$": 2,
 										},
 										map[string]any{
 											"active": true,
@@ -998,6 +1018,7 @@ func MakeConfig() map[string]any {
 											"orig": "version",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 3,
 										},
 									},
 									"query": []any{
@@ -1179,6 +1200,7 @@ func MakeConfig() map[string]any {
 											"orig": "region",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 0,
 										},
 										map[string]any{
 											"active": true,
@@ -1187,6 +1209,7 @@ func MakeConfig() map[string]any {
 											"orig": "skin_id",
 											"reqd": true,
 											"type": "`$INTEGER`",
+											"index$": 1,
 										},
 										map[string]any{
 											"active": true,
@@ -1195,6 +1218,7 @@ func MakeConfig() map[string]any {
 											"orig": "version",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 2,
 										},
 									},
 									"query": []any{
@@ -1343,6 +1367,7 @@ func MakeConfig() map[string]any {
 											"orig": "region",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 0,
 										},
 										map[string]any{
 											"active": true,
@@ -1351,6 +1376,7 @@ func MakeConfig() map[string]any {
 											"orig": "skin_id",
 											"reqd": true,
 											"type": "`$INTEGER`",
+											"index$": 1,
 										},
 										map[string]any{
 											"active": true,
@@ -1359,6 +1385,7 @@ func MakeConfig() map[string]any {
 											"orig": "version",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 2,
 										},
 									},
 									"query": []any{
@@ -1499,6 +1526,7 @@ func MakeConfig() map[string]any {
 											"orig": "region",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 0,
 										},
 										map[string]any{
 											"active": true,
@@ -1507,6 +1535,7 @@ func MakeConfig() map[string]any {
 											"orig": "skin_id",
 											"reqd": true,
 											"type": "`$INTEGER`",
+											"index$": 1,
 										},
 										map[string]any{
 											"active": true,
@@ -1515,6 +1544,7 @@ func MakeConfig() map[string]any {
 											"orig": "version",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 2,
 										},
 									},
 									"query": []any{
@@ -1664,6 +1694,7 @@ func MakeConfig() map[string]any {
 											"orig": "region",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 0,
 										},
 										map[string]any{
 											"active": true,
@@ -1672,6 +1703,7 @@ func MakeConfig() map[string]any {
 											"orig": "skin_id",
 											"reqd": true,
 											"type": "`$INTEGER`",
+											"index$": 1,
 										},
 										map[string]any{
 											"active": true,
@@ -1680,6 +1712,7 @@ func MakeConfig() map[string]any {
 											"orig": "version",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 2,
 										},
 									},
 									"query": []any{
@@ -1820,6 +1853,7 @@ func MakeConfig() map[string]any {
 											"orig": "region",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 0,
 										},
 										map[string]any{
 											"active": true,
@@ -1828,6 +1862,7 @@ func MakeConfig() map[string]any {
 											"orig": "skin_id",
 											"reqd": true,
 											"type": "`$INTEGER`",
+											"index$": 1,
 										},
 										map[string]any{
 											"active": true,
@@ -1836,6 +1871,7 @@ func MakeConfig() map[string]any {
 											"orig": "version",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 2,
 										},
 									},
 									"query": []any{
@@ -1976,6 +2012,7 @@ func MakeConfig() map[string]any {
 											"orig": "region",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 0,
 										},
 										map[string]any{
 											"active": true,
@@ -1984,6 +2021,7 @@ func MakeConfig() map[string]any {
 											"orig": "skin_id",
 											"reqd": true,
 											"type": "`$INTEGER`",
+											"index$": 1,
 										},
 										map[string]any{
 											"active": true,
@@ -1992,6 +2030,7 @@ func MakeConfig() map[string]any {
 											"orig": "version",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 2,
 										},
 									},
 									"query": []any{
@@ -2165,6 +2204,7 @@ func MakeConfig() map[string]any {
 											"orig": "region",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 0,
 										},
 										map[string]any{
 											"active": true,
@@ -2173,6 +2213,7 @@ func MakeConfig() map[string]any {
 											"orig": "version",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 1,
 										},
 									},
 									"query": []any{
@@ -2289,6 +2330,7 @@ func MakeConfig() map[string]any {
 											"orig": "region",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 0,
 										},
 										map[string]any{
 											"active": true,
@@ -2297,6 +2339,7 @@ func MakeConfig() map[string]any {
 											"orig": "version",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 1,
 										},
 									},
 									"query": []any{
@@ -2448,6 +2491,7 @@ func MakeConfig() map[string]any {
 											"orig": "region",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 0,
 										},
 										map[string]any{
 											"active": true,
@@ -2456,6 +2500,7 @@ func MakeConfig() map[string]any {
 											"orig": "version",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 1,
 										},
 									},
 									"query": []any{
@@ -2585,6 +2630,7 @@ func MakeConfig() map[string]any {
 											"orig": "region",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 0,
 										},
 										map[string]any{
 											"active": true,
@@ -2593,6 +2639,7 @@ func MakeConfig() map[string]any {
 											"orig": "version",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 1,
 										},
 									},
 								},
@@ -2627,6 +2674,7 @@ func MakeConfig() map[string]any {
 											"orig": "region",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 0,
 										},
 										map[string]any{
 											"active": true,
@@ -2635,6 +2683,7 @@ func MakeConfig() map[string]any {
 											"orig": "version",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 1,
 										},
 									},
 								},
@@ -2720,6 +2769,7 @@ func MakeConfig() map[string]any {
 											"orig": "id",
 											"reqd": true,
 											"type": "`$INTEGER`",
+											"index$": 0,
 										},
 									},
 								},
@@ -2811,6 +2861,7 @@ func MakeConfig() map[string]any {
 											"orig": "guild_background_color_id",
 											"reqd": true,
 											"type": "`$INTEGER`",
+											"index$": 0,
 										},
 										map[string]any{
 											"active": true,
@@ -2819,6 +2870,7 @@ func MakeConfig() map[string]any {
 											"orig": "guild_background_id",
 											"reqd": true,
 											"type": "`$INTEGER`",
+											"index$": 1,
 										},
 										map[string]any{
 											"active": true,
@@ -2827,6 +2879,7 @@ func MakeConfig() map[string]any {
 											"orig": "guild_mark_color_id",
 											"reqd": true,
 											"type": "`$INTEGER`",
+											"index$": 2,
 										},
 										map[string]any{
 											"active": true,
@@ -2835,6 +2888,7 @@ func MakeConfig() map[string]any {
 											"orig": "guild_mark_id",
 											"reqd": true,
 											"type": "`$INTEGER`",
+											"index$": 3,
 										},
 										map[string]any{
 											"active": true,
@@ -2843,6 +2897,7 @@ func MakeConfig() map[string]any {
 											"orig": "region",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 4,
 										},
 										map[string]any{
 											"active": true,
@@ -2851,6 +2906,7 @@ func MakeConfig() map[string]any {
 											"orig": "version",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 5,
 										},
 									},
 								},
@@ -2903,6 +2959,7 @@ func MakeConfig() map[string]any {
 											"orig": "color_id",
 											"reqd": true,
 											"type": "`$INTEGER`",
+											"index$": 0,
 										},
 										map[string]any{
 											"active": true,
@@ -2911,6 +2968,7 @@ func MakeConfig() map[string]any {
 											"orig": "guild_mark_id",
 											"reqd": true,
 											"type": "`$INTEGER`",
+											"index$": 1,
 										},
 										map[string]any{
 											"active": true,
@@ -2919,6 +2977,7 @@ func MakeConfig() map[string]any {
 											"orig": "region",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 2,
 										},
 										map[string]any{
 											"active": true,
@@ -2927,6 +2986,7 @@ func MakeConfig() map[string]any {
 											"orig": "version",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 3,
 										},
 									},
 								},
@@ -3070,6 +3130,7 @@ func MakeConfig() map[string]any {
 											"orig": "region",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 0,
 										},
 										map[string]any{
 											"active": true,
@@ -3078,6 +3139,7 @@ func MakeConfig() map[string]any {
 											"orig": "version",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 1,
 										},
 									},
 									"query": []any{
@@ -3214,6 +3276,7 @@ func MakeConfig() map[string]any {
 											"orig": "region",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 0,
 										},
 										map[string]any{
 											"active": true,
@@ -3222,6 +3285,7 @@ func MakeConfig() map[string]any {
 											"orig": "version",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 1,
 										},
 									},
 									"query": []any{
@@ -3360,6 +3424,7 @@ func MakeConfig() map[string]any {
 											"orig": "region",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 0,
 										},
 										map[string]any{
 											"active": true,
@@ -3368,6 +3433,7 @@ func MakeConfig() map[string]any {
 											"orig": "version",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 1,
 										},
 									},
 									"query": []any{
@@ -3506,6 +3572,7 @@ func MakeConfig() map[string]any {
 											"orig": "item_id",
 											"reqd": true,
 											"type": "`$INTEGER`",
+											"index$": 0,
 										},
 										map[string]any{
 											"active": true,
@@ -3514,6 +3581,7 @@ func MakeConfig() map[string]any {
 											"orig": "region",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 1,
 										},
 										map[string]any{
 											"active": true,
@@ -3522,6 +3590,7 @@ func MakeConfig() map[string]any {
 											"orig": "version",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 2,
 										},
 									},
 								},
@@ -3563,6 +3632,7 @@ func MakeConfig() map[string]any {
 											"orig": "item_id",
 											"reqd": true,
 											"type": "`$INTEGER`",
+											"index$": 0,
 										},
 										map[string]any{
 											"active": true,
@@ -3571,6 +3641,7 @@ func MakeConfig() map[string]any {
 											"orig": "region",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 1,
 										},
 										map[string]any{
 											"active": true,
@@ -3579,6 +3650,7 @@ func MakeConfig() map[string]any {
 											"orig": "version",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 2,
 										},
 									},
 								},
@@ -3622,6 +3694,7 @@ func MakeConfig() map[string]any {
 											"orig": "item_id",
 											"reqd": true,
 											"type": "`$INTEGER`",
+											"index$": 0,
 										},
 										map[string]any{
 											"active": true,
@@ -3630,6 +3703,7 @@ func MakeConfig() map[string]any {
 											"orig": "region",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 1,
 										},
 										map[string]any{
 											"active": true,
@@ -3638,6 +3712,7 @@ func MakeConfig() map[string]any {
 											"orig": "version",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 2,
 										},
 									},
 								},
@@ -3681,6 +3756,7 @@ func MakeConfig() map[string]any {
 											"orig": "item_id",
 											"reqd": true,
 											"type": "`$INTEGER`",
+											"index$": 0,
 										},
 										map[string]any{
 											"active": true,
@@ -3689,6 +3765,7 @@ func MakeConfig() map[string]any {
 											"orig": "region",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 1,
 										},
 										map[string]any{
 											"active": true,
@@ -3697,6 +3774,7 @@ func MakeConfig() map[string]any {
 											"orig": "version",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 2,
 										},
 									},
 								},
@@ -3740,6 +3818,7 @@ func MakeConfig() map[string]any {
 											"orig": "overall_category",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 0,
 										},
 										map[string]any{
 											"active": true,
@@ -3748,6 +3827,7 @@ func MakeConfig() map[string]any {
 											"orig": "region",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 1,
 										},
 										map[string]any{
 											"active": true,
@@ -3756,6 +3836,7 @@ func MakeConfig() map[string]any {
 											"orig": "version",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 2,
 										},
 									},
 								},
@@ -3798,6 +3879,7 @@ func MakeConfig() map[string]any {
 											"orig": "region",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 0,
 										},
 										map[string]any{
 											"active": true,
@@ -3806,6 +3888,7 @@ func MakeConfig() map[string]any {
 											"orig": "version",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 1,
 										},
 									},
 								},
@@ -3866,6 +3949,7 @@ func MakeConfig() map[string]any {
 											"orig": "job_id",
 											"reqd": true,
 											"type": "`$INTEGER`",
+											"index$": 0,
 										},
 										map[string]any{
 											"active": true,
@@ -3874,6 +3958,7 @@ func MakeConfig() map[string]any {
 											"orig": "region",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 1,
 										},
 										map[string]any{
 											"active": true,
@@ -3882,6 +3967,7 @@ func MakeConfig() map[string]any {
 											"orig": "skill_id",
 											"reqd": true,
 											"type": "`$INTEGER`",
+											"index$": 2,
 										},
 										map[string]any{
 											"active": true,
@@ -3890,6 +3976,7 @@ func MakeConfig() map[string]any {
 											"orig": "version",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 3,
 										},
 									},
 								},
@@ -3935,6 +4022,7 @@ func MakeConfig() map[string]any {
 											"orig": "job_id",
 											"reqd": true,
 											"type": "`$INTEGER`",
+											"index$": 0,
 										},
 										map[string]any{
 											"active": true,
@@ -3943,6 +4031,7 @@ func MakeConfig() map[string]any {
 											"orig": "region",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 1,
 										},
 										map[string]any{
 											"active": true,
@@ -3951,6 +4040,7 @@ func MakeConfig() map[string]any {
 											"orig": "version",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 2,
 										},
 									},
 								},
@@ -3992,6 +4082,7 @@ func MakeConfig() map[string]any {
 											"orig": "job_id",
 											"reqd": true,
 											"type": "`$INTEGER`",
+											"index$": 0,
 										},
 										map[string]any{
 											"active": true,
@@ -4000,6 +4091,7 @@ func MakeConfig() map[string]any {
 											"orig": "region",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 1,
 										},
 										map[string]any{
 											"active": true,
@@ -4008,6 +4100,7 @@ func MakeConfig() map[string]any {
 											"orig": "version",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 2,
 										},
 									},
 								},
@@ -4051,6 +4144,7 @@ func MakeConfig() map[string]any {
 											"orig": "region",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 0,
 										},
 										map[string]any{
 											"active": true,
@@ -4059,6 +4153,7 @@ func MakeConfig() map[string]any {
 											"orig": "skill_id",
 											"reqd": true,
 											"type": "`$INTEGER`",
+											"index$": 1,
 										},
 										map[string]any{
 											"active": true,
@@ -4067,6 +4162,7 @@ func MakeConfig() map[string]any {
 											"orig": "version",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 2,
 										},
 									},
 								},
@@ -4109,6 +4205,7 @@ func MakeConfig() map[string]any {
 											"orig": "region",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 0,
 										},
 										map[string]any{
 											"active": true,
@@ -4117,6 +4214,7 @@ func MakeConfig() map[string]any {
 											"orig": "version",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 1,
 										},
 									},
 								},
@@ -4151,6 +4249,7 @@ func MakeConfig() map[string]any {
 											"orig": "region",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 0,
 										},
 										map[string]any{
 											"active": true,
@@ -4159,6 +4258,7 @@ func MakeConfig() map[string]any {
 											"orig": "version",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 1,
 										},
 									},
 								},
@@ -4195,6 +4295,7 @@ func MakeConfig() map[string]any {
 											"orig": "region",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 0,
 										},
 										map[string]any{
 											"active": true,
@@ -4203,6 +4304,7 @@ func MakeConfig() map[string]any {
 											"orig": "version",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 1,
 										},
 									},
 								},
@@ -4268,6 +4370,7 @@ func MakeConfig() map[string]any {
 											"orig": "frame",
 											"reqd": true,
 											"type": "`$INTEGER`",
+											"index$": 0,
 										},
 										map[string]any{
 											"active": true,
@@ -4276,6 +4379,7 @@ func MakeConfig() map[string]any {
 											"orig": "layer",
 											"reqd": true,
 											"type": "`$INTEGER`",
+											"index$": 1,
 										},
 										map[string]any{
 											"active": true,
@@ -4284,6 +4388,7 @@ func MakeConfig() map[string]any {
 											"orig": "map_id",
 											"reqd": true,
 											"type": "`$INTEGER`",
+											"index$": 2,
 										},
 										map[string]any{
 											"active": true,
@@ -4292,6 +4397,7 @@ func MakeConfig() map[string]any {
 											"orig": "region",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 3,
 										},
 										map[string]any{
 											"active": true,
@@ -4300,6 +4406,7 @@ func MakeConfig() map[string]any {
 											"orig": "version",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 4,
 										},
 									},
 									"query": []any{
@@ -4378,6 +4485,7 @@ func MakeConfig() map[string]any {
 											"orig": "frame",
 											"reqd": true,
 											"type": "`$INTEGER`",
+											"index$": 0,
 										},
 										map[string]any{
 											"active": true,
@@ -4386,6 +4494,7 @@ func MakeConfig() map[string]any {
 											"orig": "map_id",
 											"reqd": true,
 											"type": "`$INTEGER`",
+											"index$": 1,
 										},
 										map[string]any{
 											"active": true,
@@ -4394,6 +4503,7 @@ func MakeConfig() map[string]any {
 											"orig": "region",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 2,
 										},
 										map[string]any{
 											"active": true,
@@ -4402,6 +4512,7 @@ func MakeConfig() map[string]any {
 											"orig": "version",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 3,
 										},
 									},
 									"query": []any{
@@ -4468,6 +4579,7 @@ func MakeConfig() map[string]any {
 											"orig": "region",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 0,
 										},
 										map[string]any{
 											"active": true,
@@ -4476,6 +4588,7 @@ func MakeConfig() map[string]any {
 											"orig": "version",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 1,
 										},
 									},
 									"query": []any{
@@ -4540,6 +4653,7 @@ func MakeConfig() map[string]any {
 											"orig": "region",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 0,
 										},
 										map[string]any{
 											"active": true,
@@ -4548,6 +4662,7 @@ func MakeConfig() map[string]any {
 											"orig": "version",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 1,
 										},
 									},
 									"query": []any{
@@ -4614,6 +4729,7 @@ func MakeConfig() map[string]any {
 											"orig": "map_id",
 											"reqd": true,
 											"type": "`$INTEGER`",
+											"index$": 0,
 										},
 										map[string]any{
 											"active": true,
@@ -4622,6 +4738,7 @@ func MakeConfig() map[string]any {
 											"orig": "region",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 1,
 										},
 										map[string]any{
 											"active": true,
@@ -4630,6 +4747,7 @@ func MakeConfig() map[string]any {
 											"orig": "version",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 2,
 										},
 									},
 								},
@@ -4671,6 +4789,7 @@ func MakeConfig() map[string]any {
 											"orig": "map_id",
 											"reqd": true,
 											"type": "`$INTEGER`",
+											"index$": 0,
 										},
 										map[string]any{
 											"active": true,
@@ -4679,6 +4798,7 @@ func MakeConfig() map[string]any {
 											"orig": "region",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 1,
 										},
 										map[string]any{
 											"active": true,
@@ -4687,6 +4807,7 @@ func MakeConfig() map[string]any {
 											"orig": "version",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 2,
 										},
 									},
 								},
@@ -4730,6 +4851,7 @@ func MakeConfig() map[string]any {
 											"orig": "map_id",
 											"reqd": true,
 											"type": "`$INTEGER`",
+											"index$": 0,
 										},
 										map[string]any{
 											"active": true,
@@ -4738,6 +4860,7 @@ func MakeConfig() map[string]any {
 											"orig": "region",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 1,
 										},
 										map[string]any{
 											"active": true,
@@ -4746,6 +4869,7 @@ func MakeConfig() map[string]any {
 											"orig": "version",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 2,
 										},
 									},
 								},
@@ -4789,6 +4913,7 @@ func MakeConfig() map[string]any {
 											"orig": "map_id",
 											"reqd": true,
 											"type": "`$INTEGER`",
+											"index$": 0,
 										},
 										map[string]any{
 											"active": true,
@@ -4797,6 +4922,7 @@ func MakeConfig() map[string]any {
 											"orig": "region",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 1,
 										},
 										map[string]any{
 											"active": true,
@@ -4805,6 +4931,7 @@ func MakeConfig() map[string]any {
 											"orig": "version",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 2,
 										},
 									},
 								},
@@ -4848,6 +4975,7 @@ func MakeConfig() map[string]any {
 											"orig": "map_id",
 											"reqd": true,
 											"type": "`$INTEGER`",
+											"index$": 0,
 										},
 										map[string]any{
 											"active": true,
@@ -4856,6 +4984,7 @@ func MakeConfig() map[string]any {
 											"orig": "region",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 1,
 										},
 										map[string]any{
 											"active": true,
@@ -4864,6 +4993,7 @@ func MakeConfig() map[string]any {
 											"orig": "version",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 2,
 										},
 									},
 								},
@@ -4907,6 +5037,7 @@ func MakeConfig() map[string]any {
 											"orig": "map",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 0,
 										},
 										map[string]any{
 											"active": true,
@@ -4915,6 +5046,7 @@ func MakeConfig() map[string]any {
 											"orig": "region",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 1,
 										},
 										map[string]any{
 											"active": true,
@@ -4923,6 +5055,7 @@ func MakeConfig() map[string]any {
 											"orig": "version",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 2,
 										},
 									},
 								},
@@ -4960,6 +5093,7 @@ func MakeConfig() map[string]any {
 											"orig": "mark_name",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 0,
 										},
 										map[string]any{
 											"active": true,
@@ -4968,6 +5102,7 @@ func MakeConfig() map[string]any {
 											"orig": "region",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 1,
 										},
 										map[string]any{
 											"active": true,
@@ -4976,6 +5111,7 @@ func MakeConfig() map[string]any {
 											"orig": "version",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 2,
 										},
 									},
 								},
@@ -5018,6 +5154,7 @@ func MakeConfig() map[string]any {
 											"orig": "region",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 0,
 										},
 										map[string]any{
 											"active": true,
@@ -5026,6 +5163,7 @@ func MakeConfig() map[string]any {
 											"orig": "version",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 1,
 										},
 									},
 								},
@@ -5134,6 +5272,7 @@ func MakeConfig() map[string]any {
 											"orig": "region",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 0,
 										},
 										map[string]any{
 											"active": true,
@@ -5142,6 +5281,7 @@ func MakeConfig() map[string]any {
 											"orig": "version",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 1,
 										},
 									},
 									"query": []any{
@@ -5224,6 +5364,7 @@ func MakeConfig() map[string]any {
 											"orig": "region",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 0,
 										},
 										map[string]any{
 											"active": true,
@@ -5232,6 +5373,7 @@ func MakeConfig() map[string]any {
 											"orig": "version",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 1,
 										},
 									},
 									"query": []any{
@@ -5316,6 +5458,7 @@ func MakeConfig() map[string]any {
 											"orig": "animation",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 0,
 										},
 										map[string]any{
 											"active": true,
@@ -5324,6 +5467,7 @@ func MakeConfig() map[string]any {
 											"orig": "mob_id",
 											"reqd": true,
 											"type": "`$INTEGER`",
+											"index$": 1,
 										},
 										map[string]any{
 											"active": true,
@@ -5332,6 +5476,7 @@ func MakeConfig() map[string]any {
 											"orig": "region",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 2,
 										},
 										map[string]any{
 											"active": true,
@@ -5340,6 +5485,7 @@ func MakeConfig() map[string]any {
 											"orig": "version",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 3,
 										},
 									},
 									"query": []any{
@@ -5398,6 +5544,7 @@ func MakeConfig() map[string]any {
 											"orig": "animation",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 0,
 										},
 										map[string]any{
 											"active": true,
@@ -5406,6 +5553,7 @@ func MakeConfig() map[string]any {
 											"orig": "mob_id",
 											"reqd": true,
 											"type": "`$INTEGER`",
+											"index$": 1,
 										},
 										map[string]any{
 											"active": true,
@@ -5414,6 +5562,7 @@ func MakeConfig() map[string]any {
 											"orig": "region",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 2,
 										},
 										map[string]any{
 											"active": true,
@@ -5422,6 +5571,7 @@ func MakeConfig() map[string]any {
 											"orig": "version",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 3,
 										},
 									},
 									"query": []any{
@@ -5478,6 +5628,7 @@ func MakeConfig() map[string]any {
 											"orig": "animation",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 0,
 										},
 										map[string]any{
 											"active": true,
@@ -5486,6 +5637,7 @@ func MakeConfig() map[string]any {
 											"orig": "mob_id",
 											"reqd": true,
 											"type": "`$INTEGER`",
+											"index$": 1,
 										},
 										map[string]any{
 											"active": true,
@@ -5494,6 +5646,7 @@ func MakeConfig() map[string]any {
 											"orig": "region",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 2,
 										},
 										map[string]any{
 											"active": true,
@@ -5502,6 +5655,7 @@ func MakeConfig() map[string]any {
 											"orig": "version",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 3,
 										},
 									},
 									"query": []any{
@@ -5558,6 +5712,7 @@ func MakeConfig() map[string]any {
 											"orig": "animation",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 0,
 										},
 										map[string]any{
 											"active": true,
@@ -5567,6 +5722,7 @@ func MakeConfig() map[string]any {
 											"orig": "frame",
 											"reqd": true,
 											"type": "`$INTEGER`",
+											"index$": 1,
 										},
 										map[string]any{
 											"active": true,
@@ -5575,6 +5731,7 @@ func MakeConfig() map[string]any {
 											"orig": "mob_id",
 											"reqd": true,
 											"type": "`$INTEGER`",
+											"index$": 2,
 										},
 										map[string]any{
 											"active": true,
@@ -5583,6 +5740,7 @@ func MakeConfig() map[string]any {
 											"orig": "region",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 3,
 										},
 										map[string]any{
 											"active": true,
@@ -5591,6 +5749,7 @@ func MakeConfig() map[string]any {
 											"orig": "version",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 4,
 										},
 									},
 								},
@@ -5637,6 +5796,7 @@ func MakeConfig() map[string]any {
 											"orig": "mob_id",
 											"reqd": true,
 											"type": "`$INTEGER`",
+											"index$": 0,
 										},
 										map[string]any{
 											"active": true,
@@ -5645,6 +5805,7 @@ func MakeConfig() map[string]any {
 											"orig": "region",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 1,
 										},
 										map[string]any{
 											"active": true,
@@ -5653,6 +5814,7 @@ func MakeConfig() map[string]any {
 											"orig": "sound_name",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 2,
 										},
 										map[string]any{
 											"active": true,
@@ -5661,6 +5823,7 @@ func MakeConfig() map[string]any {
 											"orig": "version",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 3,
 										},
 									},
 								},
@@ -5706,6 +5869,7 @@ func MakeConfig() map[string]any {
 											"orig": "mob_id",
 											"reqd": true,
 											"type": "`$INTEGER`",
+											"index$": 0,
 										},
 										map[string]any{
 											"active": true,
@@ -5714,6 +5878,7 @@ func MakeConfig() map[string]any {
 											"orig": "region",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 1,
 										},
 										map[string]any{
 											"active": true,
@@ -5722,6 +5887,7 @@ func MakeConfig() map[string]any {
 											"orig": "version",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 2,
 										},
 									},
 								},
@@ -5763,6 +5929,7 @@ func MakeConfig() map[string]any {
 											"orig": "mob_id",
 											"reqd": true,
 											"type": "`$INTEGER`",
+											"index$": 0,
 										},
 										map[string]any{
 											"active": true,
@@ -5771,6 +5938,7 @@ func MakeConfig() map[string]any {
 											"orig": "region",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 1,
 										},
 										map[string]any{
 											"active": true,
@@ -5779,6 +5947,7 @@ func MakeConfig() map[string]any {
 											"orig": "version",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 2,
 										},
 									},
 								},
@@ -5822,6 +5991,7 @@ func MakeConfig() map[string]any {
 											"orig": "mob_id",
 											"reqd": true,
 											"type": "`$INTEGER`",
+											"index$": 0,
 										},
 										map[string]any{
 											"active": true,
@@ -5830,6 +6000,7 @@ func MakeConfig() map[string]any {
 											"orig": "region",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 1,
 										},
 										map[string]any{
 											"active": true,
@@ -5838,6 +6009,7 @@ func MakeConfig() map[string]any {
 											"orig": "version",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 2,
 										},
 									},
 								},
@@ -5881,6 +6053,7 @@ func MakeConfig() map[string]any {
 											"orig": "mob_id",
 											"reqd": true,
 											"type": "`$INTEGER`",
+											"index$": 0,
 										},
 										map[string]any{
 											"active": true,
@@ -5889,6 +6062,7 @@ func MakeConfig() map[string]any {
 											"orig": "region",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 1,
 										},
 										map[string]any{
 											"active": true,
@@ -5897,6 +6071,7 @@ func MakeConfig() map[string]any {
 											"orig": "version",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 2,
 										},
 									},
 								},
@@ -5940,6 +6115,7 @@ func MakeConfig() map[string]any {
 											"orig": "mob_id",
 											"reqd": true,
 											"type": "`$INTEGER`",
+											"index$": 0,
 										},
 										map[string]any{
 											"active": true,
@@ -5948,6 +6124,7 @@ func MakeConfig() map[string]any {
 											"orig": "region",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 1,
 										},
 										map[string]any{
 											"active": true,
@@ -5956,6 +6133,7 @@ func MakeConfig() map[string]any {
 											"orig": "version",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 2,
 										},
 									},
 								},
@@ -6036,6 +6214,7 @@ func MakeConfig() map[string]any {
 											"orig": "song_path",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 0,
 										},
 										map[string]any{
 											"active": true,
@@ -6044,6 +6223,7 @@ func MakeConfig() map[string]any {
 											"orig": "region",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 1,
 										},
 										map[string]any{
 											"active": true,
@@ -6052,6 +6232,7 @@ func MakeConfig() map[string]any {
 											"orig": "version",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 2,
 										},
 									},
 								},
@@ -6113,6 +6294,7 @@ func MakeConfig() map[string]any {
 											"orig": "region",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 0,
 										},
 										map[string]any{
 											"active": true,
@@ -6121,6 +6303,7 @@ func MakeConfig() map[string]any {
 											"orig": "version",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 1,
 										},
 									},
 									"query": []any{
@@ -6196,6 +6379,7 @@ func MakeConfig() map[string]any {
 											"orig": "framebook",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 0,
 										},
 										map[string]any{
 											"active": true,
@@ -6204,6 +6388,7 @@ func MakeConfig() map[string]any {
 											"orig": "npc_id",
 											"reqd": true,
 											"type": "`$INTEGER`",
+											"index$": 1,
 										},
 										map[string]any{
 											"active": true,
@@ -6212,6 +6397,7 @@ func MakeConfig() map[string]any {
 											"orig": "region",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 2,
 										},
 										map[string]any{
 											"active": true,
@@ -6220,6 +6406,7 @@ func MakeConfig() map[string]any {
 											"orig": "version",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 3,
 										},
 									},
 									"query": []any{
@@ -6285,6 +6472,7 @@ func MakeConfig() map[string]any {
 											"orig": "framebook",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 0,
 										},
 										map[string]any{
 											"active": true,
@@ -6293,6 +6481,7 @@ func MakeConfig() map[string]any {
 											"orig": "npc_id",
 											"reqd": true,
 											"type": "`$INTEGER`",
+											"index$": 1,
 										},
 										map[string]any{
 											"active": true,
@@ -6301,6 +6490,7 @@ func MakeConfig() map[string]any {
 											"orig": "region",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 2,
 										},
 										map[string]any{
 											"active": true,
@@ -6309,6 +6499,7 @@ func MakeConfig() map[string]any {
 											"orig": "version",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 3,
 										},
 									},
 									"query": []any{
@@ -6374,6 +6565,7 @@ func MakeConfig() map[string]any {
 											"orig": "region",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 0,
 										},
 										map[string]any{
 											"active": true,
@@ -6382,6 +6574,7 @@ func MakeConfig() map[string]any {
 											"orig": "version",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 1,
 										},
 									},
 									"query": []any{
@@ -6448,6 +6641,7 @@ func MakeConfig() map[string]any {
 											"orig": "region",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 0,
 										},
 										map[string]any{
 											"active": true,
@@ -6456,6 +6650,7 @@ func MakeConfig() map[string]any {
 											"orig": "version",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 1,
 										},
 									},
 									"query": []any{
@@ -6524,6 +6719,7 @@ func MakeConfig() map[string]any {
 											"orig": "npc_id",
 											"reqd": true,
 											"type": "`$INTEGER`",
+											"index$": 0,
 										},
 										map[string]any{
 											"active": true,
@@ -6532,6 +6728,7 @@ func MakeConfig() map[string]any {
 											"orig": "region",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 1,
 										},
 										map[string]any{
 											"active": true,
@@ -6540,6 +6737,7 @@ func MakeConfig() map[string]any {
 											"orig": "version",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 2,
 										},
 									},
 								},
@@ -6581,6 +6779,7 @@ func MakeConfig() map[string]any {
 											"orig": "npc_id",
 											"reqd": true,
 											"type": "`$INTEGER`",
+											"index$": 0,
 										},
 										map[string]any{
 											"active": true,
@@ -6589,6 +6788,7 @@ func MakeConfig() map[string]any {
 											"orig": "region",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 1,
 										},
 										map[string]any{
 											"active": true,
@@ -6597,6 +6797,7 @@ func MakeConfig() map[string]any {
 											"orig": "version",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 2,
 										},
 									},
 								},
@@ -6640,6 +6841,7 @@ func MakeConfig() map[string]any {
 											"orig": "npc_id",
 											"reqd": true,
 											"type": "`$INTEGER`",
+											"index$": 0,
 										},
 										map[string]any{
 											"active": true,
@@ -6648,6 +6850,7 @@ func MakeConfig() map[string]any {
 											"orig": "region",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 1,
 										},
 										map[string]any{
 											"active": true,
@@ -6656,6 +6859,7 @@ func MakeConfig() map[string]any {
 											"orig": "version",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 2,
 										},
 									},
 								},
@@ -6699,6 +6903,7 @@ func MakeConfig() map[string]any {
 											"orig": "npc_id",
 											"reqd": true,
 											"type": "`$INTEGER`",
+											"index$": 0,
 										},
 										map[string]any{
 											"active": true,
@@ -6707,6 +6912,7 @@ func MakeConfig() map[string]any {
 											"orig": "region",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 1,
 										},
 										map[string]any{
 											"active": true,
@@ -6715,6 +6921,7 @@ func MakeConfig() map[string]any {
 											"orig": "version",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 2,
 										},
 									},
 								},
@@ -6960,6 +7167,7 @@ func MakeConfig() map[string]any {
 											"orig": "animation",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 0,
 										},
 										map[string]any{
 											"active": true,
@@ -6968,6 +7176,7 @@ func MakeConfig() map[string]any {
 											"orig": "pet_id",
 											"reqd": true,
 											"type": "`$INTEGER`",
+											"index$": 1,
 										},
 										map[string]any{
 											"active": true,
@@ -6976,6 +7185,7 @@ func MakeConfig() map[string]any {
 											"orig": "region",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 2,
 										},
 										map[string]any{
 											"active": true,
@@ -6984,6 +7194,7 @@ func MakeConfig() map[string]any {
 											"orig": "version",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 3,
 										},
 									},
 									"query": []any{
@@ -7053,6 +7264,7 @@ func MakeConfig() map[string]any {
 											"orig": "pet_id",
 											"reqd": true,
 											"type": "`$INTEGER`",
+											"index$": 0,
 										},
 										map[string]any{
 											"active": true,
@@ -7061,6 +7273,7 @@ func MakeConfig() map[string]any {
 											"orig": "region",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 1,
 										},
 										map[string]any{
 											"active": true,
@@ -7070,6 +7283,7 @@ func MakeConfig() map[string]any {
 											"orig": "animation",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 2,
 										},
 										map[string]any{
 											"active": true,
@@ -7078,6 +7292,7 @@ func MakeConfig() map[string]any {
 											"orig": "version",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 3,
 										},
 									},
 									"query": []any{
@@ -7148,6 +7363,7 @@ func MakeConfig() map[string]any {
 											"orig": "pet_id",
 											"reqd": true,
 											"type": "`$INTEGER`",
+											"index$": 0,
 										},
 										map[string]any{
 											"active": true,
@@ -7156,6 +7372,7 @@ func MakeConfig() map[string]any {
 											"orig": "region",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 1,
 										},
 										map[string]any{
 											"active": true,
@@ -7164,6 +7381,7 @@ func MakeConfig() map[string]any {
 											"orig": "version",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 2,
 										},
 									},
 								},
@@ -7205,6 +7423,7 @@ func MakeConfig() map[string]any {
 											"orig": "pet_id",
 											"reqd": true,
 											"type": "`$INTEGER`",
+											"index$": 0,
 										},
 										map[string]any{
 											"active": true,
@@ -7213,6 +7432,7 @@ func MakeConfig() map[string]any {
 											"orig": "region",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 1,
 										},
 										map[string]any{
 											"active": true,
@@ -7221,6 +7441,7 @@ func MakeConfig() map[string]any {
 											"orig": "version",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 2,
 										},
 									},
 								},
@@ -7264,6 +7485,7 @@ func MakeConfig() map[string]any {
 											"orig": "pet_id",
 											"reqd": true,
 											"type": "`$INTEGER`",
+											"index$": 0,
 										},
 										map[string]any{
 											"active": true,
@@ -7272,6 +7494,7 @@ func MakeConfig() map[string]any {
 											"orig": "region",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 1,
 										},
 										map[string]any{
 											"active": true,
@@ -7280,6 +7503,7 @@ func MakeConfig() map[string]any {
 											"orig": "version",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 2,
 										},
 									},
 								},
@@ -7323,6 +7547,7 @@ func MakeConfig() map[string]any {
 											"orig": "pet_id",
 											"reqd": true,
 											"type": "`$INTEGER`",
+											"index$": 0,
 										},
 										map[string]any{
 											"active": true,
@@ -7331,6 +7556,7 @@ func MakeConfig() map[string]any {
 											"orig": "region",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 1,
 										},
 										map[string]any{
 											"active": true,
@@ -7339,6 +7565,7 @@ func MakeConfig() map[string]any {
 											"orig": "version",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 2,
 										},
 									},
 								},
@@ -7382,6 +7609,7 @@ func MakeConfig() map[string]any {
 											"orig": "region",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 0,
 										},
 										map[string]any{
 											"active": true,
@@ -7390,6 +7618,7 @@ func MakeConfig() map[string]any {
 											"orig": "version",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 1,
 										},
 									},
 								},
@@ -7424,6 +7653,7 @@ func MakeConfig() map[string]any {
 											"orig": "region",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 0,
 										},
 										map[string]any{
 											"active": true,
@@ -7432,6 +7662,7 @@ func MakeConfig() map[string]any {
 											"orig": "version",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 1,
 										},
 									},
 								},
@@ -7498,6 +7729,7 @@ func MakeConfig() map[string]any {
 											"orig": "region",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 0,
 										},
 										map[string]any{
 											"active": true,
@@ -7506,6 +7738,7 @@ func MakeConfig() map[string]any {
 											"orig": "version",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 1,
 										},
 									},
 									"query": []any{
@@ -7570,6 +7803,7 @@ func MakeConfig() map[string]any {
 											"orig": "region",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 0,
 										},
 										map[string]any{
 											"active": true,
@@ -7578,6 +7812,7 @@ func MakeConfig() map[string]any {
 											"orig": "version",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 1,
 										},
 									},
 									"query": []any{
@@ -7644,6 +7879,7 @@ func MakeConfig() map[string]any {
 											"orig": "category",
 											"reqd": true,
 											"type": "`$INTEGER`",
+											"index$": 0,
 										},
 										map[string]any{
 											"active": true,
@@ -7652,6 +7888,7 @@ func MakeConfig() map[string]any {
 											"orig": "region",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 1,
 										},
 										map[string]any{
 											"active": true,
@@ -7660,6 +7897,7 @@ func MakeConfig() map[string]any {
 											"orig": "version",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 2,
 										},
 									},
 								},
@@ -7697,6 +7935,7 @@ func MakeConfig() map[string]any {
 											"orig": "quest_id",
 											"reqd": true,
 											"type": "`$INTEGER`",
+											"index$": 0,
 										},
 										map[string]any{
 											"active": true,
@@ -7705,6 +7944,7 @@ func MakeConfig() map[string]any {
 											"orig": "region",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 1,
 										},
 										map[string]any{
 											"active": true,
@@ -7713,6 +7953,7 @@ func MakeConfig() map[string]any {
 											"orig": "version",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 2,
 										},
 									},
 								},
@@ -7754,6 +7995,7 @@ func MakeConfig() map[string]any {
 											"orig": "quest_id",
 											"reqd": true,
 											"type": "`$INTEGER`",
+											"index$": 0,
 										},
 										map[string]any{
 											"active": true,
@@ -7762,6 +8004,7 @@ func MakeConfig() map[string]any {
 											"orig": "region",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 1,
 										},
 										map[string]any{
 											"active": true,
@@ -7770,6 +8013,7 @@ func MakeConfig() map[string]any {
 											"orig": "version",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 2,
 										},
 									},
 								},
@@ -7813,6 +8057,7 @@ func MakeConfig() map[string]any {
 											"orig": "quest_id",
 											"reqd": true,
 											"type": "`$INTEGER`",
+											"index$": 0,
 										},
 										map[string]any{
 											"active": true,
@@ -7821,6 +8066,7 @@ func MakeConfig() map[string]any {
 											"orig": "region",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 1,
 										},
 										map[string]any{
 											"active": true,
@@ -7829,6 +8075,7 @@ func MakeConfig() map[string]any {
 											"orig": "version",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 2,
 										},
 									},
 								},
@@ -7872,6 +8119,7 @@ func MakeConfig() map[string]any {
 											"orig": "region",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 0,
 										},
 										map[string]any{
 											"active": true,
@@ -7880,6 +8128,7 @@ func MakeConfig() map[string]any {
 											"orig": "version",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 1,
 										},
 									},
 								},
@@ -8023,6 +8272,7 @@ func MakeConfig() map[string]any {
 											"orig": "region",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 0,
 										},
 										map[string]any{
 											"active": true,
@@ -8031,6 +8281,7 @@ func MakeConfig() map[string]any {
 											"orig": "version",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 1,
 										},
 									},
 								},
@@ -8085,6 +8336,7 @@ func MakeConfig() map[string]any {
 											"orig": "region",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 0,
 										},
 										map[string]any{
 											"active": true,
@@ -8093,6 +8345,7 @@ func MakeConfig() map[string]any {
 											"orig": "version",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 1,
 										},
 									},
 								},
@@ -8141,6 +8394,7 @@ func MakeConfig() map[string]any {
 											"orig": "path",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 0,
 										},
 										map[string]any{
 											"active": true,
@@ -8149,6 +8403,7 @@ func MakeConfig() map[string]any {
 											"orig": "region",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 1,
 										},
 										map[string]any{
 											"active": true,
@@ -8157,6 +8412,7 @@ func MakeConfig() map[string]any {
 											"orig": "version",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 2,
 										},
 									},
 									"query": []any{
@@ -8232,6 +8488,7 @@ func MakeConfig() map[string]any {
 											"orig": "path",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 0,
 										},
 										map[string]any{
 											"active": true,
@@ -8240,6 +8497,7 @@ func MakeConfig() map[string]any {
 											"orig": "region",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 1,
 										},
 										map[string]any{
 											"active": true,
@@ -8248,6 +8506,7 @@ func MakeConfig() map[string]any {
 											"orig": "version",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 2,
 										},
 									},
 									"query": []any{
@@ -8333,6 +8592,7 @@ func MakeConfig() map[string]any {
 											"orig": "path",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 0,
 										},
 										map[string]any{
 											"active": true,
@@ -8341,6 +8601,7 @@ func MakeConfig() map[string]any {
 											"orig": "region",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 1,
 										},
 										map[string]any{
 											"active": true,
@@ -8349,6 +8610,7 @@ func MakeConfig() map[string]any {
 											"orig": "version",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 2,
 										},
 									},
 									"query": []any{
@@ -8424,6 +8686,7 @@ func MakeConfig() map[string]any {
 											"orig": "path",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 0,
 										},
 										map[string]any{
 											"active": true,
@@ -8432,6 +8695,7 @@ func MakeConfig() map[string]any {
 											"orig": "region",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 1,
 										},
 										map[string]any{
 											"active": true,
@@ -8440,6 +8704,7 @@ func MakeConfig() map[string]any {
 											"orig": "version",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 2,
 										},
 									},
 									"query": []any{
@@ -8515,6 +8780,7 @@ func MakeConfig() map[string]any {
 											"orig": "path",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 0,
 										},
 										map[string]any{
 											"active": true,
@@ -8523,6 +8789,7 @@ func MakeConfig() map[string]any {
 											"orig": "region",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 1,
 										},
 										map[string]any{
 											"active": true,
@@ -8531,6 +8798,7 @@ func MakeConfig() map[string]any {
 											"orig": "version",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 2,
 										},
 									},
 									"query": []any{
@@ -8605,6 +8873,7 @@ func MakeConfig() map[string]any {
 											"orig": "region",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 0,
 										},
 										map[string]any{
 											"active": true,
@@ -8613,6 +8882,7 @@ func MakeConfig() map[string]any {
 											"orig": "version",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 1,
 										},
 									},
 								},
@@ -8647,6 +8917,7 @@ func MakeConfig() map[string]any {
 											"orig": "region",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 0,
 										},
 										map[string]any{
 											"active": true,
@@ -8655,6 +8926,7 @@ func MakeConfig() map[string]any {
 											"orig": "version",
 											"reqd": true,
 											"type": "`$STRING`",
+											"index$": 1,
 										},
 									},
 								},

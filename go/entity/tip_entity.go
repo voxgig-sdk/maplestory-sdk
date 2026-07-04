@@ -85,6 +85,27 @@ func (e *TipEntity) Match(args ...any) any {
 	return out
 }
 
+// DataTyped is the statically-typed accessor for this entity's data. With no
+// argument it returns the current data as an Tip; with an argument it
+// sets the data and returns the stored value. It delegates to the untyped Data
+// (identical runtime) and converts at the typed boundary.
+func (e *TipEntity) DataTyped(data ...Tip) Tip {
+	if len(data) > 0 {
+		return typedFrom[Tip](e.Data(asMap(data[0])))
+	}
+	return typedFrom[Tip](e.Data())
+}
+
+// MatchTyped mirrors DataTyped for the entity's match filter. The match is a
+// partial of the entity, so it round-trips through Tip (all fields
+// optional at the wire level).
+func (e *TipEntity) MatchTyped(match ...Tip) Tip {
+	if len(match) > 0 {
+		return typedFrom[Tip](e.Match(asMap(match[0])))
+	}
+	return typedFrom[Tip](e.Match())
+}
+
 
 func (e *TipEntity) Load(reqmatch map[string]any, ctrl map[string]any) (any, error) {
 	utility := e.utility
@@ -109,6 +130,17 @@ func (e *TipEntity) Load(reqmatch map[string]any, ctrl map[string]any) (any, err
 			}
 		}
 	})
+}
+
+// LoadTyped is the statically-typed variant of Load: it takes an
+// TipLoadMatch and returns an Tip. It delegates to the untyped
+// Load (identical runtime) and converts at the typed boundary.
+func (e *TipEntity) LoadTyped(reqmatch TipLoadMatch, ctrl map[string]any) (Tip, error) {
+	res, err := e.Load(asMap(reqmatch), ctrl)
+	if err != nil {
+		return Tip{}, err
+	}
+	return typedFrom[Tip](res), nil
 }
 
 

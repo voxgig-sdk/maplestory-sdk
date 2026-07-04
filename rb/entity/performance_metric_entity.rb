@@ -45,6 +45,7 @@ class PerformanceMetricEntity
     end
   end
 
+  # @return [PerformanceMetric, Hash] the current PerformanceMetric data
   def data_get
     @_utility.feature_hook.call(@_entctx, "GetData")
     VoxgigStruct.clone(@_data)
@@ -57,12 +58,18 @@ class PerformanceMetricEntity
     end
   end
 
+  # @return [Hash] the current match filter (any subset of PerformanceMetric fields)
   def match_get
     @_utility.feature_hook.call(@_entctx, "GetMatch")
     VoxgigStruct.clone(@_match)
   end
 
   
+  # Load a single PerformanceMetric.
+  #
+  # @param reqmatch [PerformanceMetricLoadMatch, Hash, nil] match criteria (id/query fields)
+  # @param ctrl [Object, nil] optional per-call control
+  # @return [PerformanceMetric, Hash] the loaded PerformanceMetric; raises MaplestoryError on failure
   def load(reqmatch, ctrl = nil)
     utility = @_utility
     ctx = utility.make_context.call({

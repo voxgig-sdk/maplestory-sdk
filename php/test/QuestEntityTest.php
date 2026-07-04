@@ -49,8 +49,7 @@ class QuestEntityTest extends TestCase
         // LOAD
         $quest_ref01_ent = $client->Quest(null);
         $quest_ref01_match_dt0 = [];
-        [$quest_ref01_data_dt0_loaded, $err] = $quest_ref01_ent->load($quest_ref01_match_dt0, null);
-        $this->assertNull($err);
+        $quest_ref01_data_dt0_loaded = $quest_ref01_ent->load($quest_ref01_match_dt0, null);
         $this->assertNotNull($quest_ref01_data_dt0_loaded);
 
     }
@@ -85,7 +84,6 @@ function quest_basic_setup($extra)
         "MAPLESTORY_TEST_QUEST_ENTID" => $idmap,
         "MAPLESTORY_TEST_LIVE" => "FALSE",
         "MAPLESTORY_TEST_EXPLAIN" => "FALSE",
-        "MAPLESTORY_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -97,7 +95,6 @@ function quest_basic_setup($extra)
     if ($env["MAPLESTORY_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["MAPLESTORY_APIKEY"],
             ],
             $extra ?? [],
         ]);

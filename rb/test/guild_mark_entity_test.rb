@@ -42,8 +42,7 @@ class GuildMarkEntityTest < Minitest::Test
     # LOAD
     guild_mark_ref01_ent = client.GuildMark(nil)
     guild_mark_ref01_match_dt0 = {}
-    guild_mark_ref01_data_dt0_loaded, err = guild_mark_ref01_ent.load(guild_mark_ref01_match_dt0, nil)
-    assert_nil err
+    guild_mark_ref01_data_dt0_loaded = guild_mark_ref01_ent.load(guild_mark_ref01_match_dt0, nil)
     assert !guild_mark_ref01_data_dt0_loaded.nil?
 
   end
@@ -82,7 +81,6 @@ def guild_mark_basic_setup(extra)
     "MAPLESTORY_TEST_GUILD_MARK_ENTID" => idmap,
     "MAPLESTORY_TEST_LIVE" => "FALSE",
     "MAPLESTORY_TEST_EXPLAIN" => "FALSE",
-    "MAPLESTORY_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -94,7 +92,6 @@ def guild_mark_basic_setup(extra)
   if env["MAPLESTORY_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["MAPLESTORY_APIKEY"],
       },
       extra || {},
     ])

@@ -42,8 +42,7 @@ class GmsNewEntityTest < Minitest::Test
     # LOAD
     gms_new_ref01_ent = client.GmsNew(nil)
     gms_new_ref01_match_dt0 = {}
-    gms_new_ref01_data_dt0_loaded, err = gms_new_ref01_ent.load(gms_new_ref01_match_dt0, nil)
-    assert_nil err
+    gms_new_ref01_data_dt0_loaded = gms_new_ref01_ent.load(gms_new_ref01_match_dt0, nil)
     assert !gms_new_ref01_data_dt0_loaded.nil?
 
   end
@@ -82,7 +81,6 @@ def gms_new_basic_setup(extra)
     "MAPLESTORY_TEST_GMS_NEW_ENTID" => idmap,
     "MAPLESTORY_TEST_LIVE" => "FALSE",
     "MAPLESTORY_TEST_EXPLAIN" => "FALSE",
-    "MAPLESTORY_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -94,7 +92,6 @@ def gms_new_basic_setup(extra)
   if env["MAPLESTORY_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["MAPLESTORY_APIKEY"],
       },
       extra || {},
     ])

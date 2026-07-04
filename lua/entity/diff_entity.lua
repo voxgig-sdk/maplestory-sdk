@@ -79,6 +79,10 @@ end
 
 
 
+---@param reqmatch DiffLoadMatch
+---@param ctrl? table
+---@return Diff
+---@return string? err
 function DiffEntity:load(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

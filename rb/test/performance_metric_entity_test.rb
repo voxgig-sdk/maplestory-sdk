@@ -42,8 +42,7 @@ class PerformanceMetricEntityTest < Minitest::Test
     # LOAD
     performance_metric_ref01_ent = client.PerformanceMetric(nil)
     performance_metric_ref01_match_dt0 = {}
-    performance_metric_ref01_data_dt0_loaded, err = performance_metric_ref01_ent.load(performance_metric_ref01_match_dt0, nil)
-    assert_nil err
+    performance_metric_ref01_data_dt0_loaded = performance_metric_ref01_ent.load(performance_metric_ref01_match_dt0, nil)
     assert !performance_metric_ref01_data_dt0_loaded.nil?
 
   end
@@ -82,7 +81,6 @@ def performance_metric_basic_setup(extra)
     "MAPLESTORY_TEST_PERFORMANCE_METRIC_ENTID" => idmap,
     "MAPLESTORY_TEST_LIVE" => "FALSE",
     "MAPLESTORY_TEST_EXPLAIN" => "FALSE",
-    "MAPLESTORY_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -94,7 +92,6 @@ def performance_metric_basic_setup(extra)
   if env["MAPLESTORY_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["MAPLESTORY_APIKEY"],
       },
       extra || {},
     ])

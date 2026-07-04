@@ -79,6 +79,10 @@ end
 
 
 
+---@param reqmatch AvatarLoadMatch
+---@param ctrl? table
+---@return Avatar
+---@return string? err
 function AvatarEntity:load(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

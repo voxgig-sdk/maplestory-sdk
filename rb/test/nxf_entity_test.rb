@@ -42,8 +42,7 @@ class NxfEntityTest < Minitest::Test
     # LOAD
     nxf_ref01_ent = client.Nxf(nil)
     nxf_ref01_match_dt0 = {}
-    nxf_ref01_data_dt0_loaded, err = nxf_ref01_ent.load(nxf_ref01_match_dt0, nil)
-    assert_nil err
+    nxf_ref01_data_dt0_loaded = nxf_ref01_ent.load(nxf_ref01_match_dt0, nil)
     assert !nxf_ref01_data_dt0_loaded.nil?
 
   end
@@ -82,7 +81,6 @@ def nxf_basic_setup(extra)
     "MAPLESTORY_TEST_NXF_ENTID" => idmap,
     "MAPLESTORY_TEST_LIVE" => "FALSE",
     "MAPLESTORY_TEST_EXPLAIN" => "FALSE",
-    "MAPLESTORY_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -94,7 +92,6 @@ def nxf_basic_setup(extra)
   if env["MAPLESTORY_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["MAPLESTORY_APIKEY"],
       },
       extra || {},
     ])

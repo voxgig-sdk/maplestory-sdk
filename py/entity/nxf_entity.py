@@ -1,7 +1,13 @@
 # Maplestory SDK Nxf entity
 
+from __future__ import annotations
+
 from utility.voxgig_struct import voxgig_struct as vs
 from core import helpers
+from maplestory_types import (
+    Nxf,
+    NxfLoadMatch,
+)
 
 
 class NxfEntity:
@@ -44,7 +50,7 @@ class NxfEntity:
             self._data = helpers.to_map(vs.clone(args)) or {}
             self._utility.feature_hook(self._entctx, "SetData")
 
-    def data_get(self):
+    def data_get(self) -> Nxf:
         self._utility.feature_hook(self._entctx, "GetData")
         return vs.clone(self._data)
 
@@ -53,12 +59,12 @@ class NxfEntity:
             self._match = helpers.to_map(vs.clone(args)) or {}
             self._utility.feature_hook(self._entctx, "SetMatch")
 
-    def match_get(self):
+    def match_get(self) -> Nxf:
         self._utility.feature_hook(self._entctx, "GetMatch")
         return vs.clone(self._match)
 
     
-    def load(self, reqmatch, ctrl=None):
+    def load(self, reqmatch: NxfLoadMatch, ctrl=None) -> Nxf:
         utility = self._utility
         ctx = utility.make_context({
             "opname": "load",

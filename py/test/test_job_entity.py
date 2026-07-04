@@ -49,8 +49,7 @@ class TestJobEntity:
         # LOAD
         job_ref01_ent = client.Job(None)
         job_ref01_match_dt0 = {}
-        job_ref01_data_dt0_loaded, err = job_ref01_ent.load(job_ref01_match_dt0, None)
-        assert err is None
+        job_ref01_data_dt0_loaded = job_ref01_ent.load(job_ref01_match_dt0, None)
         assert job_ref01_data_dt0_loaded is not None
 
 
@@ -91,7 +90,6 @@ def _job_basic_setup(extra):
         "MAPLESTORY_TEST_JOB_ENTID": idmap,
         "MAPLESTORY_TEST_LIVE": "FALSE",
         "MAPLESTORY_TEST_EXPLAIN": "FALSE",
-        "MAPLESTORY_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -102,7 +100,6 @@ def _job_basic_setup(extra):
     if env.get("MAPLESTORY_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("MAPLESTORY_APIKEY"),
             },
             extra or {},
         ])

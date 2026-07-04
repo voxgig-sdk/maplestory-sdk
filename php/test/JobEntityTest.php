@@ -49,8 +49,7 @@ class JobEntityTest extends TestCase
         // LOAD
         $job_ref01_ent = $client->Job(null);
         $job_ref01_match_dt0 = [];
-        [$job_ref01_data_dt0_loaded, $err] = $job_ref01_ent->load($job_ref01_match_dt0, null);
-        $this->assertNull($err);
+        $job_ref01_data_dt0_loaded = $job_ref01_ent->load($job_ref01_match_dt0, null);
         $this->assertNotNull($job_ref01_data_dt0_loaded);
 
     }
@@ -85,7 +84,6 @@ function job_basic_setup($extra)
         "MAPLESTORY_TEST_JOB_ENTID" => $idmap,
         "MAPLESTORY_TEST_LIVE" => "FALSE",
         "MAPLESTORY_TEST_EXPLAIN" => "FALSE",
-        "MAPLESTORY_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -97,7 +95,6 @@ function job_basic_setup($extra)
     if ($env["MAPLESTORY_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["MAPLESTORY_APIKEY"],
             ],
             $extra ?? [],
         ]);

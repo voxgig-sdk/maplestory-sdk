@@ -42,8 +42,7 @@ class NameEntityTest < Minitest::Test
     # LOAD
     name_ref01_ent = client.Name(nil)
     name_ref01_match_dt0 = {}
-    name_ref01_data_dt0_loaded, err = name_ref01_ent.load(name_ref01_match_dt0, nil)
-    assert_nil err
+    name_ref01_data_dt0_loaded = name_ref01_ent.load(name_ref01_match_dt0, nil)
     assert !name_ref01_data_dt0_loaded.nil?
 
   end
@@ -82,7 +81,6 @@ def name_basic_setup(extra)
     "MAPLESTORY_TEST_NAME_ENTID" => idmap,
     "MAPLESTORY_TEST_LIVE" => "FALSE",
     "MAPLESTORY_TEST_EXPLAIN" => "FALSE",
-    "MAPLESTORY_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -94,7 +92,6 @@ def name_basic_setup(extra)
   if env["MAPLESTORY_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["MAPLESTORY_APIKEY"],
       },
       extra || {},
     ])

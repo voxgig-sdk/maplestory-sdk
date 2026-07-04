@@ -24,7 +24,7 @@ class ClusterDirectTest extends TestCase
         $client = $setup["client"];
 
 
-        [$result, $err] = $client->direct([
+        $result = $client->direct([
             "path" => "api/metrics/cluster",
             "method" => "GET",
             "params" => [],
@@ -33,8 +33,8 @@ class ClusterDirectTest extends TestCase
             // Live mode is lenient: synthetic IDs frequently 4xx and the
             // list-response shape varies wildly across public APIs. Skip
             // rather than fail when the call doesn't return a usable list.
-            if ($err !== null) {
-                $this->markTestSkipped("list call failed (likely synthetic IDs against live API): " . (string)$err);
+            if (!empty($result["err"])) {
+                $this->markTestSkipped("list call failed (likely synthetic IDs against live API): " . (string)$result["err"]);
                 return;
             }
             if (empty($result["ok"])) {
@@ -47,7 +47,7 @@ class ClusterDirectTest extends TestCase
                 return;
             }
         } else {
-            $this->assertNull($err);
+            $this->assertArrayNotHasKey("err", $result);
             $this->assertTrue($result["ok"]);
             $this->assertEquals(200, Helpers::to_int($result["status"]));
             $this->assertIsArray($result["data"]);
@@ -68,14 +68,12 @@ function cluster_direct_setup($mockres)
     $env = Runner::env_override([
         "MAPLESTORY_TEST_CLUSTER_ENTID" => [],
         "MAPLESTORY_TEST_LIVE" => "FALSE",
-        "MAPLESTORY_APIKEY" => "NONE",
     ]);
 
     $live = $env["MAPLESTORY_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [
-            "apikey" => $env["MAPLESTORY_APIKEY"],
         ];
         $client = new MaplestorySDK($merged_opts);
         return [

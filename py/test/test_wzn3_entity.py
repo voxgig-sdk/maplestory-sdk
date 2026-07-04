@@ -49,8 +49,7 @@ class TestWzn3Entity:
         # LOAD
         wzn3_ref01_ent = client.Wzn3(None)
         wzn3_ref01_match_dt0 = {}
-        wzn3_ref01_data_dt0_loaded, err = wzn3_ref01_ent.load(wzn3_ref01_match_dt0, None)
-        assert err is None
+        wzn3_ref01_data_dt0_loaded = wzn3_ref01_ent.load(wzn3_ref01_match_dt0, None)
         assert wzn3_ref01_data_dt0_loaded is not None
 
 
@@ -91,7 +90,6 @@ def _wzn3_basic_setup(extra):
         "MAPLESTORY_TEST_WZN__ENTID": idmap,
         "MAPLESTORY_TEST_LIVE": "FALSE",
         "MAPLESTORY_TEST_EXPLAIN": "FALSE",
-        "MAPLESTORY_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -102,7 +100,6 @@ def _wzn3_basic_setup(extra):
     if env.get("MAPLESTORY_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("MAPLESTORY_APIKEY"),
             },
             extra or {},
         ])

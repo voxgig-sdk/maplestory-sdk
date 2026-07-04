@@ -42,8 +42,7 @@ class HealthEntityTest < Minitest::Test
     # LOAD
     health_ref01_ent = client.Health(nil)
     health_ref01_match_dt0 = {}
-    health_ref01_data_dt0_loaded, err = health_ref01_ent.load(health_ref01_match_dt0, nil)
-    assert_nil err
+    health_ref01_data_dt0_loaded = health_ref01_ent.load(health_ref01_match_dt0, nil)
     assert !health_ref01_data_dt0_loaded.nil?
 
   end
@@ -82,7 +81,6 @@ def health_basic_setup(extra)
     "MAPLESTORY_TEST_HEALTH_ENTID" => idmap,
     "MAPLESTORY_TEST_LIVE" => "FALSE",
     "MAPLESTORY_TEST_EXPLAIN" => "FALSE",
-    "MAPLESTORY_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -94,7 +92,6 @@ def health_basic_setup(extra)
   if env["MAPLESTORY_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["MAPLESTORY_APIKEY"],
       },
       extra || {},
     ])

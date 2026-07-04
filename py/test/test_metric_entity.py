@@ -49,8 +49,7 @@ class TestMetricEntity:
         # LOAD
         metric_ref01_ent = client.Metric(None)
         metric_ref01_match_dt0 = {}
-        metric_ref01_data_dt0_loaded, err = metric_ref01_ent.load(metric_ref01_match_dt0, None)
-        assert err is None
+        metric_ref01_data_dt0_loaded = metric_ref01_ent.load(metric_ref01_match_dt0, None)
         assert metric_ref01_data_dt0_loaded is not None
 
 
@@ -91,7 +90,6 @@ def _metric_basic_setup(extra):
         "MAPLESTORY_TEST_METRIC_ENTID": idmap,
         "MAPLESTORY_TEST_LIVE": "FALSE",
         "MAPLESTORY_TEST_EXPLAIN": "FALSE",
-        "MAPLESTORY_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -102,7 +100,6 @@ def _metric_basic_setup(extra):
     if env.get("MAPLESTORY_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("MAPLESTORY_APIKEY"),
             },
             extra or {},
         ])

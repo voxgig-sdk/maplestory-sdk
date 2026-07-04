@@ -49,8 +49,7 @@ class TestGmsNewEntity:
         # LOAD
         gms_new_ref01_ent = client.GmsNew(None)
         gms_new_ref01_match_dt0 = {}
-        gms_new_ref01_data_dt0_loaded, err = gms_new_ref01_ent.load(gms_new_ref01_match_dt0, None)
-        assert err is None
+        gms_new_ref01_data_dt0_loaded = gms_new_ref01_ent.load(gms_new_ref01_match_dt0, None)
         assert gms_new_ref01_data_dt0_loaded is not None
 
 
@@ -91,7 +90,6 @@ def _gms_new_basic_setup(extra):
         "MAPLESTORY_TEST_GMS_NEW_ENTID": idmap,
         "MAPLESTORY_TEST_LIVE": "FALSE",
         "MAPLESTORY_TEST_EXPLAIN": "FALSE",
-        "MAPLESTORY_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -102,7 +100,6 @@ def _gms_new_basic_setup(extra):
     if env.get("MAPLESTORY_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("MAPLESTORY_APIKEY"),
             },
             extra or {},
         ])

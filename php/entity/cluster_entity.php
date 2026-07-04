@@ -55,6 +55,9 @@ class ClusterEntity
         return new ClusterEntity($this->_client, $opts);
     }
 
+    /**
+     * @param Cluster|array $args Cluster data (assoc-array) to store.
+     */
     public function data_set($args): void
     {
         if ($args) {
@@ -63,12 +66,18 @@ class ClusterEntity
         }
     }
 
+    /**
+     * @return Cluster|array The current Cluster data as an assoc-array.
+     */
     public function data_get()
     {
         ($this->_utility->feature_hook)($this->_entctx, "GetData");
         return Struct::clone($this->_data);
     }
 
+    /**
+     * @param array $args Match filter (any subset of Cluster fields).
+     */
     public function match_set($args): void
     {
         if ($args) {
@@ -77,6 +86,9 @@ class ClusterEntity
         }
     }
 
+    /**
+     * @return array The current match filter (any subset of Cluster fields).
+     */
     public function match_get()
     {
         ($this->_utility->feature_hook)($this->_entctx, "GetMatch");
@@ -86,7 +98,16 @@ class ClusterEntity
     
 
     
-    public function list($reqmatch, $ctrl = null): array
+    /**
+     * List Cluster items matching the given filter.
+     *
+     * @param ClusterListMatch|array|null $reqmatch Match filter (any subset
+     *   of Cluster fields) as an assoc-array; ClusterListMatch names the shape.
+     * @param mixed $ctrl Optional per-call control overrides.
+     * @return Cluster[]|array A list of Cluster items as assoc-arrays at
+     *   the SDK boundary; throws MaplestoryError on failure (item-5 convention).
+     */
+    public function list(?array $reqmatch = null, $ctrl = null): mixed
     {
         $utility = $this->_utility;
         $ctx = ($utility->make_context)([
@@ -114,7 +135,7 @@ class ClusterEntity
 
     
 
-    private function _run_op($ctx, callable $post_done): array
+    private function _run_op($ctx, callable $post_done): mixed
     {
         $utility = $this->_utility;
 

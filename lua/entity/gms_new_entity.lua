@@ -79,6 +79,10 @@ end
 
 
 
+---@param reqmatch GmsNewLoadMatch
+---@param ctrl? table
+---@return GmsNew
+---@return string? err
 function GmsNewEntity:load(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

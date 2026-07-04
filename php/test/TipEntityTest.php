@@ -49,8 +49,7 @@ class TipEntityTest extends TestCase
         // LOAD
         $tip_ref01_ent = $client->Tip(null);
         $tip_ref01_match_dt0 = [];
-        [$tip_ref01_data_dt0_loaded, $err] = $tip_ref01_ent->load($tip_ref01_match_dt0, null);
-        $this->assertNull($err);
+        $tip_ref01_data_dt0_loaded = $tip_ref01_ent->load($tip_ref01_match_dt0, null);
         $this->assertNotNull($tip_ref01_data_dt0_loaded);
 
     }
@@ -85,7 +84,6 @@ function tip_basic_setup($extra)
         "MAPLESTORY_TEST_TIP_ENTID" => $idmap,
         "MAPLESTORY_TEST_LIVE" => "FALSE",
         "MAPLESTORY_TEST_EXPLAIN" => "FALSE",
-        "MAPLESTORY_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -97,7 +95,6 @@ function tip_basic_setup($extra)
     if ($env["MAPLESTORY_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["MAPLESTORY_APIKEY"],
             ],
             $extra ?? [],
         ]);

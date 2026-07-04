@@ -79,6 +79,10 @@ end
 
 
 
+---@param reqmatch GuildMarkLoadMatch
+---@param ctrl? table
+---@return GuildMark
+---@return string? err
 function GuildMarkEntity:load(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

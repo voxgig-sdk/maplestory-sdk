@@ -14,9 +14,13 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  GmsNew,
+  GmsNewLoadMatch,
+} from '../MaplestoryTypes'
 
 // TODO: needs Entity superclass
-class GmsNewEntity extends MaplestoryEntityBase {
+class GmsNewEntity extends MaplestoryEntityBase<GmsNew> {
 
   constructor(client: MaplestorySDK, entopts: any) {
     super(client, entopts)
@@ -32,7 +36,7 @@ class GmsNewEntity extends MaplestoryEntityBase {
 
 
 
-  async load(this: any, reqmatch?: any, ctrl?: Control) {
+  async load(this: any, reqmatch?: GmsNewLoadMatch, ctrl?: Control): Promise<GmsNew> {
 
     const utility = this._utility
 
@@ -136,7 +140,9 @@ class GmsNewEntity extends MaplestoryEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<GmsNew> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

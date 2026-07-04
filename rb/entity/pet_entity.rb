@@ -45,6 +45,7 @@ class PetEntity
     end
   end
 
+  # @return [Pet, Hash] the current Pet data
   def data_get
     @_utility.feature_hook.call(@_entctx, "GetData")
     VoxgigStruct.clone(@_data)
@@ -57,12 +58,18 @@ class PetEntity
     end
   end
 
+  # @return [Hash] the current match filter (any subset of Pet fields)
   def match_get
     @_utility.feature_hook.call(@_entctx, "GetMatch")
     VoxgigStruct.clone(@_match)
   end
 
   
+  # Load a single Pet.
+  #
+  # @param reqmatch [PetLoadMatch, Hash, nil] match criteria (id/query fields)
+  # @param ctrl [Object, nil] optional per-call control
+  # @return [Pet, Hash] the loaded Pet; raises MaplestoryError on failure
   def load(reqmatch, ctrl = nil)
     utility = @_utility
     ctx = utility.make_context.call({

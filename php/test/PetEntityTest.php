@@ -49,8 +49,7 @@ class PetEntityTest extends TestCase
         // LOAD
         $pet_ref01_ent = $client->Pet(null);
         $pet_ref01_match_dt0 = [];
-        [$pet_ref01_data_dt0_loaded, $err] = $pet_ref01_ent->load($pet_ref01_match_dt0, null);
-        $this->assertNull($err);
+        $pet_ref01_data_dt0_loaded = $pet_ref01_ent->load($pet_ref01_match_dt0, null);
         $this->assertNotNull($pet_ref01_data_dt0_loaded);
 
     }
@@ -85,7 +84,6 @@ function pet_basic_setup($extra)
         "MAPLESTORY_TEST_PET_ENTID" => $idmap,
         "MAPLESTORY_TEST_LIVE" => "FALSE",
         "MAPLESTORY_TEST_EXPLAIN" => "FALSE",
-        "MAPLESTORY_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -97,7 +95,6 @@ function pet_basic_setup($extra)
     if ($env["MAPLESTORY_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["MAPLESTORY_APIKEY"],
             ],
             $extra ?? [],
         ]);
