@@ -221,193 +221,193 @@ class MaplestorySDK:
 
 
     def Android(self, data=None) -> "AndroidEntity":
-        """Entity factory: client.Android().list({}) / client.Android().load({"id": ...})."""
+        """Entity factory: client.Android().list() / client.Android().load({"id": ...})."""
         from entity.android_entity import AndroidEntity
         return AndroidEntity(self, data)
 
 
     def Avatar(self, data=None) -> "AvatarEntity":
-        """Entity factory: client.Avatar().list({}) / client.Avatar().load({"id": ...})."""
+        """Entity factory: client.Avatar().list() / client.Avatar().load({"id": ...})."""
         from entity.avatar_entity import AvatarEntity
         return AvatarEntity(self, data)
 
 
     def Cache(self, data=None) -> "CacheEntity":
-        """Entity factory: client.Cache().list({}) / client.Cache().load({"id": ...})."""
+        """Entity factory: client.Cache().list() / client.Cache().load({"id": ...})."""
         from entity.cache_entity import CacheEntity
         return CacheEntity(self, data)
 
 
     def Character(self, data=None) -> "CharacterEntity":
-        """Entity factory: client.Character().list({}) / client.Character().load({"id": ...})."""
+        """Entity factory: client.Character().list() / client.Character().load({"id": ...})."""
         from entity.character_entity import CharacterEntity
         return CharacterEntity(self, data)
 
 
     def Chat(self, data=None) -> "ChatEntity":
-        """Entity factory: client.Chat().list({}) / client.Chat().load({"id": ...})."""
+        """Entity factory: client.Chat().list() / client.Chat().load({"id": ...})."""
         from entity.chat_entity import ChatEntity
         return ChatEntity(self, data)
 
 
     def Cluster(self, data=None) -> "ClusterEntity":
-        """Entity factory: client.Cluster().list({}) / client.Cluster().load({"id": ...})."""
+        """Entity factory: client.Cluster().list() / client.Cluster().load({"id": ...})."""
         from entity.cluster_entity import ClusterEntity
         return ClusterEntity(self, data)
 
 
     def Diff(self, data=None) -> "DiffEntity":
-        """Entity factory: client.Diff().list({}) / client.Diff().load({"id": ...})."""
+        """Entity factory: client.Diff().list() / client.Diff().load({"id": ...})."""
         from entity.diff_entity import DiffEntity
         return DiffEntity(self, data)
 
 
     def Entity1(self, data=None) -> "Entity1Entity":
-        """Entity factory: client.Entity1().list({}) / client.Entity1().load({"id": ...})."""
+        """Entity factory: client.Entity1().list() / client.Entity1().load({"id": ...})."""
         from entity.entity1_entity import Entity1Entity
         return Entity1Entity(self, data)
 
 
     def GmsNew(self, data=None) -> "GmsNewEntity":
-        """Entity factory: client.GmsNew().list({}) / client.GmsNew().load({"id": ...})."""
+        """Entity factory: client.GmsNew().list() / client.GmsNew().load({"id": ...})."""
         from entity.gms_new_entity import GmsNewEntity
         return GmsNewEntity(self, data)
 
 
     def GuildMark(self, data=None) -> "GuildMarkEntity":
-        """Entity factory: client.GuildMark().list({}) / client.GuildMark().load({"id": ...})."""
+        """Entity factory: client.GuildMark().list() / client.GuildMark().load({"id": ...})."""
         from entity.guild_mark_entity import GuildMarkEntity
         return GuildMarkEntity(self, data)
 
 
     def Health(self, data=None) -> "HealthEntity":
-        """Entity factory: client.Health().list({}) / client.Health().load({"id": ...})."""
+        """Entity factory: client.Health().list() / client.Health().load({"id": ...})."""
         from entity.health_entity import HealthEntity
         return HealthEntity(self, data)
 
 
     def Item(self, data=None) -> "ItemEntity":
-        """Entity factory: client.Item().list({}) / client.Item().load({"id": ...})."""
+        """Entity factory: client.Item().list() / client.Item().load({"id": ...})."""
         from entity.item_entity import ItemEntity
         return ItemEntity(self, data)
 
 
     def Job(self, data=None) -> "JobEntity":
-        """Entity factory: client.Job().list({}) / client.Job().load({"id": ...})."""
+        """Entity factory: client.Job().list() / client.Job().load({"id": ...})."""
         from entity.job_entity import JobEntity
         return JobEntity(self, data)
 
 
     def Map(self, data=None) -> "MapEntity":
-        """Entity factory: client.Map().list({}) / client.Map().load({"id": ...})."""
+        """Entity factory: client.Map().list() / client.Map().load({"id": ...})."""
         from entity.map_entity import MapEntity
         return MapEntity(self, data)
 
 
     def Metric(self, data=None) -> "MetricEntity":
-        """Entity factory: client.Metric().list({}) / client.Metric().load({"id": ...})."""
+        """Entity factory: client.Metric().list() / client.Metric().load({"id": ...})."""
         from entity.metric_entity import MetricEntity
         return MetricEntity(self, data)
 
 
     def Mob(self, data=None) -> "MobEntity":
-        """Entity factory: client.Mob().list({}) / client.Mob().load({"id": ...})."""
+        """Entity factory: client.Mob().list() / client.Mob().load({"id": ...})."""
         from entity.mob_entity import MobEntity
         return MobEntity(self, data)
 
 
     def Music(self, data=None) -> "MusicEntity":
-        """Entity factory: client.Music().list({}) / client.Music().load({"id": ...})."""
+        """Entity factory: client.Music().list() / client.Music().load({"id": ...})."""
         from entity.music_entity import MusicEntity
         return MusicEntity(self, data)
 
 
     def Name(self, data=None) -> "NameEntity":
-        """Entity factory: client.Name().list({}) / client.Name().load({"id": ...})."""
+        """Entity factory: client.Name().list() / client.Name().load({"id": ...})."""
         from entity.name_entity import NameEntity
         return NameEntity(self, data)
 
 
     def Npc(self, data=None) -> "NpcEntity":
-        """Entity factory: client.Npc().list({}) / client.Npc().load({"id": ...})."""
+        """Entity factory: client.Npc().list() / client.Npc().load({"id": ...})."""
         from entity.npc_entity import NpcEntity
         return NpcEntity(self, data)
 
 
     def Nxf(self, data=None) -> "NxfEntity":
-        """Entity factory: client.Nxf().list({}) / client.Nxf().load({"id": ...})."""
+        """Entity factory: client.Nxf().list() / client.Nxf().load({"id": ...})."""
         from entity.nxf_entity import NxfEntity
         return NxfEntity(self, data)
 
 
     def PerformanceMetric(self, data=None) -> "PerformanceMetricEntity":
-        """Entity factory: client.PerformanceMetric().list({}) / client.PerformanceMetric().load({"id": ...})."""
+        """Entity factory: client.PerformanceMetric().list() / client.PerformanceMetric().load({"id": ...})."""
         from entity.performance_metric_entity import PerformanceMetricEntity
         return PerformanceMetricEntity(self, data)
 
 
     def Pet(self, data=None) -> "PetEntity":
-        """Entity factory: client.Pet().list({}) / client.Pet().load({"id": ...})."""
+        """Entity factory: client.Pet().list() / client.Pet().load({"id": ...})."""
         from entity.pet_entity import PetEntity
         return PetEntity(self, data)
 
 
     def Quest(self, data=None) -> "QuestEntity":
-        """Entity factory: client.Quest().list({}) / client.Quest().load({"id": ...})."""
+        """Entity factory: client.Quest().list() / client.Quest().load({"id": ...})."""
         from entity.quest_entity import QuestEntity
         return QuestEntity(self, data)
 
 
     def System(self, data=None) -> "SystemEntity":
-        """Entity factory: client.System().list({}) / client.System().load({"id": ...})."""
+        """Entity factory: client.System().list() / client.System().load({"id": ...})."""
         from entity.system_entity import SystemEntity
         return SystemEntity(self, data)
 
 
     def Tip(self, data=None) -> "TipEntity":
-        """Entity factory: client.Tip().list({}) / client.Tip().load({"id": ...})."""
+        """Entity factory: client.Tip().list() / client.Tip().load({"id": ...})."""
         from entity.tip_entity import TipEntity
         return TipEntity(self, data)
 
 
     def Wzn(self, data=None) -> "WznEntity":
-        """Entity factory: client.Wzn().list({}) / client.Wzn().load({"id": ...})."""
+        """Entity factory: client.Wzn().list() / client.Wzn().load({"id": ...})."""
         from entity.wzn_entity import WznEntity
         return WznEntity(self, data)
 
 
     def Wzn2(self, data=None) -> "Wzn2Entity":
-        """Entity factory: client.Wzn2().list({}) / client.Wzn2().load({"id": ...})."""
+        """Entity factory: client.Wzn2().list() / client.Wzn2().load({"id": ...})."""
         from entity.wzn2_entity import Wzn2Entity
         return Wzn2Entity(self, data)
 
 
     def Wzn3(self, data=None) -> "Wzn3Entity":
-        """Entity factory: client.Wzn3().list({}) / client.Wzn3().load({"id": ...})."""
+        """Entity factory: client.Wzn3().list() / client.Wzn3().load({"id": ...})."""
         from entity.wzn3_entity import Wzn3Entity
         return Wzn3Entity(self, data)
 
 
     def Wzn4(self, data=None) -> "Wzn4Entity":
-        """Entity factory: client.Wzn4().list({}) / client.Wzn4().load({"id": ...})."""
+        """Entity factory: client.Wzn4().list() / client.Wzn4().load({"id": ...})."""
         from entity.wzn4_entity import Wzn4Entity
         return Wzn4Entity(self, data)
 
 
     def Wzn5(self, data=None) -> "Wzn5Entity":
-        """Entity factory: client.Wzn5().list({}) / client.Wzn5().load({"id": ...})."""
+        """Entity factory: client.Wzn5().list() / client.Wzn5().load({"id": ...})."""
         from entity.wzn5_entity import Wzn5Entity
         return Wzn5Entity(self, data)
 
 
     def Wzn6(self, data=None) -> "Wzn6Entity":
-        """Entity factory: client.Wzn6().list({}) / client.Wzn6().load({"id": ...})."""
+        """Entity factory: client.Wzn6().list() / client.Wzn6().load({"id": ...})."""
         from entity.wzn6_entity import Wzn6Entity
         return Wzn6Entity(self, data)
 
 
     def ZMap(self, data=None) -> "ZMapEntity":
-        """Entity factory: client.ZMap().list({}) / client.ZMap().load({"id": ...})."""
+        """Entity factory: client.ZMap().list() / client.ZMap().load({"id": ...})."""
         from entity.z_map_entity import ZMapEntity
         return ZMapEntity(self, data)
 

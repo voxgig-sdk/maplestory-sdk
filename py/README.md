@@ -4,6 +4,11 @@
 
 The Python SDK for the Maplestory API — an entity-oriented client following Pythonic conventions.
 
+The SDK exposes the API as capitalised, semantic **Entities** — for example `client.Android()` — each
+carrying a small, uniform set of operations (`list`, `load`) instead of raw URL
+paths and query strings. You work with named resources and verbs, which
+keeps the cognitive load low.
+
 > Other languages, the CLI, and MCP server live alongside this one — see
 > the [top-level README](../README.md).
 
@@ -44,6 +49,34 @@ except Exception as err:
 ```
 
 
+## Error handling
+
+Entity operations raise on failure, so wrap them in `try` / `except`:
+
+```python
+try:
+    android = client.Android().load({"id": 1})
+    print(android)
+except Exception as err:
+    print(f"load failed: {err}")
+```
+
+`direct()` does **not** raise — it returns the result envelope. Branch
+on `ok`; on failure `status` holds the HTTP status (for error responses)
+and `err` holds a transport error, so read both defensively:
+
+```python
+result = client.direct({
+    "path": "/api/resource/{id}",
+    "method": "GET",
+    "params": {"id": "example_id"},
+})
+
+if not result["ok"]:
+    print("request failed:", result.get("status"), result.get("err"))
+```
+
+
 ## How-to guides
 
 ### Make a direct HTTP request
@@ -61,7 +94,10 @@ if result["ok"]:
     print(result["status"])  # 200
     print(result["data"])    # response body
 else:
-    print(result["err"])     # error value
+    # A non-2xx response carries status + data (the error body); a
+    # transport-level failure carries err instead. Only one is present, so
+    # read both with .get() rather than indexing a key that may be absent.
+    print(result.get("status"), result.get("err"))
 ```
 
 ### Prepare a request without sending it
@@ -205,9 +241,6 @@ All entities share the same interface.
 | --- | --- | --- |
 | `load` | `(reqmatch, ctrl) -> any` | Load a single entity by match criteria. Raises on error. |
 | `list` | `(reqmatch, ctrl) -> list` | List entities matching the criteria. Raises on error. |
-| `create` | `(reqdata, ctrl) -> any` | Create a new entity. Raises on error. |
-| `update` | `(reqdata, ctrl) -> any` | Update an existing entity. Raises on error. |
-| `remove` | `(reqmatch, ctrl) -> any` | Remove an entity. Raises on error. |
 | `data_get` | `() -> dict` | Get entity data. |
 | `data_set` | `(data)` | Set entity data. |
 | `match_get` | `() -> dict` | Get entity match criteria. |
@@ -587,7 +620,7 @@ Create an instance: `avatar = client.Avatar()`
 #### Example: Load
 
 ```python
-avatar = client.Avatar().load({"id": "avatar_id"})
+avatar = client.Avatar().load()
 ```
 
 
@@ -605,17 +638,17 @@ Create an instance: `cache = client.Cache()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `eviction_count` | ``$INTEGER`` |  |
-| `hit_count` | ``$INTEGER`` |  |
-| `hit_ratio` | ``$NUMBER`` |  |
-| `memory_usage` | ``$INTEGER`` |  |
-| `miss_count` | ``$INTEGER`` |  |
-| `total_entry` | ``$INTEGER`` |  |
+| `eviction_count` | `int` |  |
+| `hit_count` | `int` |  |
+| `hit_ratio` | `float` |  |
+| `memory_usage` | `int` |  |
+| `miss_count` | `int` |  |
+| `total_entry` | `int` |  |
 
 #### Example: Load
 
 ```python
-cache = client.Cache().load({"id": "cache_id"})
+cache = client.Cache().load()
 ```
 
 
@@ -632,7 +665,7 @@ Create an instance: `character = client.Character()`
 #### Example: Load
 
 ```python
-character = client.Character().load({"id": "character_id"})
+character = client.Character().load()
 ```
 
 
@@ -649,7 +682,7 @@ Create an instance: `chat = client.Chat()`
 #### Example: Load
 
 ```python
-chat = client.Chat().load({"id": "chat_id"})
+chat = client.Chat().load()
 ```
 
 
@@ -661,20 +694,20 @@ Create an instance: `cluster = client.Cluster()`
 
 | Method | Description |
 | --- | --- |
-| `list(match)` | List entities matching the criteria. |
+| `list()` | List entities, optionally matching the given criteria. |
 
 #### Fields
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `hostname` | ``$STRING`` |  |
-| `last_seen` | ``$STRING`` |  |
-| `metric` | ``$OBJECT`` |  |
+| `hostname` | `str` |  |
+| `last_seen` | `str` |  |
+| `metric` | `dict` |  |
 
 #### Example: List
 
 ```python
-clusters = client.Cluster().list({})
+clusters = client.Cluster().list()
 ```
 
 
@@ -691,7 +724,7 @@ Create an instance: `diff = client.Diff()`
 #### Example: Load
 
 ```python
-diff = client.Diff().load({"id": "diff_id"})
+diff = client.Diff().load()
 ```
 
 
@@ -708,7 +741,7 @@ Create an instance: `entity1 = client.Entity1()`
 #### Example: Load
 
 ```python
-entity1 = client.Entity1().load({"id": "entity1_id"})
+entity1 = client.Entity1().load()
 ```
 
 
@@ -742,7 +775,7 @@ Create an instance: `guild_mark = client.GuildMark()`
 #### Example: Load
 
 ```python
-guild_mark = client.GuildMark().load({"id": "guild_mark_id"})
+guild_mark = client.GuildMark().load()
 ```
 
 
@@ -759,7 +792,7 @@ Create an instance: `health = client.Health()`
 #### Example: Load
 
 ```python
-health = client.Health().load({"id": "health_id"})
+health = client.Health().load()
 ```
 
 
@@ -827,7 +860,7 @@ Create an instance: `metric = client.Metric()`
 #### Example: Load
 
 ```python
-metric = client.Metric().load({"id": "metric_id"})
+metric = client.Metric().load()
 ```
 
 
@@ -878,7 +911,7 @@ Create an instance: `name = client.Name()`
 #### Example: Load
 
 ```python
-name = client.Name().load({"id": "name_id"})
+name = client.Name().load()
 ```
 
 
@@ -912,7 +945,7 @@ Create an instance: `nxf = client.Nxf()`
 #### Example: Load
 
 ```python
-nxf = client.Nxf().load({"id": "nxf_id"})
+nxf = client.Nxf().load()
 ```
 
 
@@ -930,24 +963,24 @@ Create an instance: `performance_metric = client.PerformanceMetric()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `active_request` | ``$INTEGER`` |  |
-| `average_response_time_m` | ``$NUMBER`` |  |
-| `cache` | ``$OBJECT`` |  |
-| `errors_by_type` | ``$OBJECT`` |  |
-| `last_updated` | ``$STRING`` |  |
-| `memory_used_byte` | ``$INTEGER`` |  |
-| `redis_cache` | ``$OBJECT`` |  |
-| `requests_per_second` | ``$NUMBER`` |  |
-| `start_time` | ``$STRING`` |  |
-| `system` | ``$OBJECT`` |  |
-| `total_error` | ``$INTEGER`` |  |
-| `total_request` | ``$INTEGER`` |  |
-| `wz_properties_loaded` | ``$INTEGER`` |  |
+| `active_request` | `int` |  |
+| `average_response_time_m` | `float` |  |
+| `cache` | `dict` |  |
+| `errors_by_type` | `dict` |  |
+| `last_updated` | `str` |  |
+| `memory_used_byte` | `int` |  |
+| `redis_cache` | `dict` |  |
+| `requests_per_second` | `float` |  |
+| `start_time` | `str` |  |
+| `system` | `dict` |  |
+| `total_error` | `int` |  |
+| `total_request` | `int` |  |
+| `wz_properties_loaded` | `int` |  |
 
 #### Example: Load
 
 ```python
-performance_metric = client.PerformanceMetric().load({"id": "performance_metric_id"})
+performance_metric = client.PerformanceMetric().load()
 ```
 
 
@@ -999,18 +1032,18 @@ Create an instance: `system = client.System()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `cpu_usage_percent` | ``$NUMBER`` |  |
-| `gc_gen0_collection` | ``$INTEGER`` |  |
-| `gc_gen1_collection` | ``$INTEGER`` |  |
-| `gc_gen2_collection` | ``$INTEGER`` |  |
-| `thread_count` | ``$INTEGER`` |  |
-| `total_memory_byte` | ``$INTEGER`` |  |
-| `used_memory_byte` | ``$INTEGER`` |  |
+| `cpu_usage_percent` | `float` |  |
+| `gc_gen0_collection` | `int` |  |
+| `gc_gen1_collection` | `int` |  |
+| `gc_gen2_collection` | `int` |  |
+| `thread_count` | `int` |  |
+| `total_memory_byte` | `int` |  |
+| `used_memory_byte` | `int` |  |
 
 #### Example: Load
 
 ```python
-system = client.System().load({"id": "system_id"})
+system = client.System().load()
 ```
 
 
@@ -1027,7 +1060,7 @@ Create an instance: `tip = client.Tip()`
 #### Example: Load
 
 ```python
-tip = client.Tip().load({"id": "tip_id"})
+tip = client.Tip().load()
 ```
 
 
@@ -1044,7 +1077,7 @@ Create an instance: `wzn = client.Wzn()`
 #### Example: Load
 
 ```python
-wzn = client.Wzn().load({"id": "wzn_id"})
+wzn = client.Wzn().load()
 ```
 
 
@@ -1061,7 +1094,7 @@ Create an instance: `wzn2 = client.Wzn2()`
 #### Example: Load
 
 ```python
-wzn2 = client.Wzn2().load({"id": "wzn2_id"})
+wzn2 = client.Wzn2().load()
 ```
 
 
@@ -1078,7 +1111,7 @@ Create an instance: `wzn3 = client.Wzn3()`
 #### Example: Load
 
 ```python
-wzn3 = client.Wzn3().load({"id": "wzn3_id"})
+wzn3 = client.Wzn3().load()
 ```
 
 
@@ -1095,7 +1128,7 @@ Create an instance: `wzn4 = client.Wzn4()`
 #### Example: Load
 
 ```python
-wzn4 = client.Wzn4().load({"id": "wzn4_id"})
+wzn4 = client.Wzn4().load()
 ```
 
 
@@ -1112,7 +1145,7 @@ Create an instance: `wzn5 = client.Wzn5()`
 #### Example: Load
 
 ```python
-wzn5 = client.Wzn5().load({"id": "wzn5_id"})
+wzn5 = client.Wzn5().load()
 ```
 
 
@@ -1129,7 +1162,7 @@ Create an instance: `wzn6 = client.Wzn6()`
 #### Example: Load
 
 ```python
-wzn6 = client.Wzn6().load({"id": "wzn6_id"})
+wzn6 = client.Wzn6().load()
 ```
 
 
@@ -1146,16 +1179,20 @@ Create an instance: `z_map = client.ZMap()`
 #### Example: Load
 
 ```python
-z_map = client.ZMap().load({"id": "z_map_id"})
+z_map = client.ZMap().load()
 ```
 
 
-## Explanation
+## Advanced
+
+> The sections above cover everyday use. The material below explains the
+> SDK's internals — useful when extending it with custom features, but not
+> needed for normal use.
 
 ### The operation pipeline
 
-Every entity operation (load, list, create, update, remove) follows a
-six-stage pipeline. Each stage fires a feature hook before executing:
+Every entity operation follows a six-stage pipeline. Each stage fires a
+feature hook before executing:
 
 ```
 PrePoint → PreSpec → PreRequest → PreResponse → PreResult → PreDone
@@ -1172,8 +1209,9 @@ PrePoint → PreSpec → PreRequest → PreResponse → PreResult → PreDone
 - **PreDone**: Final stage before returning to the caller. Entity
   state (match, data) is updated here.
 
-If any stage returns an error, the pipeline short-circuits and the
-error is returned to the caller as the second element in the return tuple.
+If any stage errors, the pipeline short-circuits and the error surfaces
+to the caller — see [Error handling](#error-handling) for how that looks
+in this language.
 
 ### Features and hooks
 
@@ -1221,9 +1259,9 @@ stores the returned data and match criteria internally.
 
 ```python
 android = client.Android()
-android.load({"id": "example_id"})
+android.load({"id": 1})
 
-# android.data_get() now returns the loaded android data
+# android.data_get() now returns the android data from the last load
 # android.match_get() returns the last match criteria
 ```
 

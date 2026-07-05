@@ -4,6 +4,8 @@
 
 The Ruby SDK for the Maplestory API — an entity-oriented client using idiomatic Ruby conventions.
 
+The SDK exposes the API as capitalised, semantic **Entities** — for example `client.Android` — with named operations (`list`/`load`) instead of raw URL paths and query strings. Working with resources and verbs keeps call sites self-describing and reduces cognitive load.
+
 > Other languages, the CLI, and MCP server live alongside this one — see
 > the [top-level README](../README.md).
 
@@ -41,6 +43,33 @@ end
 ```
 
 
+## Error handling
+
+Entity operations raise on failure, so rescue them:
+
+```ruby
+begin
+  android = client.Android.load({ "id" => 1 })
+rescue => err
+  warn "load failed: #{err}"
+end
+```
+
+`direct` does **not** raise — it returns the result hash. Branch on
+`ok`; on failure `status` holds the HTTP status (for error responses) and
+`err` holds a transport error, so read both defensively:
+
+```ruby
+result = client.direct({
+  "path" => "/api/resource/{id}",
+  "method" => "GET",
+  "params" => { "id" => "example_id" },
+})
+
+warn "request failed: #{result["err"] || "HTTP #{result["status"]}"}" unless result["ok"]
+```
+
+
 ## How-to guides
 
 ### Make a direct HTTP request
@@ -58,7 +87,9 @@ if result["ok"]
   puts result["status"]  # 200
   puts result["data"]    # response body
 else
-  warn result["err"]
+  # On an HTTP error status there is no err (only a transport failure sets
+  # it), so fall back to the status code.
+  warn(result["err"] || "HTTP #{result["status"]}")
 end
 ```
 
@@ -89,7 +120,7 @@ client = MaplestorySDK.test({
   "entity" => { "android" => { "test01" => { "id" => "test01" } } },
 })
 
-# load returns the bare mock record (raises on error).
+# Entity ops return the bare mock record (raises on error).
 android = client.Android.load({ "id" => "test01" })
 puts android
 ```
@@ -207,10 +238,7 @@ All entities share the same interface.
 | Method | Signature | Description |
 | --- | --- | --- |
 | `load` | `(reqmatch, ctrl) -> any` | Load a single entity by match criteria. Raises on error. |
-| `list` | `(reqmatch, ctrl) -> Array` | List entities matching the criteria. Raises on error. |
-| `create` | `(reqdata, ctrl) -> any` | Create a new entity. Raises on error. |
-| `update` | `(reqdata, ctrl) -> any` | Update an existing entity. Raises on error. |
-| `remove` | `(reqmatch, ctrl) -> any` | Remove an entity. Raises on error. |
+| `list` | `(reqmatch = nil, ctrl) -> Array` | List entities matching the criteria (call with no argument to list all). Raises on error. |
 | `data_get` | `() -> Hash` | Get entity data. |
 | `data_set` | `(data)` | Set entity data. |
 | `match_get` | `() -> Hash` | Get entity match criteria. |
@@ -591,7 +619,7 @@ Create an instance: `avatar = client.Avatar`
 
 ```ruby
 # load returns the bare Avatar record (raises on error).
-avatar = client.Avatar.load({ "id" => "avatar_id" })
+avatar = client.Avatar.load()
 ```
 
 
@@ -609,18 +637,18 @@ Create an instance: `cache = client.Cache`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `eviction_count` | ``$INTEGER`` |  |
-| `hit_count` | ``$INTEGER`` |  |
-| `hit_ratio` | ``$NUMBER`` |  |
-| `memory_usage` | ``$INTEGER`` |  |
-| `miss_count` | ``$INTEGER`` |  |
-| `total_entry` | ``$INTEGER`` |  |
+| `eviction_count` | `Integer` |  |
+| `hit_count` | `Integer` |  |
+| `hit_ratio` | `Float` |  |
+| `memory_usage` | `Integer` |  |
+| `miss_count` | `Integer` |  |
+| `total_entry` | `Integer` |  |
 
 #### Example: Load
 
 ```ruby
 # load returns the bare Cache record (raises on error).
-cache = client.Cache.load({ "id" => "cache_id" })
+cache = client.Cache.load()
 ```
 
 
@@ -638,7 +666,7 @@ Create an instance: `character = client.Character`
 
 ```ruby
 # load returns the bare Character record (raises on error).
-character = client.Character.load({ "id" => "character_id" })
+character = client.Character.load()
 ```
 
 
@@ -656,7 +684,7 @@ Create an instance: `chat = client.Chat`
 
 ```ruby
 # load returns the bare Chat record (raises on error).
-chat = client.Chat.load({ "id" => "chat_id" })
+chat = client.Chat.load()
 ```
 
 
@@ -674,9 +702,9 @@ Create an instance: `cluster = client.Cluster`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `hostname` | ``$STRING`` |  |
-| `last_seen` | ``$STRING`` |  |
-| `metric` | ``$OBJECT`` |  |
+| `hostname` | `String` |  |
+| `last_seen` | `String` |  |
+| `metric` | `Hash` |  |
 
 #### Example: List
 
@@ -700,7 +728,7 @@ Create an instance: `diff = client.Diff`
 
 ```ruby
 # load returns the bare Diff record (raises on error).
-diff = client.Diff.load({ "id" => "diff_id" })
+diff = client.Diff.load()
 ```
 
 
@@ -718,7 +746,7 @@ Create an instance: `entity1 = client.Entity1`
 
 ```ruby
 # load returns the bare Entity1 record (raises on error).
-entity1 = client.Entity1.load({ "id" => "entity1_id" })
+entity1 = client.Entity1.load()
 ```
 
 
@@ -754,7 +782,7 @@ Create an instance: `guild_mark = client.GuildMark`
 
 ```ruby
 # load returns the bare GuildMark record (raises on error).
-guild_mark = client.GuildMark.load({ "id" => "guild_mark_id" })
+guild_mark = client.GuildMark.load()
 ```
 
 
@@ -772,7 +800,7 @@ Create an instance: `health = client.Health`
 
 ```ruby
 # load returns the bare Health record (raises on error).
-health = client.Health.load({ "id" => "health_id" })
+health = client.Health.load()
 ```
 
 
@@ -844,7 +872,7 @@ Create an instance: `metric = client.Metric`
 
 ```ruby
 # load returns the bare Metric record (raises on error).
-metric = client.Metric.load({ "id" => "metric_id" })
+metric = client.Metric.load()
 ```
 
 
@@ -898,7 +926,7 @@ Create an instance: `name = client.Name`
 
 ```ruby
 # load returns the bare Name record (raises on error).
-name = client.Name.load({ "id" => "name_id" })
+name = client.Name.load()
 ```
 
 
@@ -934,7 +962,7 @@ Create an instance: `nxf = client.Nxf`
 
 ```ruby
 # load returns the bare Nxf record (raises on error).
-nxf = client.Nxf.load({ "id" => "nxf_id" })
+nxf = client.Nxf.load()
 ```
 
 
@@ -952,25 +980,25 @@ Create an instance: `performance_metric = client.PerformanceMetric`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `active_request` | ``$INTEGER`` |  |
-| `average_response_time_m` | ``$NUMBER`` |  |
-| `cache` | ``$OBJECT`` |  |
-| `errors_by_type` | ``$OBJECT`` |  |
-| `last_updated` | ``$STRING`` |  |
-| `memory_used_byte` | ``$INTEGER`` |  |
-| `redis_cache` | ``$OBJECT`` |  |
-| `requests_per_second` | ``$NUMBER`` |  |
-| `start_time` | ``$STRING`` |  |
-| `system` | ``$OBJECT`` |  |
-| `total_error` | ``$INTEGER`` |  |
-| `total_request` | ``$INTEGER`` |  |
-| `wz_properties_loaded` | ``$INTEGER`` |  |
+| `active_request` | `Integer` |  |
+| `average_response_time_m` | `Float` |  |
+| `cache` | `Hash` |  |
+| `errors_by_type` | `Hash` |  |
+| `last_updated` | `String` |  |
+| `memory_used_byte` | `Integer` |  |
+| `redis_cache` | `Hash` |  |
+| `requests_per_second` | `Float` |  |
+| `start_time` | `String` |  |
+| `system` | `Hash` |  |
+| `total_error` | `Integer` |  |
+| `total_request` | `Integer` |  |
+| `wz_properties_loaded` | `Integer` |  |
 
 #### Example: Load
 
 ```ruby
 # load returns the bare PerformanceMetric record (raises on error).
-performance_metric = client.PerformanceMetric.load({ "id" => "performance_metric_id" })
+performance_metric = client.PerformanceMetric.load()
 ```
 
 
@@ -1024,19 +1052,19 @@ Create an instance: `system = client.System`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `cpu_usage_percent` | ``$NUMBER`` |  |
-| `gc_gen0_collection` | ``$INTEGER`` |  |
-| `gc_gen1_collection` | ``$INTEGER`` |  |
-| `gc_gen2_collection` | ``$INTEGER`` |  |
-| `thread_count` | ``$INTEGER`` |  |
-| `total_memory_byte` | ``$INTEGER`` |  |
-| `used_memory_byte` | ``$INTEGER`` |  |
+| `cpu_usage_percent` | `Float` |  |
+| `gc_gen0_collection` | `Integer` |  |
+| `gc_gen1_collection` | `Integer` |  |
+| `gc_gen2_collection` | `Integer` |  |
+| `thread_count` | `Integer` |  |
+| `total_memory_byte` | `Integer` |  |
+| `used_memory_byte` | `Integer` |  |
 
 #### Example: Load
 
 ```ruby
 # load returns the bare System record (raises on error).
-system = client.System.load({ "id" => "system_id" })
+system = client.System.load()
 ```
 
 
@@ -1054,7 +1082,7 @@ Create an instance: `tip = client.Tip`
 
 ```ruby
 # load returns the bare Tip record (raises on error).
-tip = client.Tip.load({ "id" => "tip_id" })
+tip = client.Tip.load()
 ```
 
 
@@ -1072,7 +1100,7 @@ Create an instance: `wzn = client.Wzn`
 
 ```ruby
 # load returns the bare Wzn record (raises on error).
-wzn = client.Wzn.load({ "id" => "wzn_id" })
+wzn = client.Wzn.load()
 ```
 
 
@@ -1090,7 +1118,7 @@ Create an instance: `wzn2 = client.Wzn2`
 
 ```ruby
 # load returns the bare Wzn2 record (raises on error).
-wzn2 = client.Wzn2.load({ "id" => "wzn2_id" })
+wzn2 = client.Wzn2.load()
 ```
 
 
@@ -1108,7 +1136,7 @@ Create an instance: `wzn3 = client.Wzn3`
 
 ```ruby
 # load returns the bare Wzn3 record (raises on error).
-wzn3 = client.Wzn3.load({ "id" => "wzn3_id" })
+wzn3 = client.Wzn3.load()
 ```
 
 
@@ -1126,7 +1154,7 @@ Create an instance: `wzn4 = client.Wzn4`
 
 ```ruby
 # load returns the bare Wzn4 record (raises on error).
-wzn4 = client.Wzn4.load({ "id" => "wzn4_id" })
+wzn4 = client.Wzn4.load()
 ```
 
 
@@ -1144,7 +1172,7 @@ Create an instance: `wzn5 = client.Wzn5`
 
 ```ruby
 # load returns the bare Wzn5 record (raises on error).
-wzn5 = client.Wzn5.load({ "id" => "wzn5_id" })
+wzn5 = client.Wzn5.load()
 ```
 
 
@@ -1162,7 +1190,7 @@ Create an instance: `wzn6 = client.Wzn6`
 
 ```ruby
 # load returns the bare Wzn6 record (raises on error).
-wzn6 = client.Wzn6.load({ "id" => "wzn6_id" })
+wzn6 = client.Wzn6.load()
 ```
 
 
@@ -1180,16 +1208,20 @@ Create an instance: `z_map = client.ZMap`
 
 ```ruby
 # load returns the bare ZMap record (raises on error).
-z_map = client.ZMap.load({ "id" => "z_map_id" })
+z_map = client.ZMap.load()
 ```
 
 
-## Explanation
+## Advanced
+
+> The sections above cover everyday use. The material below explains the
+> SDK's internals — useful when extending it with custom features, but not
+> needed for normal use.
 
 ### The operation pipeline
 
-Every entity operation (load, list, create, update, remove) follows a
-six-stage pipeline. Each stage fires a feature hook before executing:
+Every entity operation follows a six-stage pipeline. Each stage fires a
+feature hook before executing:
 
 ```
 PrePoint → PreSpec → PreRequest → PreResponse → PreResult → PreDone
@@ -1206,8 +1238,9 @@ PrePoint → PreSpec → PreRequest → PreResponse → PreResult → PreDone
 - **PreDone**: Final stage before returning to the caller. Entity
   state (match, data) is updated here.
 
-If any stage returns an error, the pipeline short-circuits and the
-error is returned to the caller as a second return value.
+If any stage errors, the pipeline short-circuits and the error surfaces
+to the caller — see [Error handling](#error-handling) for how that looks
+in this language.
 
 ### Features and hooks
 
@@ -1256,9 +1289,9 @@ stores the returned data and match criteria internally.
 
 ```ruby
 android = client.Android
-android.load({ "id" => "example_id" })
+android.load({ "id" => 1 })
 
-# android.data_get now returns the loaded android data
+# android.data_get now returns the android data from the last load
 # android.match_get returns the last match criteria
 ```
 

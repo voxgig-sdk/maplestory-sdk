@@ -50,7 +50,7 @@ class Cache
     public ?int $total_entry = null;
 }
 
-/** Match filter for Cache#load (any subset of Cache fields). */
+/** Request payload for Cache#load. */
 class CacheLoadMatch
 {
     public ?int $eviction_count = null;
@@ -95,7 +95,7 @@ class Cluster
     public ?array $metric = null;
 }
 
-/** Match filter for Cluster#list (any subset of Cluster fields). */
+/** Request payload for Cluster#list. */
 class ClusterListMatch
 {
     public ?string $hostname = null;
@@ -120,7 +120,7 @@ class Entity1
 {
 }
 
-/** Match filter for Entity1#load (any subset of Entity1 fields). */
+/** Request payload for Entity1#load. */
 class Entity1LoadMatch
 {
 }
@@ -158,7 +158,7 @@ class Health
 {
 }
 
-/** Match filter for Health#load (any subset of Health fields). */
+/** Request payload for Health#load. */
 class HealthLoadMatch
 {
 }
@@ -214,7 +214,7 @@ class Metric
 {
 }
 
-/** Match filter for Metric#load (any subset of Metric fields). */
+/** Request payload for Metric#load. */
 class MetricLoadMatch
 {
 }
@@ -281,7 +281,7 @@ class Nxf
 {
 }
 
-/** Match filter for Nxf#load (any subset of Nxf fields). */
+/** Request payload for Nxf#load. */
 class NxfLoadMatch
 {
 }
@@ -304,7 +304,7 @@ class PerformanceMetric
     public ?int $wz_properties_loaded = null;
 }
 
-/** Match filter for PerformanceMetric#load (any subset of PerformanceMetric fields). */
+/** Request payload for PerformanceMetric#load. */
 class PerformanceMetricLoadMatch
 {
     public ?int $active_request = null;
@@ -364,7 +364,7 @@ class System
     public ?int $used_memory_byte = null;
 }
 
-/** Match filter for System#load (any subset of System fields). */
+/** Request payload for System#load. */
 class SystemLoadMatch
 {
     public ?float $cpu_usage_percent = null;

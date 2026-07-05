@@ -30,6 +30,12 @@
 ---@field total_entry? number
 
 ---@class CacheLoadMatch
+---@field eviction_count? number
+---@field hit_count? number
+---@field hit_ratio? number
+---@field memory_usage? number
+---@field miss_count? number
+---@field total_entry? number
 
 ---@class Character
 
@@ -51,6 +57,9 @@
 ---@field metric? table
 
 ---@class ClusterListMatch
+---@field hostname? string
+---@field last_seen? string
+---@field metric? table
 
 ---@class Diff
 
@@ -167,6 +176,19 @@
 ---@field wz_properties_loaded? number
 
 ---@class PerformanceMetricLoadMatch
+---@field active_request? number
+---@field average_response_time_m? number
+---@field cache? table
+---@field errors_by_type? table
+---@field last_updated? string
+---@field memory_used_byte? number
+---@field redis_cache? table
+---@field requests_per_second? number
+---@field start_time? string
+---@field system? table
+---@field total_error? number
+---@field total_request? number
+---@field wz_properties_loaded? number
 
 ---@class Pet
 
@@ -196,6 +218,13 @@
 ---@field used_memory_byte? number
 
 ---@class SystemLoadMatch
+---@field cpu_usage_percent? number
+---@field gc_gen0_collection? number
+---@field gc_gen1_collection? number
+---@field gc_gen2_collection? number
+---@field thread_count? number
+---@field total_memory_byte? number
+---@field used_memory_byte? number
 
 ---@class Tip
 

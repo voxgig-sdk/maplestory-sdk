@@ -259,7 +259,7 @@ avatar = client.Avatar()
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.Avatar().load({"id": "avatar_id"})
+result = client.Avatar().load()
 ```
 
 ### Common Methods
@@ -301,12 +301,12 @@ cache = client.Cache()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `eviction_count` | ``$INTEGER`` | No |  |
-| `hit_count` | ``$INTEGER`` | No |  |
-| `hit_ratio` | ``$NUMBER`` | No |  |
-| `memory_usage` | ``$INTEGER`` | No |  |
-| `miss_count` | ``$INTEGER`` | No |  |
-| `total_entry` | ``$INTEGER`` | No |  |
+| `eviction_count` | `int` | No |  |
+| `hit_count` | `int` | No |  |
+| `hit_ratio` | `float` | No |  |
+| `memory_usage` | `int` | No |  |
+| `miss_count` | `int` | No |  |
+| `total_entry` | `int` | No |  |
 
 ### Operations
 
@@ -315,7 +315,7 @@ cache = client.Cache()
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.Cache().load({"id": "cache_id"})
+result = client.Cache().load()
 ```
 
 ### Common Methods
@@ -360,7 +360,7 @@ character = client.Character()
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.Character().load({"id": "character_id"})
+result = client.Character().load()
 ```
 
 ### Common Methods
@@ -405,7 +405,7 @@ chat = client.Chat()
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.Chat().load({"id": "chat_id"})
+result = client.Chat().load()
 ```
 
 ### Common Methods
@@ -447,18 +447,18 @@ cluster = client.Cluster()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `hostname` | ``$STRING`` | No |  |
-| `last_seen` | ``$STRING`` | No |  |
-| `metric` | ``$OBJECT`` | No |  |
+| `hostname` | `str` | No |  |
+| `last_seen` | `str` | No |  |
+| `metric` | `dict` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Cluster().list({})
+results = client.Cluster().list()
 for cluster in results:
     print(cluster)
 ```
@@ -505,7 +505,7 @@ diff = client.Diff()
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.Diff().load({"id": "diff_id"})
+result = client.Diff().load()
 ```
 
 ### Common Methods
@@ -550,7 +550,7 @@ entity1 = client.Entity1()
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.Entity1().load({"id": "entity1_id"})
+result = client.Entity1().load()
 ```
 
 ### Common Methods
@@ -640,7 +640,7 @@ guild_mark = client.GuildMark()
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.GuildMark().load({"id": "guild_mark_id"})
+result = client.GuildMark().load()
 ```
 
 ### Common Methods
@@ -685,7 +685,7 @@ health = client.Health()
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.Health().load({"id": "health_id"})
+result = client.Health().load()
 ```
 
 ### Common Methods
@@ -865,7 +865,7 @@ metric = client.Metric()
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.Metric().load({"id": "metric_id"})
+result = client.Metric().load()
 ```
 
 ### Common Methods
@@ -1000,7 +1000,7 @@ name = client.Name()
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.Name().load({"id": "name_id"})
+result = client.Name().load()
 ```
 
 ### Common Methods
@@ -1090,7 +1090,7 @@ nxf = client.Nxf()
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.Nxf().load({"id": "nxf_id"})
+result = client.Nxf().load()
 ```
 
 ### Common Methods
@@ -1132,19 +1132,19 @@ performance_metric = client.PerformanceMetric()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `active_request` | ``$INTEGER`` | No |  |
-| `average_response_time_m` | ``$NUMBER`` | No |  |
-| `cache` | ``$OBJECT`` | No |  |
-| `errors_by_type` | ``$OBJECT`` | No |  |
-| `last_updated` | ``$STRING`` | No |  |
-| `memory_used_byte` | ``$INTEGER`` | No |  |
-| `redis_cache` | ``$OBJECT`` | No |  |
-| `requests_per_second` | ``$NUMBER`` | No |  |
-| `start_time` | ``$STRING`` | No |  |
-| `system` | ``$OBJECT`` | No |  |
-| `total_error` | ``$INTEGER`` | No |  |
-| `total_request` | ``$INTEGER`` | No |  |
-| `wz_properties_loaded` | ``$INTEGER`` | No |  |
+| `active_request` | `int` | No |  |
+| `average_response_time_m` | `float` | No |  |
+| `cache` | `dict` | No |  |
+| `errors_by_type` | `dict` | No |  |
+| `last_updated` | `str` | No |  |
+| `memory_used_byte` | `int` | No |  |
+| `redis_cache` | `dict` | No |  |
+| `requests_per_second` | `float` | No |  |
+| `start_time` | `str` | No |  |
+| `system` | `dict` | No |  |
+| `total_error` | `int` | No |  |
+| `total_request` | `int` | No |  |
+| `wz_properties_loaded` | `int` | No |  |
 
 ### Operations
 
@@ -1153,7 +1153,7 @@ performance_metric = client.PerformanceMetric()
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.PerformanceMetric().load({"id": "performance_metric_id"})
+result = client.PerformanceMetric().load()
 ```
 
 ### Common Methods
@@ -1285,13 +1285,13 @@ system = client.System()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `cpu_usage_percent` | ``$NUMBER`` | No |  |
-| `gc_gen0_collection` | ``$INTEGER`` | No |  |
-| `gc_gen1_collection` | ``$INTEGER`` | No |  |
-| `gc_gen2_collection` | ``$INTEGER`` | No |  |
-| `thread_count` | ``$INTEGER`` | No |  |
-| `total_memory_byte` | ``$INTEGER`` | No |  |
-| `used_memory_byte` | ``$INTEGER`` | No |  |
+| `cpu_usage_percent` | `float` | No |  |
+| `gc_gen0_collection` | `int` | No |  |
+| `gc_gen1_collection` | `int` | No |  |
+| `gc_gen2_collection` | `int` | No |  |
+| `thread_count` | `int` | No |  |
+| `total_memory_byte` | `int` | No |  |
+| `used_memory_byte` | `int` | No |  |
 
 ### Operations
 
@@ -1300,7 +1300,7 @@ system = client.System()
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.System().load({"id": "system_id"})
+result = client.System().load()
 ```
 
 ### Common Methods
@@ -1345,7 +1345,7 @@ tip = client.Tip()
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.Tip().load({"id": "tip_id"})
+result = client.Tip().load()
 ```
 
 ### Common Methods
@@ -1390,7 +1390,7 @@ wzn = client.Wzn()
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.Wzn().load({"id": "wzn_id"})
+result = client.Wzn().load()
 ```
 
 ### Common Methods
@@ -1435,7 +1435,7 @@ wzn2 = client.Wzn2()
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.Wzn2().load({"id": "wzn2_id"})
+result = client.Wzn2().load()
 ```
 
 ### Common Methods
@@ -1480,7 +1480,7 @@ wzn3 = client.Wzn3()
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.Wzn3().load({"id": "wzn3_id"})
+result = client.Wzn3().load()
 ```
 
 ### Common Methods
@@ -1525,7 +1525,7 @@ wzn4 = client.Wzn4()
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.Wzn4().load({"id": "wzn4_id"})
+result = client.Wzn4().load()
 ```
 
 ### Common Methods
@@ -1570,7 +1570,7 @@ wzn5 = client.Wzn5()
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.Wzn5().load({"id": "wzn5_id"})
+result = client.Wzn5().load()
 ```
 
 ### Common Methods
@@ -1615,7 +1615,7 @@ wzn6 = client.Wzn6()
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.Wzn6().load({"id": "wzn6_id"})
+result = client.Wzn6().load()
 ```
 
 ### Common Methods
@@ -1660,7 +1660,7 @@ z_map = client.ZMap()
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.ZMap().load({"id": "z_map_id"})
+result = client.ZMap().load()
 ```
 
 ### Common Methods

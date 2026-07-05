@@ -4,6 +4,8 @@
 
 The Golang SDK for the Maplestory API — an entity-oriented client using standard Go conventions. No generics required; data flows as `map[string]any`.
 
+It exposes the API as capitalised, semantic **Entities** — e.g. `client.Android(nil)` — each with the same small set of operations (`List`, `Load`) instead of raw URL paths and query strings. You call meaning, not endpoints, which keeps the cognitive load low.
+
 > Other languages, the CLI, and MCP server live alongside this one — see
 > the [top-level README](../README.md).
 
@@ -49,12 +51,41 @@ func main() {
     client := sdk.New()
 
     // Load a single android — the value is the loaded record.
-    android, err := client.Android(nil).Load(map[string]any{"id": "example_id"}, nil)
+    android, err := client.Android(nil).Load(map[string]any{"id": 1}, nil)
     if err != nil {
         panic(err)
     }
     fmt.Println(android)
 }
+```
+
+
+## Error handling
+
+Every entity operation returns `(value, error)`. Check `err` before
+using the value — there is no exception to catch:
+
+```go
+android, err := client.Android(nil).Load(map[string]any{"id": 1}, nil)
+if err != nil {
+    // handle err
+    return
+}
+_ = android
+```
+
+`Direct` follows the same `(value, error)` convention:
+
+```go
+result, err := client.Direct(map[string]any{
+    "path":   "/api/resource/{id}",
+    "method": "GET",
+    "params": map[string]any{"id": "example_id"},
+})
+if err != nil {
+    // handle err
+}
+_ = result
 ```
 
 
@@ -110,7 +141,7 @@ android, err := client.Android(nil).Load(
 if err != nil {
     panic(err)
 }
-fmt.Println(android) // the loaded mock data
+fmt.Println(android) // the returned mock data
 ```
 
 ### Use a custom fetch function
@@ -228,9 +259,6 @@ All entities implement the `MaplestoryEntity` interface.
 | --- | --- | --- |
 | `Load` | `(reqmatch, ctrl map[string]any) (any, error)` | Load a single entity by match criteria. |
 | `List` | `(reqmatch, ctrl map[string]any) (any, error)` | List entities matching the criteria. |
-| `Create` | `(reqdata, ctrl map[string]any) (any, error)` | Create a new entity. |
-| `Update` | `(reqdata, ctrl map[string]any) (any, error)` | Update an existing entity. |
-| `Remove` | `(reqmatch, ctrl map[string]any) (any, error)` | Remove an entity. |
 | `Data` | `(args ...any) any` | Get or set entity data. |
 | `Match` | `(args ...any) any` | Get or set entity match criteria. |
 | `Make` | `() Entity` | Create a new instance with the same options. |
@@ -243,7 +271,7 @@ operation's data **directly** — there is no wrapper:
 
 | Operation | `value` |
 | --- | --- |
-| `Load` / `Create` / `Update` / `Remove` | the entity record (`map[string]any`) |
+| `Load` | the entity record (`map[string]any`) |
 | `List` | a `[]any` of entity records |
 
 Check `err` first, then use the value directly (or the typed
@@ -252,7 +280,7 @@ slice):
 
     android, err := client.Android(nil).Load(map[string]any{"id": "example_id"}, nil)
     if err != nil { /* handle */ }
-    // android is the loaded record
+    // android is the returned record
 
 Only `Direct()` returns a response envelope — a `map[string]any` with
 `"ok"`, `"status"`, `"headers"`, and `"data"` keys.
@@ -615,7 +643,7 @@ Create an instance: `avatar := client.Avatar(nil)`
 #### Example: Load
 
 ```go
-avatar, err := client.Avatar(nil).Load(map[string]any{"id": "avatar_id"}, nil)
+avatar, err := client.Avatar(nil).Load(nil, nil)
 if err != nil {
     panic(err)
 }
@@ -637,17 +665,17 @@ Create an instance: `cache := client.Cache(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `eviction_count` | ``$INTEGER`` |  |
-| `hit_count` | ``$INTEGER`` |  |
-| `hit_ratio` | ``$NUMBER`` |  |
-| `memory_usage` | ``$INTEGER`` |  |
-| `miss_count` | ``$INTEGER`` |  |
-| `total_entry` | ``$INTEGER`` |  |
+| `eviction_count` | `int` |  |
+| `hit_count` | `int` |  |
+| `hit_ratio` | `float64` |  |
+| `memory_usage` | `int` |  |
+| `miss_count` | `int` |  |
+| `total_entry` | `int` |  |
 
 #### Example: Load
 
 ```go
-cache, err := client.Cache(nil).Load(map[string]any{"id": "cache_id"}, nil)
+cache, err := client.Cache(nil).Load(nil, nil)
 if err != nil {
     panic(err)
 }
@@ -668,7 +696,7 @@ Create an instance: `character := client.Character(nil)`
 #### Example: Load
 
 ```go
-character, err := client.Character(nil).Load(map[string]any{"id": "character_id"}, nil)
+character, err := client.Character(nil).Load(nil, nil)
 if err != nil {
     panic(err)
 }
@@ -689,7 +717,7 @@ Create an instance: `chat := client.Chat(nil)`
 #### Example: Load
 
 ```go
-chat, err := client.Chat(nil).Load(map[string]any{"id": "chat_id"}, nil)
+chat, err := client.Chat(nil).Load(nil, nil)
 if err != nil {
     panic(err)
 }
@@ -711,9 +739,9 @@ Create an instance: `cluster := client.Cluster(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `hostname` | ``$STRING`` |  |
-| `last_seen` | ``$STRING`` |  |
-| `metric` | ``$OBJECT`` |  |
+| `hostname` | `string` |  |
+| `last_seen` | `string` |  |
+| `metric` | `map[string]any` |  |
 
 #### Example: List
 
@@ -739,7 +767,7 @@ Create an instance: `diff := client.Diff(nil)`
 #### Example: Load
 
 ```go
-diff, err := client.Diff(nil).Load(map[string]any{"id": "diff_id"}, nil)
+diff, err := client.Diff(nil).Load(nil, nil)
 if err != nil {
     panic(err)
 }
@@ -760,7 +788,7 @@ Create an instance: `entity1 := client.Entity1(nil)`
 #### Example: Load
 
 ```go
-entity1, err := client.Entity1(nil).Load(map[string]any{"id": "entity1_id"}, nil)
+entity1, err := client.Entity1(nil).Load(nil, nil)
 if err != nil {
     panic(err)
 }
@@ -802,7 +830,7 @@ Create an instance: `guild_mark := client.GuildMark(nil)`
 #### Example: Load
 
 ```go
-guild_mark, err := client.GuildMark(nil).Load(map[string]any{"id": "guild_mark_id"}, nil)
+guild_mark, err := client.GuildMark(nil).Load(nil, nil)
 if err != nil {
     panic(err)
 }
@@ -823,7 +851,7 @@ Create an instance: `health := client.Health(nil)`
 #### Example: Load
 
 ```go
-health, err := client.Health(nil).Load(map[string]any{"id": "health_id"}, nil)
+health, err := client.Health(nil).Load(nil, nil)
 if err != nil {
     panic(err)
 }
@@ -875,7 +903,7 @@ fmt.Println(job) // the loaded record
 
 ### Map
 
-Create an instance: `map := client.Map(nil)`
+Create an instance: `map_ := client.Map(nil)`
 
 #### Operations
 
@@ -886,11 +914,11 @@ Create an instance: `map := client.Map(nil)`
 #### Example: Load
 
 ```go
-map, err := client.Map(nil).Load(map[string]any{"id": "map_id"}, nil)
+map_, err := client.Map(nil).Load(map[string]any{"id": "map_id"}, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(map) // the loaded record
+fmt.Println(map_) // the loaded record
 ```
 
 
@@ -907,7 +935,7 @@ Create an instance: `metric := client.Metric(nil)`
 #### Example: Load
 
 ```go
-metric, err := client.Metric(nil).Load(map[string]any{"id": "metric_id"}, nil)
+metric, err := client.Metric(nil).Load(nil, nil)
 if err != nil {
     panic(err)
 }
@@ -970,7 +998,7 @@ Create an instance: `name := client.Name(nil)`
 #### Example: Load
 
 ```go
-name, err := client.Name(nil).Load(map[string]any{"id": "name_id"}, nil)
+name, err := client.Name(nil).Load(nil, nil)
 if err != nil {
     panic(err)
 }
@@ -1012,7 +1040,7 @@ Create an instance: `nxf := client.Nxf(nil)`
 #### Example: Load
 
 ```go
-nxf, err := client.Nxf(nil).Load(map[string]any{"id": "nxf_id"}, nil)
+nxf, err := client.Nxf(nil).Load(nil, nil)
 if err != nil {
     panic(err)
 }
@@ -1034,24 +1062,24 @@ Create an instance: `performance_metric := client.PerformanceMetric(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `active_request` | ``$INTEGER`` |  |
-| `average_response_time_m` | ``$NUMBER`` |  |
-| `cache` | ``$OBJECT`` |  |
-| `errors_by_type` | ``$OBJECT`` |  |
-| `last_updated` | ``$STRING`` |  |
-| `memory_used_byte` | ``$INTEGER`` |  |
-| `redis_cache` | ``$OBJECT`` |  |
-| `requests_per_second` | ``$NUMBER`` |  |
-| `start_time` | ``$STRING`` |  |
-| `system` | ``$OBJECT`` |  |
-| `total_error` | ``$INTEGER`` |  |
-| `total_request` | ``$INTEGER`` |  |
-| `wz_properties_loaded` | ``$INTEGER`` |  |
+| `active_request` | `int` |  |
+| `average_response_time_m` | `float64` |  |
+| `cache` | `map[string]any` |  |
+| `errors_by_type` | `map[string]any` |  |
+| `last_updated` | `string` |  |
+| `memory_used_byte` | `int` |  |
+| `redis_cache` | `map[string]any` |  |
+| `requests_per_second` | `float64` |  |
+| `start_time` | `string` |  |
+| `system` | `map[string]any` |  |
+| `total_error` | `int` |  |
+| `total_request` | `int` |  |
+| `wz_properties_loaded` | `int` |  |
 
 #### Example: Load
 
 ```go
-performance_metric, err := client.PerformanceMetric(nil).Load(map[string]any{"id": "performance_metric_id"}, nil)
+performance_metric, err := client.PerformanceMetric(nil).Load(nil, nil)
 if err != nil {
     panic(err)
 }
@@ -1115,18 +1143,18 @@ Create an instance: `system := client.System(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `cpu_usage_percent` | ``$NUMBER`` |  |
-| `gc_gen0_collection` | ``$INTEGER`` |  |
-| `gc_gen1_collection` | ``$INTEGER`` |  |
-| `gc_gen2_collection` | ``$INTEGER`` |  |
-| `thread_count` | ``$INTEGER`` |  |
-| `total_memory_byte` | ``$INTEGER`` |  |
-| `used_memory_byte` | ``$INTEGER`` |  |
+| `cpu_usage_percent` | `float64` |  |
+| `gc_gen0_collection` | `int` |  |
+| `gc_gen1_collection` | `int` |  |
+| `gc_gen2_collection` | `int` |  |
+| `thread_count` | `int` |  |
+| `total_memory_byte` | `int` |  |
+| `used_memory_byte` | `int` |  |
 
 #### Example: Load
 
 ```go
-system, err := client.System(nil).Load(map[string]any{"id": "system_id"}, nil)
+system, err := client.System(nil).Load(nil, nil)
 if err != nil {
     panic(err)
 }
@@ -1147,7 +1175,7 @@ Create an instance: `tip := client.Tip(nil)`
 #### Example: Load
 
 ```go
-tip, err := client.Tip(nil).Load(map[string]any{"id": "tip_id"}, nil)
+tip, err := client.Tip(nil).Load(nil, nil)
 if err != nil {
     panic(err)
 }
@@ -1168,7 +1196,7 @@ Create an instance: `wzn := client.Wzn(nil)`
 #### Example: Load
 
 ```go
-wzn, err := client.Wzn(nil).Load(map[string]any{"id": "wzn_id"}, nil)
+wzn, err := client.Wzn(nil).Load(nil, nil)
 if err != nil {
     panic(err)
 }
@@ -1189,7 +1217,7 @@ Create an instance: `wzn2 := client.Wzn2(nil)`
 #### Example: Load
 
 ```go
-wzn2, err := client.Wzn2(nil).Load(map[string]any{"id": "wzn2_id"}, nil)
+wzn2, err := client.Wzn2(nil).Load(nil, nil)
 if err != nil {
     panic(err)
 }
@@ -1210,7 +1238,7 @@ Create an instance: `wzn3 := client.Wzn3(nil)`
 #### Example: Load
 
 ```go
-wzn3, err := client.Wzn3(nil).Load(map[string]any{"id": "wzn3_id"}, nil)
+wzn3, err := client.Wzn3(nil).Load(nil, nil)
 if err != nil {
     panic(err)
 }
@@ -1231,7 +1259,7 @@ Create an instance: `wzn4 := client.Wzn4(nil)`
 #### Example: Load
 
 ```go
-wzn4, err := client.Wzn4(nil).Load(map[string]any{"id": "wzn4_id"}, nil)
+wzn4, err := client.Wzn4(nil).Load(nil, nil)
 if err != nil {
     panic(err)
 }
@@ -1252,7 +1280,7 @@ Create an instance: `wzn5 := client.Wzn5(nil)`
 #### Example: Load
 
 ```go
-wzn5, err := client.Wzn5(nil).Load(map[string]any{"id": "wzn5_id"}, nil)
+wzn5, err := client.Wzn5(nil).Load(nil, nil)
 if err != nil {
     panic(err)
 }
@@ -1273,7 +1301,7 @@ Create an instance: `wzn6 := client.Wzn6(nil)`
 #### Example: Load
 
 ```go
-wzn6, err := client.Wzn6(nil).Load(map[string]any{"id": "wzn6_id"}, nil)
+wzn6, err := client.Wzn6(nil).Load(nil, nil)
 if err != nil {
     panic(err)
 }
@@ -1294,7 +1322,7 @@ Create an instance: `z_map := client.ZMap(nil)`
 #### Example: Load
 
 ```go
-z_map, err := client.ZMap(nil).Load(map[string]any{"id": "z_map_id"}, nil)
+z_map, err := client.ZMap(nil).Load(nil, nil)
 if err != nil {
     panic(err)
 }
@@ -1302,12 +1330,16 @@ fmt.Println(z_map) // the loaded record
 ```
 
 
-## Explanation
+## Advanced
+
+> The sections above cover everyday use. The material below explains the
+> SDK's internals — useful when extending it with custom features, but not
+> needed for normal use.
 
 ### The operation pipeline
 
-Every entity operation (load, list, create, update, remove) follows a
-six-stage pipeline. Each stage fires a feature hook before executing:
+Every entity operation follows a six-stage pipeline. Each stage fires a
+feature hook before executing:
 
 ```
 PrePoint → PreSpec → PreRequest → PreResponse → PreResult → PreDone
@@ -1324,9 +1356,9 @@ PrePoint → PreSpec → PreRequest → PreResponse → PreResult → PreDone
 - **PreDone**: Final stage before returning to the caller. Entity
   state (match, data) is updated here.
 
-If any stage returns an error, the pipeline short-circuits and the
-error is returned to the caller. An unexpected panic triggers the
-`PreUnexpected` hook.
+If any stage errors, the pipeline short-circuits and the error surfaces
+to the caller — see [Error handling](#error-handling) for how that looks
+in this language.
 
 ### Features and hooks
 
@@ -1372,9 +1404,9 @@ stores the returned data and match criteria internally.
 
 ```go
 android := client.Android(nil)
-android.Load(map[string]any{"id": "example_id"}, nil)
+android.Load(map[string]any{"id": 1}, nil)
 
-// android.Data() now returns the loaded android data
+// android.Data() now returns the android data from the last load
 // android.Match() returns the last match criteria
 ```
 

@@ -491,7 +491,7 @@ const android = client.Android()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Android().load({ id: 'android_id' })
+const result = await client.Android().load({ id: 1 })
 ```
 
 ### Common Methods
@@ -535,7 +535,7 @@ const avatar = client.Avatar()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Avatar().load({ id: 'avatar_id' })
+const result = await client.Avatar().load()
 ```
 
 ### Common Methods
@@ -576,12 +576,12 @@ const cache = client.Cache()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `eviction_count` | ``$INTEGER`` | No |  |
-| `hit_count` | ``$INTEGER`` | No |  |
-| `hit_ratio` | ``$NUMBER`` | No |  |
-| `memory_usage` | ``$INTEGER`` | No |  |
-| `miss_count` | ``$INTEGER`` | No |  |
-| `total_entry` | ``$INTEGER`` | No |  |
+| `eviction_count` | `number` | No |  |
+| `hit_count` | `number` | No |  |
+| `hit_ratio` | `number` | No |  |
+| `memory_usage` | `number` | No |  |
+| `miss_count` | `number` | No |  |
+| `total_entry` | `number` | No |  |
 
 ### Operations
 
@@ -590,7 +590,7 @@ const cache = client.Cache()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Cache().load({ id: 'cache_id' })
+const result = await client.Cache().load()
 ```
 
 ### Common Methods
@@ -634,7 +634,7 @@ const character = client.Character()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Character().load({ id: 'character_id' })
+const result = await client.Character().load()
 ```
 
 ### Common Methods
@@ -678,7 +678,7 @@ const chat = client.Chat()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Chat().load({ id: 'chat_id' })
+const result = await client.Chat().load()
 ```
 
 ### Common Methods
@@ -719,9 +719,9 @@ const cluster = client.Cluster()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `hostname` | ``$STRING`` | No |  |
-| `last_seen` | ``$STRING`` | No |  |
-| `metric` | ``$OBJECT`` | No |  |
+| `hostname` | `string` | No |  |
+| `last_seen` | `string` | No |  |
+| `metric` | `Record<string, any>` | No |  |
 
 ### Operations
 
@@ -774,7 +774,7 @@ const diff = client.Diff()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Diff().load({ id: 'diff_id' })
+const result = await client.Diff().load()
 ```
 
 ### Common Methods
@@ -818,7 +818,7 @@ const entity1 = client.Entity1()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Entity1().load({ id: 'entity1_id' })
+const result = await client.Entity1().load()
 ```
 
 ### Common Methods
@@ -862,7 +862,7 @@ const gms_new = client.GmsNew()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.GmsNew().load({ id: 'gms_new_id' })
+const result = await client.GmsNew().load({ id: 1 })
 ```
 
 ### Common Methods
@@ -906,7 +906,7 @@ const guild_mark = client.GuildMark()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.GuildMark().load({ id: 'guild_mark_id' })
+const result = await client.GuildMark().load()
 ```
 
 ### Common Methods
@@ -950,7 +950,7 @@ const health = client.Health()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Health().load({ id: 'health_id' })
+const result = await client.Health().load()
 ```
 
 ### Common Methods
@@ -994,7 +994,7 @@ const item = client.Item()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Item().load({ id: 'item_id' })
+const result = await client.Item().load({ id: 1 })
 ```
 
 ### Common Methods
@@ -1038,7 +1038,7 @@ const job = client.Job()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Job().load({ id: 'job_id' })
+const result = await client.Job().load({ id: 1 })
 ```
 
 ### Common Methods
@@ -1082,7 +1082,7 @@ const map = client.Map()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Map().load({ id: 'map_id' })
+const result = await client.Map().load({ id: 1 })
 ```
 
 ### Common Methods
@@ -1126,7 +1126,7 @@ const metric = client.Metric()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Metric().load({ id: 'metric_id' })
+const result = await client.Metric().load()
 ```
 
 ### Common Methods
@@ -1170,7 +1170,7 @@ const mob = client.Mob()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Mob().load({ id: 'mob_id' })
+const result = await client.Mob().load({ id: 1 })
 ```
 
 ### Common Methods
@@ -1258,7 +1258,7 @@ const name = client.Name()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Name().load({ id: 'name_id' })
+const result = await client.Name().load()
 ```
 
 ### Common Methods
@@ -1302,7 +1302,7 @@ const npc = client.Npc()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Npc().load({ id: 'npc_id' })
+const result = await client.Npc().load({ id: 1 })
 ```
 
 ### Common Methods
@@ -1346,7 +1346,7 @@ const nxf = client.Nxf()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Nxf().load({ id: 'nxf_id' })
+const result = await client.Nxf().load()
 ```
 
 ### Common Methods
@@ -1387,19 +1387,19 @@ const performance_metric = client.PerformanceMetric()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `active_request` | ``$INTEGER`` | No |  |
-| `average_response_time_m` | ``$NUMBER`` | No |  |
-| `cache` | ``$OBJECT`` | No |  |
-| `errors_by_type` | ``$OBJECT`` | No |  |
-| `last_updated` | ``$STRING`` | No |  |
-| `memory_used_byte` | ``$INTEGER`` | No |  |
-| `redis_cache` | ``$OBJECT`` | No |  |
-| `requests_per_second` | ``$NUMBER`` | No |  |
-| `start_time` | ``$STRING`` | No |  |
-| `system` | ``$OBJECT`` | No |  |
-| `total_error` | ``$INTEGER`` | No |  |
-| `total_request` | ``$INTEGER`` | No |  |
-| `wz_properties_loaded` | ``$INTEGER`` | No |  |
+| `active_request` | `number` | No |  |
+| `average_response_time_m` | `number` | No |  |
+| `cache` | `Record<string, any>` | No |  |
+| `errors_by_type` | `Record<string, any>` | No |  |
+| `last_updated` | `string` | No |  |
+| `memory_used_byte` | `number` | No |  |
+| `redis_cache` | `Record<string, any>` | No |  |
+| `requests_per_second` | `number` | No |  |
+| `start_time` | `string` | No |  |
+| `system` | `Record<string, any>` | No |  |
+| `total_error` | `number` | No |  |
+| `total_request` | `number` | No |  |
+| `wz_properties_loaded` | `number` | No |  |
 
 ### Operations
 
@@ -1408,7 +1408,7 @@ const performance_metric = client.PerformanceMetric()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.PerformanceMetric().load({ id: 'performance_metric_id' })
+const result = await client.PerformanceMetric().load()
 ```
 
 ### Common Methods
@@ -1452,7 +1452,7 @@ const pet = client.Pet()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Pet().load({ id: 'pet_id' })
+const result = await client.Pet().load({ id: 1 })
 ```
 
 ### Common Methods
@@ -1496,7 +1496,7 @@ const quest = client.Quest()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Quest().load({ id: 'quest_id' })
+const result = await client.Quest().load({ id: 1 })
 ```
 
 ### Common Methods
@@ -1537,13 +1537,13 @@ const system = client.System()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `cpu_usage_percent` | ``$NUMBER`` | No |  |
-| `gc_gen0_collection` | ``$INTEGER`` | No |  |
-| `gc_gen1_collection` | ``$INTEGER`` | No |  |
-| `gc_gen2_collection` | ``$INTEGER`` | No |  |
-| `thread_count` | ``$INTEGER`` | No |  |
-| `total_memory_byte` | ``$INTEGER`` | No |  |
-| `used_memory_byte` | ``$INTEGER`` | No |  |
+| `cpu_usage_percent` | `number` | No |  |
+| `gc_gen0_collection` | `number` | No |  |
+| `gc_gen1_collection` | `number` | No |  |
+| `gc_gen2_collection` | `number` | No |  |
+| `thread_count` | `number` | No |  |
+| `total_memory_byte` | `number` | No |  |
+| `used_memory_byte` | `number` | No |  |
 
 ### Operations
 
@@ -1552,7 +1552,7 @@ const system = client.System()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.System().load({ id: 'system_id' })
+const result = await client.System().load()
 ```
 
 ### Common Methods
@@ -1596,7 +1596,7 @@ const tip = client.Tip()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Tip().load({ id: 'tip_id' })
+const result = await client.Tip().load()
 ```
 
 ### Common Methods
@@ -1640,7 +1640,7 @@ const wzn = client.Wzn()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Wzn().load({ id: 'wzn_id' })
+const result = await client.Wzn().load()
 ```
 
 ### Common Methods
@@ -1684,7 +1684,7 @@ const wzn2 = client.Wzn2()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Wzn2().load({ id: 'wzn2_id' })
+const result = await client.Wzn2().load()
 ```
 
 ### Common Methods
@@ -1728,7 +1728,7 @@ const wzn3 = client.Wzn3()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Wzn3().load({ id: 'wzn3_id' })
+const result = await client.Wzn3().load()
 ```
 
 ### Common Methods
@@ -1772,7 +1772,7 @@ const wzn4 = client.Wzn4()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Wzn4().load({ id: 'wzn4_id' })
+const result = await client.Wzn4().load()
 ```
 
 ### Common Methods
@@ -1816,7 +1816,7 @@ const wzn5 = client.Wzn5()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Wzn5().load({ id: 'wzn5_id' })
+const result = await client.Wzn5().load()
 ```
 
 ### Common Methods
@@ -1860,7 +1860,7 @@ const wzn6 = client.Wzn6()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Wzn6().load({ id: 'wzn6_id' })
+const result = await client.Wzn6().load()
 ```
 
 ### Common Methods
@@ -1904,7 +1904,7 @@ const z_map = client.ZMap()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.ZMap().load({ id: 'z_map_id' })
+const result = await client.ZMap().load()
 ```
 
 ### Common Methods

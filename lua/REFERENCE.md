@@ -263,7 +263,7 @@ local avatar = client:Avatar(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Avatar():load({ id = "avatar_id" })
+local result, err = client:Avatar():load()
 ```
 
 ### Common Methods
@@ -306,12 +306,12 @@ local cache = client:Cache(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `eviction_count` | ``$INTEGER`` | No |  |
-| `hit_count` | ``$INTEGER`` | No |  |
-| `hit_ratio` | ``$NUMBER`` | No |  |
-| `memory_usage` | ``$INTEGER`` | No |  |
-| `miss_count` | ``$INTEGER`` | No |  |
-| `total_entry` | ``$INTEGER`` | No |  |
+| `eviction_count` | `number` | No |  |
+| `hit_count` | `number` | No |  |
+| `hit_ratio` | `number` | No |  |
+| `memory_usage` | `number` | No |  |
+| `miss_count` | `number` | No |  |
+| `total_entry` | `number` | No |  |
 
 ### Operations
 
@@ -320,7 +320,7 @@ local cache = client:Cache(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Cache():load({ id = "cache_id" })
+local result, err = client:Cache():load()
 ```
 
 ### Common Methods
@@ -366,7 +366,7 @@ local character = client:Character(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Character():load({ id = "character_id" })
+local result, err = client:Character():load()
 ```
 
 ### Common Methods
@@ -412,7 +412,7 @@ local chat = client:Chat(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Chat():load({ id = "chat_id" })
+local result, err = client:Chat():load()
 ```
 
 ### Common Methods
@@ -455,9 +455,9 @@ local cluster = client:Cluster(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `hostname` | ``$STRING`` | No |  |
-| `last_seen` | ``$STRING`` | No |  |
-| `metric` | ``$OBJECT`` | No |  |
+| `hostname` | `string` | No |  |
+| `last_seen` | `string` | No |  |
+| `metric` | `table` | No |  |
 
 ### Operations
 
@@ -512,7 +512,7 @@ local diff = client:Diff(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Diff():load({ id = "diff_id" })
+local result, err = client:Diff():load()
 ```
 
 ### Common Methods
@@ -558,7 +558,7 @@ local entity1 = client:Entity1(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Entity1():load({ id = "entity1_id" })
+local result, err = client:Entity1():load()
 ```
 
 ### Common Methods
@@ -650,7 +650,7 @@ local guild_mark = client:GuildMark(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:GuildMark():load({ id = "guild_mark_id" })
+local result, err = client:GuildMark():load()
 ```
 
 ### Common Methods
@@ -696,7 +696,7 @@ local health = client:Health(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Health():load({ id = "health_id" })
+local result, err = client:Health():load()
 ```
 
 ### Common Methods
@@ -880,7 +880,7 @@ local metric = client:Metric(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Metric():load({ id = "metric_id" })
+local result, err = client:Metric():load()
 ```
 
 ### Common Methods
@@ -1018,7 +1018,7 @@ local name = client:Name(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Name():load({ id = "name_id" })
+local result, err = client:Name():load()
 ```
 
 ### Common Methods
@@ -1110,7 +1110,7 @@ local nxf = client:Nxf(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Nxf():load({ id = "nxf_id" })
+local result, err = client:Nxf():load()
 ```
 
 ### Common Methods
@@ -1153,19 +1153,19 @@ local performance_metric = client:PerformanceMetric(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `active_request` | ``$INTEGER`` | No |  |
-| `average_response_time_m` | ``$NUMBER`` | No |  |
-| `cache` | ``$OBJECT`` | No |  |
-| `errors_by_type` | ``$OBJECT`` | No |  |
-| `last_updated` | ``$STRING`` | No |  |
-| `memory_used_byte` | ``$INTEGER`` | No |  |
-| `redis_cache` | ``$OBJECT`` | No |  |
-| `requests_per_second` | ``$NUMBER`` | No |  |
-| `start_time` | ``$STRING`` | No |  |
-| `system` | ``$OBJECT`` | No |  |
-| `total_error` | ``$INTEGER`` | No |  |
-| `total_request` | ``$INTEGER`` | No |  |
-| `wz_properties_loaded` | ``$INTEGER`` | No |  |
+| `active_request` | `number` | No |  |
+| `average_response_time_m` | `number` | No |  |
+| `cache` | `table` | No |  |
+| `errors_by_type` | `table` | No |  |
+| `last_updated` | `string` | No |  |
+| `memory_used_byte` | `number` | No |  |
+| `redis_cache` | `table` | No |  |
+| `requests_per_second` | `number` | No |  |
+| `start_time` | `string` | No |  |
+| `system` | `table` | No |  |
+| `total_error` | `number` | No |  |
+| `total_request` | `number` | No |  |
+| `wz_properties_loaded` | `number` | No |  |
 
 ### Operations
 
@@ -1174,7 +1174,7 @@ local performance_metric = client:PerformanceMetric(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:PerformanceMetric():load({ id = "performance_metric_id" })
+local result, err = client:PerformanceMetric():load()
 ```
 
 ### Common Methods
@@ -1309,13 +1309,13 @@ local system = client:System(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `cpu_usage_percent` | ``$NUMBER`` | No |  |
-| `gc_gen0_collection` | ``$INTEGER`` | No |  |
-| `gc_gen1_collection` | ``$INTEGER`` | No |  |
-| `gc_gen2_collection` | ``$INTEGER`` | No |  |
-| `thread_count` | ``$INTEGER`` | No |  |
-| `total_memory_byte` | ``$INTEGER`` | No |  |
-| `used_memory_byte` | ``$INTEGER`` | No |  |
+| `cpu_usage_percent` | `number` | No |  |
+| `gc_gen0_collection` | `number` | No |  |
+| `gc_gen1_collection` | `number` | No |  |
+| `gc_gen2_collection` | `number` | No |  |
+| `thread_count` | `number` | No |  |
+| `total_memory_byte` | `number` | No |  |
+| `used_memory_byte` | `number` | No |  |
 
 ### Operations
 
@@ -1324,7 +1324,7 @@ local system = client:System(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:System():load({ id = "system_id" })
+local result, err = client:System():load()
 ```
 
 ### Common Methods
@@ -1370,7 +1370,7 @@ local tip = client:Tip(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Tip():load({ id = "tip_id" })
+local result, err = client:Tip():load()
 ```
 
 ### Common Methods
@@ -1416,7 +1416,7 @@ local wzn = client:Wzn(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Wzn():load({ id = "wzn_id" })
+local result, err = client:Wzn():load()
 ```
 
 ### Common Methods
@@ -1462,7 +1462,7 @@ local wzn2 = client:Wzn2(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Wzn2():load({ id = "wzn2_id" })
+local result, err = client:Wzn2():load()
 ```
 
 ### Common Methods
@@ -1508,7 +1508,7 @@ local wzn3 = client:Wzn3(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Wzn3():load({ id = "wzn3_id" })
+local result, err = client:Wzn3():load()
 ```
 
 ### Common Methods
@@ -1554,7 +1554,7 @@ local wzn4 = client:Wzn4(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Wzn4():load({ id = "wzn4_id" })
+local result, err = client:Wzn4():load()
 ```
 
 ### Common Methods
@@ -1600,7 +1600,7 @@ local wzn5 = client:Wzn5(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Wzn5():load({ id = "wzn5_id" })
+local result, err = client:Wzn5():load()
 ```
 
 ### Common Methods
@@ -1646,7 +1646,7 @@ local wzn6 = client:Wzn6(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Wzn6():load({ id = "wzn6_id" })
+local result, err = client:Wzn6():load()
 ```
 
 ### Common Methods
@@ -1692,7 +1692,7 @@ local z_map = client:ZMap(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:ZMap():load({ id = "z_map_id" })
+local result, err = client:ZMap():load()
 ```
 
 ### Common Methods

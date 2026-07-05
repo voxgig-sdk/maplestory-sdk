@@ -41,8 +41,7 @@ type Cache struct {
 	TotalEntry *int `json:"total_entry,omitempty"`
 }
 
-// CacheLoadMatch mirrors the cache fields as an all-optional match
-// filter (Go analog of Partial<Cache>).
+// CacheLoadMatch is the typed request payload for Cache.LoadTyped.
 type CacheLoadMatch struct {
 	EvictionCount *int `json:"eviction_count,omitempty"`
 	HitCount *int `json:"hit_count,omitempty"`
@@ -81,8 +80,7 @@ type Cluster struct {
 	Metric *map[string]any `json:"metric,omitempty"`
 }
 
-// ClusterListMatch mirrors the cluster fields as an all-optional match
-// filter (Go analog of Partial<Cluster>).
+// ClusterListMatch is the typed request payload for Cluster.ListTyped.
 type ClusterListMatch struct {
 	Hostname *string `json:"hostname,omitempty"`
 	LastSeen *string `json:"last_seen,omitempty"`
@@ -103,8 +101,7 @@ type DiffLoadMatch struct {
 type Entity1 struct {
 }
 
-// Entity1LoadMatch mirrors the entity1 fields as an all-optional match
-// filter (Go analog of Partial<Entity1>).
+// Entity1LoadMatch is the typed request payload for Entity1.LoadTyped.
 type Entity1LoadMatch struct {
 }
 
@@ -136,8 +133,7 @@ type GuildMarkLoadMatch struct {
 type Health struct {
 }
 
-// HealthLoadMatch mirrors the health fields as an all-optional match
-// filter (Go analog of Partial<Health>).
+// HealthLoadMatch is the typed request payload for Health.LoadTyped.
 type HealthLoadMatch struct {
 }
 
@@ -185,8 +181,7 @@ type MapLoadMatch struct {
 type Metric struct {
 }
 
-// MetricLoadMatch mirrors the metric fields as an all-optional match
-// filter (Go analog of Partial<Metric>).
+// MetricLoadMatch is the typed request payload for Metric.LoadTyped.
 type MetricLoadMatch struct {
 }
 
@@ -243,8 +238,7 @@ type NpcLoadMatch struct {
 type Nxf struct {
 }
 
-// NxfLoadMatch mirrors the nxf fields as an all-optional match
-// filter (Go analog of Partial<Nxf>).
+// NxfLoadMatch is the typed request payload for Nxf.LoadTyped.
 type NxfLoadMatch struct {
 }
 
@@ -265,8 +259,7 @@ type PerformanceMetric struct {
 	WzPropertiesLoaded *int `json:"wz_properties_loaded,omitempty"`
 }
 
-// PerformanceMetricLoadMatch mirrors the performance_metric fields as an all-optional match
-// filter (Go analog of Partial<PerformanceMetric>).
+// PerformanceMetricLoadMatch is the typed request payload for PerformanceMetric.LoadTyped.
 type PerformanceMetricLoadMatch struct {
 	ActiveRequest *int `json:"active_request,omitempty"`
 	AverageResponseTimeM *float64 `json:"average_response_time_m,omitempty"`
@@ -320,8 +313,7 @@ type System struct {
 	UsedMemoryByte *int `json:"used_memory_byte,omitempty"`
 }
 
-// SystemLoadMatch mirrors the system fields as an all-optional match
-// filter (Go analog of Partial<System>).
+// SystemLoadMatch is the typed request payload for System.LoadTyped.
 type SystemLoadMatch struct {
 	CpuUsagePercent *float64 `json:"cpu_usage_percent,omitempty"`
 	GcGen0Collection *int `json:"gc_gen0_collection,omitempty"`

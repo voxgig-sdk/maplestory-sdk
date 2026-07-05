@@ -33,7 +33,14 @@ export interface Cache {
   total_entry?: number
 }
 
-export type CacheLoadMatch = Partial<Cache>
+export interface CacheLoadMatch {
+  eviction_count?: number
+  hit_count?: number
+  hit_ratio?: number
+  memory_usage?: number
+  miss_count?: number
+  total_entry?: number
+}
 
 export interface Character {
 }
@@ -59,7 +66,11 @@ export interface Cluster {
   metric?: Record<string, any>
 }
 
-export type ClusterListMatch = Partial<Cluster>
+export interface ClusterListMatch {
+  hostname?: string
+  last_seen?: string
+  metric?: Record<string, any>
+}
 
 export interface Diff {
 }
@@ -72,7 +83,8 @@ export interface DiffLoadMatch {
 export interface Entity1 {
 }
 
-export type Entity1LoadMatch = Partial<Entity1>
+export interface Entity1LoadMatch {
+}
 
 export interface GmsNew {
 }
@@ -97,7 +109,8 @@ export interface GuildMarkLoadMatch {
 export interface Health {
 }
 
-export type HealthLoadMatch = Partial<Health>
+export interface HealthLoadMatch {
+}
 
 export interface Item {
 }
@@ -136,7 +149,8 @@ export interface MapLoadMatch {
 export interface Metric {
 }
 
-export type MetricLoadMatch = Partial<Metric>
+export interface MetricLoadMatch {
+}
 
 export interface Mob {
 }
@@ -182,7 +196,8 @@ export interface NpcLoadMatch {
 export interface Nxf {
 }
 
-export type NxfLoadMatch = Partial<Nxf>
+export interface NxfLoadMatch {
+}
 
 export interface PerformanceMetric {
   active_request?: number
@@ -200,7 +215,21 @@ export interface PerformanceMetric {
   wz_properties_loaded?: number
 }
 
-export type PerformanceMetricLoadMatch = Partial<PerformanceMetric>
+export interface PerformanceMetricLoadMatch {
+  active_request?: number
+  average_response_time_m?: number
+  cache?: Record<string, any>
+  errors_by_type?: Record<string, any>
+  last_updated?: string
+  memory_used_byte?: number
+  redis_cache?: Record<string, any>
+  requests_per_second?: number
+  start_time?: string
+  system?: Record<string, any>
+  total_error?: number
+  total_request?: number
+  wz_properties_loaded?: number
+}
 
 export interface Pet {
 }
@@ -234,7 +263,15 @@ export interface System {
   used_memory_byte?: number
 }
 
-export type SystemLoadMatch = Partial<System>
+export interface SystemLoadMatch {
+  cpu_usage_percent?: number
+  gc_gen0_collection?: number
+  gc_gen1_collection?: number
+  gc_gen2_collection?: number
+  thread_count?: number
+  total_memory_byte?: number
+  used_memory_byte?: number
+}
 
 export interface Tip {
 }

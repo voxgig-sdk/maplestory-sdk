@@ -83,7 +83,7 @@ Cache = Struct.new(
   keyword_init: true
 )
 
-# Match filter for Cache#load (any subset of Cache fields).
+# Request payload for Cache#load.
 #
 # @!attribute [rw] eviction_count
 #   @return [Integer, nil]
@@ -171,7 +171,7 @@ Cluster = Struct.new(
   keyword_init: true
 )
 
-# Match filter for Cluster#list (any subset of Cluster fields).
+# Request payload for Cluster#list.
 #
 # @!attribute [rw] hostname
 #   @return [String, nil]
@@ -209,7 +209,7 @@ DiffLoadMatch = Struct.new(
 class Entity1
 end
 
-# Match filter for Entity1#load (any subset of Entity1 fields).
+# Request payload for Entity1#load.
 class Entity1LoadMatch
 end
 
@@ -267,7 +267,7 @@ GuildMarkLoadMatch = Struct.new(
 class Health
 end
 
-# Match filter for Health#load (any subset of Health fields).
+# Request payload for Health#load.
 class HealthLoadMatch
 end
 
@@ -366,7 +366,7 @@ MapLoadMatch = Struct.new(
 class Metric
 end
 
-# Match filter for Metric#load (any subset of Metric fields).
+# Request payload for Metric#load.
 class MetricLoadMatch
 end
 
@@ -478,7 +478,7 @@ NpcLoadMatch = Struct.new(
 class Nxf
 end
 
-# Match filter for Nxf#load (any subset of Nxf fields).
+# Request payload for Nxf#load.
 class NxfLoadMatch
 end
 
@@ -539,7 +539,7 @@ PerformanceMetric = Struct.new(
   keyword_init: true
 )
 
-# Match filter for PerformanceMetric#load (any subset of PerformanceMetric fields).
+# Request payload for PerformanceMetric#load.
 #
 # @!attribute [rw] active_request
 #   @return [Integer, nil]
@@ -687,7 +687,7 @@ System = Struct.new(
   keyword_init: true
 )
 
-# Match filter for System#load (any subset of System fields).
+# Request payload for System#load.
 #
 # @!attribute [rw] cpu_usage_percent
 #   @return [Float, nil]

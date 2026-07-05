@@ -264,7 +264,7 @@ avatar := client.Avatar(nil)
 Load a single entity matching the given criteria.
 
 ```go
-result, err := client.Avatar(nil).Load(map[string]any{"id": "avatar_id"}, nil)
+result, err := client.Avatar(nil).Load(nil, nil)
 ```
 
 ### Common Methods
@@ -301,12 +301,12 @@ cache := client.Cache(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `eviction_count` | ``$INTEGER`` | No |  |
-| `hit_count` | ``$INTEGER`` | No |  |
-| `hit_ratio` | ``$NUMBER`` | No |  |
-| `memory_usage` | ``$INTEGER`` | No |  |
-| `miss_count` | ``$INTEGER`` | No |  |
-| `total_entry` | ``$INTEGER`` | No |  |
+| `eviction_count` | `int` | No |  |
+| `hit_count` | `int` | No |  |
+| `hit_ratio` | `float64` | No |  |
+| `memory_usage` | `int` | No |  |
+| `miss_count` | `int` | No |  |
+| `total_entry` | `int` | No |  |
 
 ### Operations
 
@@ -315,7 +315,7 @@ cache := client.Cache(nil)
 Load a single entity matching the given criteria.
 
 ```go
-result, err := client.Cache(nil).Load(map[string]any{"id": "cache_id"}, nil)
+result, err := client.Cache(nil).Load(nil, nil)
 ```
 
 ### Common Methods
@@ -355,7 +355,7 @@ character := client.Character(nil)
 Load a single entity matching the given criteria.
 
 ```go
-result, err := client.Character(nil).Load(map[string]any{"id": "character_id"}, nil)
+result, err := client.Character(nil).Load(nil, nil)
 ```
 
 ### Common Methods
@@ -395,7 +395,7 @@ chat := client.Chat(nil)
 Load a single entity matching the given criteria.
 
 ```go
-result, err := client.Chat(nil).Load(map[string]any{"id": "chat_id"}, nil)
+result, err := client.Chat(nil).Load(nil, nil)
 ```
 
 ### Common Methods
@@ -432,9 +432,9 @@ cluster := client.Cluster(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `hostname` | ``$STRING`` | No |  |
-| `last_seen` | ``$STRING`` | No |  |
-| `metric` | ``$OBJECT`` | No |  |
+| `hostname` | `string` | No |  |
+| `last_seen` | `string` | No |  |
+| `metric` | `map[string]any` | No |  |
 
 ### Operations
 
@@ -483,7 +483,7 @@ diff := client.Diff(nil)
 Load a single entity matching the given criteria.
 
 ```go
-result, err := client.Diff(nil).Load(map[string]any{"id": "diff_id"}, nil)
+result, err := client.Diff(nil).Load(nil, nil)
 ```
 
 ### Common Methods
@@ -523,7 +523,7 @@ entity1 := client.Entity1(nil)
 Load a single entity matching the given criteria.
 
 ```go
-result, err := client.Entity1(nil).Load(map[string]any{"id": "entity1_id"}, nil)
+result, err := client.Entity1(nil).Load(nil, nil)
 ```
 
 ### Common Methods
@@ -603,7 +603,7 @@ guild_mark := client.GuildMark(nil)
 Load a single entity matching the given criteria.
 
 ```go
-result, err := client.GuildMark(nil).Load(map[string]any{"id": "guild_mark_id"}, nil)
+result, err := client.GuildMark(nil).Load(nil, nil)
 ```
 
 ### Common Methods
@@ -643,7 +643,7 @@ health := client.Health(nil)
 Load a single entity matching the given criteria.
 
 ```go
-result, err := client.Health(nil).Load(map[string]any{"id": "health_id"}, nil)
+result, err := client.Health(nil).Load(nil, nil)
 ```
 
 ### Common Methods
@@ -803,7 +803,7 @@ metric := client.Metric(nil)
 Load a single entity matching the given criteria.
 
 ```go
-result, err := client.Metric(nil).Load(map[string]any{"id": "metric_id"}, nil)
+result, err := client.Metric(nil).Load(nil, nil)
 ```
 
 ### Common Methods
@@ -923,7 +923,7 @@ name := client.Name(nil)
 Load a single entity matching the given criteria.
 
 ```go
-result, err := client.Name(nil).Load(map[string]any{"id": "name_id"}, nil)
+result, err := client.Name(nil).Load(nil, nil)
 ```
 
 ### Common Methods
@@ -1003,7 +1003,7 @@ nxf := client.Nxf(nil)
 Load a single entity matching the given criteria.
 
 ```go
-result, err := client.Nxf(nil).Load(map[string]any{"id": "nxf_id"}, nil)
+result, err := client.Nxf(nil).Load(nil, nil)
 ```
 
 ### Common Methods
@@ -1040,19 +1040,19 @@ performance_metric := client.PerformanceMetric(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `active_request` | ``$INTEGER`` | No |  |
-| `average_response_time_m` | ``$NUMBER`` | No |  |
-| `cache` | ``$OBJECT`` | No |  |
-| `errors_by_type` | ``$OBJECT`` | No |  |
-| `last_updated` | ``$STRING`` | No |  |
-| `memory_used_byte` | ``$INTEGER`` | No |  |
-| `redis_cache` | ``$OBJECT`` | No |  |
-| `requests_per_second` | ``$NUMBER`` | No |  |
-| `start_time` | ``$STRING`` | No |  |
-| `system` | ``$OBJECT`` | No |  |
-| `total_error` | ``$INTEGER`` | No |  |
-| `total_request` | ``$INTEGER`` | No |  |
-| `wz_properties_loaded` | ``$INTEGER`` | No |  |
+| `active_request` | `int` | No |  |
+| `average_response_time_m` | `float64` | No |  |
+| `cache` | `map[string]any` | No |  |
+| `errors_by_type` | `map[string]any` | No |  |
+| `last_updated` | `string` | No |  |
+| `memory_used_byte` | `int` | No |  |
+| `redis_cache` | `map[string]any` | No |  |
+| `requests_per_second` | `float64` | No |  |
+| `start_time` | `string` | No |  |
+| `system` | `map[string]any` | No |  |
+| `total_error` | `int` | No |  |
+| `total_request` | `int` | No |  |
+| `wz_properties_loaded` | `int` | No |  |
 
 ### Operations
 
@@ -1061,7 +1061,7 @@ performance_metric := client.PerformanceMetric(nil)
 Load a single entity matching the given criteria.
 
 ```go
-result, err := client.PerformanceMetric(nil).Load(map[string]any{"id": "performance_metric_id"}, nil)
+result, err := client.PerformanceMetric(nil).Load(nil, nil)
 ```
 
 ### Common Methods
@@ -1178,13 +1178,13 @@ system := client.System(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `cpu_usage_percent` | ``$NUMBER`` | No |  |
-| `gc_gen0_collection` | ``$INTEGER`` | No |  |
-| `gc_gen1_collection` | ``$INTEGER`` | No |  |
-| `gc_gen2_collection` | ``$INTEGER`` | No |  |
-| `thread_count` | ``$INTEGER`` | No |  |
-| `total_memory_byte` | ``$INTEGER`` | No |  |
-| `used_memory_byte` | ``$INTEGER`` | No |  |
+| `cpu_usage_percent` | `float64` | No |  |
+| `gc_gen0_collection` | `int` | No |  |
+| `gc_gen1_collection` | `int` | No |  |
+| `gc_gen2_collection` | `int` | No |  |
+| `thread_count` | `int` | No |  |
+| `total_memory_byte` | `int` | No |  |
+| `used_memory_byte` | `int` | No |  |
 
 ### Operations
 
@@ -1193,7 +1193,7 @@ system := client.System(nil)
 Load a single entity matching the given criteria.
 
 ```go
-result, err := client.System(nil).Load(map[string]any{"id": "system_id"}, nil)
+result, err := client.System(nil).Load(nil, nil)
 ```
 
 ### Common Methods
@@ -1233,7 +1233,7 @@ tip := client.Tip(nil)
 Load a single entity matching the given criteria.
 
 ```go
-result, err := client.Tip(nil).Load(map[string]any{"id": "tip_id"}, nil)
+result, err := client.Tip(nil).Load(nil, nil)
 ```
 
 ### Common Methods
@@ -1273,7 +1273,7 @@ wzn := client.Wzn(nil)
 Load a single entity matching the given criteria.
 
 ```go
-result, err := client.Wzn(nil).Load(map[string]any{"id": "wzn_id"}, nil)
+result, err := client.Wzn(nil).Load(nil, nil)
 ```
 
 ### Common Methods
@@ -1313,7 +1313,7 @@ wzn2 := client.Wzn2(nil)
 Load a single entity matching the given criteria.
 
 ```go
-result, err := client.Wzn2(nil).Load(map[string]any{"id": "wzn2_id"}, nil)
+result, err := client.Wzn2(nil).Load(nil, nil)
 ```
 
 ### Common Methods
@@ -1353,7 +1353,7 @@ wzn3 := client.Wzn3(nil)
 Load a single entity matching the given criteria.
 
 ```go
-result, err := client.Wzn3(nil).Load(map[string]any{"id": "wzn3_id"}, nil)
+result, err := client.Wzn3(nil).Load(nil, nil)
 ```
 
 ### Common Methods
@@ -1393,7 +1393,7 @@ wzn4 := client.Wzn4(nil)
 Load a single entity matching the given criteria.
 
 ```go
-result, err := client.Wzn4(nil).Load(map[string]any{"id": "wzn4_id"}, nil)
+result, err := client.Wzn4(nil).Load(nil, nil)
 ```
 
 ### Common Methods
@@ -1433,7 +1433,7 @@ wzn5 := client.Wzn5(nil)
 Load a single entity matching the given criteria.
 
 ```go
-result, err := client.Wzn5(nil).Load(map[string]any{"id": "wzn5_id"}, nil)
+result, err := client.Wzn5(nil).Load(nil, nil)
 ```
 
 ### Common Methods
@@ -1473,7 +1473,7 @@ wzn6 := client.Wzn6(nil)
 Load a single entity matching the given criteria.
 
 ```go
-result, err := client.Wzn6(nil).Load(map[string]any{"id": "wzn6_id"}, nil)
+result, err := client.Wzn6(nil).Load(nil, nil)
 ```
 
 ### Common Methods
@@ -1513,7 +1513,7 @@ z_map := client.ZMap(nil)
 Load a single entity matching the given criteria.
 
 ```go
-result, err := client.ZMap(nil).Load(map[string]any{"id": "z_map_id"}, nil)
+result, err := client.ZMap(nil).Load(nil, nil)
 ```
 
 ### Common Methods

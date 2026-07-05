@@ -4,6 +4,8 @@
 
 The Lua SDK for the Maplestory API — an entity-oriented client using Lua conventions.
 
+It exposes the API as capitalised, semantic **Entities** — e.g. `client:Android()` — each with the same small set of operations (`list`, `load`) instead of raw URL paths and query strings. You call meaning, not endpoints, which keeps the cognitive load low.
+
 > Other languages, the CLI, and MCP server live alongside this one — see
 > the [top-level README](../README.md).
 
@@ -37,6 +39,28 @@ local client = sdk.new()
 local android, err = client:Android():load({ id = "example_id" })
 if err then error(err) end
 print(android)
+```
+
+
+## Error handling
+
+Entity operations return `(value, err)`. Check `err` before using
+the value:
+
+```lua
+local android, err = client:Android():load({ id = 1 })
+if err then error(err) end
+```
+
+`direct` follows the same `(value, err)` convention:
+
+```lua
+local result, err = client:direct({
+  path = "/api/resource/{id}",
+  method = "GET",
+  params = { id = "example_id" },
+})
+if err then error(err) end
 ```
 
 
@@ -83,7 +107,7 @@ Create a mock client for unit testing — no server required:
 local client = sdk.test()
 
 local result, err = client:Android():load({ id = "test01" })
--- result is the loaded data; err is set on failure
+-- result is the returned data; err is set on failure
 ```
 
 ### Use a custom fetch function
@@ -202,9 +226,6 @@ All entities share the same interface.
 | --- | --- | --- |
 | `load` | `(reqmatch, ctrl) -> any, err` | Load a single entity by match criteria. |
 | `list` | `(reqmatch, ctrl) -> any, err` | List entities matching the criteria. |
-| `create` | `(reqdata, ctrl) -> any, err` | Create a new entity. |
-| `update` | `(reqdata, ctrl) -> any, err` | Update an existing entity. |
-| `remove` | `(reqmatch, ctrl) -> any, err` | Remove an entity. |
 | `data_get` | `() -> table` | Get entity data. |
 | `data_set` | `(data)` | Set entity data. |
 | `match_get` | `() -> table` | Get entity match criteria. |
@@ -219,7 +240,7 @@ data **directly** — there is no wrapper:
 
 | Operation | `value` |
 | --- | --- |
-| `load` / `create` / `update` / `remove` | the entity record (a `table`) |
+| `load` | the entity record (a `table`) |
 | `list` | an array (`table`) of entity records |
 
 Check `err` first (it is non-`nil` on failure), then use `value`:
@@ -585,7 +606,7 @@ Create an instance: `local avatar = client:Avatar(nil)`
 #### Example: Load
 
 ```lua
-local avatar, err = client:Avatar():load({ id = "avatar_id" })
+local avatar, err = client:Avatar():load()
 ```
 
 
@@ -603,17 +624,17 @@ Create an instance: `local cache = client:Cache(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `eviction_count` | ``$INTEGER`` |  |
-| `hit_count` | ``$INTEGER`` |  |
-| `hit_ratio` | ``$NUMBER`` |  |
-| `memory_usage` | ``$INTEGER`` |  |
-| `miss_count` | ``$INTEGER`` |  |
-| `total_entry` | ``$INTEGER`` |  |
+| `eviction_count` | `number` |  |
+| `hit_count` | `number` |  |
+| `hit_ratio` | `number` |  |
+| `memory_usage` | `number` |  |
+| `miss_count` | `number` |  |
+| `total_entry` | `number` |  |
 
 #### Example: Load
 
 ```lua
-local cache, err = client:Cache():load({ id = "cache_id" })
+local cache, err = client:Cache():load()
 ```
 
 
@@ -630,7 +651,7 @@ Create an instance: `local character = client:Character(nil)`
 #### Example: Load
 
 ```lua
-local character, err = client:Character():load({ id = "character_id" })
+local character, err = client:Character():load()
 ```
 
 
@@ -647,7 +668,7 @@ Create an instance: `local chat = client:Chat(nil)`
 #### Example: Load
 
 ```lua
-local chat, err = client:Chat():load({ id = "chat_id" })
+local chat, err = client:Chat():load()
 ```
 
 
@@ -665,9 +686,9 @@ Create an instance: `local cluster = client:Cluster(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `hostname` | ``$STRING`` |  |
-| `last_seen` | ``$STRING`` |  |
-| `metric` | ``$OBJECT`` |  |
+| `hostname` | `string` |  |
+| `last_seen` | `string` |  |
+| `metric` | `table` |  |
 
 #### Example: List
 
@@ -689,7 +710,7 @@ Create an instance: `local diff = client:Diff(nil)`
 #### Example: Load
 
 ```lua
-local diff, err = client:Diff():load({ id = "diff_id" })
+local diff, err = client:Diff():load()
 ```
 
 
@@ -706,7 +727,7 @@ Create an instance: `local entity1 = client:Entity1(nil)`
 #### Example: Load
 
 ```lua
-local entity1, err = client:Entity1():load({ id = "entity1_id" })
+local entity1, err = client:Entity1():load()
 ```
 
 
@@ -740,7 +761,7 @@ Create an instance: `local guild_mark = client:GuildMark(nil)`
 #### Example: Load
 
 ```lua
-local guild_mark, err = client:GuildMark():load({ id = "guild_mark_id" })
+local guild_mark, err = client:GuildMark():load()
 ```
 
 
@@ -757,7 +778,7 @@ Create an instance: `local health = client:Health(nil)`
 #### Example: Load
 
 ```lua
-local health, err = client:Health():load({ id = "health_id" })
+local health, err = client:Health():load()
 ```
 
 
@@ -825,7 +846,7 @@ Create an instance: `local metric = client:Metric(nil)`
 #### Example: Load
 
 ```lua
-local metric, err = client:Metric():load({ id = "metric_id" })
+local metric, err = client:Metric():load()
 ```
 
 
@@ -876,7 +897,7 @@ Create an instance: `local name = client:Name(nil)`
 #### Example: Load
 
 ```lua
-local name, err = client:Name():load({ id = "name_id" })
+local name, err = client:Name():load()
 ```
 
 
@@ -910,7 +931,7 @@ Create an instance: `local nxf = client:Nxf(nil)`
 #### Example: Load
 
 ```lua
-local nxf, err = client:Nxf():load({ id = "nxf_id" })
+local nxf, err = client:Nxf():load()
 ```
 
 
@@ -928,24 +949,24 @@ Create an instance: `local performance_metric = client:PerformanceMetric(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `active_request` | ``$INTEGER`` |  |
-| `average_response_time_m` | ``$NUMBER`` |  |
-| `cache` | ``$OBJECT`` |  |
-| `errors_by_type` | ``$OBJECT`` |  |
-| `last_updated` | ``$STRING`` |  |
-| `memory_used_byte` | ``$INTEGER`` |  |
-| `redis_cache` | ``$OBJECT`` |  |
-| `requests_per_second` | ``$NUMBER`` |  |
-| `start_time` | ``$STRING`` |  |
-| `system` | ``$OBJECT`` |  |
-| `total_error` | ``$INTEGER`` |  |
-| `total_request` | ``$INTEGER`` |  |
-| `wz_properties_loaded` | ``$INTEGER`` |  |
+| `active_request` | `number` |  |
+| `average_response_time_m` | `number` |  |
+| `cache` | `table` |  |
+| `errors_by_type` | `table` |  |
+| `last_updated` | `string` |  |
+| `memory_used_byte` | `number` |  |
+| `redis_cache` | `table` |  |
+| `requests_per_second` | `number` |  |
+| `start_time` | `string` |  |
+| `system` | `table` |  |
+| `total_error` | `number` |  |
+| `total_request` | `number` |  |
+| `wz_properties_loaded` | `number` |  |
 
 #### Example: Load
 
 ```lua
-local performance_metric, err = client:PerformanceMetric():load({ id = "performance_metric_id" })
+local performance_metric, err = client:PerformanceMetric():load()
 ```
 
 
@@ -997,18 +1018,18 @@ Create an instance: `local system = client:System(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `cpu_usage_percent` | ``$NUMBER`` |  |
-| `gc_gen0_collection` | ``$INTEGER`` |  |
-| `gc_gen1_collection` | ``$INTEGER`` |  |
-| `gc_gen2_collection` | ``$INTEGER`` |  |
-| `thread_count` | ``$INTEGER`` |  |
-| `total_memory_byte` | ``$INTEGER`` |  |
-| `used_memory_byte` | ``$INTEGER`` |  |
+| `cpu_usage_percent` | `number` |  |
+| `gc_gen0_collection` | `number` |  |
+| `gc_gen1_collection` | `number` |  |
+| `gc_gen2_collection` | `number` |  |
+| `thread_count` | `number` |  |
+| `total_memory_byte` | `number` |  |
+| `used_memory_byte` | `number` |  |
 
 #### Example: Load
 
 ```lua
-local system, err = client:System():load({ id = "system_id" })
+local system, err = client:System():load()
 ```
 
 
@@ -1025,7 +1046,7 @@ Create an instance: `local tip = client:Tip(nil)`
 #### Example: Load
 
 ```lua
-local tip, err = client:Tip():load({ id = "tip_id" })
+local tip, err = client:Tip():load()
 ```
 
 
@@ -1042,7 +1063,7 @@ Create an instance: `local wzn = client:Wzn(nil)`
 #### Example: Load
 
 ```lua
-local wzn, err = client:Wzn():load({ id = "wzn_id" })
+local wzn, err = client:Wzn():load()
 ```
 
 
@@ -1059,7 +1080,7 @@ Create an instance: `local wzn2 = client:Wzn2(nil)`
 #### Example: Load
 
 ```lua
-local wzn2, err = client:Wzn2():load({ id = "wzn2_id" })
+local wzn2, err = client:Wzn2():load()
 ```
 
 
@@ -1076,7 +1097,7 @@ Create an instance: `local wzn3 = client:Wzn3(nil)`
 #### Example: Load
 
 ```lua
-local wzn3, err = client:Wzn3():load({ id = "wzn3_id" })
+local wzn3, err = client:Wzn3():load()
 ```
 
 
@@ -1093,7 +1114,7 @@ Create an instance: `local wzn4 = client:Wzn4(nil)`
 #### Example: Load
 
 ```lua
-local wzn4, err = client:Wzn4():load({ id = "wzn4_id" })
+local wzn4, err = client:Wzn4():load()
 ```
 
 
@@ -1110,7 +1131,7 @@ Create an instance: `local wzn5 = client:Wzn5(nil)`
 #### Example: Load
 
 ```lua
-local wzn5, err = client:Wzn5():load({ id = "wzn5_id" })
+local wzn5, err = client:Wzn5():load()
 ```
 
 
@@ -1127,7 +1148,7 @@ Create an instance: `local wzn6 = client:Wzn6(nil)`
 #### Example: Load
 
 ```lua
-local wzn6, err = client:Wzn6():load({ id = "wzn6_id" })
+local wzn6, err = client:Wzn6():load()
 ```
 
 
@@ -1144,16 +1165,20 @@ Create an instance: `local z_map = client:ZMap(nil)`
 #### Example: Load
 
 ```lua
-local z_map, err = client:ZMap():load({ id = "z_map_id" })
+local z_map, err = client:ZMap():load()
 ```
 
 
-## Explanation
+## Advanced
+
+> The sections above cover everyday use. The material below explains the
+> SDK's internals — useful when extending it with custom features, but not
+> needed for normal use.
 
 ### The operation pipeline
 
-Every entity operation (load, list, create, update, remove) follows a
-six-stage pipeline. Each stage fires a feature hook before executing:
+Every entity operation follows a six-stage pipeline. Each stage fires a
+feature hook before executing:
 
 ```
 PrePoint → PreSpec → PreRequest → PreResponse → PreResult → PreDone
@@ -1170,8 +1195,9 @@ PrePoint → PreSpec → PreRequest → PreResponse → PreResult → PreDone
 - **PreDone**: Final stage before returning to the caller. Entity
   state (match, data) is updated here.
 
-If any stage returns an error, the pipeline short-circuits and the
-error is returned to the caller as a second return value.
+If any stage errors, the pipeline short-circuits and the error surfaces
+to the caller — see [Error handling](#error-handling) for how that looks
+in this language.
 
 ### Features and hooks
 
@@ -1220,9 +1246,9 @@ stores the returned data and match criteria internally.
 
 ```lua
 local android = client:Android()
-android:load({ id = "example_id" })
+android:load({ id = 1 })
 
--- android:data_get() now returns the loaded android data
+-- android:data_get() now returns the android data from the last load
 -- android:match_get() returns the last match criteria
 ```
 

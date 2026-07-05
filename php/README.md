@@ -4,6 +4,8 @@
 
 The PHP SDK for the Maplestory API — an entity-oriented client using PHP conventions.
 
+The SDK exposes the API as capitalised, semantic **Entities** — for example `$client->Android()` — with named operations (`list`/`load`) instead of raw URL paths and query strings. Working with resources and verbs keeps call sites self-describing and reduces cognitive load.
+
 > Other languages, the CLI, and MCP server live alongside this one — see
 > the [top-level README](../README.md).
 
@@ -42,6 +44,37 @@ try {
 ```
 
 
+## Error handling
+
+Entity operations throw a `\Throwable` on failure, so wrap them in
+`try` / `catch`:
+
+```php
+try {
+    $android = $client->Android()->load(["id" => 1]);
+} catch (\Throwable $err) {
+    echo "Error: " . $err->getMessage();
+}
+```
+
+`direct()` does **not** throw — it returns the result array. Branch on
+`ok`; on failure `status` holds the HTTP status (for error responses) and
+`err` holds a transport error, so read both defensively:
+
+```php
+$result = $client->direct([
+    "path" => "/api/resource/{id}",
+    "method" => "GET",
+    "params" => ["id" => "example_id"],
+]);
+
+if (! $result["ok"]) {
+    $err = $result["err"] ?? null;
+    echo "request failed: " . ($err ? $err->getMessage() : "HTTP " . $result["status"]);
+}
+```
+
+
 ## How-to guides
 
 ### Make a direct HTTP request
@@ -61,7 +94,10 @@ if ($result["ok"]) {
     echo $result["status"];  // 200
     print_r($result["data"]);  // response body
 } else {
-    echo "Error: " . $result["err"]->getMessage();
+    // On an HTTP error status there is no err (only a transport failure sets
+    // it), so fall back to the status code.
+    $err = $result["err"] ?? null;
+    echo "Error: " . ($err ? $err->getMessage() : "HTTP " . $result["status"]);
 }
 ```
 
@@ -90,7 +126,7 @@ $client = MaplestorySDK::test([
     "entity" => ["android" => ["test01" => ["id" => "test01"]]],
 ]);
 
-// load() returns the bare mock record (throws on error).
+// Entity ops return the bare mock record (throws on error).
 $android = $client->Android()->load(["id" => "test01"]);
 print_r($android);
 ```
@@ -211,10 +247,7 @@ All entities share the same interface.
 | Method | Signature | Description |
 | --- | --- | --- |
 | `load` | `($reqmatch, $ctrl): array` | Load a single entity by match criteria. |
-| `list` | `($reqmatch, $ctrl): array` | List entities matching the criteria. |
-| `create` | `($reqdata, $ctrl): array` | Create a new entity. |
-| `update` | `($reqdata, $ctrl): array` | Update an existing entity. |
-| `remove` | `($reqmatch, $ctrl): array` | Remove an entity. |
+| `list` | `(?array $reqmatch = null, $ctrl): array` | List entities matching the criteria (call with no argument to list all). |
 | `data_get` | `(): array` | Get entity data. |
 | `data_set` | `($data): void` | Set entity data. |
 | `match_get` | `(): array` | Get entity match criteria. |
@@ -596,7 +629,7 @@ Create an instance: `$avatar = $client->Avatar();`
 
 ```php
 // load() returns the bare Avatar record (throws on error).
-$avatar = $client->Avatar()->load(["id" => "avatar_id"]);
+$avatar = $client->Avatar()->load();
 ```
 
 
@@ -614,18 +647,18 @@ Create an instance: `$cache = $client->Cache();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `eviction_count` | ``$INTEGER`` |  |
-| `hit_count` | ``$INTEGER`` |  |
-| `hit_ratio` | ``$NUMBER`` |  |
-| `memory_usage` | ``$INTEGER`` |  |
-| `miss_count` | ``$INTEGER`` |  |
-| `total_entry` | ``$INTEGER`` |  |
+| `eviction_count` | `int` |  |
+| `hit_count` | `int` |  |
+| `hit_ratio` | `float` |  |
+| `memory_usage` | `int` |  |
+| `miss_count` | `int` |  |
+| `total_entry` | `int` |  |
 
 #### Example: Load
 
 ```php
 // load() returns the bare Cache record (throws on error).
-$cache = $client->Cache()->load(["id" => "cache_id"]);
+$cache = $client->Cache()->load();
 ```
 
 
@@ -643,7 +676,7 @@ Create an instance: `$character = $client->Character();`
 
 ```php
 // load() returns the bare Character record (throws on error).
-$character = $client->Character()->load(["id" => "character_id"]);
+$character = $client->Character()->load();
 ```
 
 
@@ -661,7 +694,7 @@ Create an instance: `$chat = $client->Chat();`
 
 ```php
 // load() returns the bare Chat record (throws on error).
-$chat = $client->Chat()->load(["id" => "chat_id"]);
+$chat = $client->Chat()->load();
 ```
 
 
@@ -679,9 +712,9 @@ Create an instance: `$cluster = $client->Cluster();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `hostname` | ``$STRING`` |  |
-| `last_seen` | ``$STRING`` |  |
-| `metric` | ``$OBJECT`` |  |
+| `hostname` | `string` |  |
+| `last_seen` | `string` |  |
+| `metric` | `array` |  |
 
 #### Example: List
 
@@ -705,7 +738,7 @@ Create an instance: `$diff = $client->Diff();`
 
 ```php
 // load() returns the bare Diff record (throws on error).
-$diff = $client->Diff()->load(["id" => "diff_id"]);
+$diff = $client->Diff()->load();
 ```
 
 
@@ -723,7 +756,7 @@ Create an instance: `$entity1 = $client->Entity1();`
 
 ```php
 // load() returns the bare Entity1 record (throws on error).
-$entity1 = $client->Entity1()->load(["id" => "entity1_id"]);
+$entity1 = $client->Entity1()->load();
 ```
 
 
@@ -759,7 +792,7 @@ Create an instance: `$guild_mark = $client->GuildMark();`
 
 ```php
 // load() returns the bare GuildMark record (throws on error).
-$guild_mark = $client->GuildMark()->load(["id" => "guild_mark_id"]);
+$guild_mark = $client->GuildMark()->load();
 ```
 
 
@@ -777,7 +810,7 @@ Create an instance: `$health = $client->Health();`
 
 ```php
 // load() returns the bare Health record (throws on error).
-$health = $client->Health()->load(["id" => "health_id"]);
+$health = $client->Health()->load();
 ```
 
 
@@ -849,7 +882,7 @@ Create an instance: `$metric = $client->Metric();`
 
 ```php
 // load() returns the bare Metric record (throws on error).
-$metric = $client->Metric()->load(["id" => "metric_id"]);
+$metric = $client->Metric()->load();
 ```
 
 
@@ -903,7 +936,7 @@ Create an instance: `$name = $client->Name();`
 
 ```php
 // load() returns the bare Name record (throws on error).
-$name = $client->Name()->load(["id" => "name_id"]);
+$name = $client->Name()->load();
 ```
 
 
@@ -939,7 +972,7 @@ Create an instance: `$nxf = $client->Nxf();`
 
 ```php
 // load() returns the bare Nxf record (throws on error).
-$nxf = $client->Nxf()->load(["id" => "nxf_id"]);
+$nxf = $client->Nxf()->load();
 ```
 
 
@@ -957,25 +990,25 @@ Create an instance: `$performance_metric = $client->PerformanceMetric();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `active_request` | ``$INTEGER`` |  |
-| `average_response_time_m` | ``$NUMBER`` |  |
-| `cache` | ``$OBJECT`` |  |
-| `errors_by_type` | ``$OBJECT`` |  |
-| `last_updated` | ``$STRING`` |  |
-| `memory_used_byte` | ``$INTEGER`` |  |
-| `redis_cache` | ``$OBJECT`` |  |
-| `requests_per_second` | ``$NUMBER`` |  |
-| `start_time` | ``$STRING`` |  |
-| `system` | ``$OBJECT`` |  |
-| `total_error` | ``$INTEGER`` |  |
-| `total_request` | ``$INTEGER`` |  |
-| `wz_properties_loaded` | ``$INTEGER`` |  |
+| `active_request` | `int` |  |
+| `average_response_time_m` | `float` |  |
+| `cache` | `array` |  |
+| `errors_by_type` | `array` |  |
+| `last_updated` | `string` |  |
+| `memory_used_byte` | `int` |  |
+| `redis_cache` | `array` |  |
+| `requests_per_second` | `float` |  |
+| `start_time` | `string` |  |
+| `system` | `array` |  |
+| `total_error` | `int` |  |
+| `total_request` | `int` |  |
+| `wz_properties_loaded` | `int` |  |
 
 #### Example: Load
 
 ```php
 // load() returns the bare PerformanceMetric record (throws on error).
-$performance_metric = $client->PerformanceMetric()->load(["id" => "performance_metric_id"]);
+$performance_metric = $client->PerformanceMetric()->load();
 ```
 
 
@@ -1029,19 +1062,19 @@ Create an instance: `$system = $client->System();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `cpu_usage_percent` | ``$NUMBER`` |  |
-| `gc_gen0_collection` | ``$INTEGER`` |  |
-| `gc_gen1_collection` | ``$INTEGER`` |  |
-| `gc_gen2_collection` | ``$INTEGER`` |  |
-| `thread_count` | ``$INTEGER`` |  |
-| `total_memory_byte` | ``$INTEGER`` |  |
-| `used_memory_byte` | ``$INTEGER`` |  |
+| `cpu_usage_percent` | `float` |  |
+| `gc_gen0_collection` | `int` |  |
+| `gc_gen1_collection` | `int` |  |
+| `gc_gen2_collection` | `int` |  |
+| `thread_count` | `int` |  |
+| `total_memory_byte` | `int` |  |
+| `used_memory_byte` | `int` |  |
 
 #### Example: Load
 
 ```php
 // load() returns the bare System record (throws on error).
-$system = $client->System()->load(["id" => "system_id"]);
+$system = $client->System()->load();
 ```
 
 
@@ -1059,7 +1092,7 @@ Create an instance: `$tip = $client->Tip();`
 
 ```php
 // load() returns the bare Tip record (throws on error).
-$tip = $client->Tip()->load(["id" => "tip_id"]);
+$tip = $client->Tip()->load();
 ```
 
 
@@ -1077,7 +1110,7 @@ Create an instance: `$wzn = $client->Wzn();`
 
 ```php
 // load() returns the bare Wzn record (throws on error).
-$wzn = $client->Wzn()->load(["id" => "wzn_id"]);
+$wzn = $client->Wzn()->load();
 ```
 
 
@@ -1095,7 +1128,7 @@ Create an instance: `$wzn2 = $client->Wzn2();`
 
 ```php
 // load() returns the bare Wzn2 record (throws on error).
-$wzn2 = $client->Wzn2()->load(["id" => "wzn2_id"]);
+$wzn2 = $client->Wzn2()->load();
 ```
 
 
@@ -1113,7 +1146,7 @@ Create an instance: `$wzn3 = $client->Wzn3();`
 
 ```php
 // load() returns the bare Wzn3 record (throws on error).
-$wzn3 = $client->Wzn3()->load(["id" => "wzn3_id"]);
+$wzn3 = $client->Wzn3()->load();
 ```
 
 
@@ -1131,7 +1164,7 @@ Create an instance: `$wzn4 = $client->Wzn4();`
 
 ```php
 // load() returns the bare Wzn4 record (throws on error).
-$wzn4 = $client->Wzn4()->load(["id" => "wzn4_id"]);
+$wzn4 = $client->Wzn4()->load();
 ```
 
 
@@ -1149,7 +1182,7 @@ Create an instance: `$wzn5 = $client->Wzn5();`
 
 ```php
 // load() returns the bare Wzn5 record (throws on error).
-$wzn5 = $client->Wzn5()->load(["id" => "wzn5_id"]);
+$wzn5 = $client->Wzn5()->load();
 ```
 
 
@@ -1167,7 +1200,7 @@ Create an instance: `$wzn6 = $client->Wzn6();`
 
 ```php
 // load() returns the bare Wzn6 record (throws on error).
-$wzn6 = $client->Wzn6()->load(["id" => "wzn6_id"]);
+$wzn6 = $client->Wzn6()->load();
 ```
 
 
@@ -1185,16 +1218,20 @@ Create an instance: `$z_map = $client->ZMap();`
 
 ```php
 // load() returns the bare ZMap record (throws on error).
-$z_map = $client->ZMap()->load(["id" => "z_map_id"]);
+$z_map = $client->ZMap()->load();
 ```
 
 
-## Explanation
+## Advanced
+
+> The sections above cover everyday use. The material below explains the
+> SDK's internals — useful when extending it with custom features, but not
+> needed for normal use.
 
 ### The operation pipeline
 
-Every entity operation (load, list, create, update, remove) follows a
-six-stage pipeline. Each stage fires a feature hook before executing:
+Every entity operation follows a six-stage pipeline. Each stage fires a
+feature hook before executing:
 
 ```
 PrePoint → PreSpec → PreRequest → PreResponse → PreResult → PreDone
@@ -1211,8 +1248,9 @@ PrePoint → PreSpec → PreRequest → PreResponse → PreResult → PreDone
 - **PreDone**: Final stage before returning to the caller. Entity
   state (match, data) is updated here.
 
-If any stage returns an error, the pipeline short-circuits and the
-error is returned to the caller as the second element in the return array.
+If any stage errors, the pipeline short-circuits and the error surfaces
+to the caller — see [Error handling](#error-handling) for how that looks
+in this language.
 
 ### Features and hooks
 
@@ -1261,10 +1299,10 @@ stores the returned data and match criteria internally.
 
 ```php
 $android = $client->Android();
-$android->load(["id" => "example_id"]);
+$android->load(["id" => 1]);
 
-// $android->dataGet() now returns the loaded android data
-// $android->matchGet() returns the last match criteria
+// $android->data_get() now returns the android data from the last load
+// $android->match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

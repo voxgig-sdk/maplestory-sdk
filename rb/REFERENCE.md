@@ -8,7 +8,7 @@ Complete API reference for the Maplestory Ruby SDK.
 ### Constructor
 
 ```ruby
-require_relative 'maplestory_sdk'
+require_relative 'Maplestory_sdk'
 
 client = MaplestorySDK.new(options)
 ```
@@ -266,7 +266,7 @@ avatar = client.Avatar
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.Avatar.load({ "id" => "avatar_id" })
+result = client.Avatar.load()
 ```
 
 ### Common Methods
@@ -309,12 +309,12 @@ cache = client.Cache
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `eviction_count` | ``$INTEGER`` | No |  |
-| `hit_count` | ``$INTEGER`` | No |  |
-| `hit_ratio` | ``$NUMBER`` | No |  |
-| `memory_usage` | ``$INTEGER`` | No |  |
-| `miss_count` | ``$INTEGER`` | No |  |
-| `total_entry` | ``$INTEGER`` | No |  |
+| `eviction_count` | `Integer` | No |  |
+| `hit_count` | `Integer` | No |  |
+| `hit_ratio` | `Float` | No |  |
+| `memory_usage` | `Integer` | No |  |
+| `miss_count` | `Integer` | No |  |
+| `total_entry` | `Integer` | No |  |
 
 ### Operations
 
@@ -323,7 +323,7 @@ cache = client.Cache
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.Cache.load({ "id" => "cache_id" })
+result = client.Cache.load()
 ```
 
 ### Common Methods
@@ -369,7 +369,7 @@ character = client.Character
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.Character.load({ "id" => "character_id" })
+result = client.Character.load()
 ```
 
 ### Common Methods
@@ -415,7 +415,7 @@ chat = client.Chat
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.Chat.load({ "id" => "chat_id" })
+result = client.Chat.load()
 ```
 
 ### Common Methods
@@ -458,18 +458,18 @@ cluster = client.Cluster
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `hostname` | ``$STRING`` | No |  |
-| `last_seen` | ``$STRING`` | No |  |
-| `metric` | ``$OBJECT`` | No |  |
+| `hostname` | `String` | No |  |
+| `last_seen` | `String` | No |  |
+| `metric` | `Hash` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.Cluster.list(nil)
+results = client.Cluster.list
 ```
 
 ### Common Methods
@@ -515,7 +515,7 @@ diff = client.Diff
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.Diff.load({ "id" => "diff_id" })
+result = client.Diff.load()
 ```
 
 ### Common Methods
@@ -561,7 +561,7 @@ entity1 = client.Entity1
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.Entity1.load({ "id" => "entity1_id" })
+result = client.Entity1.load()
 ```
 
 ### Common Methods
@@ -653,7 +653,7 @@ guild_mark = client.GuildMark
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.GuildMark.load({ "id" => "guild_mark_id" })
+result = client.GuildMark.load()
 ```
 
 ### Common Methods
@@ -699,7 +699,7 @@ health = client.Health
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.Health.load({ "id" => "health_id" })
+result = client.Health.load()
 ```
 
 ### Common Methods
@@ -883,7 +883,7 @@ metric = client.Metric
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.Metric.load({ "id" => "metric_id" })
+result = client.Metric.load()
 ```
 
 ### Common Methods
@@ -1021,7 +1021,7 @@ name = client.Name
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.Name.load({ "id" => "name_id" })
+result = client.Name.load()
 ```
 
 ### Common Methods
@@ -1113,7 +1113,7 @@ nxf = client.Nxf
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.Nxf.load({ "id" => "nxf_id" })
+result = client.Nxf.load()
 ```
 
 ### Common Methods
@@ -1156,19 +1156,19 @@ performance_metric = client.PerformanceMetric
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `active_request` | ``$INTEGER`` | No |  |
-| `average_response_time_m` | ``$NUMBER`` | No |  |
-| `cache` | ``$OBJECT`` | No |  |
-| `errors_by_type` | ``$OBJECT`` | No |  |
-| `last_updated` | ``$STRING`` | No |  |
-| `memory_used_byte` | ``$INTEGER`` | No |  |
-| `redis_cache` | ``$OBJECT`` | No |  |
-| `requests_per_second` | ``$NUMBER`` | No |  |
-| `start_time` | ``$STRING`` | No |  |
-| `system` | ``$OBJECT`` | No |  |
-| `total_error` | ``$INTEGER`` | No |  |
-| `total_request` | ``$INTEGER`` | No |  |
-| `wz_properties_loaded` | ``$INTEGER`` | No |  |
+| `active_request` | `Integer` | No |  |
+| `average_response_time_m` | `Float` | No |  |
+| `cache` | `Hash` | No |  |
+| `errors_by_type` | `Hash` | No |  |
+| `last_updated` | `String` | No |  |
+| `memory_used_byte` | `Integer` | No |  |
+| `redis_cache` | `Hash` | No |  |
+| `requests_per_second` | `Float` | No |  |
+| `start_time` | `String` | No |  |
+| `system` | `Hash` | No |  |
+| `total_error` | `Integer` | No |  |
+| `total_request` | `Integer` | No |  |
+| `wz_properties_loaded` | `Integer` | No |  |
 
 ### Operations
 
@@ -1177,7 +1177,7 @@ performance_metric = client.PerformanceMetric
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.PerformanceMetric.load({ "id" => "performance_metric_id" })
+result = client.PerformanceMetric.load()
 ```
 
 ### Common Methods
@@ -1312,13 +1312,13 @@ system = client.System
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `cpu_usage_percent` | ``$NUMBER`` | No |  |
-| `gc_gen0_collection` | ``$INTEGER`` | No |  |
-| `gc_gen1_collection` | ``$INTEGER`` | No |  |
-| `gc_gen2_collection` | ``$INTEGER`` | No |  |
-| `thread_count` | ``$INTEGER`` | No |  |
-| `total_memory_byte` | ``$INTEGER`` | No |  |
-| `used_memory_byte` | ``$INTEGER`` | No |  |
+| `cpu_usage_percent` | `Float` | No |  |
+| `gc_gen0_collection` | `Integer` | No |  |
+| `gc_gen1_collection` | `Integer` | No |  |
+| `gc_gen2_collection` | `Integer` | No |  |
+| `thread_count` | `Integer` | No |  |
+| `total_memory_byte` | `Integer` | No |  |
+| `used_memory_byte` | `Integer` | No |  |
 
 ### Operations
 
@@ -1327,7 +1327,7 @@ system = client.System
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.System.load({ "id" => "system_id" })
+result = client.System.load()
 ```
 
 ### Common Methods
@@ -1373,7 +1373,7 @@ tip = client.Tip
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.Tip.load({ "id" => "tip_id" })
+result = client.Tip.load()
 ```
 
 ### Common Methods
@@ -1419,7 +1419,7 @@ wzn = client.Wzn
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.Wzn.load({ "id" => "wzn_id" })
+result = client.Wzn.load()
 ```
 
 ### Common Methods
@@ -1465,7 +1465,7 @@ wzn2 = client.Wzn2
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.Wzn2.load({ "id" => "wzn2_id" })
+result = client.Wzn2.load()
 ```
 
 ### Common Methods
@@ -1511,7 +1511,7 @@ wzn3 = client.Wzn3
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.Wzn3.load({ "id" => "wzn3_id" })
+result = client.Wzn3.load()
 ```
 
 ### Common Methods
@@ -1557,7 +1557,7 @@ wzn4 = client.Wzn4
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.Wzn4.load({ "id" => "wzn4_id" })
+result = client.Wzn4.load()
 ```
 
 ### Common Methods
@@ -1603,7 +1603,7 @@ wzn5 = client.Wzn5
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.Wzn5.load({ "id" => "wzn5_id" })
+result = client.Wzn5.load()
 ```
 
 ### Common Methods
@@ -1649,7 +1649,7 @@ wzn6 = client.Wzn6
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.Wzn6.load({ "id" => "wzn6_id" })
+result = client.Wzn6.load()
 ```
 
 ### Common Methods
@@ -1695,7 +1695,7 @@ z_map = client.ZMap
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.ZMap.load({ "id" => "z_map_id" })
+result = client.ZMap.load()
 ```
 
 ### Common Methods

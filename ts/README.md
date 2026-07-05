@@ -4,6 +4,11 @@
 
 The TypeScript SDK for the Maplestory API — a type-safe, entity-oriented client with full async/await support.
 
+The API is exposed as capitalised, semantic **Entities** — e.g.
+`client.Android()` — each with a small set of operations (`list`, `load`)
+instead of raw URL paths and query parameters. This keeps the surface
+predictable and low-friction for both humans and AI agents.
+
 > Other languages, the CLI, and MCP server live alongside this one — see
 > the [top-level README](../README.md).
 
@@ -34,10 +39,39 @@ const client = new MaplestorySDK()
 
 ```ts
 try {
-  const android = await client.Android().load({ id: 'example_id' })
+  const android = await client.Android().load({ id: 1 })
   console.log(android)
 } catch (err) {
   console.error('load failed:', err)
+}
+```
+
+
+## Error handling
+
+Entity operations reject on failure, so wrap them in `try` / `catch`:
+
+```ts
+try {
+  const android = await client.Android().load({ id: 1 })
+  console.log(android)
+} catch (err) {
+  console.error('load failed:', err)
+}
+```
+
+The low-level `direct()` method does **not** throw — it returns the
+value or an `Error`, so check the result before using it:
+
+```ts
+const result = await client.direct({
+  path: '/api/resource/{id}',
+  method: 'GET',
+  params: { id: 'example_id' },
+})
+
+if (result instanceof Error) {
+  throw result
 }
 ```
 
@@ -86,7 +120,7 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = MaplestorySDK.test()
 
-const android = await client.Android().load({ id: 'test01' })
+const android = await client.Android().load({ id: 1 })
 // android is a bare entity populated with mock response data
 console.log(android)
 ```
@@ -105,12 +139,12 @@ Entity instances remember their last match and data:
 ```ts
 const entity = client.Android()
 
-// First call sets internal match
-await entity.load({ id: 'example' })
+// First call runs the operation and stores its result
+await entity.load({ id: 1 })
 
-// Subsequent calls reuse the stored match
+// Subsequent calls reuse the stored state
 const data = entity.data()
-console.log(data.id) // 'example'
+console.log(data)
 ```
 
 ### Add custom middleware
@@ -231,11 +265,8 @@ All entities share the same interface.
 | --- | --- | --- |
 | `load` | `load(reqmatch?, ctrl?): Promise<Entity>` | Load a single entity by match criteria. |
 | `list` | `list(reqmatch?, ctrl?): Promise<Entity[]>` | List entities matching the criteria. |
-| `create` | `create(reqdata?, ctrl?): Promise<Entity>` | Create a new entity. |
-| `update` | `update(reqdata?, ctrl?): Promise<Entity>` | Update an existing entity. |
-| `remove` | `remove(reqmatch?, ctrl?): Promise<void>` | Remove an entity. |
-| `data` | `data(data?): any` | Get or set entity data. |
-| `match` | `match(match?): any` | Get or set entity match criteria. |
+| `data` | `data(data?: Partial<Entity>): Entity` | Get or set entity data. |
+| `match` | `match(match?: Partial<Entity>): Partial<Entity>` | Get or set entity match criteria. |
 | `make` | `make(): Entity` | Create a new instance with the same options. |
 | `client` | `client(): MaplestorySDK` | Return the parent SDK client. |
 | `entopts` | `entopts(): object` | Return a copy of the entity options. |
@@ -245,10 +276,9 @@ All entities share the same interface.
 Entity operations resolve to the entity data directly — there is no
 result envelope:
 
-- `load`, `create` and `update` resolve to a single entity object.
+- `load` resolves to a single entity object.
 - `list` resolves to an **array** of entity objects (iterate it directly;
   there is no `.data` and no `.ok`).
-- `remove` resolves to `void`.
 
 On a failed request these methods **throw**, so wrap calls in
 `try`/`catch` to handle errors. Only `direct()` returns the result
@@ -619,7 +649,7 @@ Create an instance: `const android = client.Android()`
 #### Example: Load
 
 ```ts
-const android = await client.Android().load({ id: 'android_id' })
+const android = await client.Android().load({ id: 1 })
 ```
 
 
@@ -636,7 +666,7 @@ Create an instance: `const avatar = client.Avatar()`
 #### Example: Load
 
 ```ts
-const avatar = await client.Avatar().load({ id: 'avatar_id' })
+const avatar = await client.Avatar().load()
 ```
 
 
@@ -654,17 +684,17 @@ Create an instance: `const cache = client.Cache()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `eviction_count` | ``$INTEGER`` |  |
-| `hit_count` | ``$INTEGER`` |  |
-| `hit_ratio` | ``$NUMBER`` |  |
-| `memory_usage` | ``$INTEGER`` |  |
-| `miss_count` | ``$INTEGER`` |  |
-| `total_entry` | ``$INTEGER`` |  |
+| `eviction_count` | `number` |  |
+| `hit_count` | `number` |  |
+| `hit_ratio` | `number` |  |
+| `memory_usage` | `number` |  |
+| `miss_count` | `number` |  |
+| `total_entry` | `number` |  |
 
 #### Example: Load
 
 ```ts
-const cache = await client.Cache().load({ id: 'cache_id' })
+const cache = await client.Cache().load()
 ```
 
 
@@ -681,7 +711,7 @@ Create an instance: `const character = client.Character()`
 #### Example: Load
 
 ```ts
-const character = await client.Character().load({ id: 'character_id' })
+const character = await client.Character().load()
 ```
 
 
@@ -698,7 +728,7 @@ Create an instance: `const chat = client.Chat()`
 #### Example: Load
 
 ```ts
-const chat = await client.Chat().load({ id: 'chat_id' })
+const chat = await client.Chat().load()
 ```
 
 
@@ -716,9 +746,9 @@ Create an instance: `const cluster = client.Cluster()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `hostname` | ``$STRING`` |  |
-| `last_seen` | ``$STRING`` |  |
-| `metric` | ``$OBJECT`` |  |
+| `hostname` | `string` |  |
+| `last_seen` | `string` |  |
+| `metric` | `Record<string, any>` |  |
 
 #### Example: List
 
@@ -740,7 +770,7 @@ Create an instance: `const diff = client.Diff()`
 #### Example: Load
 
 ```ts
-const diff = await client.Diff().load({ id: 'diff_id' })
+const diff = await client.Diff().load()
 ```
 
 
@@ -757,7 +787,7 @@ Create an instance: `const entity1 = client.Entity1()`
 #### Example: Load
 
 ```ts
-const entity1 = await client.Entity1().load({ id: 'entity1_id' })
+const entity1 = await client.Entity1().load()
 ```
 
 
@@ -774,7 +804,7 @@ Create an instance: `const gms_new = client.GmsNew()`
 #### Example: Load
 
 ```ts
-const gms_new = await client.GmsNew().load({ id: 'gms_new_id' })
+const gms_new = await client.GmsNew().load({ id: 1 })
 ```
 
 
@@ -791,7 +821,7 @@ Create an instance: `const guild_mark = client.GuildMark()`
 #### Example: Load
 
 ```ts
-const guild_mark = await client.GuildMark().load({ id: 'guild_mark_id' })
+const guild_mark = await client.GuildMark().load()
 ```
 
 
@@ -808,7 +838,7 @@ Create an instance: `const health = client.Health()`
 #### Example: Load
 
 ```ts
-const health = await client.Health().load({ id: 'health_id' })
+const health = await client.Health().load()
 ```
 
 
@@ -825,7 +855,7 @@ Create an instance: `const item = client.Item()`
 #### Example: Load
 
 ```ts
-const item = await client.Item().load({ id: 'item_id' })
+const item = await client.Item().load({ id: 1 })
 ```
 
 
@@ -842,7 +872,7 @@ Create an instance: `const job = client.Job()`
 #### Example: Load
 
 ```ts
-const job = await client.Job().load({ id: 'job_id' })
+const job = await client.Job().load({ id: 1 })
 ```
 
 
@@ -859,7 +889,7 @@ Create an instance: `const map = client.Map()`
 #### Example: Load
 
 ```ts
-const map = await client.Map().load({ id: 'map_id' })
+const map = await client.Map().load({ id: 1 })
 ```
 
 
@@ -876,7 +906,7 @@ Create an instance: `const metric = client.Metric()`
 #### Example: Load
 
 ```ts
-const metric = await client.Metric().load({ id: 'metric_id' })
+const metric = await client.Metric().load()
 ```
 
 
@@ -893,7 +923,7 @@ Create an instance: `const mob = client.Mob()`
 #### Example: Load
 
 ```ts
-const mob = await client.Mob().load({ id: 'mob_id' })
+const mob = await client.Mob().load({ id: 1 })
 ```
 
 
@@ -927,7 +957,7 @@ Create an instance: `const name = client.Name()`
 #### Example: Load
 
 ```ts
-const name = await client.Name().load({ id: 'name_id' })
+const name = await client.Name().load()
 ```
 
 
@@ -944,7 +974,7 @@ Create an instance: `const npc = client.Npc()`
 #### Example: Load
 
 ```ts
-const npc = await client.Npc().load({ id: 'npc_id' })
+const npc = await client.Npc().load({ id: 1 })
 ```
 
 
@@ -961,7 +991,7 @@ Create an instance: `const nxf = client.Nxf()`
 #### Example: Load
 
 ```ts
-const nxf = await client.Nxf().load({ id: 'nxf_id' })
+const nxf = await client.Nxf().load()
 ```
 
 
@@ -979,24 +1009,24 @@ Create an instance: `const performance_metric = client.PerformanceMetric()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `active_request` | ``$INTEGER`` |  |
-| `average_response_time_m` | ``$NUMBER`` |  |
-| `cache` | ``$OBJECT`` |  |
-| `errors_by_type` | ``$OBJECT`` |  |
-| `last_updated` | ``$STRING`` |  |
-| `memory_used_byte` | ``$INTEGER`` |  |
-| `redis_cache` | ``$OBJECT`` |  |
-| `requests_per_second` | ``$NUMBER`` |  |
-| `start_time` | ``$STRING`` |  |
-| `system` | ``$OBJECT`` |  |
-| `total_error` | ``$INTEGER`` |  |
-| `total_request` | ``$INTEGER`` |  |
-| `wz_properties_loaded` | ``$INTEGER`` |  |
+| `active_request` | `number` |  |
+| `average_response_time_m` | `number` |  |
+| `cache` | `Record<string, any>` |  |
+| `errors_by_type` | `Record<string, any>` |  |
+| `last_updated` | `string` |  |
+| `memory_used_byte` | `number` |  |
+| `redis_cache` | `Record<string, any>` |  |
+| `requests_per_second` | `number` |  |
+| `start_time` | `string` |  |
+| `system` | `Record<string, any>` |  |
+| `total_error` | `number` |  |
+| `total_request` | `number` |  |
+| `wz_properties_loaded` | `number` |  |
 
 #### Example: Load
 
 ```ts
-const performance_metric = await client.PerformanceMetric().load({ id: 'performance_metric_id' })
+const performance_metric = await client.PerformanceMetric().load()
 ```
 
 
@@ -1013,7 +1043,7 @@ Create an instance: `const pet = client.Pet()`
 #### Example: Load
 
 ```ts
-const pet = await client.Pet().load({ id: 'pet_id' })
+const pet = await client.Pet().load({ id: 1 })
 ```
 
 
@@ -1030,7 +1060,7 @@ Create an instance: `const quest = client.Quest()`
 #### Example: Load
 
 ```ts
-const quest = await client.Quest().load({ id: 'quest_id' })
+const quest = await client.Quest().load({ id: 1 })
 ```
 
 
@@ -1048,18 +1078,18 @@ Create an instance: `const system = client.System()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `cpu_usage_percent` | ``$NUMBER`` |  |
-| `gc_gen0_collection` | ``$INTEGER`` |  |
-| `gc_gen1_collection` | ``$INTEGER`` |  |
-| `gc_gen2_collection` | ``$INTEGER`` |  |
-| `thread_count` | ``$INTEGER`` |  |
-| `total_memory_byte` | ``$INTEGER`` |  |
-| `used_memory_byte` | ``$INTEGER`` |  |
+| `cpu_usage_percent` | `number` |  |
+| `gc_gen0_collection` | `number` |  |
+| `gc_gen1_collection` | `number` |  |
+| `gc_gen2_collection` | `number` |  |
+| `thread_count` | `number` |  |
+| `total_memory_byte` | `number` |  |
+| `used_memory_byte` | `number` |  |
 
 #### Example: Load
 
 ```ts
-const system = await client.System().load({ id: 'system_id' })
+const system = await client.System().load()
 ```
 
 
@@ -1076,7 +1106,7 @@ Create an instance: `const tip = client.Tip()`
 #### Example: Load
 
 ```ts
-const tip = await client.Tip().load({ id: 'tip_id' })
+const tip = await client.Tip().load()
 ```
 
 
@@ -1093,7 +1123,7 @@ Create an instance: `const wzn = client.Wzn()`
 #### Example: Load
 
 ```ts
-const wzn = await client.Wzn().load({ id: 'wzn_id' })
+const wzn = await client.Wzn().load()
 ```
 
 
@@ -1110,7 +1140,7 @@ Create an instance: `const wzn2 = client.Wzn2()`
 #### Example: Load
 
 ```ts
-const wzn2 = await client.Wzn2().load({ id: 'wzn2_id' })
+const wzn2 = await client.Wzn2().load()
 ```
 
 
@@ -1127,7 +1157,7 @@ Create an instance: `const wzn3 = client.Wzn3()`
 #### Example: Load
 
 ```ts
-const wzn3 = await client.Wzn3().load({ id: 'wzn3_id' })
+const wzn3 = await client.Wzn3().load()
 ```
 
 
@@ -1144,7 +1174,7 @@ Create an instance: `const wzn4 = client.Wzn4()`
 #### Example: Load
 
 ```ts
-const wzn4 = await client.Wzn4().load({ id: 'wzn4_id' })
+const wzn4 = await client.Wzn4().load()
 ```
 
 
@@ -1161,7 +1191,7 @@ Create an instance: `const wzn5 = client.Wzn5()`
 #### Example: Load
 
 ```ts
-const wzn5 = await client.Wzn5().load({ id: 'wzn5_id' })
+const wzn5 = await client.Wzn5().load()
 ```
 
 
@@ -1178,7 +1208,7 @@ Create an instance: `const wzn6 = client.Wzn6()`
 #### Example: Load
 
 ```ts
-const wzn6 = await client.Wzn6().load({ id: 'wzn6_id' })
+const wzn6 = await client.Wzn6().load()
 ```
 
 
@@ -1195,16 +1225,20 @@ Create an instance: `const z_map = client.ZMap()`
 #### Example: Load
 
 ```ts
-const z_map = await client.ZMap().load({ id: 'z_map_id' })
+const z_map = await client.ZMap().load()
 ```
 
 
-## Explanation
+## Advanced
+
+> The sections above cover everyday use. The material below explains the
+> SDK's internals — useful when extending it with custom features, but not
+> needed for normal use.
 
 ### The operation pipeline
 
-Every entity operation (load, list, create, update, remove) follows a
-six-stage pipeline. Each stage fires a feature hook before executing:
+Every entity operation follows a six-stage pipeline. Each stage fires a
+feature hook before executing:
 
 ```
 PrePoint → PreSpec → PreRequest → PreResponse → PreResult → PreDone
@@ -1221,11 +1255,9 @@ PrePoint → PreSpec → PreRequest → PreResponse → PreResult → PreDone
 - **PreDone**: Final stage before returning to the caller. Entity
   state (match, data) is updated here.
 
-If any stage returns an error, the pipeline short-circuits and the
-error is returned to the caller.
-
-An unexpected exception triggers the `PreUnexpected` hook before
-propagating.
+If any stage errors, the pipeline short-circuits and the error surfaces
+to the caller — see [Error handling](#error-handling) for how that looks
+in this language.
 
 ### Features and hooks
 
@@ -1267,10 +1299,10 @@ calls on the same instance can rely on this state.
 
 ```ts
 const android = client.Android()
-await android.load({ id: "example_id" })
+await android.load({ id: 1 })
 
-// android.data() now returns the loaded android data
-// android.match() returns { id: "example_id" }
+// android.data() now returns the android data from the last `load`
+// android.match() returns { id: 1 }
 ```
 
 Call `make()` to create a fresh instance with the same configuration
