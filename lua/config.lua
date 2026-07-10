@@ -2674,7 +2674,6 @@ local function make_config()
                       ["orig"] = "region",
                       ["reqd"] = true,
                       ["type"] = "`$STRING`",
-                      ["index$"] = 0,
                     },
                     {
                       ["active"] = true,
@@ -2683,7 +2682,6 @@ local function make_config()
                       ["orig"] = "version",
                       ["reqd"] = true,
                       ["type"] = "`$STRING`",
-                      ["index$"] = 1,
                     },
                   },
                 },
@@ -3632,7 +3630,6 @@ local function make_config()
                       ["orig"] = "item_id",
                       ["reqd"] = true,
                       ["type"] = "`$INTEGER`",
-                      ["index$"] = 0,
                     },
                     {
                       ["active"] = true,
@@ -3641,7 +3638,6 @@ local function make_config()
                       ["orig"] = "region",
                       ["reqd"] = true,
                       ["type"] = "`$STRING`",
-                      ["index$"] = 1,
                     },
                     {
                       ["active"] = true,
@@ -3650,7 +3646,6 @@ local function make_config()
                       ["orig"] = "version",
                       ["reqd"] = true,
                       ["type"] = "`$STRING`",
-                      ["index$"] = 2,
                     },
                   },
                 },
@@ -3694,7 +3689,6 @@ local function make_config()
                       ["orig"] = "item_id",
                       ["reqd"] = true,
                       ["type"] = "`$INTEGER`",
-                      ["index$"] = 0,
                     },
                     {
                       ["active"] = true,
@@ -3703,7 +3697,6 @@ local function make_config()
                       ["orig"] = "region",
                       ["reqd"] = true,
                       ["type"] = "`$STRING`",
-                      ["index$"] = 1,
                     },
                     {
                       ["active"] = true,
@@ -3712,7 +3705,6 @@ local function make_config()
                       ["orig"] = "version",
                       ["reqd"] = true,
                       ["type"] = "`$STRING`",
-                      ["index$"] = 2,
                     },
                   },
                 },
@@ -3756,7 +3748,6 @@ local function make_config()
                       ["orig"] = "item_id",
                       ["reqd"] = true,
                       ["type"] = "`$INTEGER`",
-                      ["index$"] = 0,
                     },
                     {
                       ["active"] = true,
@@ -3765,7 +3756,6 @@ local function make_config()
                       ["orig"] = "region",
                       ["reqd"] = true,
                       ["type"] = "`$STRING`",
-                      ["index$"] = 1,
                     },
                     {
                       ["active"] = true,
@@ -3774,7 +3764,6 @@ local function make_config()
                       ["orig"] = "version",
                       ["reqd"] = true,
                       ["type"] = "`$STRING`",
-                      ["index$"] = 2,
                     },
                   },
                 },
@@ -3879,7 +3868,6 @@ local function make_config()
                       ["orig"] = "region",
                       ["reqd"] = true,
                       ["type"] = "`$STRING`",
-                      ["index$"] = 0,
                     },
                     {
                       ["active"] = true,
@@ -3888,7 +3876,6 @@ local function make_config()
                       ["orig"] = "version",
                       ["reqd"] = true,
                       ["type"] = "`$STRING`",
-                      ["index$"] = 1,
                     },
                   },
                 },
@@ -4082,7 +4069,6 @@ local function make_config()
                       ["orig"] = "job_id",
                       ["reqd"] = true,
                       ["type"] = "`$INTEGER`",
-                      ["index$"] = 0,
                     },
                     {
                       ["active"] = true,
@@ -4091,7 +4077,6 @@ local function make_config()
                       ["orig"] = "region",
                       ["reqd"] = true,
                       ["type"] = "`$STRING`",
-                      ["index$"] = 1,
                     },
                     {
                       ["active"] = true,
@@ -4100,7 +4085,6 @@ local function make_config()
                       ["orig"] = "version",
                       ["reqd"] = true,
                       ["type"] = "`$STRING`",
-                      ["index$"] = 2,
                     },
                   },
                 },
@@ -4249,7 +4233,6 @@ local function make_config()
                       ["orig"] = "region",
                       ["reqd"] = true,
                       ["type"] = "`$STRING`",
-                      ["index$"] = 0,
                     },
                     {
                       ["active"] = true,
@@ -4258,7 +4241,6 @@ local function make_config()
                       ["orig"] = "version",
                       ["reqd"] = true,
                       ["type"] = "`$STRING`",
-                      ["index$"] = 1,
                     },
                   },
                 },
@@ -4295,7 +4277,6 @@ local function make_config()
                       ["orig"] = "region",
                       ["reqd"] = true,
                       ["type"] = "`$STRING`",
-                      ["index$"] = 0,
                     },
                     {
                       ["active"] = true,
@@ -4304,7 +4285,6 @@ local function make_config()
                       ["orig"] = "version",
                       ["reqd"] = true,
                       ["type"] = "`$STRING`",
-                      ["index$"] = 1,
                     },
                   },
                 },
@@ -4653,7 +4633,6 @@ local function make_config()
                       ["orig"] = "region",
                       ["reqd"] = true,
                       ["type"] = "`$STRING`",
-                      ["index$"] = 0,
                     },
                     {
                       ["active"] = true,
@@ -4662,7 +4641,6 @@ local function make_config()
                       ["orig"] = "version",
                       ["reqd"] = true,
                       ["type"] = "`$STRING`",
-                      ["index$"] = 1,
                     },
                   },
                   ["query"] = {
@@ -4789,7 +4767,6 @@ local function make_config()
                       ["orig"] = "map_id",
                       ["reqd"] = true,
                       ["type"] = "`$INTEGER`",
-                      ["index$"] = 0,
                     },
                     {
                       ["active"] = true,
@@ -4798,7 +4775,6 @@ local function make_config()
                       ["orig"] = "region",
                       ["reqd"] = true,
                       ["type"] = "`$STRING`",
-                      ["index$"] = 1,
                     },
                     {
                       ["active"] = true,
@@ -4807,7 +4783,6 @@ local function make_config()
                       ["orig"] = "version",
                       ["reqd"] = true,
                       ["type"] = "`$STRING`",
-                      ["index$"] = 2,
                     },
                   },
                 },
@@ -4851,7 +4826,6 @@ local function make_config()
                       ["orig"] = "map_id",
                       ["reqd"] = true,
                       ["type"] = "`$INTEGER`",
-                      ["index$"] = 0,
                     },
                     {
                       ["active"] = true,
@@ -4860,7 +4834,6 @@ local function make_config()
                       ["orig"] = "region",
                       ["reqd"] = true,
                       ["type"] = "`$STRING`",
-                      ["index$"] = 1,
                     },
                     {
                       ["active"] = true,
@@ -4869,7 +4842,6 @@ local function make_config()
                       ["orig"] = "version",
                       ["reqd"] = true,
                       ["type"] = "`$STRING`",
-                      ["index$"] = 2,
                     },
                   },
                 },
@@ -4913,7 +4885,6 @@ local function make_config()
                       ["orig"] = "map_id",
                       ["reqd"] = true,
                       ["type"] = "`$INTEGER`",
-                      ["index$"] = 0,
                     },
                     {
                       ["active"] = true,
@@ -4922,7 +4893,6 @@ local function make_config()
                       ["orig"] = "region",
                       ["reqd"] = true,
                       ["type"] = "`$STRING`",
-                      ["index$"] = 1,
                     },
                     {
                       ["active"] = true,
@@ -4931,7 +4901,6 @@ local function make_config()
                       ["orig"] = "version",
                       ["reqd"] = true,
                       ["type"] = "`$STRING`",
-                      ["index$"] = 2,
                     },
                   },
                 },
@@ -4975,7 +4944,6 @@ local function make_config()
                       ["orig"] = "map_id",
                       ["reqd"] = true,
                       ["type"] = "`$INTEGER`",
-                      ["index$"] = 0,
                     },
                     {
                       ["active"] = true,
@@ -4984,7 +4952,6 @@ local function make_config()
                       ["orig"] = "region",
                       ["reqd"] = true,
                       ["type"] = "`$STRING`",
-                      ["index$"] = 1,
                     },
                     {
                       ["active"] = true,
@@ -4993,7 +4960,6 @@ local function make_config()
                       ["orig"] = "version",
                       ["reqd"] = true,
                       ["type"] = "`$STRING`",
-                      ["index$"] = 2,
                     },
                   },
                 },
@@ -5154,7 +5120,6 @@ local function make_config()
                       ["orig"] = "region",
                       ["reqd"] = true,
                       ["type"] = "`$STRING`",
-                      ["index$"] = 0,
                     },
                     {
                       ["active"] = true,
@@ -5163,7 +5128,6 @@ local function make_config()
                       ["orig"] = "version",
                       ["reqd"] = true,
                       ["type"] = "`$STRING`",
-                      ["index$"] = 1,
                     },
                   },
                 },
@@ -5929,7 +5893,6 @@ local function make_config()
                       ["orig"] = "mob_id",
                       ["reqd"] = true,
                       ["type"] = "`$INTEGER`",
-                      ["index$"] = 0,
                     },
                     {
                       ["active"] = true,
@@ -5938,7 +5901,6 @@ local function make_config()
                       ["orig"] = "region",
                       ["reqd"] = true,
                       ["type"] = "`$STRING`",
-                      ["index$"] = 1,
                     },
                     {
                       ["active"] = true,
@@ -5947,7 +5909,6 @@ local function make_config()
                       ["orig"] = "version",
                       ["reqd"] = true,
                       ["type"] = "`$STRING`",
-                      ["index$"] = 2,
                     },
                   },
                 },
@@ -5991,7 +5952,6 @@ local function make_config()
                       ["orig"] = "mob_id",
                       ["reqd"] = true,
                       ["type"] = "`$INTEGER`",
-                      ["index$"] = 0,
                     },
                     {
                       ["active"] = true,
@@ -6000,7 +5960,6 @@ local function make_config()
                       ["orig"] = "region",
                       ["reqd"] = true,
                       ["type"] = "`$STRING`",
-                      ["index$"] = 1,
                     },
                     {
                       ["active"] = true,
@@ -6009,7 +5968,6 @@ local function make_config()
                       ["orig"] = "version",
                       ["reqd"] = true,
                       ["type"] = "`$STRING`",
-                      ["index$"] = 2,
                     },
                   },
                 },
@@ -6053,7 +6011,6 @@ local function make_config()
                       ["orig"] = "mob_id",
                       ["reqd"] = true,
                       ["type"] = "`$INTEGER`",
-                      ["index$"] = 0,
                     },
                     {
                       ["active"] = true,
@@ -6062,7 +6019,6 @@ local function make_config()
                       ["orig"] = "region",
                       ["reqd"] = true,
                       ["type"] = "`$STRING`",
-                      ["index$"] = 1,
                     },
                     {
                       ["active"] = true,
@@ -6071,7 +6027,6 @@ local function make_config()
                       ["orig"] = "version",
                       ["reqd"] = true,
                       ["type"] = "`$STRING`",
-                      ["index$"] = 2,
                     },
                   },
                 },
@@ -6115,7 +6070,6 @@ local function make_config()
                       ["orig"] = "mob_id",
                       ["reqd"] = true,
                       ["type"] = "`$INTEGER`",
-                      ["index$"] = 0,
                     },
                     {
                       ["active"] = true,
@@ -6124,7 +6078,6 @@ local function make_config()
                       ["orig"] = "region",
                       ["reqd"] = true,
                       ["type"] = "`$STRING`",
-                      ["index$"] = 1,
                     },
                     {
                       ["active"] = true,
@@ -6133,7 +6086,6 @@ local function make_config()
                       ["orig"] = "version",
                       ["reqd"] = true,
                       ["type"] = "`$STRING`",
-                      ["index$"] = 2,
                     },
                   },
                 },
@@ -6641,7 +6593,6 @@ local function make_config()
                       ["orig"] = "region",
                       ["reqd"] = true,
                       ["type"] = "`$STRING`",
-                      ["index$"] = 0,
                     },
                     {
                       ["active"] = true,
@@ -6650,7 +6601,6 @@ local function make_config()
                       ["orig"] = "version",
                       ["reqd"] = true,
                       ["type"] = "`$STRING`",
-                      ["index$"] = 1,
                     },
                   },
                   ["query"] = {
@@ -6779,7 +6729,6 @@ local function make_config()
                       ["orig"] = "npc_id",
                       ["reqd"] = true,
                       ["type"] = "`$INTEGER`",
-                      ["index$"] = 0,
                     },
                     {
                       ["active"] = true,
@@ -6788,7 +6737,6 @@ local function make_config()
                       ["orig"] = "region",
                       ["reqd"] = true,
                       ["type"] = "`$STRING`",
-                      ["index$"] = 1,
                     },
                     {
                       ["active"] = true,
@@ -6797,7 +6745,6 @@ local function make_config()
                       ["orig"] = "version",
                       ["reqd"] = true,
                       ["type"] = "`$STRING`",
-                      ["index$"] = 2,
                     },
                   },
                 },
@@ -6841,7 +6788,6 @@ local function make_config()
                       ["orig"] = "npc_id",
                       ["reqd"] = true,
                       ["type"] = "`$INTEGER`",
-                      ["index$"] = 0,
                     },
                     {
                       ["active"] = true,
@@ -6850,7 +6796,6 @@ local function make_config()
                       ["orig"] = "region",
                       ["reqd"] = true,
                       ["type"] = "`$STRING`",
-                      ["index$"] = 1,
                     },
                     {
                       ["active"] = true,
@@ -6859,7 +6804,6 @@ local function make_config()
                       ["orig"] = "version",
                       ["reqd"] = true,
                       ["type"] = "`$STRING`",
-                      ["index$"] = 2,
                     },
                   },
                 },
@@ -6903,7 +6847,6 @@ local function make_config()
                       ["orig"] = "npc_id",
                       ["reqd"] = true,
                       ["type"] = "`$INTEGER`",
-                      ["index$"] = 0,
                     },
                     {
                       ["active"] = true,
@@ -6912,7 +6855,6 @@ local function make_config()
                       ["orig"] = "region",
                       ["reqd"] = true,
                       ["type"] = "`$STRING`",
-                      ["index$"] = 1,
                     },
                     {
                       ["active"] = true,
@@ -6921,7 +6863,6 @@ local function make_config()
                       ["orig"] = "version",
                       ["reqd"] = true,
                       ["type"] = "`$STRING`",
-                      ["index$"] = 2,
                     },
                   },
                 },
@@ -7423,7 +7364,6 @@ local function make_config()
                       ["orig"] = "pet_id",
                       ["reqd"] = true,
                       ["type"] = "`$INTEGER`",
-                      ["index$"] = 0,
                     },
                     {
                       ["active"] = true,
@@ -7432,7 +7372,6 @@ local function make_config()
                       ["orig"] = "region",
                       ["reqd"] = true,
                       ["type"] = "`$STRING`",
-                      ["index$"] = 1,
                     },
                     {
                       ["active"] = true,
@@ -7441,7 +7380,6 @@ local function make_config()
                       ["orig"] = "version",
                       ["reqd"] = true,
                       ["type"] = "`$STRING`",
-                      ["index$"] = 2,
                     },
                   },
                 },
@@ -7485,7 +7423,6 @@ local function make_config()
                       ["orig"] = "pet_id",
                       ["reqd"] = true,
                       ["type"] = "`$INTEGER`",
-                      ["index$"] = 0,
                     },
                     {
                       ["active"] = true,
@@ -7494,7 +7431,6 @@ local function make_config()
                       ["orig"] = "region",
                       ["reqd"] = true,
                       ["type"] = "`$STRING`",
-                      ["index$"] = 1,
                     },
                     {
                       ["active"] = true,
@@ -7503,7 +7439,6 @@ local function make_config()
                       ["orig"] = "version",
                       ["reqd"] = true,
                       ["type"] = "`$STRING`",
-                      ["index$"] = 2,
                     },
                   },
                 },
@@ -7547,7 +7482,6 @@ local function make_config()
                       ["orig"] = "pet_id",
                       ["reqd"] = true,
                       ["type"] = "`$INTEGER`",
-                      ["index$"] = 0,
                     },
                     {
                       ["active"] = true,
@@ -7556,7 +7490,6 @@ local function make_config()
                       ["orig"] = "region",
                       ["reqd"] = true,
                       ["type"] = "`$STRING`",
-                      ["index$"] = 1,
                     },
                     {
                       ["active"] = true,
@@ -7565,7 +7498,6 @@ local function make_config()
                       ["orig"] = "version",
                       ["reqd"] = true,
                       ["type"] = "`$STRING`",
-                      ["index$"] = 2,
                     },
                   },
                 },
@@ -7653,7 +7585,6 @@ local function make_config()
                       ["orig"] = "region",
                       ["reqd"] = true,
                       ["type"] = "`$STRING`",
-                      ["index$"] = 0,
                     },
                     {
                       ["active"] = true,
@@ -7662,7 +7593,6 @@ local function make_config()
                       ["orig"] = "version",
                       ["reqd"] = true,
                       ["type"] = "`$STRING`",
-                      ["index$"] = 1,
                     },
                   },
                 },
@@ -7995,7 +7925,6 @@ local function make_config()
                       ["orig"] = "quest_id",
                       ["reqd"] = true,
                       ["type"] = "`$INTEGER`",
-                      ["index$"] = 0,
                     },
                     {
                       ["active"] = true,
@@ -8004,7 +7933,6 @@ local function make_config()
                       ["orig"] = "region",
                       ["reqd"] = true,
                       ["type"] = "`$STRING`",
-                      ["index$"] = 1,
                     },
                     {
                       ["active"] = true,
@@ -8013,7 +7941,6 @@ local function make_config()
                       ["orig"] = "version",
                       ["reqd"] = true,
                       ["type"] = "`$STRING`",
-                      ["index$"] = 2,
                     },
                   },
                 },
@@ -8057,7 +7984,6 @@ local function make_config()
                       ["orig"] = "quest_id",
                       ["reqd"] = true,
                       ["type"] = "`$INTEGER`",
-                      ["index$"] = 0,
                     },
                     {
                       ["active"] = true,
@@ -8066,7 +7992,6 @@ local function make_config()
                       ["orig"] = "region",
                       ["reqd"] = true,
                       ["type"] = "`$STRING`",
-                      ["index$"] = 1,
                     },
                     {
                       ["active"] = true,
@@ -8075,7 +8000,6 @@ local function make_config()
                       ["orig"] = "version",
                       ["reqd"] = true,
                       ["type"] = "`$STRING`",
-                      ["index$"] = 2,
                     },
                   },
                 },
@@ -8119,7 +8043,6 @@ local function make_config()
                       ["orig"] = "region",
                       ["reqd"] = true,
                       ["type"] = "`$STRING`",
-                      ["index$"] = 0,
                     },
                     {
                       ["active"] = true,
@@ -8128,7 +8051,6 @@ local function make_config()
                       ["orig"] = "version",
                       ["reqd"] = true,
                       ["type"] = "`$STRING`",
-                      ["index$"] = 1,
                     },
                   },
                 },

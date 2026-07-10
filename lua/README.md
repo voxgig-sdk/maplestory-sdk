@@ -35,8 +35,10 @@ local client = sdk.new()
 
 ### 3. Load an android
 
+Android is nested under region, so provide the `region`.
+
 ```lua
-local android, err = client:Android():load({ id = "example_id" })
+local android, err = client:Android():load({ region = "example_region", version = "example_version" })
 if err then error(err) end
 print(android)
 ```
@@ -589,7 +591,7 @@ Create an instance: `local android = client:Android(nil)`
 #### Example: Load
 
 ```lua
-local android, err = client:Android():load({ id = "android_id" })
+local android, err = client:Android():load({ id = 1, region = "region", version = "version" })
 ```
 
 
@@ -606,7 +608,7 @@ Create an instance: `local avatar = client:Avatar(nil)`
 #### Example: Load
 
 ```lua
-local avatar, err = client:Avatar():load()
+local avatar, err = client:Avatar():load({ animation = "animation", frame = 1 })
 ```
 
 
@@ -651,7 +653,7 @@ Create an instance: `local character = client:Character(nil)`
 #### Example: Load
 
 ```lua
-local character, err = client:Character():load()
+local character, err = client:Character():load({ region = "region", version = "version" })
 ```
 
 
@@ -668,7 +670,7 @@ Create an instance: `local chat = client:Chat(nil)`
 #### Example: Load
 
 ```lua
-local chat, err = client:Chat():load()
+local chat, err = client:Chat():load({ region = "region", version = "version" })
 ```
 
 
@@ -710,7 +712,7 @@ Create an instance: `local diff = client:Diff(nil)`
 #### Example: Load
 
 ```lua
-local diff, err = client:Diff():load()
+local diff, err = client:Diff():load({ region = "region", version = "version" })
 ```
 
 
@@ -744,7 +746,7 @@ Create an instance: `local gms_new = client:GmsNew(nil)`
 #### Example: Load
 
 ```lua
-local gms_new, err = client:GmsNew():load({ id = "gms_new_id" })
+local gms_new, err = client:GmsNew():load({ id = 1 })
 ```
 
 
@@ -761,7 +763,7 @@ Create an instance: `local guild_mark = client:GuildMark(nil)`
 #### Example: Load
 
 ```lua
-local guild_mark, err = client:GuildMark():load()
+local guild_mark, err = client:GuildMark():load({ guild_mark_id = 1, region = "region", version = "version" })
 ```
 
 
@@ -795,7 +797,7 @@ Create an instance: `local item = client:Item(nil)`
 #### Example: Load
 
 ```lua
-local item, err = client:Item():load({ id = "item_id" })
+local item, err = client:Item():load({ id = 1, region = "region", version = "version" })
 ```
 
 
@@ -812,7 +814,7 @@ Create an instance: `local job = client:Job(nil)`
 #### Example: Load
 
 ```lua
-local job, err = client:Job():load({ id = "job_id" })
+local job, err = client:Job():load({ id = 1, region = "region", version = "version" })
 ```
 
 
@@ -829,7 +831,7 @@ Create an instance: `local map = client:Map(nil)`
 #### Example: Load
 
 ```lua
-local map, err = client:Map():load({ id = "map_id" })
+local map, err = client:Map():load({ id = 1, region = "region", version = "version" })
 ```
 
 
@@ -863,7 +865,7 @@ Create an instance: `local mob = client:Mob(nil)`
 #### Example: Load
 
 ```lua
-local mob, err = client:Mob():load({ id = "mob_id" })
+local mob, err = client:Mob():load({ id = 1, region = "region", version = "version" })
 ```
 
 
@@ -880,7 +882,7 @@ Create an instance: `local music = client:Music(nil)`
 #### Example: Load
 
 ```lua
-local music, err = client:Music():load({ id = "music_id" })
+local music, err = client:Music():load({ id = "music_id", region = "region", version = "version" })
 ```
 
 
@@ -897,7 +899,7 @@ Create an instance: `local name = client:Name(nil)`
 #### Example: Load
 
 ```lua
-local name, err = client:Name():load()
+local name, err = client:Name():load({ region = "region", version = "version" })
 ```
 
 
@@ -914,7 +916,7 @@ Create an instance: `local npc = client:Npc(nil)`
 #### Example: Load
 
 ```lua
-local npc, err = client:Npc():load({ id = "npc_id" })
+local npc, err = client:Npc():load({ id = 1, region = "region", version = "version" })
 ```
 
 
@@ -983,7 +985,7 @@ Create an instance: `local pet = client:Pet(nil)`
 #### Example: Load
 
 ```lua
-local pet, err = client:Pet():load({ id = "pet_id" })
+local pet, err = client:Pet():load({ id = 1, region = "region", version = "version" })
 ```
 
 
@@ -1000,7 +1002,7 @@ Create an instance: `local quest = client:Quest(nil)`
 #### Example: Load
 
 ```lua
-local quest, err = client:Quest():load({ id = "quest_id" })
+local quest, err = client:Quest():load({ id = 1, region = "region", version = "version" })
 ```
 
 
@@ -1046,7 +1048,7 @@ Create an instance: `local tip = client:Tip(nil)`
 #### Example: Load
 
 ```lua
-local tip, err = client:Tip():load()
+local tip, err = client:Tip():load({ region = "region", version = "version" })
 ```
 
 
@@ -1063,7 +1065,7 @@ Create an instance: `local wzn = client:Wzn(nil)`
 #### Example: Load
 
 ```lua
-local wzn, err = client:Wzn():load()
+local wzn, err = client:Wzn():load({ region = "region", version = "version" })
 ```
 
 
@@ -1080,7 +1082,7 @@ Create an instance: `local wzn2 = client:Wzn2(nil)`
 #### Example: Load
 
 ```lua
-local wzn2, err = client:Wzn2():load()
+local wzn2, err = client:Wzn2():load({ path = "path", region = "region", version = "version" })
 ```
 
 
@@ -1097,7 +1099,7 @@ Create an instance: `local wzn3 = client:Wzn3(nil)`
 #### Example: Load
 
 ```lua
-local wzn3, err = client:Wzn3():load()
+local wzn3, err = client:Wzn3():load({ path = "path", region = "region", version = "version" })
 ```
 
 
@@ -1114,7 +1116,7 @@ Create an instance: `local wzn4 = client:Wzn4(nil)`
 #### Example: Load
 
 ```lua
-local wzn4, err = client:Wzn4():load()
+local wzn4, err = client:Wzn4():load({ path = "path", region = "region", version = "version" })
 ```
 
 
@@ -1131,7 +1133,7 @@ Create an instance: `local wzn5 = client:Wzn5(nil)`
 #### Example: Load
 
 ```lua
-local wzn5, err = client:Wzn5():load()
+local wzn5, err = client:Wzn5():load({ path = "path", region = "region", version = "version" })
 ```
 
 
@@ -1148,7 +1150,7 @@ Create an instance: `local wzn6 = client:Wzn6(nil)`
 #### Example: Load
 
 ```lua
-local wzn6, err = client:Wzn6():load()
+local wzn6, err = client:Wzn6():load({ path = "path", region = "region", version = "version" })
 ```
 
 
@@ -1165,7 +1167,7 @@ Create an instance: `local z_map = client:ZMap(nil)`
 #### Example: Load
 
 ```lua
-local z_map, err = client:ZMap():load()
+local z_map, err = client:ZMap():load({ region = "region", version = "version" })
 ```
 
 

@@ -32,10 +32,12 @@ client = MaplestorySDK.new
 
 ### 3. Load an android
 
+Android is nested under region, so provide the `region`.
+
 ```ruby
 begin
   # load returns the bare Android record (raises on error).
-  android = client.Android.load({ "id" => "example_id" })
+  android = client.Android.load({ "region" => "example_region", "version" => "example_version" })
   puts android
 rescue => err
   warn "load failed: #{err}"
@@ -601,7 +603,7 @@ Create an instance: `android = client.Android`
 
 ```ruby
 # load returns the bare Android record (raises on error).
-android = client.Android.load({ "id" => "android_id" })
+android = client.Android.load({ "id" => 1, "region" => "region", "version" => "version" })
 ```
 
 
@@ -619,7 +621,7 @@ Create an instance: `avatar = client.Avatar`
 
 ```ruby
 # load returns the bare Avatar record (raises on error).
-avatar = client.Avatar.load()
+avatar = client.Avatar.load({ "animation" => "animation", "frame" => 1 })
 ```
 
 
@@ -666,7 +668,7 @@ Create an instance: `character = client.Character`
 
 ```ruby
 # load returns the bare Character record (raises on error).
-character = client.Character.load()
+character = client.Character.load({ "region" => "region", "version" => "version" })
 ```
 
 
@@ -684,7 +686,7 @@ Create an instance: `chat = client.Chat`
 
 ```ruby
 # load returns the bare Chat record (raises on error).
-chat = client.Chat.load()
+chat = client.Chat.load({ "region" => "region", "version" => "version" })
 ```
 
 
@@ -728,7 +730,7 @@ Create an instance: `diff = client.Diff`
 
 ```ruby
 # load returns the bare Diff record (raises on error).
-diff = client.Diff.load()
+diff = client.Diff.load({ "region" => "region", "version" => "version" })
 ```
 
 
@@ -764,7 +766,7 @@ Create an instance: `gms_new = client.GmsNew`
 
 ```ruby
 # load returns the bare GmsNew record (raises on error).
-gms_new = client.GmsNew.load({ "id" => "gms_new_id" })
+gms_new = client.GmsNew.load({ "id" => 1 })
 ```
 
 
@@ -782,7 +784,7 @@ Create an instance: `guild_mark = client.GuildMark`
 
 ```ruby
 # load returns the bare GuildMark record (raises on error).
-guild_mark = client.GuildMark.load()
+guild_mark = client.GuildMark.load({ "guild_mark_id" => 1, "region" => "region", "version" => "version" })
 ```
 
 
@@ -818,7 +820,7 @@ Create an instance: `item = client.Item`
 
 ```ruby
 # load returns the bare Item record (raises on error).
-item = client.Item.load({ "id" => "item_id" })
+item = client.Item.load({ "id" => 1, "region" => "region", "version" => "version" })
 ```
 
 
@@ -836,7 +838,7 @@ Create an instance: `job = client.Job`
 
 ```ruby
 # load returns the bare Job record (raises on error).
-job = client.Job.load({ "id" => "job_id" })
+job = client.Job.load({ "id" => 1, "region" => "region", "version" => "version" })
 ```
 
 
@@ -854,7 +856,7 @@ Create an instance: `map = client.Map`
 
 ```ruby
 # load returns the bare Map record (raises on error).
-map = client.Map.load({ "id" => "map_id" })
+map = client.Map.load({ "id" => 1, "region" => "region", "version" => "version" })
 ```
 
 
@@ -890,7 +892,7 @@ Create an instance: `mob = client.Mob`
 
 ```ruby
 # load returns the bare Mob record (raises on error).
-mob = client.Mob.load({ "id" => "mob_id" })
+mob = client.Mob.load({ "id" => 1, "region" => "region", "version" => "version" })
 ```
 
 
@@ -908,7 +910,7 @@ Create an instance: `music = client.Music`
 
 ```ruby
 # load returns the bare Music record (raises on error).
-music = client.Music.load({ "id" => "music_id" })
+music = client.Music.load({ "id" => "music_id", "region" => "region", "version" => "version" })
 ```
 
 
@@ -926,7 +928,7 @@ Create an instance: `name = client.Name`
 
 ```ruby
 # load returns the bare Name record (raises on error).
-name = client.Name.load()
+name = client.Name.load({ "region" => "region", "version" => "version" })
 ```
 
 
@@ -944,7 +946,7 @@ Create an instance: `npc = client.Npc`
 
 ```ruby
 # load returns the bare Npc record (raises on error).
-npc = client.Npc.load({ "id" => "npc_id" })
+npc = client.Npc.load({ "id" => 1, "region" => "region", "version" => "version" })
 ```
 
 
@@ -1016,7 +1018,7 @@ Create an instance: `pet = client.Pet`
 
 ```ruby
 # load returns the bare Pet record (raises on error).
-pet = client.Pet.load({ "id" => "pet_id" })
+pet = client.Pet.load({ "id" => 1, "region" => "region", "version" => "version" })
 ```
 
 
@@ -1034,7 +1036,7 @@ Create an instance: `quest = client.Quest`
 
 ```ruby
 # load returns the bare Quest record (raises on error).
-quest = client.Quest.load({ "id" => "quest_id" })
+quest = client.Quest.load({ "id" => 1, "region" => "region", "version" => "version" })
 ```
 
 
@@ -1082,7 +1084,7 @@ Create an instance: `tip = client.Tip`
 
 ```ruby
 # load returns the bare Tip record (raises on error).
-tip = client.Tip.load()
+tip = client.Tip.load({ "region" => "region", "version" => "version" })
 ```
 
 
@@ -1100,7 +1102,7 @@ Create an instance: `wzn = client.Wzn`
 
 ```ruby
 # load returns the bare Wzn record (raises on error).
-wzn = client.Wzn.load()
+wzn = client.Wzn.load({ "region" => "region", "version" => "version" })
 ```
 
 
@@ -1118,7 +1120,7 @@ Create an instance: `wzn2 = client.Wzn2`
 
 ```ruby
 # load returns the bare Wzn2 record (raises on error).
-wzn2 = client.Wzn2.load()
+wzn2 = client.Wzn2.load({ "path" => "path", "region" => "region", "version" => "version" })
 ```
 
 
@@ -1136,7 +1138,7 @@ Create an instance: `wzn3 = client.Wzn3`
 
 ```ruby
 # load returns the bare Wzn3 record (raises on error).
-wzn3 = client.Wzn3.load()
+wzn3 = client.Wzn3.load({ "path" => "path", "region" => "region", "version" => "version" })
 ```
 
 
@@ -1154,7 +1156,7 @@ Create an instance: `wzn4 = client.Wzn4`
 
 ```ruby
 # load returns the bare Wzn4 record (raises on error).
-wzn4 = client.Wzn4.load()
+wzn4 = client.Wzn4.load({ "path" => "path", "region" => "region", "version" => "version" })
 ```
 
 
@@ -1172,7 +1174,7 @@ Create an instance: `wzn5 = client.Wzn5`
 
 ```ruby
 # load returns the bare Wzn5 record (raises on error).
-wzn5 = client.Wzn5.load()
+wzn5 = client.Wzn5.load({ "path" => "path", "region" => "region", "version" => "version" })
 ```
 
 
@@ -1190,7 +1192,7 @@ Create an instance: `wzn6 = client.Wzn6`
 
 ```ruby
 # load returns the bare Wzn6 record (raises on error).
-wzn6 = client.Wzn6.load()
+wzn6 = client.Wzn6.load({ "path" => "path", "region" => "region", "version" => "version" })
 ```
 
 
@@ -1208,7 +1210,7 @@ Create an instance: `z_map = client.ZMap`
 
 ```ruby
 # load returns the bare ZMap record (raises on error).
-z_map = client.ZMap.load()
+z_map = client.ZMap.load({ "region" => "region", "version" => "version" })
 ```
 
 

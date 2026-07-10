@@ -19,9 +19,9 @@ main: {
           url: "https://maplestory.io"
         }
       ]
+      summary: "A simple API for MapleStory resources"
       title: "MapleStory.IO"
       version: "V3"
+      website: "https://maplestory.io"
     }
   }
-}
-

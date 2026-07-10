@@ -38,11 +38,12 @@ client = MaplestorySDK()
 
 ### 3. Load an android
 
+Android is nested under region, so provide the `region`.
 `load()` returns the bare record (a `dict`) and raises on error.
 
 ```python
 try:
-    android = client.Android().load({"id": "example_id"})
+    android = client.Android().load({"region": "example_region", "version": "example_version"})
     print(android)
 except Exception as err:
     print(f"load failed: {err}")
@@ -603,7 +604,7 @@ Create an instance: `android = client.Android()`
 #### Example: Load
 
 ```python
-android = client.Android().load({"id": "android_id"})
+android = client.Android().load({"id": 1, "region": "region", "version": "version"})
 ```
 
 
@@ -620,7 +621,7 @@ Create an instance: `avatar = client.Avatar()`
 #### Example: Load
 
 ```python
-avatar = client.Avatar().load()
+avatar = client.Avatar().load({"animation": "animation", "frame": 1})
 ```
 
 
@@ -665,7 +666,7 @@ Create an instance: `character = client.Character()`
 #### Example: Load
 
 ```python
-character = client.Character().load()
+character = client.Character().load({"region": "region", "version": "version"})
 ```
 
 
@@ -682,7 +683,7 @@ Create an instance: `chat = client.Chat()`
 #### Example: Load
 
 ```python
-chat = client.Chat().load()
+chat = client.Chat().load({"region": "region", "version": "version"})
 ```
 
 
@@ -724,7 +725,7 @@ Create an instance: `diff = client.Diff()`
 #### Example: Load
 
 ```python
-diff = client.Diff().load()
+diff = client.Diff().load({"region": "region", "version": "version"})
 ```
 
 
@@ -758,7 +759,7 @@ Create an instance: `gms_new = client.GmsNew()`
 #### Example: Load
 
 ```python
-gms_new = client.GmsNew().load({"id": "gms_new_id"})
+gms_new = client.GmsNew().load({"id": 1})
 ```
 
 
@@ -775,7 +776,7 @@ Create an instance: `guild_mark = client.GuildMark()`
 #### Example: Load
 
 ```python
-guild_mark = client.GuildMark().load()
+guild_mark = client.GuildMark().load({"guild_mark_id": 1, "region": "region", "version": "version"})
 ```
 
 
@@ -809,7 +810,7 @@ Create an instance: `item = client.Item()`
 #### Example: Load
 
 ```python
-item = client.Item().load({"id": "item_id"})
+item = client.Item().load({"id": 1, "region": "region", "version": "version"})
 ```
 
 
@@ -826,7 +827,7 @@ Create an instance: `job = client.Job()`
 #### Example: Load
 
 ```python
-job = client.Job().load({"id": "job_id"})
+job = client.Job().load({"id": 1, "region": "region", "version": "version"})
 ```
 
 
@@ -843,7 +844,7 @@ Create an instance: `map = client.Map()`
 #### Example: Load
 
 ```python
-map = client.Map().load({"id": "map_id"})
+map = client.Map().load({"id": 1, "region": "region", "version": "version"})
 ```
 
 
@@ -877,7 +878,7 @@ Create an instance: `mob = client.Mob()`
 #### Example: Load
 
 ```python
-mob = client.Mob().load({"id": "mob_id"})
+mob = client.Mob().load({"id": 1, "region": "region", "version": "version"})
 ```
 
 
@@ -894,7 +895,7 @@ Create an instance: `music = client.Music()`
 #### Example: Load
 
 ```python
-music = client.Music().load({"id": "music_id"})
+music = client.Music().load({"id": "music_id", "region": "region", "version": "version"})
 ```
 
 
@@ -911,7 +912,7 @@ Create an instance: `name = client.Name()`
 #### Example: Load
 
 ```python
-name = client.Name().load()
+name = client.Name().load({"region": "region", "version": "version"})
 ```
 
 
@@ -928,7 +929,7 @@ Create an instance: `npc = client.Npc()`
 #### Example: Load
 
 ```python
-npc = client.Npc().load({"id": "npc_id"})
+npc = client.Npc().load({"id": 1, "region": "region", "version": "version"})
 ```
 
 
@@ -997,7 +998,7 @@ Create an instance: `pet = client.Pet()`
 #### Example: Load
 
 ```python
-pet = client.Pet().load({"id": "pet_id"})
+pet = client.Pet().load({"id": 1, "region": "region", "version": "version"})
 ```
 
 
@@ -1014,7 +1015,7 @@ Create an instance: `quest = client.Quest()`
 #### Example: Load
 
 ```python
-quest = client.Quest().load({"id": "quest_id"})
+quest = client.Quest().load({"id": 1, "region": "region", "version": "version"})
 ```
 
 
@@ -1060,7 +1061,7 @@ Create an instance: `tip = client.Tip()`
 #### Example: Load
 
 ```python
-tip = client.Tip().load()
+tip = client.Tip().load({"region": "region", "version": "version"})
 ```
 
 
@@ -1077,7 +1078,7 @@ Create an instance: `wzn = client.Wzn()`
 #### Example: Load
 
 ```python
-wzn = client.Wzn().load()
+wzn = client.Wzn().load({"region": "region", "version": "version"})
 ```
 
 
@@ -1094,7 +1095,7 @@ Create an instance: `wzn2 = client.Wzn2()`
 #### Example: Load
 
 ```python
-wzn2 = client.Wzn2().load()
+wzn2 = client.Wzn2().load({"path": "path", "region": "region", "version": "version"})
 ```
 
 
@@ -1111,7 +1112,7 @@ Create an instance: `wzn3 = client.Wzn3()`
 #### Example: Load
 
 ```python
-wzn3 = client.Wzn3().load()
+wzn3 = client.Wzn3().load({"path": "path", "region": "region", "version": "version"})
 ```
 
 
@@ -1128,7 +1129,7 @@ Create an instance: `wzn4 = client.Wzn4()`
 #### Example: Load
 
 ```python
-wzn4 = client.Wzn4().load()
+wzn4 = client.Wzn4().load({"path": "path", "region": "region", "version": "version"})
 ```
 
 
@@ -1145,7 +1146,7 @@ Create an instance: `wzn5 = client.Wzn5()`
 #### Example: Load
 
 ```python
-wzn5 = client.Wzn5().load()
+wzn5 = client.Wzn5().load({"path": "path", "region": "region", "version": "version"})
 ```
 
 
@@ -1162,7 +1163,7 @@ Create an instance: `wzn6 = client.Wzn6()`
 #### Example: Load
 
 ```python
-wzn6 = client.Wzn6().load()
+wzn6 = client.Wzn6().load({"path": "path", "region": "region", "version": "version"})
 ```
 
 
@@ -1179,7 +1180,7 @@ Create an instance: `z_map = client.ZMap()`
 #### Example: Load
 
 ```python
-z_map = client.ZMap().load()
+z_map = client.ZMap().load({"region": "region", "version": "version"})
 ```
 
 

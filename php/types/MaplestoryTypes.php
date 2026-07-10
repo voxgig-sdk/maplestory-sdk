@@ -20,7 +20,7 @@ class Android
 /** Request payload for Android#load. */
 class AndroidLoadMatch
 {
-    public int $id;
+    public ?int $id = null;
     public string $region;
     public string $version;
 }
@@ -34,9 +34,9 @@ class Avatar
 class AvatarLoadMatch
 {
     public string $animation;
-    public string $character_id;
+    public ?string $character_id = null;
     public int $frame;
-    public string $item;
+    public ?string $item = null;
 }
 
 /** Cache entity data model. */
@@ -69,9 +69,9 @@ class Character
 /** Request payload for Character#load. */
 class CharacterLoadMatch
 {
-    public string $frame;
+    public ?string $frame = null;
     public string $region;
-    public int $skin_id;
+    public ?int $skin_id = null;
     public string $version;
 }
 
@@ -133,7 +133,7 @@ class GmsNew
 /** Request payload for GmsNew#load. */
 class GmsNewLoadMatch
 {
-    public int $id;
+    public ?int $id = null;
 }
 
 /** GuildMark entity data model. */
@@ -144,13 +144,13 @@ class GuildMark
 /** Request payload for GuildMark#load. */
 class GuildMarkLoadMatch
 {
-    public int $guild_background_color_id;
-    public int $guild_background_id;
-    public int $guild_mark_color_id;
+    public ?int $guild_background_color_id = null;
+    public ?int $guild_background_id = null;
+    public ?int $guild_mark_color_id = null;
     public int $guild_mark_id;
     public string $region;
     public string $version;
-    public int $color_id;
+    public ?int $color_id = null;
 }
 
 /** Health entity data model. */
@@ -173,8 +173,8 @@ class ItemLoadMatch
 {
     public string $region;
     public string $version;
-    public int $id;
-    public string $overall_category;
+    public ?int $id = null;
+    public ?string $overall_category = null;
 }
 
 /** Job entity data model. */
@@ -185,9 +185,9 @@ class Job
 /** Request payload for Job#load. */
 class JobLoadMatch
 {
-    public int $id;
+    public ?int $id = null;
     public string $region;
-    public int $skill_id;
+    public ?int $skill_id = null;
     public string $version;
 }
 
@@ -199,14 +199,14 @@ class Map
 /** Request payload for Map#load. */
 class MapLoadMatch
 {
-    public int $frame;
-    public int $layer;
-    public int $map_id;
+    public ?int $frame = null;
+    public ?int $layer = null;
+    public ?int $map_id = null;
     public string $region;
     public string $version;
-    public int $id;
-    public string $map;
-    public string $mark_name;
+    public ?int $id = null;
+    public ?string $map = null;
+    public ?string $mark_name = null;
 }
 
 /** Metric entity data model. */
@@ -229,11 +229,11 @@ class MobLoadMatch
 {
     public string $region;
     public string $version;
-    public string $animation;
-    public int $id;
-    public int $mob_id;
-    public int $frame;
-    public string $sound_name;
+    public ?string $animation = null;
+    public ?int $id = null;
+    public ?int $mob_id = null;
+    public ?int $frame = null;
+    public ?string $sound_name = null;
 }
 
 /** Music entity data model. */
@@ -269,11 +269,11 @@ class Npc
 /** Request payload for Npc#load. */
 class NpcLoadMatch
 {
-    public string $framebook;
-    public int $id;
+    public ?string $framebook = null;
+    public ?int $id = null;
     public string $region;
     public string $version;
-    public int $npc_id;
+    public ?int $npc_id = null;
 }
 
 /** Nxf entity data model. */
@@ -330,12 +330,12 @@ class Pet
 /** Request payload for Pet#load. */
 class PetLoadMatch
 {
-    public string $animation;
-    public int $pet_id;
+    public ?string $animation = null;
+    public ?int $pet_id = null;
     public string $region;
     public string $version;
-    public int $id;
-    public string $render_id;
+    public ?int $id = null;
+    public ?string $render_id = null;
 }
 
 /** Quest entity data model. */
@@ -348,8 +348,8 @@ class QuestLoadMatch
 {
     public string $region;
     public string $version;
-    public int $category;
-    public int $id;
+    public ?int $category = null;
+    public ?int $id = null;
 }
 
 /** System entity data model. */

@@ -15,7 +15,7 @@ end
 # Request payload for Android#load.
 #
 # @!attribute [rw] id
-#   @return [Integer]
+#   @return [Integer, nil]
 #
 # @!attribute [rw] region
 #   @return [String]
@@ -39,13 +39,13 @@ end
 #   @return [String]
 #
 # @!attribute [rw] character_id
-#   @return [String]
+#   @return [String, nil]
 #
 # @!attribute [rw] frame
 #   @return [Integer]
 #
 # @!attribute [rw] item
-#   @return [String]
+#   @return [String, nil]
 AvatarLoadMatch = Struct.new(
   :animation,
   :character_id,
@@ -119,13 +119,13 @@ end
 # Request payload for Character#load.
 #
 # @!attribute [rw] frame
-#   @return [String]
+#   @return [String, nil]
 #
 # @!attribute [rw] region
 #   @return [String]
 #
 # @!attribute [rw] skin_id
-#   @return [Integer]
+#   @return [Integer, nil]
 #
 # @!attribute [rw] version
 #   @return [String]
@@ -220,7 +220,7 @@ end
 # Request payload for GmsNew#load.
 #
 # @!attribute [rw] id
-#   @return [Integer]
+#   @return [Integer, nil]
 GmsNewLoadMatch = Struct.new(
   :id,
   keyword_init: true
@@ -233,13 +233,13 @@ end
 # Request payload for GuildMark#load.
 #
 # @!attribute [rw] guild_background_color_id
-#   @return [Integer]
+#   @return [Integer, nil]
 #
 # @!attribute [rw] guild_background_id
-#   @return [Integer]
+#   @return [Integer, nil]
 #
 # @!attribute [rw] guild_mark_color_id
-#   @return [Integer]
+#   @return [Integer, nil]
 #
 # @!attribute [rw] guild_mark_id
 #   @return [Integer]
@@ -251,7 +251,7 @@ end
 #   @return [String]
 #
 # @!attribute [rw] color_id
-#   @return [Integer]
+#   @return [Integer, nil]
 GuildMarkLoadMatch = Struct.new(
   :guild_background_color_id,
   :guild_background_id,
@@ -284,10 +284,10 @@ end
 #   @return [String]
 #
 # @!attribute [rw] id
-#   @return [Integer]
+#   @return [Integer, nil]
 #
 # @!attribute [rw] overall_category
-#   @return [String]
+#   @return [String, nil]
 ItemLoadMatch = Struct.new(
   :region,
   :version,
@@ -303,13 +303,13 @@ end
 # Request payload for Job#load.
 #
 # @!attribute [rw] id
-#   @return [Integer]
+#   @return [Integer, nil]
 #
 # @!attribute [rw] region
 #   @return [String]
 #
 # @!attribute [rw] skill_id
-#   @return [Integer]
+#   @return [Integer, nil]
 #
 # @!attribute [rw] version
 #   @return [String]
@@ -328,13 +328,13 @@ end
 # Request payload for Map#load.
 #
 # @!attribute [rw] frame
-#   @return [Integer]
+#   @return [Integer, nil]
 #
 # @!attribute [rw] layer
-#   @return [Integer]
+#   @return [Integer, nil]
 #
 # @!attribute [rw] map_id
-#   @return [Integer]
+#   @return [Integer, nil]
 #
 # @!attribute [rw] region
 #   @return [String]
@@ -343,13 +343,13 @@ end
 #   @return [String]
 #
 # @!attribute [rw] id
-#   @return [Integer]
+#   @return [Integer, nil]
 #
 # @!attribute [rw] map
-#   @return [String]
+#   @return [String, nil]
 #
 # @!attribute [rw] mark_name
-#   @return [String]
+#   @return [String, nil]
 MapLoadMatch = Struct.new(
   :frame,
   :layer,
@@ -383,19 +383,19 @@ end
 #   @return [String]
 #
 # @!attribute [rw] animation
-#   @return [String]
+#   @return [String, nil]
 #
 # @!attribute [rw] id
-#   @return [Integer]
+#   @return [Integer, nil]
 #
 # @!attribute [rw] mob_id
-#   @return [Integer]
+#   @return [Integer, nil]
 #
 # @!attribute [rw] frame
-#   @return [Integer]
+#   @return [Integer, nil]
 #
 # @!attribute [rw] sound_name
-#   @return [String]
+#   @return [String, nil]
 MobLoadMatch = Struct.new(
   :region,
   :version,
@@ -452,10 +452,10 @@ end
 # Request payload for Npc#load.
 #
 # @!attribute [rw] framebook
-#   @return [String]
+#   @return [String, nil]
 #
 # @!attribute [rw] id
-#   @return [Integer]
+#   @return [Integer, nil]
 #
 # @!attribute [rw] region
 #   @return [String]
@@ -464,7 +464,7 @@ end
 #   @return [String]
 #
 # @!attribute [rw] npc_id
-#   @return [Integer]
+#   @return [Integer, nil]
 NpcLoadMatch = Struct.new(
   :framebook,
   :id,
@@ -603,10 +603,10 @@ end
 # Request payload for Pet#load.
 #
 # @!attribute [rw] animation
-#   @return [String]
+#   @return [String, nil]
 #
 # @!attribute [rw] pet_id
-#   @return [Integer]
+#   @return [Integer, nil]
 #
 # @!attribute [rw] region
 #   @return [String]
@@ -615,10 +615,10 @@ end
 #   @return [String]
 #
 # @!attribute [rw] id
-#   @return [Integer]
+#   @return [Integer, nil]
 #
 # @!attribute [rw] render_id
-#   @return [String]
+#   @return [String, nil]
 PetLoadMatch = Struct.new(
   :animation,
   :pet_id,
@@ -642,10 +642,10 @@ end
 #   @return [String]
 #
 # @!attribute [rw] category
-#   @return [Integer]
+#   @return [Integer, nil]
 #
 # @!attribute [rw] id
-#   @return [Integer]
+#   @return [Integer, nil]
 QuestLoadMatch = Struct.new(
   :region,
   :version,

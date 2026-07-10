@@ -9,7 +9,7 @@
 ---@class Android
 
 ---@class AndroidLoadMatch
----@field id number
+---@field id? number
 ---@field region string
 ---@field version string
 
@@ -17,9 +17,9 @@
 
 ---@class AvatarLoadMatch
 ---@field animation string
----@field character_id string
+---@field character_id? string
 ---@field frame number
----@field item string
+---@field item? string
 
 ---@class Cache
 ---@field eviction_count? number
@@ -40,9 +40,9 @@
 ---@class Character
 
 ---@class CharacterLoadMatch
----@field frame string
+---@field frame? string
 ---@field region string
----@field skin_id number
+---@field skin_id? number
 ---@field version string
 
 ---@class Chat
@@ -74,18 +74,18 @@
 ---@class GmsNew
 
 ---@class GmsNewLoadMatch
----@field id number
+---@field id? number
 
 ---@class GuildMark
 
 ---@class GuildMarkLoadMatch
----@field guild_background_color_id number
----@field guild_background_id number
----@field guild_mark_color_id number
+---@field guild_background_color_id? number
+---@field guild_background_id? number
+---@field guild_mark_color_id? number
 ---@field guild_mark_id number
 ---@field region string
 ---@field version string
----@field color_id number
+---@field color_id? number
 
 ---@class Health
 
@@ -96,28 +96,28 @@
 ---@class ItemLoadMatch
 ---@field region string
 ---@field version string
----@field id number
----@field overall_category string
+---@field id? number
+---@field overall_category? string
 
 ---@class Job
 
 ---@class JobLoadMatch
----@field id number
+---@field id? number
 ---@field region string
----@field skill_id number
+---@field skill_id? number
 ---@field version string
 
 ---@class Map
 
 ---@class MapLoadMatch
----@field frame number
----@field layer number
----@field map_id number
+---@field frame? number
+---@field layer? number
+---@field map_id? number
 ---@field region string
 ---@field version string
----@field id number
----@field map string
----@field mark_name string
+---@field id? number
+---@field map? string
+---@field mark_name? string
 
 ---@class Metric
 
@@ -128,11 +128,11 @@
 ---@class MobLoadMatch
 ---@field region string
 ---@field version string
----@field animation string
----@field id number
----@field mob_id number
----@field frame number
----@field sound_name string
+---@field animation? string
+---@field id? number
+---@field mob_id? number
+---@field frame? number
+---@field sound_name? string
 
 ---@class Music
 
@@ -150,11 +150,11 @@
 ---@class Npc
 
 ---@class NpcLoadMatch
----@field framebook string
----@field id number
+---@field framebook? string
+---@field id? number
 ---@field region string
 ---@field version string
----@field npc_id number
+---@field npc_id? number
 
 ---@class Nxf
 
@@ -193,20 +193,20 @@
 ---@class Pet
 
 ---@class PetLoadMatch
----@field animation string
----@field pet_id number
+---@field animation? string
+---@field pet_id? number
 ---@field region string
 ---@field version string
----@field id number
----@field render_id string
+---@field id? number
+---@field render_id? string
 
 ---@class Quest
 
 ---@class QuestLoadMatch
 ---@field region string
 ---@field version string
----@field category number
----@field id number
+---@field category? number
+---@field id? number
 
 ---@class System
 ---@field cpu_usage_percent? number

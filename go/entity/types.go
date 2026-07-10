@@ -14,7 +14,7 @@ type Android struct {
 
 // AndroidLoadMatch is the typed request payload for Android.LoadTyped.
 type AndroidLoadMatch struct {
-	Id int `json:"id"`
+	Id *int `json:"id,omitempty"`
 	Region string `json:"region"`
 	Version string `json:"version"`
 }
@@ -26,9 +26,9 @@ type Avatar struct {
 // AvatarLoadMatch is the typed request payload for Avatar.LoadTyped.
 type AvatarLoadMatch struct {
 	Animation string `json:"animation"`
-	CharacterId string `json:"character_id"`
+	CharacterId *string `json:"character_id,omitempty"`
 	Frame int `json:"frame"`
-	Item string `json:"item"`
+	Item *string `json:"item,omitempty"`
 }
 
 // Cache is the typed data model for the cache entity.
@@ -57,9 +57,9 @@ type Character struct {
 
 // CharacterLoadMatch is the typed request payload for Character.LoadTyped.
 type CharacterLoadMatch struct {
-	Frame string `json:"frame"`
+	Frame *string `json:"frame,omitempty"`
 	Region string `json:"region"`
-	SkinId int `json:"skin_id"`
+	SkinId *int `json:"skin_id,omitempty"`
 	Version string `json:"version"`
 }
 
@@ -111,7 +111,7 @@ type GmsNew struct {
 
 // GmsNewLoadMatch is the typed request payload for GmsNew.LoadTyped.
 type GmsNewLoadMatch struct {
-	Id int `json:"id"`
+	Id *int `json:"id,omitempty"`
 }
 
 // GuildMark is the typed data model for the guild_mark entity.
@@ -120,13 +120,13 @@ type GuildMark struct {
 
 // GuildMarkLoadMatch is the typed request payload for GuildMark.LoadTyped.
 type GuildMarkLoadMatch struct {
-	GuildBackgroundColorId int `json:"guild_background_color_id"`
-	GuildBackgroundId int `json:"guild_background_id"`
-	GuildMarkColorId int `json:"guild_mark_color_id"`
+	GuildBackgroundColorId *int `json:"guild_background_color_id,omitempty"`
+	GuildBackgroundId *int `json:"guild_background_id,omitempty"`
+	GuildMarkColorId *int `json:"guild_mark_color_id,omitempty"`
 	GuildMarkId int `json:"guild_mark_id"`
 	Region string `json:"region"`
 	Version string `json:"version"`
-	ColorId int `json:"color_id"`
+	ColorId *int `json:"color_id,omitempty"`
 }
 
 // Health is the typed data model for the health entity.
@@ -145,8 +145,8 @@ type Item struct {
 type ItemLoadMatch struct {
 	Region string `json:"region"`
 	Version string `json:"version"`
-	Id int `json:"id"`
-	OverallCategory string `json:"overall_category"`
+	Id *int `json:"id,omitempty"`
+	OverallCategory *string `json:"overall_category,omitempty"`
 }
 
 // Job is the typed data model for the job entity.
@@ -155,9 +155,9 @@ type Job struct {
 
 // JobLoadMatch is the typed request payload for Job.LoadTyped.
 type JobLoadMatch struct {
-	Id int `json:"id"`
+	Id *int `json:"id,omitempty"`
 	Region string `json:"region"`
-	SkillId int `json:"skill_id"`
+	SkillId *int `json:"skill_id,omitempty"`
 	Version string `json:"version"`
 }
 
@@ -167,14 +167,14 @@ type Map struct {
 
 // MapLoadMatch is the typed request payload for Map.LoadTyped.
 type MapLoadMatch struct {
-	Frame int `json:"frame"`
-	Layer int `json:"layer"`
-	MapId int `json:"map_id"`
+	Frame *int `json:"frame,omitempty"`
+	Layer *int `json:"layer,omitempty"`
+	MapId *int `json:"map_id,omitempty"`
 	Region string `json:"region"`
 	Version string `json:"version"`
-	Id int `json:"id"`
-	Map string `json:"map"`
-	MarkName string `json:"mark_name"`
+	Id *int `json:"id,omitempty"`
+	Map *string `json:"map,omitempty"`
+	MarkName *string `json:"mark_name,omitempty"`
 }
 
 // Metric is the typed data model for the metric entity.
@@ -193,11 +193,11 @@ type Mob struct {
 type MobLoadMatch struct {
 	Region string `json:"region"`
 	Version string `json:"version"`
-	Animation string `json:"animation"`
-	Id int `json:"id"`
-	MobId int `json:"mob_id"`
-	Frame int `json:"frame"`
-	SoundName string `json:"sound_name"`
+	Animation *string `json:"animation,omitempty"`
+	Id *int `json:"id,omitempty"`
+	MobId *int `json:"mob_id,omitempty"`
+	Frame *int `json:"frame,omitempty"`
+	SoundName *string `json:"sound_name,omitempty"`
 }
 
 // Music is the typed data model for the music entity.
@@ -227,11 +227,11 @@ type Npc struct {
 
 // NpcLoadMatch is the typed request payload for Npc.LoadTyped.
 type NpcLoadMatch struct {
-	Framebook string `json:"framebook"`
-	Id int `json:"id"`
+	Framebook *string `json:"framebook,omitempty"`
+	Id *int `json:"id,omitempty"`
 	Region string `json:"region"`
 	Version string `json:"version"`
-	NpcId int `json:"npc_id"`
+	NpcId *int `json:"npc_id,omitempty"`
 }
 
 // Nxf is the typed data model for the nxf entity.
@@ -282,12 +282,12 @@ type Pet struct {
 
 // PetLoadMatch is the typed request payload for Pet.LoadTyped.
 type PetLoadMatch struct {
-	Animation string `json:"animation"`
-	PetId int `json:"pet_id"`
+	Animation *string `json:"animation,omitempty"`
+	PetId *int `json:"pet_id,omitempty"`
 	Region string `json:"region"`
 	Version string `json:"version"`
-	Id int `json:"id"`
-	RenderId string `json:"render_id"`
+	Id *int `json:"id,omitempty"`
+	RenderId *string `json:"render_id,omitempty"`
 }
 
 // Quest is the typed data model for the quest entity.
@@ -298,8 +298,8 @@ type Quest struct {
 type QuestLoadMatch struct {
 	Region string `json:"region"`
 	Version string `json:"version"`
-	Category int `json:"category"`
-	Id int `json:"id"`
+	Category *int `json:"category,omitempty"`
+	Id *int `json:"id,omitempty"`
 }
 
 // System is the typed data model for the system entity.

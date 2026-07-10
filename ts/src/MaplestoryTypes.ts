@@ -9,7 +9,7 @@ export interface Android {
 }
 
 export interface AndroidLoadMatch {
-  id: number
+  id?: number
   region: string
   version: string
 }
@@ -19,9 +19,9 @@ export interface Avatar {
 
 export interface AvatarLoadMatch {
   animation: string
-  character_id: string
+  character_id?: string
   frame: number
-  item: string
+  item?: string
 }
 
 export interface Cache {
@@ -46,9 +46,9 @@ export interface Character {
 }
 
 export interface CharacterLoadMatch {
-  frame: string
+  frame?: string
   region: string
-  skin_id: number
+  skin_id?: number
   version: string
 }
 
@@ -90,20 +90,20 @@ export interface GmsNew {
 }
 
 export interface GmsNewLoadMatch {
-  id: number
+  id?: number
 }
 
 export interface GuildMark {
 }
 
 export interface GuildMarkLoadMatch {
-  guild_background_color_id: number
-  guild_background_id: number
-  guild_mark_color_id: number
+  guild_background_color_id?: number
+  guild_background_id?: number
+  guild_mark_color_id?: number
   guild_mark_id: number
   region: string
   version: string
-  color_id: number
+  color_id?: number
 }
 
 export interface Health {
@@ -118,17 +118,17 @@ export interface Item {
 export interface ItemLoadMatch {
   region: string
   version: string
-  id: number
-  overall_category: string
+  id?: number
+  overall_category?: string
 }
 
 export interface Job {
 }
 
 export interface JobLoadMatch {
-  id: number
+  id?: number
   region: string
-  skill_id: number
+  skill_id?: number
   version: string
 }
 
@@ -136,14 +136,14 @@ export interface Map {
 }
 
 export interface MapLoadMatch {
-  frame: number
-  layer: number
-  map_id: number
+  frame?: number
+  layer?: number
+  map_id?: number
   region: string
   version: string
-  id: number
-  map: string
-  mark_name: string
+  id?: number
+  map?: string
+  mark_name?: string
 }
 
 export interface Metric {
@@ -158,11 +158,11 @@ export interface Mob {
 export interface MobLoadMatch {
   region: string
   version: string
-  animation: string
-  id: number
-  mob_id: number
-  frame: number
-  sound_name: string
+  animation?: string
+  id?: number
+  mob_id?: number
+  frame?: number
+  sound_name?: string
 }
 
 export interface Music {
@@ -186,11 +186,11 @@ export interface Npc {
 }
 
 export interface NpcLoadMatch {
-  framebook: string
-  id: number
+  framebook?: string
+  id?: number
   region: string
   version: string
-  npc_id: number
+  npc_id?: number
 }
 
 export interface Nxf {
@@ -235,12 +235,12 @@ export interface Pet {
 }
 
 export interface PetLoadMatch {
-  animation: string
-  pet_id: number
+  animation?: string
+  pet_id?: number
   region: string
   version: string
-  id: number
-  render_id: string
+  id?: number
+  render_id?: string
 }
 
 export interface Quest {
@@ -249,8 +249,8 @@ export interface Quest {
 export interface QuestLoadMatch {
   region: string
   version: string
-  category: number
-  id: number
+  category?: number
+  id?: number
 }
 
 export interface System {

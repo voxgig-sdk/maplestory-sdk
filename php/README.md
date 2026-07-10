@@ -33,10 +33,12 @@ $client = new MaplestorySDK();
 
 ### 3. Load an android
 
+Android is nested under region, so provide the `region`.
+
 ```php
 try {
     // load() returns the bare Android record (throws on error).
-    $android = $client->Android()->load(["id" => "example_id"]);
+    $android = $client->Android()->load(["region" => "example_region", "version" => "example_version"]);
     print_r($android);
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
@@ -611,7 +613,7 @@ Create an instance: `$android = $client->Android();`
 
 ```php
 // load() returns the bare Android record (throws on error).
-$android = $client->Android()->load(["id" => "android_id"]);
+$android = $client->Android()->load(["id" => 1, "region" => "region", "version" => "version"]);
 ```
 
 
@@ -629,7 +631,7 @@ Create an instance: `$avatar = $client->Avatar();`
 
 ```php
 // load() returns the bare Avatar record (throws on error).
-$avatar = $client->Avatar()->load();
+$avatar = $client->Avatar()->load(["animation" => "animation", "frame" => 1]);
 ```
 
 
@@ -676,7 +678,7 @@ Create an instance: `$character = $client->Character();`
 
 ```php
 // load() returns the bare Character record (throws on error).
-$character = $client->Character()->load();
+$character = $client->Character()->load(["region" => "region", "version" => "version"]);
 ```
 
 
@@ -694,7 +696,7 @@ Create an instance: `$chat = $client->Chat();`
 
 ```php
 // load() returns the bare Chat record (throws on error).
-$chat = $client->Chat()->load();
+$chat = $client->Chat()->load(["region" => "region", "version" => "version"]);
 ```
 
 
@@ -738,7 +740,7 @@ Create an instance: `$diff = $client->Diff();`
 
 ```php
 // load() returns the bare Diff record (throws on error).
-$diff = $client->Diff()->load();
+$diff = $client->Diff()->load(["region" => "region", "version" => "version"]);
 ```
 
 
@@ -774,7 +776,7 @@ Create an instance: `$gms_new = $client->GmsNew();`
 
 ```php
 // load() returns the bare GmsNew record (throws on error).
-$gms_new = $client->GmsNew()->load(["id" => "gms_new_id"]);
+$gms_new = $client->GmsNew()->load(["id" => 1]);
 ```
 
 
@@ -792,7 +794,7 @@ Create an instance: `$guild_mark = $client->GuildMark();`
 
 ```php
 // load() returns the bare GuildMark record (throws on error).
-$guild_mark = $client->GuildMark()->load();
+$guild_mark = $client->GuildMark()->load(["guild_mark_id" => 1, "region" => "region", "version" => "version"]);
 ```
 
 
@@ -828,7 +830,7 @@ Create an instance: `$item = $client->Item();`
 
 ```php
 // load() returns the bare Item record (throws on error).
-$item = $client->Item()->load(["id" => "item_id"]);
+$item = $client->Item()->load(["id" => 1, "region" => "region", "version" => "version"]);
 ```
 
 
@@ -846,7 +848,7 @@ Create an instance: `$job = $client->Job();`
 
 ```php
 // load() returns the bare Job record (throws on error).
-$job = $client->Job()->load(["id" => "job_id"]);
+$job = $client->Job()->load(["id" => 1, "region" => "region", "version" => "version"]);
 ```
 
 
@@ -864,7 +866,7 @@ Create an instance: `$map = $client->Map();`
 
 ```php
 // load() returns the bare Map record (throws on error).
-$map = $client->Map()->load(["id" => "map_id"]);
+$map = $client->Map()->load(["id" => 1, "region" => "region", "version" => "version"]);
 ```
 
 
@@ -900,7 +902,7 @@ Create an instance: `$mob = $client->Mob();`
 
 ```php
 // load() returns the bare Mob record (throws on error).
-$mob = $client->Mob()->load(["id" => "mob_id"]);
+$mob = $client->Mob()->load(["id" => 1, "region" => "region", "version" => "version"]);
 ```
 
 
@@ -918,7 +920,7 @@ Create an instance: `$music = $client->Music();`
 
 ```php
 // load() returns the bare Music record (throws on error).
-$music = $client->Music()->load(["id" => "music_id"]);
+$music = $client->Music()->load(["id" => "music_id", "region" => "region", "version" => "version"]);
 ```
 
 
@@ -936,7 +938,7 @@ Create an instance: `$name = $client->Name();`
 
 ```php
 // load() returns the bare Name record (throws on error).
-$name = $client->Name()->load();
+$name = $client->Name()->load(["region" => "region", "version" => "version"]);
 ```
 
 
@@ -954,7 +956,7 @@ Create an instance: `$npc = $client->Npc();`
 
 ```php
 // load() returns the bare Npc record (throws on error).
-$npc = $client->Npc()->load(["id" => "npc_id"]);
+$npc = $client->Npc()->load(["id" => 1, "region" => "region", "version" => "version"]);
 ```
 
 
@@ -1026,7 +1028,7 @@ Create an instance: `$pet = $client->Pet();`
 
 ```php
 // load() returns the bare Pet record (throws on error).
-$pet = $client->Pet()->load(["id" => "pet_id"]);
+$pet = $client->Pet()->load(["id" => 1, "region" => "region", "version" => "version"]);
 ```
 
 
@@ -1044,7 +1046,7 @@ Create an instance: `$quest = $client->Quest();`
 
 ```php
 // load() returns the bare Quest record (throws on error).
-$quest = $client->Quest()->load(["id" => "quest_id"]);
+$quest = $client->Quest()->load(["id" => 1, "region" => "region", "version" => "version"]);
 ```
 
 
@@ -1092,7 +1094,7 @@ Create an instance: `$tip = $client->Tip();`
 
 ```php
 // load() returns the bare Tip record (throws on error).
-$tip = $client->Tip()->load();
+$tip = $client->Tip()->load(["region" => "region", "version" => "version"]);
 ```
 
 
@@ -1110,7 +1112,7 @@ Create an instance: `$wzn = $client->Wzn();`
 
 ```php
 // load() returns the bare Wzn record (throws on error).
-$wzn = $client->Wzn()->load();
+$wzn = $client->Wzn()->load(["region" => "region", "version" => "version"]);
 ```
 
 
@@ -1128,7 +1130,7 @@ Create an instance: `$wzn2 = $client->Wzn2();`
 
 ```php
 // load() returns the bare Wzn2 record (throws on error).
-$wzn2 = $client->Wzn2()->load();
+$wzn2 = $client->Wzn2()->load(["path" => "path", "region" => "region", "version" => "version"]);
 ```
 
 
@@ -1146,7 +1148,7 @@ Create an instance: `$wzn3 = $client->Wzn3();`
 
 ```php
 // load() returns the bare Wzn3 record (throws on error).
-$wzn3 = $client->Wzn3()->load();
+$wzn3 = $client->Wzn3()->load(["path" => "path", "region" => "region", "version" => "version"]);
 ```
 
 
@@ -1164,7 +1166,7 @@ Create an instance: `$wzn4 = $client->Wzn4();`
 
 ```php
 // load() returns the bare Wzn4 record (throws on error).
-$wzn4 = $client->Wzn4()->load();
+$wzn4 = $client->Wzn4()->load(["path" => "path", "region" => "region", "version" => "version"]);
 ```
 
 
@@ -1182,7 +1184,7 @@ Create an instance: `$wzn5 = $client->Wzn5();`
 
 ```php
 // load() returns the bare Wzn5 record (throws on error).
-$wzn5 = $client->Wzn5()->load();
+$wzn5 = $client->Wzn5()->load(["path" => "path", "region" => "region", "version" => "version"]);
 ```
 
 
@@ -1200,7 +1202,7 @@ Create an instance: `$wzn6 = $client->Wzn6();`
 
 ```php
 // load() returns the bare Wzn6 record (throws on error).
-$wzn6 = $client->Wzn6()->load();
+$wzn6 = $client->Wzn6()->load(["path" => "path", "region" => "region", "version" => "version"]);
 ```
 
 
@@ -1218,7 +1220,7 @@ Create an instance: `$z_map = $client->ZMap();`
 
 ```php
 // load() returns the bare ZMap record (throws on error).
-$z_map = $client->ZMap()->load();
+$z_map = $client->ZMap()->load(["region" => "region", "version" => "version"]);
 ```
 
 

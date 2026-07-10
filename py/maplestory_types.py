@@ -20,20 +20,26 @@ class Android(TypedDict):
     pass
 
 
-class AndroidLoadMatch(TypedDict):
-    id: int
+class AndroidLoadMatchRequired(TypedDict):
     region: str
     version: str
+
+
+class AndroidLoadMatch(AndroidLoadMatchRequired, total=False):
+    id: int
 
 
 class Avatar(TypedDict):
     pass
 
 
-class AvatarLoadMatch(TypedDict):
+class AvatarLoadMatchRequired(TypedDict):
     animation: str
-    character_id: str
     frame: int
+
+
+class AvatarLoadMatch(AvatarLoadMatchRequired, total=False):
+    character_id: str
     item: str
 
 
@@ -59,11 +65,14 @@ class Character(TypedDict):
     pass
 
 
-class CharacterLoadMatch(TypedDict):
-    frame: str
+class CharacterLoadMatchRequired(TypedDict):
     region: str
-    skin_id: int
     version: str
+
+
+class CharacterLoadMatch(CharacterLoadMatchRequired, total=False):
+    frame: str
+    skin_id: int
 
 
 class Chat(TypedDict):
@@ -108,7 +117,7 @@ class GmsNew(TypedDict):
     pass
 
 
-class GmsNewLoadMatch(TypedDict):
+class GmsNewLoadMatch(TypedDict, total=False):
     id: int
 
 
@@ -116,13 +125,16 @@ class GuildMark(TypedDict):
     pass
 
 
-class GuildMarkLoadMatch(TypedDict):
-    guild_background_color_id: int
-    guild_background_id: int
-    guild_mark_color_id: int
+class GuildMarkLoadMatchRequired(TypedDict):
     guild_mark_id: int
     region: str
     version: str
+
+
+class GuildMarkLoadMatch(GuildMarkLoadMatchRequired, total=False):
+    guild_background_color_id: int
+    guild_background_id: int
+    guild_mark_color_id: int
     color_id: int
 
 
@@ -138,9 +150,12 @@ class Item(TypedDict):
     pass
 
 
-class ItemLoadMatch(TypedDict):
+class ItemLoadMatchRequired(TypedDict):
     region: str
     version: str
+
+
+class ItemLoadMatch(ItemLoadMatchRequired, total=False):
     id: int
     overall_category: str
 
@@ -149,23 +164,29 @@ class Job(TypedDict):
     pass
 
 
-class JobLoadMatch(TypedDict):
-    id: int
+class JobLoadMatchRequired(TypedDict):
     region: str
-    skill_id: int
     version: str
+
+
+class JobLoadMatch(JobLoadMatchRequired, total=False):
+    id: int
+    skill_id: int
 
 
 class Map(TypedDict):
     pass
 
 
-class MapLoadMatch(TypedDict):
+class MapLoadMatchRequired(TypedDict):
+    region: str
+    version: str
+
+
+class MapLoadMatch(MapLoadMatchRequired, total=False):
     frame: int
     layer: int
     map_id: int
-    region: str
-    version: str
     id: int
     map: str
     mark_name: str
@@ -183,9 +204,12 @@ class Mob(TypedDict):
     pass
 
 
-class MobLoadMatch(TypedDict):
+class MobLoadMatchRequired(TypedDict):
     region: str
     version: str
+
+
+class MobLoadMatch(MobLoadMatchRequired, total=False):
     animation: str
     id: int
     mob_id: int
@@ -216,11 +240,14 @@ class Npc(TypedDict):
     pass
 
 
-class NpcLoadMatch(TypedDict):
-    framebook: str
-    id: int
+class NpcLoadMatchRequired(TypedDict):
     region: str
     version: str
+
+
+class NpcLoadMatch(NpcLoadMatchRequired, total=False):
+    framebook: str
+    id: int
     npc_id: int
 
 
@@ -268,11 +295,14 @@ class Pet(TypedDict):
     pass
 
 
-class PetLoadMatch(TypedDict):
-    animation: str
-    pet_id: int
+class PetLoadMatchRequired(TypedDict):
     region: str
     version: str
+
+
+class PetLoadMatch(PetLoadMatchRequired, total=False):
+    animation: str
+    pet_id: int
     id: int
     render_id: str
 
@@ -281,9 +311,12 @@ class Quest(TypedDict):
     pass
 
 
-class QuestLoadMatch(TypedDict):
+class QuestLoadMatchRequired(TypedDict):
     region: str
     version: str
+
+
+class QuestLoadMatch(QuestLoadMatchRequired, total=False):
     category: int
     id: int
 

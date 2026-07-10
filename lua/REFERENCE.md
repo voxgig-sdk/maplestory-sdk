@@ -217,7 +217,7 @@ local android = client:Android(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Android():load({ id = "android_id" })
+local result, err = client:Android():load({ id = 1, region = "region", version = "version" })
 ```
 
 ### Common Methods
@@ -263,7 +263,7 @@ local avatar = client:Avatar(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Avatar():load()
+local result, err = client:Avatar():load({ animation = "animation", frame = 1 })
 ```
 
 ### Common Methods
@@ -366,7 +366,7 @@ local character = client:Character(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Character():load()
+local result, err = client:Character():load({ region = "region", version = "version" })
 ```
 
 ### Common Methods
@@ -412,7 +412,7 @@ local chat = client:Chat(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Chat():load()
+local result, err = client:Chat():load({ region = "region", version = "version" })
 ```
 
 ### Common Methods
@@ -512,7 +512,7 @@ local diff = client:Diff(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Diff():load()
+local result, err = client:Diff():load({ region = "region", version = "version" })
 ```
 
 ### Common Methods
@@ -604,7 +604,7 @@ local gms_new = client:GmsNew(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:GmsNew():load({ id = "gms_new_id" })
+local result, err = client:GmsNew():load({ id = 1 })
 ```
 
 ### Common Methods
@@ -650,7 +650,7 @@ local guild_mark = client:GuildMark(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:GuildMark():load()
+local result, err = client:GuildMark():load({ guild_mark_id = 1, region = "region", version = "version" })
 ```
 
 ### Common Methods
@@ -742,7 +742,7 @@ local item = client:Item(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Item():load({ id = "item_id" })
+local result, err = client:Item():load({ id = 1, region = "region", version = "version" })
 ```
 
 ### Common Methods
@@ -788,7 +788,7 @@ local job = client:Job(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Job():load({ id = "job_id" })
+local result, err = client:Job():load({ id = 1, region = "region", version = "version" })
 ```
 
 ### Common Methods
@@ -834,7 +834,7 @@ local map = client:Map(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Map():load({ id = "map_id" })
+local result, err = client:Map():load({ id = 1, region = "region", version = "version" })
 ```
 
 ### Common Methods
@@ -926,7 +926,7 @@ local mob = client:Mob(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Mob():load({ id = "mob_id" })
+local result, err = client:Mob():load({ id = 1, region = "region", version = "version" })
 ```
 
 ### Common Methods
@@ -972,7 +972,7 @@ local music = client:Music(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Music():load({ id = "music_id" })
+local result, err = client:Music():load({ id = "music_id", region = "region", version = "version" })
 ```
 
 ### Common Methods
@@ -1018,7 +1018,7 @@ local name = client:Name(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Name():load()
+local result, err = client:Name():load({ region = "region", version = "version" })
 ```
 
 ### Common Methods
@@ -1064,7 +1064,7 @@ local npc = client:Npc(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Npc():load({ id = "npc_id" })
+local result, err = client:Npc():load({ id = 1, region = "region", version = "version" })
 ```
 
 ### Common Methods
@@ -1220,7 +1220,7 @@ local pet = client:Pet(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Pet():load({ id = "pet_id" })
+local result, err = client:Pet():load({ id = 1, region = "region", version = "version" })
 ```
 
 ### Common Methods
@@ -1266,7 +1266,7 @@ local quest = client:Quest(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Quest():load({ id = "quest_id" })
+local result, err = client:Quest():load({ id = 1, region = "region", version = "version" })
 ```
 
 ### Common Methods
@@ -1370,7 +1370,7 @@ local tip = client:Tip(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Tip():load()
+local result, err = client:Tip():load({ region = "region", version = "version" })
 ```
 
 ### Common Methods
@@ -1416,7 +1416,7 @@ local wzn = client:Wzn(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Wzn():load()
+local result, err = client:Wzn():load({ region = "region", version = "version" })
 ```
 
 ### Common Methods
@@ -1462,7 +1462,7 @@ local wzn2 = client:Wzn2(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Wzn2():load()
+local result, err = client:Wzn2():load({ path = "path", region = "region", version = "version" })
 ```
 
 ### Common Methods
@@ -1508,7 +1508,7 @@ local wzn3 = client:Wzn3(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Wzn3():load()
+local result, err = client:Wzn3():load({ path = "path", region = "region", version = "version" })
 ```
 
 ### Common Methods
@@ -1554,7 +1554,7 @@ local wzn4 = client:Wzn4(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Wzn4():load()
+local result, err = client:Wzn4():load({ path = "path", region = "region", version = "version" })
 ```
 
 ### Common Methods
@@ -1600,7 +1600,7 @@ local wzn5 = client:Wzn5(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Wzn5():load()
+local result, err = client:Wzn5():load({ path = "path", region = "region", version = "version" })
 ```
 
 ### Common Methods
@@ -1646,7 +1646,7 @@ local wzn6 = client:Wzn6(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Wzn6():load()
+local result, err = client:Wzn6():load({ path = "path", region = "region", version = "version" })
 ```
 
 ### Common Methods
@@ -1692,7 +1692,7 @@ local z_map = client:ZMap(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:ZMap():load()
+local result, err = client:ZMap():load({ region = "region", version = "version" })
 ```
 
 ### Common Methods

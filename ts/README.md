@@ -35,11 +35,15 @@ const client = new MaplestorySDK()
 
 ### 3. Load an android
 
+Android is nested under region, so provide the `region`.
 `load()` returns the entity directly and throws on failure:
 
 ```ts
 try {
-  const android = await client.Android().load({ id: 1 })
+  const android = await client.Android().load({
+    region: 'example_region',
+    version: 'example_version',
+  })
   console.log(android)
 } catch (err) {
   console.error('load failed:', err)
@@ -649,7 +653,7 @@ Create an instance: `const android = client.Android()`
 #### Example: Load
 
 ```ts
-const android = await client.Android().load({ id: 1 })
+const android = await client.Android().load({ id: 1, region: 'region', version: 'version' })
 ```
 
 
@@ -666,7 +670,7 @@ Create an instance: `const avatar = client.Avatar()`
 #### Example: Load
 
 ```ts
-const avatar = await client.Avatar().load()
+const avatar = await client.Avatar().load({ animation: 'animation', frame: 1 })
 ```
 
 
@@ -711,7 +715,7 @@ Create an instance: `const character = client.Character()`
 #### Example: Load
 
 ```ts
-const character = await client.Character().load()
+const character = await client.Character().load({ region: 'region', version: 'version' })
 ```
 
 
@@ -728,7 +732,7 @@ Create an instance: `const chat = client.Chat()`
 #### Example: Load
 
 ```ts
-const chat = await client.Chat().load()
+const chat = await client.Chat().load({ region: 'region', version: 'version' })
 ```
 
 
@@ -770,7 +774,7 @@ Create an instance: `const diff = client.Diff()`
 #### Example: Load
 
 ```ts
-const diff = await client.Diff().load()
+const diff = await client.Diff().load({ region: 'region', version: 'version' })
 ```
 
 
@@ -821,7 +825,7 @@ Create an instance: `const guild_mark = client.GuildMark()`
 #### Example: Load
 
 ```ts
-const guild_mark = await client.GuildMark().load()
+const guild_mark = await client.GuildMark().load({ guild_mark_id: 1, region: 'region', version: 'version' })
 ```
 
 
@@ -855,7 +859,7 @@ Create an instance: `const item = client.Item()`
 #### Example: Load
 
 ```ts
-const item = await client.Item().load({ id: 1 })
+const item = await client.Item().load({ id: 1, region: 'region', version: 'version' })
 ```
 
 
@@ -872,7 +876,7 @@ Create an instance: `const job = client.Job()`
 #### Example: Load
 
 ```ts
-const job = await client.Job().load({ id: 1 })
+const job = await client.Job().load({ id: 1, region: 'region', version: 'version' })
 ```
 
 
@@ -889,7 +893,7 @@ Create an instance: `const map = client.Map()`
 #### Example: Load
 
 ```ts
-const map = await client.Map().load({ id: 1 })
+const map = await client.Map().load({ id: 1, region: 'region', version: 'version' })
 ```
 
 
@@ -923,7 +927,7 @@ Create an instance: `const mob = client.Mob()`
 #### Example: Load
 
 ```ts
-const mob = await client.Mob().load({ id: 1 })
+const mob = await client.Mob().load({ id: 1, region: 'region', version: 'version' })
 ```
 
 
@@ -940,7 +944,7 @@ Create an instance: `const music = client.Music()`
 #### Example: Load
 
 ```ts
-const music = await client.Music().load({ id: 'music_id' })
+const music = await client.Music().load({ id: 'music_id', region: 'region', version: 'version' })
 ```
 
 
@@ -957,7 +961,7 @@ Create an instance: `const name = client.Name()`
 #### Example: Load
 
 ```ts
-const name = await client.Name().load()
+const name = await client.Name().load({ region: 'region', version: 'version' })
 ```
 
 
@@ -974,7 +978,7 @@ Create an instance: `const npc = client.Npc()`
 #### Example: Load
 
 ```ts
-const npc = await client.Npc().load({ id: 1 })
+const npc = await client.Npc().load({ id: 1, region: 'region', version: 'version' })
 ```
 
 
@@ -1043,7 +1047,7 @@ Create an instance: `const pet = client.Pet()`
 #### Example: Load
 
 ```ts
-const pet = await client.Pet().load({ id: 1 })
+const pet = await client.Pet().load({ id: 1, region: 'region', version: 'version' })
 ```
 
 
@@ -1060,7 +1064,7 @@ Create an instance: `const quest = client.Quest()`
 #### Example: Load
 
 ```ts
-const quest = await client.Quest().load({ id: 1 })
+const quest = await client.Quest().load({ id: 1, region: 'region', version: 'version' })
 ```
 
 
@@ -1106,7 +1110,7 @@ Create an instance: `const tip = client.Tip()`
 #### Example: Load
 
 ```ts
-const tip = await client.Tip().load()
+const tip = await client.Tip().load({ region: 'region', version: 'version' })
 ```
 
 
@@ -1123,7 +1127,7 @@ Create an instance: `const wzn = client.Wzn()`
 #### Example: Load
 
 ```ts
-const wzn = await client.Wzn().load()
+const wzn = await client.Wzn().load({ region: 'region', version: 'version' })
 ```
 
 
@@ -1140,7 +1144,7 @@ Create an instance: `const wzn2 = client.Wzn2()`
 #### Example: Load
 
 ```ts
-const wzn2 = await client.Wzn2().load()
+const wzn2 = await client.Wzn2().load({ path: 'path', region: 'region', version: 'version' })
 ```
 
 
@@ -1157,7 +1161,7 @@ Create an instance: `const wzn3 = client.Wzn3()`
 #### Example: Load
 
 ```ts
-const wzn3 = await client.Wzn3().load()
+const wzn3 = await client.Wzn3().load({ path: 'path', region: 'region', version: 'version' })
 ```
 
 
@@ -1174,7 +1178,7 @@ Create an instance: `const wzn4 = client.Wzn4()`
 #### Example: Load
 
 ```ts
-const wzn4 = await client.Wzn4().load()
+const wzn4 = await client.Wzn4().load({ path: 'path', region: 'region', version: 'version' })
 ```
 
 
@@ -1191,7 +1195,7 @@ Create an instance: `const wzn5 = client.Wzn5()`
 #### Example: Load
 
 ```ts
-const wzn5 = await client.Wzn5().load()
+const wzn5 = await client.Wzn5().load({ path: 'path', region: 'region', version: 'version' })
 ```
 
 
@@ -1208,7 +1212,7 @@ Create an instance: `const wzn6 = client.Wzn6()`
 #### Example: Load
 
 ```ts
-const wzn6 = await client.Wzn6().load()
+const wzn6 = await client.Wzn6().load({ path: 'path', region: 'region', version: 'version' })
 ```
 
 
@@ -1225,7 +1229,7 @@ Create an instance: `const z_map = client.ZMap()`
 #### Example: Load
 
 ```ts
-const z_map = await client.ZMap().load()
+const z_map = await client.ZMap().load({ region: 'region', version: 'version' })
 ```
 
 

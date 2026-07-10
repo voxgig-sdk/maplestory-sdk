@@ -6,9 +6,6 @@
     },
     "kit": {
       "config": {
-        "auth": {
-          "prefix": "Bearer"
-        },
         "docs_order": [
           "ts",
           "py",
@@ -9759,13 +9756,16 @@
         "license": {
           "name": "Unlicensed"
         },
+        "meta_source": "https://www.freepublicapis.com",
         "servers": [
           {
             "url": "https://maplestory.io"
           }
         ],
+        "summary": "A simple API for MapleStory resources",
         "title": "MapleStory.IO",
-        "version": "V3"
+        "version": "V3",
+        "website": "https://maplestory.io"
       },
       "option": {},
       "target": {
@@ -9818,6 +9818,9 @@
           },
           "name": "go-cli",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
@@ -9868,6 +9871,9 @@
           },
           "name": "go-mcp",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },

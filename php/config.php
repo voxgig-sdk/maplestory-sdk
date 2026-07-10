@@ -2680,7 +2680,6 @@ class MaplestoryConfig
                         'orig' => 'region',
                         'reqd' => true,
                         'type' => '`$STRING`',
-                        'index$' => 0,
                       ],
                       [
                         'active' => true,
@@ -2689,7 +2688,6 @@ class MaplestoryConfig
                         'orig' => 'version',
                         'reqd' => true,
                         'type' => '`$STRING`',
-                        'index$' => 1,
                       ],
                     ],
                   ],
@@ -3638,7 +3636,6 @@ class MaplestoryConfig
                         'orig' => 'item_id',
                         'reqd' => true,
                         'type' => '`$INTEGER`',
-                        'index$' => 0,
                       ],
                       [
                         'active' => true,
@@ -3647,7 +3644,6 @@ class MaplestoryConfig
                         'orig' => 'region',
                         'reqd' => true,
                         'type' => '`$STRING`',
-                        'index$' => 1,
                       ],
                       [
                         'active' => true,
@@ -3656,7 +3652,6 @@ class MaplestoryConfig
                         'orig' => 'version',
                         'reqd' => true,
                         'type' => '`$STRING`',
-                        'index$' => 2,
                       ],
                     ],
                   ],
@@ -3700,7 +3695,6 @@ class MaplestoryConfig
                         'orig' => 'item_id',
                         'reqd' => true,
                         'type' => '`$INTEGER`',
-                        'index$' => 0,
                       ],
                       [
                         'active' => true,
@@ -3709,7 +3703,6 @@ class MaplestoryConfig
                         'orig' => 'region',
                         'reqd' => true,
                         'type' => '`$STRING`',
-                        'index$' => 1,
                       ],
                       [
                         'active' => true,
@@ -3718,7 +3711,6 @@ class MaplestoryConfig
                         'orig' => 'version',
                         'reqd' => true,
                         'type' => '`$STRING`',
-                        'index$' => 2,
                       ],
                     ],
                   ],
@@ -3762,7 +3754,6 @@ class MaplestoryConfig
                         'orig' => 'item_id',
                         'reqd' => true,
                         'type' => '`$INTEGER`',
-                        'index$' => 0,
                       ],
                       [
                         'active' => true,
@@ -3771,7 +3762,6 @@ class MaplestoryConfig
                         'orig' => 'region',
                         'reqd' => true,
                         'type' => '`$STRING`',
-                        'index$' => 1,
                       ],
                       [
                         'active' => true,
@@ -3780,7 +3770,6 @@ class MaplestoryConfig
                         'orig' => 'version',
                         'reqd' => true,
                         'type' => '`$STRING`',
-                        'index$' => 2,
                       ],
                     ],
                   ],
@@ -3885,7 +3874,6 @@ class MaplestoryConfig
                         'orig' => 'region',
                         'reqd' => true,
                         'type' => '`$STRING`',
-                        'index$' => 0,
                       ],
                       [
                         'active' => true,
@@ -3894,7 +3882,6 @@ class MaplestoryConfig
                         'orig' => 'version',
                         'reqd' => true,
                         'type' => '`$STRING`',
-                        'index$' => 1,
                       ],
                     ],
                   ],
@@ -4088,7 +4075,6 @@ class MaplestoryConfig
                         'orig' => 'job_id',
                         'reqd' => true,
                         'type' => '`$INTEGER`',
-                        'index$' => 0,
                       ],
                       [
                         'active' => true,
@@ -4097,7 +4083,6 @@ class MaplestoryConfig
                         'orig' => 'region',
                         'reqd' => true,
                         'type' => '`$STRING`',
-                        'index$' => 1,
                       ],
                       [
                         'active' => true,
@@ -4106,7 +4091,6 @@ class MaplestoryConfig
                         'orig' => 'version',
                         'reqd' => true,
                         'type' => '`$STRING`',
-                        'index$' => 2,
                       ],
                     ],
                   ],
@@ -4255,7 +4239,6 @@ class MaplestoryConfig
                         'orig' => 'region',
                         'reqd' => true,
                         'type' => '`$STRING`',
-                        'index$' => 0,
                       ],
                       [
                         'active' => true,
@@ -4264,7 +4247,6 @@ class MaplestoryConfig
                         'orig' => 'version',
                         'reqd' => true,
                         'type' => '`$STRING`',
-                        'index$' => 1,
                       ],
                     ],
                   ],
@@ -4301,7 +4283,6 @@ class MaplestoryConfig
                         'orig' => 'region',
                         'reqd' => true,
                         'type' => '`$STRING`',
-                        'index$' => 0,
                       ],
                       [
                         'active' => true,
@@ -4310,7 +4291,6 @@ class MaplestoryConfig
                         'orig' => 'version',
                         'reqd' => true,
                         'type' => '`$STRING`',
-                        'index$' => 1,
                       ],
                     ],
                   ],
@@ -4659,7 +4639,6 @@ class MaplestoryConfig
                         'orig' => 'region',
                         'reqd' => true,
                         'type' => '`$STRING`',
-                        'index$' => 0,
                       ],
                       [
                         'active' => true,
@@ -4668,7 +4647,6 @@ class MaplestoryConfig
                         'orig' => 'version',
                         'reqd' => true,
                         'type' => '`$STRING`',
-                        'index$' => 1,
                       ],
                     ],
                     'query' => [
@@ -4795,7 +4773,6 @@ class MaplestoryConfig
                         'orig' => 'map_id',
                         'reqd' => true,
                         'type' => '`$INTEGER`',
-                        'index$' => 0,
                       ],
                       [
                         'active' => true,
@@ -4804,7 +4781,6 @@ class MaplestoryConfig
                         'orig' => 'region',
                         'reqd' => true,
                         'type' => '`$STRING`',
-                        'index$' => 1,
                       ],
                       [
                         'active' => true,
@@ -4813,7 +4789,6 @@ class MaplestoryConfig
                         'orig' => 'version',
                         'reqd' => true,
                         'type' => '`$STRING`',
-                        'index$' => 2,
                       ],
                     ],
                   ],
@@ -4857,7 +4832,6 @@ class MaplestoryConfig
                         'orig' => 'map_id',
                         'reqd' => true,
                         'type' => '`$INTEGER`',
-                        'index$' => 0,
                       ],
                       [
                         'active' => true,
@@ -4866,7 +4840,6 @@ class MaplestoryConfig
                         'orig' => 'region',
                         'reqd' => true,
                         'type' => '`$STRING`',
-                        'index$' => 1,
                       ],
                       [
                         'active' => true,
@@ -4875,7 +4848,6 @@ class MaplestoryConfig
                         'orig' => 'version',
                         'reqd' => true,
                         'type' => '`$STRING`',
-                        'index$' => 2,
                       ],
                     ],
                   ],
@@ -4919,7 +4891,6 @@ class MaplestoryConfig
                         'orig' => 'map_id',
                         'reqd' => true,
                         'type' => '`$INTEGER`',
-                        'index$' => 0,
                       ],
                       [
                         'active' => true,
@@ -4928,7 +4899,6 @@ class MaplestoryConfig
                         'orig' => 'region',
                         'reqd' => true,
                         'type' => '`$STRING`',
-                        'index$' => 1,
                       ],
                       [
                         'active' => true,
@@ -4937,7 +4907,6 @@ class MaplestoryConfig
                         'orig' => 'version',
                         'reqd' => true,
                         'type' => '`$STRING`',
-                        'index$' => 2,
                       ],
                     ],
                   ],
@@ -4981,7 +4950,6 @@ class MaplestoryConfig
                         'orig' => 'map_id',
                         'reqd' => true,
                         'type' => '`$INTEGER`',
-                        'index$' => 0,
                       ],
                       [
                         'active' => true,
@@ -4990,7 +4958,6 @@ class MaplestoryConfig
                         'orig' => 'region',
                         'reqd' => true,
                         'type' => '`$STRING`',
-                        'index$' => 1,
                       ],
                       [
                         'active' => true,
@@ -4999,7 +4966,6 @@ class MaplestoryConfig
                         'orig' => 'version',
                         'reqd' => true,
                         'type' => '`$STRING`',
-                        'index$' => 2,
                       ],
                     ],
                   ],
@@ -5160,7 +5126,6 @@ class MaplestoryConfig
                         'orig' => 'region',
                         'reqd' => true,
                         'type' => '`$STRING`',
-                        'index$' => 0,
                       ],
                       [
                         'active' => true,
@@ -5169,7 +5134,6 @@ class MaplestoryConfig
                         'orig' => 'version',
                         'reqd' => true,
                         'type' => '`$STRING`',
-                        'index$' => 1,
                       ],
                     ],
                   ],
@@ -5935,7 +5899,6 @@ class MaplestoryConfig
                         'orig' => 'mob_id',
                         'reqd' => true,
                         'type' => '`$INTEGER`',
-                        'index$' => 0,
                       ],
                       [
                         'active' => true,
@@ -5944,7 +5907,6 @@ class MaplestoryConfig
                         'orig' => 'region',
                         'reqd' => true,
                         'type' => '`$STRING`',
-                        'index$' => 1,
                       ],
                       [
                         'active' => true,
@@ -5953,7 +5915,6 @@ class MaplestoryConfig
                         'orig' => 'version',
                         'reqd' => true,
                         'type' => '`$STRING`',
-                        'index$' => 2,
                       ],
                     ],
                   ],
@@ -5997,7 +5958,6 @@ class MaplestoryConfig
                         'orig' => 'mob_id',
                         'reqd' => true,
                         'type' => '`$INTEGER`',
-                        'index$' => 0,
                       ],
                       [
                         'active' => true,
@@ -6006,7 +5966,6 @@ class MaplestoryConfig
                         'orig' => 'region',
                         'reqd' => true,
                         'type' => '`$STRING`',
-                        'index$' => 1,
                       ],
                       [
                         'active' => true,
@@ -6015,7 +5974,6 @@ class MaplestoryConfig
                         'orig' => 'version',
                         'reqd' => true,
                         'type' => '`$STRING`',
-                        'index$' => 2,
                       ],
                     ],
                   ],
@@ -6059,7 +6017,6 @@ class MaplestoryConfig
                         'orig' => 'mob_id',
                         'reqd' => true,
                         'type' => '`$INTEGER`',
-                        'index$' => 0,
                       ],
                       [
                         'active' => true,
@@ -6068,7 +6025,6 @@ class MaplestoryConfig
                         'orig' => 'region',
                         'reqd' => true,
                         'type' => '`$STRING`',
-                        'index$' => 1,
                       ],
                       [
                         'active' => true,
@@ -6077,7 +6033,6 @@ class MaplestoryConfig
                         'orig' => 'version',
                         'reqd' => true,
                         'type' => '`$STRING`',
-                        'index$' => 2,
                       ],
                     ],
                   ],
@@ -6121,7 +6076,6 @@ class MaplestoryConfig
                         'orig' => 'mob_id',
                         'reqd' => true,
                         'type' => '`$INTEGER`',
-                        'index$' => 0,
                       ],
                       [
                         'active' => true,
@@ -6130,7 +6084,6 @@ class MaplestoryConfig
                         'orig' => 'region',
                         'reqd' => true,
                         'type' => '`$STRING`',
-                        'index$' => 1,
                       ],
                       [
                         'active' => true,
@@ -6139,7 +6092,6 @@ class MaplestoryConfig
                         'orig' => 'version',
                         'reqd' => true,
                         'type' => '`$STRING`',
-                        'index$' => 2,
                       ],
                     ],
                   ],
@@ -6647,7 +6599,6 @@ class MaplestoryConfig
                         'orig' => 'region',
                         'reqd' => true,
                         'type' => '`$STRING`',
-                        'index$' => 0,
                       ],
                       [
                         'active' => true,
@@ -6656,7 +6607,6 @@ class MaplestoryConfig
                         'orig' => 'version',
                         'reqd' => true,
                         'type' => '`$STRING`',
-                        'index$' => 1,
                       ],
                     ],
                     'query' => [
@@ -6785,7 +6735,6 @@ class MaplestoryConfig
                         'orig' => 'npc_id',
                         'reqd' => true,
                         'type' => '`$INTEGER`',
-                        'index$' => 0,
                       ],
                       [
                         'active' => true,
@@ -6794,7 +6743,6 @@ class MaplestoryConfig
                         'orig' => 'region',
                         'reqd' => true,
                         'type' => '`$STRING`',
-                        'index$' => 1,
                       ],
                       [
                         'active' => true,
@@ -6803,7 +6751,6 @@ class MaplestoryConfig
                         'orig' => 'version',
                         'reqd' => true,
                         'type' => '`$STRING`',
-                        'index$' => 2,
                       ],
                     ],
                   ],
@@ -6847,7 +6794,6 @@ class MaplestoryConfig
                         'orig' => 'npc_id',
                         'reqd' => true,
                         'type' => '`$INTEGER`',
-                        'index$' => 0,
                       ],
                       [
                         'active' => true,
@@ -6856,7 +6802,6 @@ class MaplestoryConfig
                         'orig' => 'region',
                         'reqd' => true,
                         'type' => '`$STRING`',
-                        'index$' => 1,
                       ],
                       [
                         'active' => true,
@@ -6865,7 +6810,6 @@ class MaplestoryConfig
                         'orig' => 'version',
                         'reqd' => true,
                         'type' => '`$STRING`',
-                        'index$' => 2,
                       ],
                     ],
                   ],
@@ -6909,7 +6853,6 @@ class MaplestoryConfig
                         'orig' => 'npc_id',
                         'reqd' => true,
                         'type' => '`$INTEGER`',
-                        'index$' => 0,
                       ],
                       [
                         'active' => true,
@@ -6918,7 +6861,6 @@ class MaplestoryConfig
                         'orig' => 'region',
                         'reqd' => true,
                         'type' => '`$STRING`',
-                        'index$' => 1,
                       ],
                       [
                         'active' => true,
@@ -6927,7 +6869,6 @@ class MaplestoryConfig
                         'orig' => 'version',
                         'reqd' => true,
                         'type' => '`$STRING`',
-                        'index$' => 2,
                       ],
                     ],
                   ],
@@ -7429,7 +7370,6 @@ class MaplestoryConfig
                         'orig' => 'pet_id',
                         'reqd' => true,
                         'type' => '`$INTEGER`',
-                        'index$' => 0,
                       ],
                       [
                         'active' => true,
@@ -7438,7 +7378,6 @@ class MaplestoryConfig
                         'orig' => 'region',
                         'reqd' => true,
                         'type' => '`$STRING`',
-                        'index$' => 1,
                       ],
                       [
                         'active' => true,
@@ -7447,7 +7386,6 @@ class MaplestoryConfig
                         'orig' => 'version',
                         'reqd' => true,
                         'type' => '`$STRING`',
-                        'index$' => 2,
                       ],
                     ],
                   ],
@@ -7491,7 +7429,6 @@ class MaplestoryConfig
                         'orig' => 'pet_id',
                         'reqd' => true,
                         'type' => '`$INTEGER`',
-                        'index$' => 0,
                       ],
                       [
                         'active' => true,
@@ -7500,7 +7437,6 @@ class MaplestoryConfig
                         'orig' => 'region',
                         'reqd' => true,
                         'type' => '`$STRING`',
-                        'index$' => 1,
                       ],
                       [
                         'active' => true,
@@ -7509,7 +7445,6 @@ class MaplestoryConfig
                         'orig' => 'version',
                         'reqd' => true,
                         'type' => '`$STRING`',
-                        'index$' => 2,
                       ],
                     ],
                   ],
@@ -7553,7 +7488,6 @@ class MaplestoryConfig
                         'orig' => 'pet_id',
                         'reqd' => true,
                         'type' => '`$INTEGER`',
-                        'index$' => 0,
                       ],
                       [
                         'active' => true,
@@ -7562,7 +7496,6 @@ class MaplestoryConfig
                         'orig' => 'region',
                         'reqd' => true,
                         'type' => '`$STRING`',
-                        'index$' => 1,
                       ],
                       [
                         'active' => true,
@@ -7571,7 +7504,6 @@ class MaplestoryConfig
                         'orig' => 'version',
                         'reqd' => true,
                         'type' => '`$STRING`',
-                        'index$' => 2,
                       ],
                     ],
                   ],
@@ -7659,7 +7591,6 @@ class MaplestoryConfig
                         'orig' => 'region',
                         'reqd' => true,
                         'type' => '`$STRING`',
-                        'index$' => 0,
                       ],
                       [
                         'active' => true,
@@ -7668,7 +7599,6 @@ class MaplestoryConfig
                         'orig' => 'version',
                         'reqd' => true,
                         'type' => '`$STRING`',
-                        'index$' => 1,
                       ],
                     ],
                   ],
@@ -8001,7 +7931,6 @@ class MaplestoryConfig
                         'orig' => 'quest_id',
                         'reqd' => true,
                         'type' => '`$INTEGER`',
-                        'index$' => 0,
                       ],
                       [
                         'active' => true,
@@ -8010,7 +7939,6 @@ class MaplestoryConfig
                         'orig' => 'region',
                         'reqd' => true,
                         'type' => '`$STRING`',
-                        'index$' => 1,
                       ],
                       [
                         'active' => true,
@@ -8019,7 +7947,6 @@ class MaplestoryConfig
                         'orig' => 'version',
                         'reqd' => true,
                         'type' => '`$STRING`',
-                        'index$' => 2,
                       ],
                     ],
                   ],
@@ -8063,7 +7990,6 @@ class MaplestoryConfig
                         'orig' => 'quest_id',
                         'reqd' => true,
                         'type' => '`$INTEGER`',
-                        'index$' => 0,
                       ],
                       [
                         'active' => true,
@@ -8072,7 +7998,6 @@ class MaplestoryConfig
                         'orig' => 'region',
                         'reqd' => true,
                         'type' => '`$STRING`',
-                        'index$' => 1,
                       ],
                       [
                         'active' => true,
@@ -8081,7 +8006,6 @@ class MaplestoryConfig
                         'orig' => 'version',
                         'reqd' => true,
                         'type' => '`$STRING`',
-                        'index$' => 2,
                       ],
                     ],
                   ],
@@ -8125,7 +8049,6 @@ class MaplestoryConfig
                         'orig' => 'region',
                         'reqd' => true,
                         'type' => '`$STRING`',
-                        'index$' => 0,
                       ],
                       [
                         'active' => true,
@@ -8134,7 +8057,6 @@ class MaplestoryConfig
                         'orig' => 'version',
                         'reqd' => true,
                         'type' => '`$STRING`',
-                        'index$' => 1,
                       ],
                     ],
                   ],

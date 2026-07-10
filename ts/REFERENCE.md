@@ -491,7 +491,7 @@ const android = client.Android()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Android().load({ id: 1 })
+const result = await client.Android().load({ id: 1, region: 'region', version: 'version' })
 ```
 
 ### Common Methods
@@ -535,7 +535,7 @@ const avatar = client.Avatar()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Avatar().load()
+const result = await client.Avatar().load({ animation: 'animation', frame: 1 })
 ```
 
 ### Common Methods
@@ -634,7 +634,7 @@ const character = client.Character()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Character().load()
+const result = await client.Character().load({ region: 'region', version: 'version' })
 ```
 
 ### Common Methods
@@ -678,7 +678,7 @@ const chat = client.Chat()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Chat().load()
+const result = await client.Chat().load({ region: 'region', version: 'version' })
 ```
 
 ### Common Methods
@@ -774,7 +774,7 @@ const diff = client.Diff()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Diff().load()
+const result = await client.Diff().load({ region: 'region', version: 'version' })
 ```
 
 ### Common Methods
@@ -906,7 +906,7 @@ const guild_mark = client.GuildMark()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.GuildMark().load()
+const result = await client.GuildMark().load({ guild_mark_id: 1, region: 'region', version: 'version' })
 ```
 
 ### Common Methods
@@ -994,7 +994,7 @@ const item = client.Item()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Item().load({ id: 1 })
+const result = await client.Item().load({ id: 1, region: 'region', version: 'version' })
 ```
 
 ### Common Methods
@@ -1038,7 +1038,7 @@ const job = client.Job()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Job().load({ id: 1 })
+const result = await client.Job().load({ id: 1, region: 'region', version: 'version' })
 ```
 
 ### Common Methods
@@ -1082,7 +1082,7 @@ const map = client.Map()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Map().load({ id: 1 })
+const result = await client.Map().load({ id: 1, region: 'region', version: 'version' })
 ```
 
 ### Common Methods
@@ -1170,7 +1170,7 @@ const mob = client.Mob()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Mob().load({ id: 1 })
+const result = await client.Mob().load({ id: 1, region: 'region', version: 'version' })
 ```
 
 ### Common Methods
@@ -1214,7 +1214,7 @@ const music = client.Music()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Music().load({ id: 'music_id' })
+const result = await client.Music().load({ id: 'music_id', region: 'region', version: 'version' })
 ```
 
 ### Common Methods
@@ -1258,7 +1258,7 @@ const name = client.Name()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Name().load()
+const result = await client.Name().load({ region: 'region', version: 'version' })
 ```
 
 ### Common Methods
@@ -1302,7 +1302,7 @@ const npc = client.Npc()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Npc().load({ id: 1 })
+const result = await client.Npc().load({ id: 1, region: 'region', version: 'version' })
 ```
 
 ### Common Methods
@@ -1452,7 +1452,7 @@ const pet = client.Pet()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Pet().load({ id: 1 })
+const result = await client.Pet().load({ id: 1, region: 'region', version: 'version' })
 ```
 
 ### Common Methods
@@ -1496,7 +1496,7 @@ const quest = client.Quest()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Quest().load({ id: 1 })
+const result = await client.Quest().load({ id: 1, region: 'region', version: 'version' })
 ```
 
 ### Common Methods
@@ -1596,7 +1596,7 @@ const tip = client.Tip()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Tip().load()
+const result = await client.Tip().load({ region: 'region', version: 'version' })
 ```
 
 ### Common Methods
@@ -1640,7 +1640,7 @@ const wzn = client.Wzn()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Wzn().load()
+const result = await client.Wzn().load({ region: 'region', version: 'version' })
 ```
 
 ### Common Methods
@@ -1684,7 +1684,7 @@ const wzn2 = client.Wzn2()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Wzn2().load()
+const result = await client.Wzn2().load({ path: 'path', region: 'region', version: 'version' })
 ```
 
 ### Common Methods
@@ -1728,7 +1728,7 @@ const wzn3 = client.Wzn3()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Wzn3().load()
+const result = await client.Wzn3().load({ path: 'path', region: 'region', version: 'version' })
 ```
 
 ### Common Methods
@@ -1772,7 +1772,7 @@ const wzn4 = client.Wzn4()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Wzn4().load()
+const result = await client.Wzn4().load({ path: 'path', region: 'region', version: 'version' })
 ```
 
 ### Common Methods
@@ -1816,7 +1816,7 @@ const wzn5 = client.Wzn5()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Wzn5().load()
+const result = await client.Wzn5().load({ path: 'path', region: 'region', version: 'version' })
 ```
 
 ### Common Methods
@@ -1860,7 +1860,7 @@ const wzn6 = client.Wzn6()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Wzn6().load()
+const result = await client.Wzn6().load({ path: 'path', region: 'region', version: 'version' })
 ```
 
 ### Common Methods
@@ -1904,7 +1904,7 @@ const z_map = client.ZMap()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.ZMap().load()
+const result = await client.ZMap().load({ region: 'region', version: 'version' })
 ```
 
 ### Common Methods

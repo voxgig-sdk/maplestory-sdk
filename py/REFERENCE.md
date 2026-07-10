@@ -214,7 +214,7 @@ android = client.Android()
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.Android().load({"id": "android_id"})
+result = client.Android().load({"id": 1, "region": "region", "version": "version"})
 ```
 
 ### Common Methods
@@ -259,7 +259,7 @@ avatar = client.Avatar()
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.Avatar().load()
+result = client.Avatar().load({"animation": "animation", "frame": 1})
 ```
 
 ### Common Methods
@@ -360,7 +360,7 @@ character = client.Character()
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.Character().load()
+result = client.Character().load({"region": "region", "version": "version"})
 ```
 
 ### Common Methods
@@ -405,7 +405,7 @@ chat = client.Chat()
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.Chat().load()
+result = client.Chat().load({"region": "region", "version": "version"})
 ```
 
 ### Common Methods
@@ -505,7 +505,7 @@ diff = client.Diff()
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.Diff().load()
+result = client.Diff().load({"region": "region", "version": "version"})
 ```
 
 ### Common Methods
@@ -595,7 +595,7 @@ gms_new = client.GmsNew()
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.GmsNew().load({"id": "gms_new_id"})
+result = client.GmsNew().load({"id": 1})
 ```
 
 ### Common Methods
@@ -640,7 +640,7 @@ guild_mark = client.GuildMark()
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.GuildMark().load()
+result = client.GuildMark().load({"guild_mark_id": 1, "region": "region", "version": "version"})
 ```
 
 ### Common Methods
@@ -730,7 +730,7 @@ item = client.Item()
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.Item().load({"id": "item_id"})
+result = client.Item().load({"id": 1, "region": "region", "version": "version"})
 ```
 
 ### Common Methods
@@ -775,7 +775,7 @@ job = client.Job()
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.Job().load({"id": "job_id"})
+result = client.Job().load({"id": 1, "region": "region", "version": "version"})
 ```
 
 ### Common Methods
@@ -820,7 +820,7 @@ map = client.Map()
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.Map().load({"id": "map_id"})
+result = client.Map().load({"id": 1, "region": "region", "version": "version"})
 ```
 
 ### Common Methods
@@ -910,7 +910,7 @@ mob = client.Mob()
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.Mob().load({"id": "mob_id"})
+result = client.Mob().load({"id": 1, "region": "region", "version": "version"})
 ```
 
 ### Common Methods
@@ -955,7 +955,7 @@ music = client.Music()
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.Music().load({"id": "music_id"})
+result = client.Music().load({"id": "music_id", "region": "region", "version": "version"})
 ```
 
 ### Common Methods
@@ -1000,7 +1000,7 @@ name = client.Name()
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.Name().load()
+result = client.Name().load({"region": "region", "version": "version"})
 ```
 
 ### Common Methods
@@ -1045,7 +1045,7 @@ npc = client.Npc()
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.Npc().load({"id": "npc_id"})
+result = client.Npc().load({"id": 1, "region": "region", "version": "version"})
 ```
 
 ### Common Methods
@@ -1198,7 +1198,7 @@ pet = client.Pet()
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.Pet().load({"id": "pet_id"})
+result = client.Pet().load({"id": 1, "region": "region", "version": "version"})
 ```
 
 ### Common Methods
@@ -1243,7 +1243,7 @@ quest = client.Quest()
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.Quest().load({"id": "quest_id"})
+result = client.Quest().load({"id": 1, "region": "region", "version": "version"})
 ```
 
 ### Common Methods
@@ -1345,7 +1345,7 @@ tip = client.Tip()
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.Tip().load()
+result = client.Tip().load({"region": "region", "version": "version"})
 ```
 
 ### Common Methods
@@ -1390,7 +1390,7 @@ wzn = client.Wzn()
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.Wzn().load()
+result = client.Wzn().load({"region": "region", "version": "version"})
 ```
 
 ### Common Methods
@@ -1435,7 +1435,7 @@ wzn2 = client.Wzn2()
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.Wzn2().load()
+result = client.Wzn2().load({"path": "path", "region": "region", "version": "version"})
 ```
 
 ### Common Methods
@@ -1480,7 +1480,7 @@ wzn3 = client.Wzn3()
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.Wzn3().load()
+result = client.Wzn3().load({"path": "path", "region": "region", "version": "version"})
 ```
 
 ### Common Methods
@@ -1525,7 +1525,7 @@ wzn4 = client.Wzn4()
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.Wzn4().load()
+result = client.Wzn4().load({"path": "path", "region": "region", "version": "version"})
 ```
 
 ### Common Methods
@@ -1570,7 +1570,7 @@ wzn5 = client.Wzn5()
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.Wzn5().load()
+result = client.Wzn5().load({"path": "path", "region": "region", "version": "version"})
 ```
 
 ### Common Methods
@@ -1615,7 +1615,7 @@ wzn6 = client.Wzn6()
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.Wzn6().load()
+result = client.Wzn6().load({"path": "path", "region": "region", "version": "version"})
 ```
 
 ### Common Methods
@@ -1660,7 +1660,7 @@ z_map = client.ZMap()
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.ZMap().load()
+result = client.ZMap().load({"region": "region", "version": "version"})
 ```
 
 ### Common Methods
