@@ -16,8 +16,8 @@ Metadata kindly supplied by [www.freepublicapis.com](https://www.freepublicapis.
 
 ## Entities, not endpoints
 
-This SDK exposes the API as a small set of **semantic entities** — Android, Avatar, Cache, Character, Chat, Cluster, Diff, Entity1, GmsNew, GuildMark, Health, Item, Job, Map, Metric, Mob, Music, Name, Npc, Nxf, PerformanceMetric, Pet, Quest, System, Tip, Wzn, Wzn2, Wzn3, Wzn4, Wzn5, Wzn6 and ZMap — that you
-call directly, instead of assembling URL paths and query strings. Entities are
+This SDK exposes the API as **32 semantic entities** that you
+call directly, instead of assembling URL paths and query strings. See the [Entities](#entities) table below for the full list. Entities are
 **Capitalised** to mark them as the primary surface, each with the operations they
 support (`list`, `load`):
 
