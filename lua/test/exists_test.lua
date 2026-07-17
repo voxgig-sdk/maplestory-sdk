@@ -1,4 +1,4 @@
--- ProjectName SDK exists test
+-- Maplestory SDK exists test
 
 local sdk = require("maplestory_sdk")
 
