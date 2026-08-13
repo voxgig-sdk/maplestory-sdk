@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import MaplestoryControl
-from core.error import MaplestoryError
-from core.result import MaplestoryResult
-from core.spec import MaplestorySpec
+from maplestory_sdk.config import make_config
+from maplestory_sdk.features import _make_feature
+from maplestory_sdk.core.control import MaplestoryControl
+from maplestory_sdk.core.error import MaplestoryError
+from maplestory_sdk.core.result import MaplestoryResult
+from maplestory_sdk.core.spec import MaplestorySpec
 
 
 # True when this SDK was generated with the named feature.

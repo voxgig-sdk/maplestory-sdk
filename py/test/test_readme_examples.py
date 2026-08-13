@@ -102,11 +102,6 @@ _ENTITIES = {
     "System": "system",
     "Tip": "tip",
     "Wzn": "wzn",
-    "Wzn2": "wzn2",
-    "Wzn3": "wzn3",
-    "Wzn4": "wzn4",
-    "Wzn5": "wzn5",
-    "Wzn6": "wzn6",
     "ZMap": "z_map",
 }
 

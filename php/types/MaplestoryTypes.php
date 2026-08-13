@@ -42,23 +42,23 @@ class AvatarLoadMatch
 /** Cache entity data model. */
 class Cache
 {
-    public ?int $eviction_count = null;
-    public ?int $hit_count = null;
-    public ?float $hit_ratio = null;
-    public ?int $memory_usage = null;
-    public ?int $miss_count = null;
-    public ?int $total_entry = null;
+    public ?int $evictionCount = null;
+    public ?int $hitCount = null;
+    public ?float $hitRatio = null;
+    public ?int $memoryUsage = null;
+    public ?int $missCount = null;
+    public ?int $totalEntries = null;
 }
 
 /** Request payload for Cache#load. */
 class CacheLoadMatch
 {
-    public ?int $eviction_count = null;
-    public ?int $hit_count = null;
-    public ?float $hit_ratio = null;
-    public ?int $memory_usage = null;
-    public ?int $miss_count = null;
-    public ?int $total_entry = null;
+    public ?int $evictionCount = null;
+    public ?int $hitCount = null;
+    public ?float $hitRatio = null;
+    public ?int $memoryUsage = null;
+    public ?int $missCount = null;
+    public ?int $totalEntries = null;
 }
 
 /** Character entity data model. */
@@ -91,16 +91,16 @@ class ChatLoadMatch
 class Cluster
 {
     public ?string $hostname = null;
-    public ?string $last_seen = null;
-    public ?array $metric = null;
+    public ?string $lastSeen = null;
+    public ?array $metrics = null;
 }
 
 /** Request payload for Cluster#list. */
 class ClusterListMatch
 {
     public ?string $hostname = null;
-    public ?string $last_seen = null;
-    public ?array $metric = null;
+    public ?string $lastSeen = null;
+    public ?array $metrics = null;
 }
 
 /** Diff entity data model. */
@@ -289,37 +289,37 @@ class NxfLoadMatch
 /** PerformanceMetric entity data model. */
 class PerformanceMetric
 {
-    public ?int $active_request = null;
-    public ?float $average_response_time_m = null;
+    public ?int $activeRequests = null;
+    public ?float $averageResponseTimeMs = null;
     public ?array $cache = null;
-    public ?array $errors_by_type = null;
-    public ?string $last_updated = null;
-    public ?int $memory_used_byte = null;
-    public ?array $redis_cache = null;
-    public ?float $requests_per_second = null;
-    public ?string $start_time = null;
+    public ?array $errorsByType = null;
+    public ?string $lastUpdated = null;
+    public ?int $memoryUsedBytes = null;
+    public ?array $redisCache = null;
+    public ?float $requestsPerSecond = null;
+    public ?string $startTime = null;
     public ?array $system = null;
-    public ?int $total_error = null;
-    public ?int $total_request = null;
-    public ?int $wz_properties_loaded = null;
+    public ?int $totalErrors = null;
+    public ?int $totalRequests = null;
+    public ?int $wzPropertiesLoaded = null;
 }
 
 /** Request payload for PerformanceMetric#load. */
 class PerformanceMetricLoadMatch
 {
-    public ?int $active_request = null;
-    public ?float $average_response_time_m = null;
+    public ?int $activeRequests = null;
+    public ?float $averageResponseTimeMs = null;
     public ?array $cache = null;
-    public ?array $errors_by_type = null;
-    public ?string $last_updated = null;
-    public ?int $memory_used_byte = null;
-    public ?array $redis_cache = null;
-    public ?float $requests_per_second = null;
-    public ?string $start_time = null;
+    public ?array $errorsByType = null;
+    public ?string $lastUpdated = null;
+    public ?int $memoryUsedBytes = null;
+    public ?array $redisCache = null;
+    public ?float $requestsPerSecond = null;
+    public ?string $startTime = null;
     public ?array $system = null;
-    public ?int $total_error = null;
-    public ?int $total_request = null;
-    public ?int $wz_properties_loaded = null;
+    public ?int $totalErrors = null;
+    public ?int $totalRequests = null;
+    public ?int $wzPropertiesLoaded = null;
 }
 
 /** Pet entity data model. */
@@ -355,25 +355,25 @@ class QuestLoadMatch
 /** System entity data model. */
 class System
 {
-    public ?float $cpu_usage_percent = null;
-    public ?int $gc_gen0_collection = null;
-    public ?int $gc_gen1_collection = null;
-    public ?int $gc_gen2_collection = null;
-    public ?int $thread_count = null;
-    public ?int $total_memory_byte = null;
-    public ?int $used_memory_byte = null;
+    public ?float $cpuUsagePercent = null;
+    public ?int $gcGen0Collections = null;
+    public ?int $gcGen1Collections = null;
+    public ?int $gcGen2Collections = null;
+    public ?int $threadCount = null;
+    public ?int $totalMemoryBytes = null;
+    public ?int $usedMemoryBytes = null;
 }
 
 /** Request payload for System#load. */
 class SystemLoadMatch
 {
-    public ?float $cpu_usage_percent = null;
-    public ?int $gc_gen0_collection = null;
-    public ?int $gc_gen1_collection = null;
-    public ?int $gc_gen2_collection = null;
-    public ?int $thread_count = null;
-    public ?int $total_memory_byte = null;
-    public ?int $used_memory_byte = null;
+    public ?float $cpuUsagePercent = null;
+    public ?int $gcGen0Collections = null;
+    public ?int $gcGen1Collections = null;
+    public ?int $gcGen2Collections = null;
+    public ?int $threadCount = null;
+    public ?int $totalMemoryBytes = null;
+    public ?int $usedMemoryBytes = null;
 }
 
 /** Tip entity data model. */
@@ -396,71 +396,7 @@ class Wzn
 /** Request payload for Wzn#load. */
 class WznLoadMatch
 {
-    public string $region;
-    public string $version;
-}
-
-/** Wzn2 entity data model. */
-class Wzn2
-{
-}
-
-/** Request payload for Wzn2#load. */
-class Wzn2LoadMatch
-{
-    public string $path;
-    public string $region;
-    public string $version;
-}
-
-/** Wzn3 entity data model. */
-class Wzn3
-{
-}
-
-/** Request payload for Wzn3#load. */
-class Wzn3LoadMatch
-{
-    public string $path;
-    public string $region;
-    public string $version;
-}
-
-/** Wzn4 entity data model. */
-class Wzn4
-{
-}
-
-/** Request payload for Wzn4#load. */
-class Wzn4LoadMatch
-{
-    public string $path;
-    public string $region;
-    public string $version;
-}
-
-/** Wzn5 entity data model. */
-class Wzn5
-{
-}
-
-/** Request payload for Wzn5#load. */
-class Wzn5LoadMatch
-{
-    public string $path;
-    public string $region;
-    public string $version;
-}
-
-/** Wzn6 entity data model. */
-class Wzn6
-{
-}
-
-/** Request payload for Wzn6#load. */
-class Wzn6LoadMatch
-{
-    public string $path;
+    public ?string $path = null;
     public string $region;
     public string $version;
 }

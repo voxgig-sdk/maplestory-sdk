@@ -58,15 +58,5 @@ var NewTipEntityFunc func(client *MaplestorySDK, entopts map[string]any) Maplest
 
 var NewWznEntityFunc func(client *MaplestorySDK, entopts map[string]any) MaplestoryEntity
 
-var NewWzn2EntityFunc func(client *MaplestorySDK, entopts map[string]any) MaplestoryEntity
-
-var NewWzn3EntityFunc func(client *MaplestorySDK, entopts map[string]any) MaplestoryEntity
-
-var NewWzn4EntityFunc func(client *MaplestorySDK, entopts map[string]any) MaplestoryEntity
-
-var NewWzn5EntityFunc func(client *MaplestorySDK, entopts map[string]any) MaplestoryEntity
-
-var NewWzn6EntityFunc func(client *MaplestorySDK, entopts map[string]any) MaplestoryEntity
-
 var NewZMapEntityFunc func(client *MaplestorySDK, entopts map[string]any) MaplestoryEntity
 

@@ -33,7 +33,7 @@ class Entity1EntityTest extends TestCase
         // The basic flow consumes synthetic IDs from the fixture. In live mode
         // without an *_ENTID env override, those IDs hit the live API and 4xx.
         if (!empty($setup["synthetic_only"])) {
-            $this->markTestSkipped("live entity test uses synthetic IDs from fixture — set MAPLESTORY_TEST_ENTITY__ENTID JSON to run live");
+            $this->markTestSkipped("live entity test uses synthetic IDs from fixture — set MAPLESTORY_TEST_ENTITY1_ENTID JSON to run live");
             return;
         }
         $client = $setup["client"];
@@ -77,17 +77,17 @@ function entity1_basic_setup($extra)
     // Detect ENTID env override before envOverride consumes it. When live
     // mode is on without a real override, the basic test runs against synthetic
     // IDs from the fixture and 4xx's. Surface this so the test can skip.
-    $entid_env_raw = getenv("MAPLESTORY_TEST_ENTITY__ENTID");
+    $entid_env_raw = getenv("MAPLESTORY_TEST_ENTITY1_ENTID");
     $idmap_overridden = $entid_env_raw !== false && str_starts_with(trim($entid_env_raw), "{");
 
     $env = Runner::env_override([
-        "MAPLESTORY_TEST_ENTITY__ENTID" => $idmap,
+        "MAPLESTORY_TEST_ENTITY1_ENTID" => $idmap,
         "MAPLESTORY_TEST_LIVE" => "FALSE",
         "MAPLESTORY_TEST_EXPLAIN" => "FALSE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
-        $env["MAPLESTORY_TEST_ENTITY__ENTID"]);
+        $env["MAPLESTORY_TEST_ENTITY1_ENTID"]);
     if ($idmap_resolved === null) {
         $idmap_resolved = Helpers::to_map($idmap);
     }

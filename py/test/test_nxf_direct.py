@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from maplestory_sdk.utility.voxgig_struct import voxgig_struct as vs
 from maplestory_sdk import MaplestorySDK
-from core import helpers
+from maplestory_sdk.core import helpers
 from test import runner
 
 

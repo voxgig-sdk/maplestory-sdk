@@ -24,6 +24,10 @@ describe('WznDirect', async () => {
 
   test('direct-exists', async () => {
     const sdk = new MaplestorySDK({
+      // Concrete base: a live construction must satisfy any server
+      // variables a templated base URL declares; overriding base with a
+      // literal (as the direct flow tests do) sidesteps the requirement.
+      base: 'http://localhost:8080',
       system: { fetch: async () => ({}) }
     })
     assert('function' === typeof sdk.direct)
@@ -34,14 +38,21 @@ describe('WznDirect', async () => {
   test('direct-load-wzn', async (t: any) => {
     const setup = directSetup({ id: 'direct01' })
     if (maybeSkipControl(t, 'direct', 'direct-load-wzn', setup.live)) return
+    if (skipIfMissingIds(t, setup, ["path01","region01","version01"])) return
     const { client, calls } = setup
 
     const params: any = {}
     const query: any = {}
+    if (setup.live) {
 
+    } else {
+      params.path = 'direct01'
+      params.region = 'direct02'
+      params.version = 'direct03'
+    }
 
     const result: any = await client.direct({
-      path: 'api/wz',
+      path: 'api/wz/export/{region}/{version}/{path}',
       method: 'GET',
       params,
       query,
@@ -61,6 +72,9 @@ describe('WznDirect', async () => {
       assert(result.data.id === 'direct01')
       assert(calls.length === 1)
       assert(calls[0].init.method === 'GET')
+      assert(calls[0].url.includes('direct01'))
+      assert(calls[0].url.includes('direct02'))
+      assert(calls[0].url.includes('direct03'))
     }
   })
 

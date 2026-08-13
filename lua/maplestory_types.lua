@@ -22,20 +22,20 @@
 ---@field item? string
 
 ---@class Cache
----@field eviction_count? number
----@field hit_count? number
----@field hit_ratio? number
----@field memory_usage? number
----@field miss_count? number
----@field total_entry? number
+---@field evictionCount? number
+---@field hitCount? number
+---@field hitRatio? number
+---@field memoryUsage? number
+---@field missCount? number
+---@field totalEntries? number
 
 ---@class CacheLoadMatch
----@field eviction_count? number
----@field hit_count? number
----@field hit_ratio? number
----@field memory_usage? number
----@field miss_count? number
----@field total_entry? number
+---@field evictionCount? number
+---@field hitCount? number
+---@field hitRatio? number
+---@field memoryUsage? number
+---@field missCount? number
+---@field totalEntries? number
 
 ---@class Character
 
@@ -53,13 +53,13 @@
 
 ---@class Cluster
 ---@field hostname? string
----@field last_seen? string
----@field metric? table
+---@field lastSeen? string
+---@field metrics? table
 
 ---@class ClusterListMatch
 ---@field hostname? string
----@field last_seen? string
----@field metric? table
+---@field lastSeen? string
+---@field metrics? table
 
 ---@class Diff
 
@@ -161,34 +161,34 @@
 ---@class NxfLoadMatch
 
 ---@class PerformanceMetric
----@field active_request? number
----@field average_response_time_m? number
+---@field activeRequests? number
+---@field averageResponseTimeMs? number
 ---@field cache? table
----@field errors_by_type? table
----@field last_updated? string
----@field memory_used_byte? number
----@field redis_cache? table
----@field requests_per_second? number
----@field start_time? string
+---@field errorsByType? table
+---@field lastUpdated? string
+---@field memoryUsedBytes? number
+---@field redisCache? table
+---@field requestsPerSecond? number
+---@field startTime? string
 ---@field system? table
----@field total_error? number
----@field total_request? number
----@field wz_properties_loaded? number
+---@field totalErrors? number
+---@field totalRequests? number
+---@field wzPropertiesLoaded? number
 
 ---@class PerformanceMetricLoadMatch
----@field active_request? number
----@field average_response_time_m? number
+---@field activeRequests? number
+---@field averageResponseTimeMs? number
 ---@field cache? table
----@field errors_by_type? table
----@field last_updated? string
----@field memory_used_byte? number
----@field redis_cache? table
----@field requests_per_second? number
----@field start_time? string
+---@field errorsByType? table
+---@field lastUpdated? string
+---@field memoryUsedBytes? number
+---@field redisCache? table
+---@field requestsPerSecond? number
+---@field startTime? string
 ---@field system? table
----@field total_error? number
----@field total_request? number
----@field wz_properties_loaded? number
+---@field totalErrors? number
+---@field totalRequests? number
+---@field wzPropertiesLoaded? number
 
 ---@class Pet
 
@@ -209,22 +209,22 @@
 ---@field id? number
 
 ---@class System
----@field cpu_usage_percent? number
----@field gc_gen0_collection? number
----@field gc_gen1_collection? number
----@field gc_gen2_collection? number
----@field thread_count? number
----@field total_memory_byte? number
----@field used_memory_byte? number
+---@field cpuUsagePercent? number
+---@field gcGen0Collections? number
+---@field gcGen1Collections? number
+---@field gcGen2Collections? number
+---@field threadCount? number
+---@field totalMemoryBytes? number
+---@field usedMemoryBytes? number
 
 ---@class SystemLoadMatch
----@field cpu_usage_percent? number
----@field gc_gen0_collection? number
----@field gc_gen1_collection? number
----@field gc_gen2_collection? number
----@field thread_count? number
----@field total_memory_byte? number
----@field used_memory_byte? number
+---@field cpuUsagePercent? number
+---@field gcGen0Collections? number
+---@field gcGen1Collections? number
+---@field gcGen2Collections? number
+---@field threadCount? number
+---@field totalMemoryBytes? number
+---@field usedMemoryBytes? number
 
 ---@class Tip
 
@@ -235,41 +235,7 @@
 ---@class Wzn
 
 ---@class WznLoadMatch
----@field region string
----@field version string
-
----@class Wzn2
-
----@class Wzn2LoadMatch
----@field path string
----@field region string
----@field version string
-
----@class Wzn3
-
----@class Wzn3LoadMatch
----@field path string
----@field region string
----@field version string
-
----@class Wzn4
-
----@class Wzn4LoadMatch
----@field path string
----@field region string
----@field version string
-
----@class Wzn5
-
----@class Wzn5LoadMatch
----@field path string
----@field region string
----@field version string
-
----@class Wzn6
-
----@class Wzn6LoadMatch
----@field path string
+---@field path? string
 ---@field region string
 ---@field version string
 

@@ -6,12 +6,12 @@ main: kit: entity: performance_metric: {
 
   fields: [
     {
-      name: "active_request"
+      name: "activeRequests"
       req: false
       type: "`$INTEGER`"
     }
     {
-      name: "average_response_time_m"
+      name: "averageResponseTimeMs"
       req: false
       type: "`$NUMBER`"
     }
@@ -21,32 +21,32 @@ main: kit: entity: performance_metric: {
       type: "`$OBJECT`"
     }
     {
-      name: "errors_by_type"
+      name: "errorsByType"
       req: false
       type: "`$OBJECT`"
     }
     {
-      name: "last_updated"
+      name: "lastUpdated"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "memory_used_byte"
+      name: "memoryUsedBytes"
       req: false
       type: "`$INTEGER`"
     }
     {
-      name: "redis_cache"
+      name: "redisCache"
       req: false
       type: "`$OBJECT`"
     }
     {
-      name: "requests_per_second"
+      name: "requestsPerSecond"
       req: false
       type: "`$NUMBER`"
     }
     {
-      name: "start_time"
+      name: "startTime"
       req: false
       type: "`$STRING`"
     }
@@ -56,17 +56,17 @@ main: kit: entity: performance_metric: {
       type: "`$OBJECT`"
     }
     {
-      name: "total_error"
+      name: "totalErrors"
       req: false
       type: "`$INTEGER`"
     }
     {
-      name: "total_request"
+      name: "totalRequests"
       req: false
       type: "`$INTEGER`"
     }
     {
-      name: "wz_properties_loaded"
+      name: "wzPropertiesLoaded"
       req: false
       type: "`$INTEGER`"
     }

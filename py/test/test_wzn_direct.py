@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from maplestory_sdk.utility.voxgig_struct import voxgig_struct as vs
 from maplestory_sdk import MaplestorySDK
-from core import helpers
+from maplestory_sdk.core import helpers
 from test import runner
 
 
@@ -18,13 +18,25 @@ class TestWznDirect:
             # pytest already imported at module scope
             pytest.skip(_reason or "skipped via sdk-test-control.json")
             return
+        if setup["live"]:
+            # pytest already imported at module scope
+            pytest.skip("live direct-load needs real ID — set *_ENTID env var with real IDs to run")
+            return
+
         client = setup["client"]
 
+        params = {}
+        query = {}
+        if not setup["live"]:
+            params["path"] = "direct01"
+            params["region"] = "direct02"
+            params["version"] = "direct03"
 
         result = client.direct({
-            "path": "api/wz",
+            "path": "api/wz/export/{region}/{version}/{path}",
             "method": "GET",
-            "params": {},
+            "params": params,
+            "query": query,
         })
         if setup["live"]:
             # Live mode is lenient: synthetic IDs frequently 4xx. Skip

@@ -48,7 +48,7 @@ describe('Entity1Entity', async () => {
     // fixture (entity TestData.json). Those don't exist on the live API.
     // Skip live runs unless the user provided a real ENTID env override.
     if (setup.syntheticOnly) {
-      t.skip('live entity test uses synthetic IDs from fixture — set MAPLESTORY_TEST_ENTITY__ENTID JSON to run live')
+      t.skip('live entity test uses synthetic IDs from fixture — set MAPLESTORY_TEST_ENTITY1_ENTID JSON to run live')
       return
     }
     const client = setup.client
@@ -62,7 +62,7 @@ describe('Entity1Entity', async () => {
     // LOAD
     const entity1_ref01_ent = client.Entity1()
     const entity1_ref01_match_dt0: any = {}
-    const entity1_ref01_data_dt0 = await entity1_ref01_ent.load(entity1_ref01_match_dt0)
+    const entity1_ref01_data_dt0 = (await entity1_ref01_ent.load(entity1_ref01_match_dt0)).data()
     assert(null != entity1_ref01_data_dt0)
 
 
@@ -106,16 +106,16 @@ function basicSetup(extra?: any) {
   // basic flow consumes synthetic IDs from the fixture file; without an
   // override those synthetic IDs reach the live API and 4xx. Surface this
   // to the test so it can skip rather than fail.
-  const idmapEnvVal = process.env['MAPLESTORY_TEST_ENTITY__ENTID']
+  const idmapEnvVal = process.env['MAPLESTORY_TEST_ENTITY1_ENTID']
   const idmapOverridden = null != idmapEnvVal && idmapEnvVal.trim().startsWith('{')
 
   const env = envOverride({
-    'MAPLESTORY_TEST_ENTITY__ENTID': idmap,
+    'MAPLESTORY_TEST_ENTITY1_ENTID': idmap,
     'MAPLESTORY_TEST_LIVE': 'FALSE',
     'MAPLESTORY_TEST_EXPLAIN': 'FALSE',
   })
 
-  idmap = env['MAPLESTORY_TEST_ENTITY__ENTID']
+  idmap = env['MAPLESTORY_TEST_ENTITY1_ENTID']
 
   const live = 'TRUE' === env.MAPLESTORY_TEST_LIVE
 

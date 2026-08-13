@@ -16,7 +16,7 @@ import (
 // reqdata map passed through to the SDK. For load, `query` should be
 // `{"id": <value>}`. For list, omit `query` or pass an empty map.
 type Args struct {
-	Entity string         `json:"entity" jsonschema:"android | avatar | cache | character | chat | cluster | diff | entity1 | gms_new | guild_mark | health | item | job | map | metric | mob | music | name | npc | nxf | performance_metric | pet | quest | system | tip | wzn | wzn2 | wzn3 | wzn4 | wzn5 | wzn6 | z_map"`
+	Entity string         `json:"entity" jsonschema:"android | avatar | cache | character | chat | cluster | diff | entity1 | gms_new | guild_mark | health | item | job | map | metric | mob | music | name | npc | nxf | performance_metric | pet | quest | system | tip | wzn | z_map"`
 	Query  map[string]any `json:"query,omitempty" jsonschema:"optional match map e.g. {\"id\":1} for load, omit for list"`
 }
 
@@ -129,16 +129,6 @@ func entityFor(client *sdk.MaplestorySDK, name string) (sdk.MaplestoryEntity, er
 		return client.Tip(nil), nil
 	case "wzn":
 		return client.Wzn(nil), nil
-	case "wzn2":
-		return client.Wzn2(nil), nil
-	case "wzn3":
-		return client.Wzn3(nil), nil
-	case "wzn4":
-		return client.Wzn4(nil), nil
-	case "wzn5":
-		return client.Wzn5(nil), nil
-	case "wzn6":
-		return client.Wzn6(nil), nil
 	case "z_map":
 		return client.ZMap(nil), nil
 

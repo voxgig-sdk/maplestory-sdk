@@ -56,59 +56,59 @@ AvatarLoadMatch = Struct.new(
 
 # Cache entity data model.
 #
-# @!attribute [rw] eviction_count
+# @!attribute [rw] evictionCount
 #   @return [Integer, nil]
 #
-# @!attribute [rw] hit_count
+# @!attribute [rw] hitCount
 #   @return [Integer, nil]
 #
-# @!attribute [rw] hit_ratio
+# @!attribute [rw] hitRatio
 #   @return [Float, nil]
 #
-# @!attribute [rw] memory_usage
+# @!attribute [rw] memoryUsage
 #   @return [Integer, nil]
 #
-# @!attribute [rw] miss_count
+# @!attribute [rw] missCount
 #   @return [Integer, nil]
 #
-# @!attribute [rw] total_entry
+# @!attribute [rw] totalEntries
 #   @return [Integer, nil]
 Cache = Struct.new(
-  :eviction_count,
-  :hit_count,
-  :hit_ratio,
-  :memory_usage,
-  :miss_count,
-  :total_entry,
+  :evictionCount,
+  :hitCount,
+  :hitRatio,
+  :memoryUsage,
+  :missCount,
+  :totalEntries,
   keyword_init: true
 )
 
 # Request payload for Cache#load.
 #
-# @!attribute [rw] eviction_count
+# @!attribute [rw] evictionCount
 #   @return [Integer, nil]
 #
-# @!attribute [rw] hit_count
+# @!attribute [rw] hitCount
 #   @return [Integer, nil]
 #
-# @!attribute [rw] hit_ratio
+# @!attribute [rw] hitRatio
 #   @return [Float, nil]
 #
-# @!attribute [rw] memory_usage
+# @!attribute [rw] memoryUsage
 #   @return [Integer, nil]
 #
-# @!attribute [rw] miss_count
+# @!attribute [rw] missCount
 #   @return [Integer, nil]
 #
-# @!attribute [rw] total_entry
+# @!attribute [rw] totalEntries
 #   @return [Integer, nil]
 CacheLoadMatch = Struct.new(
-  :eviction_count,
-  :hit_count,
-  :hit_ratio,
-  :memory_usage,
-  :miss_count,
-  :total_entry,
+  :evictionCount,
+  :hitCount,
+  :hitRatio,
+  :memoryUsage,
+  :missCount,
+  :totalEntries,
   keyword_init: true
 )
 
@@ -159,15 +159,15 @@ ChatLoadMatch = Struct.new(
 # @!attribute [rw] hostname
 #   @return [String, nil]
 #
-# @!attribute [rw] last_seen
+# @!attribute [rw] lastSeen
 #   @return [String, nil]
 #
-# @!attribute [rw] metric
+# @!attribute [rw] metrics
 #   @return [Hash, nil]
 Cluster = Struct.new(
   :hostname,
-  :last_seen,
-  :metric,
+  :lastSeen,
+  :metrics,
   keyword_init: true
 )
 
@@ -176,15 +176,15 @@ Cluster = Struct.new(
 # @!attribute [rw] hostname
 #   @return [String, nil]
 #
-# @!attribute [rw] last_seen
+# @!attribute [rw] lastSeen
 #   @return [String, nil]
 #
-# @!attribute [rw] metric
+# @!attribute [rw] metrics
 #   @return [Hash, nil]
 ClusterListMatch = Struct.new(
   :hostname,
-  :last_seen,
-  :metric,
+  :lastSeen,
+  :metrics,
   keyword_init: true
 )
 
@@ -484,115 +484,115 @@ end
 
 # PerformanceMetric entity data model.
 #
-# @!attribute [rw] active_request
+# @!attribute [rw] activeRequests
 #   @return [Integer, nil]
 #
-# @!attribute [rw] average_response_time_m
+# @!attribute [rw] averageResponseTimeMs
 #   @return [Float, nil]
 #
 # @!attribute [rw] cache
 #   @return [Hash, nil]
 #
-# @!attribute [rw] errors_by_type
+# @!attribute [rw] errorsByType
 #   @return [Hash, nil]
 #
-# @!attribute [rw] last_updated
+# @!attribute [rw] lastUpdated
 #   @return [String, nil]
 #
-# @!attribute [rw] memory_used_byte
+# @!attribute [rw] memoryUsedBytes
 #   @return [Integer, nil]
 #
-# @!attribute [rw] redis_cache
+# @!attribute [rw] redisCache
 #   @return [Hash, nil]
 #
-# @!attribute [rw] requests_per_second
+# @!attribute [rw] requestsPerSecond
 #   @return [Float, nil]
 #
-# @!attribute [rw] start_time
+# @!attribute [rw] startTime
 #   @return [String, nil]
 #
 # @!attribute [rw] system
 #   @return [Hash, nil]
 #
-# @!attribute [rw] total_error
+# @!attribute [rw] totalErrors
 #   @return [Integer, nil]
 #
-# @!attribute [rw] total_request
+# @!attribute [rw] totalRequests
 #   @return [Integer, nil]
 #
-# @!attribute [rw] wz_properties_loaded
+# @!attribute [rw] wzPropertiesLoaded
 #   @return [Integer, nil]
 PerformanceMetric = Struct.new(
-  :active_request,
-  :average_response_time_m,
+  :activeRequests,
+  :averageResponseTimeMs,
   :cache,
-  :errors_by_type,
-  :last_updated,
-  :memory_used_byte,
-  :redis_cache,
-  :requests_per_second,
-  :start_time,
+  :errorsByType,
+  :lastUpdated,
+  :memoryUsedBytes,
+  :redisCache,
+  :requestsPerSecond,
+  :startTime,
   :system,
-  :total_error,
-  :total_request,
-  :wz_properties_loaded,
+  :totalErrors,
+  :totalRequests,
+  :wzPropertiesLoaded,
   keyword_init: true
 )
 
 # Request payload for PerformanceMetric#load.
 #
-# @!attribute [rw] active_request
+# @!attribute [rw] activeRequests
 #   @return [Integer, nil]
 #
-# @!attribute [rw] average_response_time_m
+# @!attribute [rw] averageResponseTimeMs
 #   @return [Float, nil]
 #
 # @!attribute [rw] cache
 #   @return [Hash, nil]
 #
-# @!attribute [rw] errors_by_type
+# @!attribute [rw] errorsByType
 #   @return [Hash, nil]
 #
-# @!attribute [rw] last_updated
+# @!attribute [rw] lastUpdated
 #   @return [String, nil]
 #
-# @!attribute [rw] memory_used_byte
+# @!attribute [rw] memoryUsedBytes
 #   @return [Integer, nil]
 #
-# @!attribute [rw] redis_cache
+# @!attribute [rw] redisCache
 #   @return [Hash, nil]
 #
-# @!attribute [rw] requests_per_second
+# @!attribute [rw] requestsPerSecond
 #   @return [Float, nil]
 #
-# @!attribute [rw] start_time
+# @!attribute [rw] startTime
 #   @return [String, nil]
 #
 # @!attribute [rw] system
 #   @return [Hash, nil]
 #
-# @!attribute [rw] total_error
+# @!attribute [rw] totalErrors
 #   @return [Integer, nil]
 #
-# @!attribute [rw] total_request
+# @!attribute [rw] totalRequests
 #   @return [Integer, nil]
 #
-# @!attribute [rw] wz_properties_loaded
+# @!attribute [rw] wzPropertiesLoaded
 #   @return [Integer, nil]
 PerformanceMetricLoadMatch = Struct.new(
-  :active_request,
-  :average_response_time_m,
+  :activeRequests,
+  :averageResponseTimeMs,
   :cache,
-  :errors_by_type,
-  :last_updated,
-  :memory_used_byte,
-  :redis_cache,
-  :requests_per_second,
-  :start_time,
+  :errorsByType,
+  :lastUpdated,
+  :memoryUsedBytes,
+  :redisCache,
+  :requestsPerSecond,
+  :startTime,
   :system,
-  :total_error,
-  :total_request,
-  :wz_properties_loaded,
+  :totalErrors,
+  :totalRequests,
+  :wzPropertiesLoaded,
   keyword_init: true
 )
 
@@ -656,67 +656,67 @@ QuestLoadMatch = Struct.new(
 
 # System entity data model.
 #
-# @!attribute [rw] cpu_usage_percent
+# @!attribute [rw] cpuUsagePercent
 #   @return [Float, nil]
 #
-# @!attribute [rw] gc_gen0_collection
+# @!attribute [rw] gcGen0Collections
 #   @return [Integer, nil]
 #
-# @!attribute [rw] gc_gen1_collection
+# @!attribute [rw] gcGen1Collections
 #   @return [Integer, nil]
 #
-# @!attribute [rw] gc_gen2_collection
+# @!attribute [rw] gcGen2Collections
 #   @return [Integer, nil]
 #
-# @!attribute [rw] thread_count
+# @!attribute [rw] threadCount
 #   @return [Integer, nil]
 #
-# @!attribute [rw] total_memory_byte
+# @!attribute [rw] totalMemoryBytes
 #   @return [Integer, nil]
 #
-# @!attribute [rw] used_memory_byte
+# @!attribute [rw] usedMemoryBytes
 #   @return [Integer, nil]
 System = Struct.new(
-  :cpu_usage_percent,
-  :gc_gen0_collection,
-  :gc_gen1_collection,
-  :gc_gen2_collection,
-  :thread_count,
-  :total_memory_byte,
-  :used_memory_byte,
+  :cpuUsagePercent,
+  :gcGen0Collections,
+  :gcGen1Collections,
+  :gcGen2Collections,
+  :threadCount,
+  :totalMemoryBytes,
+  :usedMemoryBytes,
   keyword_init: true
 )
 
 # Request payload for System#load.
 #
-# @!attribute [rw] cpu_usage_percent
+# @!attribute [rw] cpuUsagePercent
 #   @return [Float, nil]
 #
-# @!attribute [rw] gc_gen0_collection
+# @!attribute [rw] gcGen0Collections
 #   @return [Integer, nil]
 #
-# @!attribute [rw] gc_gen1_collection
+# @!attribute [rw] gcGen1Collections
 #   @return [Integer, nil]
 #
-# @!attribute [rw] gc_gen2_collection
+# @!attribute [rw] gcGen2Collections
 #   @return [Integer, nil]
 #
-# @!attribute [rw] thread_count
+# @!attribute [rw] threadCount
 #   @return [Integer, nil]
 #
-# @!attribute [rw] total_memory_byte
+# @!attribute [rw] totalMemoryBytes
 #   @return [Integer, nil]
 #
-# @!attribute [rw] used_memory_byte
+# @!attribute [rw] usedMemoryBytes
 #   @return [Integer, nil]
 SystemLoadMatch = Struct.new(
-  :cpu_usage_percent,
-  :gc_gen0_collection,
-  :gc_gen1_collection,
-  :gc_gen2_collection,
-  :thread_count,
-  :total_memory_byte,
-  :used_memory_byte,
+  :cpuUsagePercent,
+  :gcGen0Collections,
+  :gcGen1Collections,
+  :gcGen2Collections,
+  :threadCount,
+  :totalMemoryBytes,
+  :usedMemoryBytes,
   keyword_init: true
 )
 
@@ -743,116 +743,15 @@ end
 
 # Request payload for Wzn#load.
 #
+# @!attribute [rw] path
+#   @return [String, nil]
+#
 # @!attribute [rw] region
 #   @return [String]
 #
 # @!attribute [rw] version
 #   @return [String]
 WznLoadMatch = Struct.new(
-  :region,
-  :version,
-  keyword_init: true
-)
-
-# Wzn2 entity data model.
-class Wzn2
-end
-
-# Request payload for Wzn2#load.
-#
-# @!attribute [rw] path
-#   @return [String]
-#
-# @!attribute [rw] region
-#   @return [String]
-#
-# @!attribute [rw] version
-#   @return [String]
-Wzn2LoadMatch = Struct.new(
-  :path,
-  :region,
-  :version,
-  keyword_init: true
-)
-
-# Wzn3 entity data model.
-class Wzn3
-end
-
-# Request payload for Wzn3#load.
-#
-# @!attribute [rw] path
-#   @return [String]
-#
-# @!attribute [rw] region
-#   @return [String]
-#
-# @!attribute [rw] version
-#   @return [String]
-Wzn3LoadMatch = Struct.new(
-  :path,
-  :region,
-  :version,
-  keyword_init: true
-)
-
-# Wzn4 entity data model.
-class Wzn4
-end
-
-# Request payload for Wzn4#load.
-#
-# @!attribute [rw] path
-#   @return [String]
-#
-# @!attribute [rw] region
-#   @return [String]
-#
-# @!attribute [rw] version
-#   @return [String]
-Wzn4LoadMatch = Struct.new(
-  :path,
-  :region,
-  :version,
-  keyword_init: true
-)
-
-# Wzn5 entity data model.
-class Wzn5
-end
-
-# Request payload for Wzn5#load.
-#
-# @!attribute [rw] path
-#   @return [String]
-#
-# @!attribute [rw] region
-#   @return [String]
-#
-# @!attribute [rw] version
-#   @return [String]
-Wzn5LoadMatch = Struct.new(
-  :path,
-  :region,
-  :version,
-  keyword_init: true
-)
-
-# Wzn6 entity data model.
-class Wzn6
-end
-
-# Request payload for Wzn6#load.
-#
-# @!attribute [rw] path
-#   @return [String]
-#
-# @!attribute [rw] region
-#   @return [String]
-#
-# @!attribute [rw] version
-#   @return [String]
-Wzn6LoadMatch = Struct.new(
   :path,
   :region,
   :version,

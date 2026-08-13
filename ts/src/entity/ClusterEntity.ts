@@ -37,7 +37,7 @@ class ClusterEntity extends MaplestoryEntityBase<Cluster> {
 
 
 
-  async list(this: any, reqmatch?: ClusterListMatch, ctrl?: Control): Promise<Cluster[]> {
+  async list(this: any, reqmatch?: ClusterListMatch, ctrl?: Control): Promise<ClusterEntity[]> {
 
     const utility = this._utility
 

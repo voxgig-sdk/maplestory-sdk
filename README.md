@@ -16,14 +16,14 @@ Metadata kindly supplied by [www.freepublicapis.com](https://www.freepublicapis.
 
 ## Entities, not endpoints
 
-This SDK exposes the API as **32 semantic entities** that you
+This SDK exposes the API as **27 semantic entities** that you
 call directly, instead of assembling URL paths and query strings. See the [Entities](#entities) table below for the full list. Entities are
 **Capitalised** to mark them as the primary surface, each with the operations they
 support (`list`, `load`):
 
 ```ts
 const client = new MaplestorySDK()
-const android = await client.Android().load()
+const android = await client.Android().load({ region: "example", version: "example" })
 ```
 
 Thinking in entities keeps the mental model small — for people and AI agents alike —
@@ -38,18 +38,27 @@ network, and no credentials:
 ### TypeScript
 
 ```ts
-const client = MaplestorySDK.test()
-const android = await client.Android().load({ id: 1, region: 'example_region', version: 'example_version' })
-// android is a bare Android populated with mock data
-console.log(android)
+// The offline mock starts EMPTY — seed it with the records the test needs.
+// Shape: { entity: { <entity-name>: { <id>: <record> } } }
+const client = MaplestorySDK.test({
+  entity: {
+    music: {
+      test01: { id: 'test01' },
+    },
+  },
+})
+const music = await client.Music().load({ id: 'test01', region: 'example_region', version: 'example_version' })
+// music is the Music entity, populated with mock data
+// — call music.data() for the record itself
+console.log(music)
 ```
 
 ### Python
 
 ```python
 client = MaplestorySDK.test()
-android = client.Android().load({"id": "test01", "region": "example", "version": "example"})
-print(android)
+music = client.Music().load({"id": "test01", "region": "example", "version": "example"})
+print(music)
 ```
 
 ### PHP
@@ -57,16 +66,16 @@ print(android)
 ```php
 // Seed fixture data so offline calls resolve without a live server.
 $client = MaplestorySDK::test([
-    "entity" => ["android" => ["test01" => ["id" => "test01"]]],
+    "entity" => ["music" => ["test01" => ["id" => "test01"]]],
 ]);
-$android = $client->Android()->load(["id" => "test01", "region" => "example", "version" => "example"]);
+$music = $client->Music()->load(["id" => "test01", "region" => "example", "version" => "example"]);
 ```
 
 ### Golang
 
 ```go
 client := sdk.Test()
-result, err := client.Android(nil).Load(
+result, err := client.Music(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
 ```
@@ -76,16 +85,16 @@ result, err := client.Android(nil).Load(
 ```ruby
 # Seed fixture data so offline calls resolve without a live server.
 client = MaplestorySDK.test({
-  "entity" => { "android" => { "test01" => { "id" => "test01" } } },
+  "entity" => { "music" => { "test01" => { "id" => "test01" } } },
 })
-android = client.Android.load({ "id" => "test01", "region" => "example", "version" => "example" })
+music = client.Music.load({ "id" => "test01", "region" => "example", "version" => "example" })
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:Android():load({ id = "test01", region = "example", version = "example" })
+local result, err = client:Music():load({ id = "test01", region = "example", version = "example" })
 ```
 
 ## Packages
@@ -154,7 +163,7 @@ Then add it to your agent's MCP config (Claude Desktop, Cursor, etc.):
 
 ## Entities
 
-The API exposes 32 entities:
+The API exposes 27 entities:
 
 | Entity | Description | API path |
 | --- | --- | --- |
@@ -183,12 +192,7 @@ The API exposes 32 entities:
 | **Quest** | The Quest entity (load). | `/api/{region}/{version}/quest` |
 | **System** | The System entity (load). | `/api/metrics/system` |
 | **Tip** | The Tip entity (load). | `/api/{region}/{version}/tips` |
-| **Wzn** | The Wzn entity (load). | `/api/wz` |
-| **Wzn2** | The Wzn2 entity (load). | `/api/wz/audio/{region}/{version}/{path}` |
-| **Wzn3** | The Wzn3 entity (load). | `/api/wz/export/{region}/{version}/{path}` |
-| **Wzn4** | The Wzn4 entity (load). | `/api/wz/img/{region}/{version}/{path}` |
-| **Wzn5** | The Wzn5 entity (load). | `/api/wz/lookup/{region}/{version}/{path}` |
-| **Wzn6** | The Wzn6 entity (load). | `/api/wz/{region}/{version}/{path}` |
+| **Wzn** | The Wzn entity (load). | `/api/wz/export/{region}/{version}/{path}` |
 | **ZMap** | The ZMap entity (load). | `/api/{region}/{version}/zmap` |
 
 The operations available across these entities are **load**, **list** — see each entity's
@@ -218,7 +222,7 @@ require_once 'maplestory_sdk.php';
 $client = new MaplestorySDK();
 
 
-// Load a specific android (returns the bare record; throws on error)
+// Load a specific android (returns the ENTITY; call data_get() for the record; throws on error)
 $android = $client->Android()->load(["id" => 1, "region" => "example_region", "version" => "example_version"]);
 print_r($android);
 ```
@@ -249,7 +253,7 @@ require_relative "Maplestory_sdk"
 client = MaplestorySDK.new
 
 
-# Load a specific android (returns the bare record; raises on error)
+# Load a specific android (returns the ENTITY; call data_get for the record)
 android = client.Android.load({ "id" => 1, "region" => "example_region", "version" => "example_version" })
 puts android
 ```
@@ -383,6 +387,9 @@ Pass custom features via the `extend` option at construction time.
 
 This SDK is generated from the upstream OpenAPI specification. It is an
 unofficial client and is not affiliated with the API provider.
+
+The OpenAPI spec(s) this SDK was generated from are kept in the
+[`.sdk/def/`](.sdk/def/) folder.
 
 - Upstream API: [https://discord.gg/3SyrbAs](https://discord.gg/3SyrbAs)
 

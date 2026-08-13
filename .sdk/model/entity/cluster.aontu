@@ -11,12 +11,12 @@ main: kit: entity: cluster: {
       type: "`$STRING`"
     }
     {
-      name: "last_seen"
+      name: "lastSeen"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "metric"
+      name: "metrics"
       req: false
       type: "`$OBJECT`"
     }

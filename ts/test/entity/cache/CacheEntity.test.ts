@@ -62,7 +62,7 @@ describe('CacheEntity', async () => {
     // LOAD
     const cache_ref01_ent = client.Cache()
     const cache_ref01_match_dt0: any = {}
-    const cache_ref01_data_dt0 = await cache_ref01_ent.load(cache_ref01_match_dt0)
+    const cache_ref01_data_dt0 = (await cache_ref01_ent.load(cache_ref01_match_dt0)).data()
     assert(null != cache_ref01_data_dt0)
 
 

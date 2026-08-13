@@ -6,37 +6,37 @@ main: kit: entity: system: {
 
   fields: [
     {
-      name: "cpu_usage_percent"
+      name: "cpuUsagePercent"
       req: false
       type: "`$NUMBER`"
     }
     {
-      name: "gc_gen0_collection"
+      name: "gcGen0Collections"
       req: false
       type: "`$INTEGER`"
     }
     {
-      name: "gc_gen1_collection"
+      name: "gcGen1Collections"
       req: false
       type: "`$INTEGER`"
     }
     {
-      name: "gc_gen2_collection"
+      name: "gcGen2Collections"
       req: false
       type: "`$INTEGER`"
     }
     {
-      name: "thread_count"
+      name: "threadCount"
       req: false
       type: "`$INTEGER`"
     }
     {
-      name: "total_memory_byte"
+      name: "totalMemoryBytes"
       req: false
       type: "`$INTEGER`"
     }
     {
-      name: "used_memory_byte"
+      name: "usedMemoryBytes"
       req: false
       type: "`$INTEGER`"
     }

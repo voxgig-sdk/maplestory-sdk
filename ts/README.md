@@ -57,8 +57,8 @@ Entity operations reject on failure, so wrap them in `try` / `catch`:
 
 ```ts
 try {
-  const android = await client.Android().load({ id: 1 })
-  console.log(android)
+  const music = await client.Music().load({ id: "example_id", region: "example", version: "example" })
+  console.log(music)
 } catch (err) {
   console.error('load failed:', err)
 }
@@ -124,9 +124,10 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = MaplestorySDK.test()
 
-const android = await client.Android().load({ id: 1 })
-// android is a bare entity populated with mock response data
-console.log(android)
+const music = await client.Music().load({ id: 'test01', region: 'example_region', version: 'example_version' })
+// music is the entity, populated with mock response data
+// — call music.data() for the record itself
+console.log(music)
 ```
 
 You can also use the instance method:
@@ -141,10 +142,10 @@ const testClient = client.tester()
 Entity instances remember their last match and data:
 
 ```ts
-const entity = client.Android()
+const entity = client.Music()
 
 // First call runs the operation and stores its result
-await entity.load({ id: 1 })
+await entity.load({ id: 'example', region: 'example_region', version: 'example_version' })
 
 // Subsequent calls reuse the stored state
 const data = entity.data()
@@ -245,11 +246,6 @@ new MaplestorySDK(options?: {
 | `System(data?)` | `SystemEntity` | Create a System entity instance. |
 | `Tip(data?)` | `TipEntity` | Create a Tip entity instance. |
 | `Wzn(data?)` | `WznEntity` | Create a Wzn entity instance. |
-| `Wzn2(data?)` | `Wzn2Entity` | Create a Wzn2 entity instance. |
-| `Wzn3(data?)` | `Wzn3Entity` | Create a Wzn3 entity instance. |
-| `Wzn4(data?)` | `Wzn4Entity` | Create a Wzn4 entity instance. |
-| `Wzn5(data?)` | `Wzn5Entity` | Create a Wzn5 entity instance. |
-| `Wzn6(data?)` | `Wzn6Entity` | Create a Wzn6 entity instance. |
 | `ZMap(data?)` | `ZMapEntity` | Create a ZMap entity instance. |
 | `tester(testopts?, sdkopts?)` | `MaplestorySDK` | Create a test-mode client instance. |
 
@@ -340,12 +336,12 @@ API path: `/api/character/{items}/{animation}/animated`
 
 | Field | Description |
 | --- | --- |
-| `eviction_count` |  |
-| `hit_count` |  |
-| `hit_ratio` |  |
-| `memory_usage` |  |
-| `miss_count` |  |
-| `total_entry` |  |
+| `evictionCount` |  |
+| `hitCount` |  |
+| `hitRatio` |  |
+| `memoryUsage` |  |
+| `missCount` |  |
+| `totalEntries` |  |
 
 Operations: load.
 
@@ -374,8 +370,8 @@ API path: `/api/{region}/{version}/chat`
 | Field | Description |
 | --- | --- |
 | `hostname` |  |
-| `last_seen` |  |
-| `metric` |  |
+| `lastSeen` |  |
+| `metrics` |  |
 
 Operations: list.
 
@@ -511,19 +507,19 @@ API path: `/api/about`
 
 | Field | Description |
 | --- | --- |
-| `active_request` |  |
-| `average_response_time_m` |  |
+| `activeRequests` |  |
+| `averageResponseTimeMs` |  |
 | `cache` |  |
-| `errors_by_type` |  |
-| `last_updated` |  |
-| `memory_used_byte` |  |
-| `redis_cache` |  |
-| `requests_per_second` |  |
-| `start_time` |  |
+| `errorsByType` |  |
+| `lastUpdated` |  |
+| `memoryUsedBytes` |  |
+| `redisCache` |  |
+| `requestsPerSecond` |  |
+| `startTime` |  |
 | `system` |  |
-| `total_error` |  |
-| `total_request` |  |
-| `wz_properties_loaded` |  |
+| `totalErrors` |  |
+| `totalRequests` |  |
+| `wzPropertiesLoaded` |  |
 
 Operations: load.
 
@@ -551,13 +547,13 @@ API path: `/api/{region}/{version}/quest`
 
 | Field | Description |
 | --- | --- |
-| `cpu_usage_percent` |  |
-| `gc_gen0_collection` |  |
-| `gc_gen1_collection` |  |
-| `gc_gen2_collection` |  |
-| `thread_count` |  |
-| `total_memory_byte` |  |
-| `used_memory_byte` |  |
+| `cpuUsagePercent` |  |
+| `gcGen0Collections` |  |
+| `gcGen1Collections` |  |
+| `gcGen2Collections` |  |
+| `threadCount` |  |
+| `totalMemoryBytes` |  |
+| `usedMemoryBytes` |  |
 
 Operations: load.
 
@@ -579,52 +575,7 @@ API path: `/api/{region}/{version}/tips`
 
 Operations: load.
 
-API path: `/api/wz`
-
-#### Wzn2
-
-| Field | Description |
-| --- | --- |
-
-Operations: load.
-
-API path: `/api/wz/audio/{region}/{version}/{path}`
-
-#### Wzn3
-
-| Field | Description |
-| --- | --- |
-
-Operations: load.
-
 API path: `/api/wz/export/{region}/{version}/{path}`
-
-#### Wzn4
-
-| Field | Description |
-| --- | --- |
-
-Operations: load.
-
-API path: `/api/wz/img/{region}/{version}/{path}`
-
-#### Wzn5
-
-| Field | Description |
-| --- | --- |
-
-Operations: load.
-
-API path: `/api/wz/lookup/{region}/{version}/{path}`
-
-#### Wzn6
-
-| Field | Description |
-| --- | --- |
-
-Operations: load.
-
-API path: `/api/wz/{region}/{version}/{path}`
 
 #### ZMap
 
@@ -688,12 +639,12 @@ Create an instance: `const cache = client.Cache()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `eviction_count` | `number` |  |
-| `hit_count` | `number` |  |
-| `hit_ratio` | `number` |  |
-| `memory_usage` | `number` |  |
-| `miss_count` | `number` |  |
-| `total_entry` | `number` |  |
+| `evictionCount` | `number` |  |
+| `hitCount` | `number` |  |
+| `hitRatio` | `number` |  |
+| `memoryUsage` | `number` |  |
+| `missCount` | `number` |  |
+| `totalEntries` | `number` |  |
 
 #### Example: Load
 
@@ -751,8 +702,8 @@ Create an instance: `const cluster = client.Cluster()`
 | Field | Type | Description |
 | --- | --- | --- |
 | `hostname` | `string` |  |
-| `last_seen` | `string` |  |
-| `metric` | `Record<string, any>` |  |
+| `lastSeen` | `string` |  |
+| `metrics` | `Record<string, any>` |  |
 
 #### Example: List
 
@@ -1013,19 +964,19 @@ Create an instance: `const performance_metric = client.PerformanceMetric()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `active_request` | `number` |  |
-| `average_response_time_m` | `number` |  |
+| `activeRequests` | `number` |  |
+| `averageResponseTimeMs` | `number` |  |
 | `cache` | `Record<string, any>` |  |
-| `errors_by_type` | `Record<string, any>` |  |
-| `last_updated` | `string` |  |
-| `memory_used_byte` | `number` |  |
-| `redis_cache` | `Record<string, any>` |  |
-| `requests_per_second` | `number` |  |
-| `start_time` | `string` |  |
+| `errorsByType` | `Record<string, any>` |  |
+| `lastUpdated` | `string` |  |
+| `memoryUsedBytes` | `number` |  |
+| `redisCache` | `Record<string, any>` |  |
+| `requestsPerSecond` | `number` |  |
+| `startTime` | `string` |  |
 | `system` | `Record<string, any>` |  |
-| `total_error` | `number` |  |
-| `total_request` | `number` |  |
-| `wz_properties_loaded` | `number` |  |
+| `totalErrors` | `number` |  |
+| `totalRequests` | `number` |  |
+| `wzPropertiesLoaded` | `number` |  |
 
 #### Example: Load
 
@@ -1082,13 +1033,13 @@ Create an instance: `const system = client.System()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `cpu_usage_percent` | `number` |  |
-| `gc_gen0_collection` | `number` |  |
-| `gc_gen1_collection` | `number` |  |
-| `gc_gen2_collection` | `number` |  |
-| `thread_count` | `number` |  |
-| `total_memory_byte` | `number` |  |
-| `used_memory_byte` | `number` |  |
+| `cpuUsagePercent` | `number` |  |
+| `gcGen0Collections` | `number` |  |
+| `gcGen1Collections` | `number` |  |
+| `gcGen2Collections` | `number` |  |
+| `threadCount` | `number` |  |
+| `totalMemoryBytes` | `number` |  |
+| `usedMemoryBytes` | `number` |  |
 
 #### Example: Load
 
@@ -1128,91 +1079,6 @@ Create an instance: `const wzn = client.Wzn()`
 
 ```ts
 const wzn = await client.Wzn().load({ region: 'region', version: 'version' })
-```
-
-
-### Wzn2
-
-Create an instance: `const wzn2 = client.Wzn2()`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `load(match)` | Load a single entity by match criteria. |
-
-#### Example: Load
-
-```ts
-const wzn2 = await client.Wzn2().load({ path: 'path', region: 'region', version: 'version' })
-```
-
-
-### Wzn3
-
-Create an instance: `const wzn3 = client.Wzn3()`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `load(match)` | Load a single entity by match criteria. |
-
-#### Example: Load
-
-```ts
-const wzn3 = await client.Wzn3().load({ path: 'path', region: 'region', version: 'version' })
-```
-
-
-### Wzn4
-
-Create an instance: `const wzn4 = client.Wzn4()`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `load(match)` | Load a single entity by match criteria. |
-
-#### Example: Load
-
-```ts
-const wzn4 = await client.Wzn4().load({ path: 'path', region: 'region', version: 'version' })
-```
-
-
-### Wzn5
-
-Create an instance: `const wzn5 = client.Wzn5()`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `load(match)` | Load a single entity by match criteria. |
-
-#### Example: Load
-
-```ts
-const wzn5 = await client.Wzn5().load({ path: 'path', region: 'region', version: 'version' })
-```
-
-
-### Wzn6
-
-Create an instance: `const wzn6 = client.Wzn6()`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `load(match)` | Load a single entity by match criteria. |
-
-#### Example: Load
-
-```ts
-const wzn6 = await client.Wzn6().load({ path: 'path', region: 'region', version: 'version' })
 ```
 
 
@@ -1302,11 +1168,11 @@ stores the returned data and match criteria internally. Subsequent
 calls on the same instance can rely on this state.
 
 ```ts
-const android = client.Android()
-await android.load({ id: 1 })
+const music = client.Music()
+await music.load({ id: "example_id", region: "example", version: "example" })
 
-// android.data() now returns the android data from the last `load`
-// android.match() returns { id: 1 }
+// music.data() now returns the music data from the last `load`
+// music.match() returns { id: "example_id" }
 ```
 
 Call `make()` to create a fresh instance with the same configuration

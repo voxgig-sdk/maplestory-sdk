@@ -98,7 +98,7 @@ func wznBasicSetup(extra map[string]any) *entityTestSetup {
 
 	// Generate idmap via transform, matching TS pattern.
 	idmap := vs.Transform(
-		[]any{"wzn01", "wzn02", "wzn03", "region01", "version01"},
+		[]any{"wzn01", "wzn02", "wzn03", "audio01", "audio02", "audio03", "export01", "export02", "export03", "img01", "img02", "img03", "lookup01", "lookup02", "lookup03", "wz01", "wz02", "wz03", "region01", "version01"},
 		map[string]any{
 			"`$PACK`": []any{"", map[string]any{
 				"`$KEY`": "`$COPY`",

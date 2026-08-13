@@ -39,7 +39,7 @@ client = MaplestorySDK()
 ### 3. Load an android
 
 Android is nested under region, so provide the `region`.
-`load()` returns the bare record (a `dict`) and raises on error.
+`load()` returns the ENTITY — call data_get() for the record — and raises on error.
 
 ```python
 try:
@@ -56,8 +56,8 @@ Entity operations raise on failure, so wrap them in `try` / `except`:
 
 ```python
 try:
-    android = client.Android().load({"id": 1})
-    print(android)
+    music = client.Music().load({"id": "example_id", "region": "example", "version": "example"})
+    print(music)
 except Exception as err:
     print(f"load failed: {err}")
 ```
@@ -123,9 +123,10 @@ Create a mock client for unit testing — no server required:
 ```python
 client = MaplestorySDK.test()
 
-# Entity ops return the bare record and raise on error.
-android = client.Android().load({"id": "test01"})
-# android contains the mock response record
+# Entity ops return the ENTITY and raises on error;
+# call data_get() for the record.
+music = client.Music().load({"id": "test01", "region": "example", "version": "example"})
+# music contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -227,11 +228,6 @@ Creates a test-mode client with mock transport. Both arguments may be `None`.
 | `System` | `(data) -> SystemEntity` | Create a System entity instance. |
 | `Tip` | `(data) -> TipEntity` | Create a Tip entity instance. |
 | `Wzn` | `(data) -> WznEntity` | Create a Wzn entity instance. |
-| `Wzn2` | `(data) -> Wzn2Entity` | Create a Wzn2 entity instance. |
-| `Wzn3` | `(data) -> Wzn3Entity` | Create a Wzn3 entity instance. |
-| `Wzn4` | `(data) -> Wzn4Entity` | Create a Wzn4 entity instance. |
-| `Wzn5` | `(data) -> Wzn5Entity` | Create a Wzn5 entity instance. |
-| `Wzn6` | `(data) -> Wzn6Entity` | Create a Wzn6 entity instance. |
 | `ZMap` | `(data) -> ZMapEntity` | Create a ZMap entity instance. |
 
 ### Entity interface
@@ -251,7 +247,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (a `dict` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (a `dict` for single-entity
 ops, a `list` for `list`) and raise on error. Wrap calls in
 `try`/`except` to handle failures.
 
@@ -291,12 +287,12 @@ API path: `/api/character/{items}/{animation}/animated`
 
 | Field | Description |
 | --- | --- |
-| `eviction_count` |  |
-| `hit_count` |  |
-| `hit_ratio` |  |
-| `memory_usage` |  |
-| `miss_count` |  |
-| `total_entry` |  |
+| `evictionCount` |  |
+| `hitCount` |  |
+| `hitRatio` |  |
+| `memoryUsage` |  |
+| `missCount` |  |
+| `totalEntries` |  |
 
 Operations: Load.
 
@@ -325,8 +321,8 @@ API path: `/api/{region}/{version}/chat`
 | Field | Description |
 | --- | --- |
 | `hostname` |  |
-| `last_seen` |  |
-| `metric` |  |
+| `lastSeen` |  |
+| `metrics` |  |
 
 Operations: List.
 
@@ -462,19 +458,19 @@ API path: `/api/about`
 
 | Field | Description |
 | --- | --- |
-| `active_request` |  |
-| `average_response_time_m` |  |
+| `activeRequests` |  |
+| `averageResponseTimeMs` |  |
 | `cache` |  |
-| `errors_by_type` |  |
-| `last_updated` |  |
-| `memory_used_byte` |  |
-| `redis_cache` |  |
-| `requests_per_second` |  |
-| `start_time` |  |
+| `errorsByType` |  |
+| `lastUpdated` |  |
+| `memoryUsedBytes` |  |
+| `redisCache` |  |
+| `requestsPerSecond` |  |
+| `startTime` |  |
 | `system` |  |
-| `total_error` |  |
-| `total_request` |  |
-| `wz_properties_loaded` |  |
+| `totalErrors` |  |
+| `totalRequests` |  |
+| `wzPropertiesLoaded` |  |
 
 Operations: Load.
 
@@ -502,13 +498,13 @@ API path: `/api/{region}/{version}/quest`
 
 | Field | Description |
 | --- | --- |
-| `cpu_usage_percent` |  |
-| `gc_gen0_collection` |  |
-| `gc_gen1_collection` |  |
-| `gc_gen2_collection` |  |
-| `thread_count` |  |
-| `total_memory_byte` |  |
-| `used_memory_byte` |  |
+| `cpuUsagePercent` |  |
+| `gcGen0Collections` |  |
+| `gcGen1Collections` |  |
+| `gcGen2Collections` |  |
+| `threadCount` |  |
+| `totalMemoryBytes` |  |
+| `usedMemoryBytes` |  |
 
 Operations: Load.
 
@@ -530,52 +526,7 @@ API path: `/api/{region}/{version}/tips`
 
 Operations: Load.
 
-API path: `/api/wz`
-
-#### Wzn2
-
-| Field | Description |
-| --- | --- |
-
-Operations: Load.
-
-API path: `/api/wz/audio/{region}/{version}/{path}`
-
-#### Wzn3
-
-| Field | Description |
-| --- | --- |
-
-Operations: Load.
-
 API path: `/api/wz/export/{region}/{version}/{path}`
-
-#### Wzn4
-
-| Field | Description |
-| --- | --- |
-
-Operations: Load.
-
-API path: `/api/wz/img/{region}/{version}/{path}`
-
-#### Wzn5
-
-| Field | Description |
-| --- | --- |
-
-Operations: Load.
-
-API path: `/api/wz/lookup/{region}/{version}/{path}`
-
-#### Wzn6
-
-| Field | Description |
-| --- | --- |
-
-Operations: Load.
-
-API path: `/api/wz/{region}/{version}/{path}`
 
 #### ZMap
 
@@ -639,12 +590,12 @@ Create an instance: `cache = client.Cache()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `eviction_count` | `int` |  |
-| `hit_count` | `int` |  |
-| `hit_ratio` | `float` |  |
-| `memory_usage` | `int` |  |
-| `miss_count` | `int` |  |
-| `total_entry` | `int` |  |
+| `evictionCount` | `int` |  |
+| `hitCount` | `int` |  |
+| `hitRatio` | `float` |  |
+| `memoryUsage` | `int` |  |
+| `missCount` | `int` |  |
+| `totalEntries` | `int` |  |
 
 #### Example: Load
 
@@ -702,8 +653,8 @@ Create an instance: `cluster = client.Cluster()`
 | Field | Type | Description |
 | --- | --- | --- |
 | `hostname` | `str` |  |
-| `last_seen` | `str` |  |
-| `metric` | `dict` |  |
+| `lastSeen` | `str` |  |
+| `metrics` | `dict` |  |
 
 #### Example: List
 
@@ -964,19 +915,19 @@ Create an instance: `performance_metric = client.PerformanceMetric()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `active_request` | `int` |  |
-| `average_response_time_m` | `float` |  |
+| `activeRequests` | `int` |  |
+| `averageResponseTimeMs` | `float` |  |
 | `cache` | `dict` |  |
-| `errors_by_type` | `dict` |  |
-| `last_updated` | `str` |  |
-| `memory_used_byte` | `int` |  |
-| `redis_cache` | `dict` |  |
-| `requests_per_second` | `float` |  |
-| `start_time` | `str` |  |
+| `errorsByType` | `dict` |  |
+| `lastUpdated` | `str` |  |
+| `memoryUsedBytes` | `int` |  |
+| `redisCache` | `dict` |  |
+| `requestsPerSecond` | `float` |  |
+| `startTime` | `str` |  |
 | `system` | `dict` |  |
-| `total_error` | `int` |  |
-| `total_request` | `int` |  |
-| `wz_properties_loaded` | `int` |  |
+| `totalErrors` | `int` |  |
+| `totalRequests` | `int` |  |
+| `wzPropertiesLoaded` | `int` |  |
 
 #### Example: Load
 
@@ -1033,13 +984,13 @@ Create an instance: `system = client.System()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `cpu_usage_percent` | `float` |  |
-| `gc_gen0_collection` | `int` |  |
-| `gc_gen1_collection` | `int` |  |
-| `gc_gen2_collection` | `int` |  |
-| `thread_count` | `int` |  |
-| `total_memory_byte` | `int` |  |
-| `used_memory_byte` | `int` |  |
+| `cpuUsagePercent` | `float` |  |
+| `gcGen0Collections` | `int` |  |
+| `gcGen1Collections` | `int` |  |
+| `gcGen2Collections` | `int` |  |
+| `threadCount` | `int` |  |
+| `totalMemoryBytes` | `int` |  |
+| `usedMemoryBytes` | `int` |  |
 
 #### Example: Load
 
@@ -1079,91 +1030,6 @@ Create an instance: `wzn = client.Wzn()`
 
 ```python
 wzn = client.Wzn().load({"region": "region", "version": "version"})
-```
-
-
-### Wzn2
-
-Create an instance: `wzn2 = client.Wzn2()`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `load(match)` | Load a single entity by match criteria. |
-
-#### Example: Load
-
-```python
-wzn2 = client.Wzn2().load({"path": "path", "region": "region", "version": "version"})
-```
-
-
-### Wzn3
-
-Create an instance: `wzn3 = client.Wzn3()`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `load(match)` | Load a single entity by match criteria. |
-
-#### Example: Load
-
-```python
-wzn3 = client.Wzn3().load({"path": "path", "region": "region", "version": "version"})
-```
-
-
-### Wzn4
-
-Create an instance: `wzn4 = client.Wzn4()`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `load(match)` | Load a single entity by match criteria. |
-
-#### Example: Load
-
-```python
-wzn4 = client.Wzn4().load({"path": "path", "region": "region", "version": "version"})
-```
-
-
-### Wzn5
-
-Create an instance: `wzn5 = client.Wzn5()`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `load(match)` | Load a single entity by match criteria. |
-
-#### Example: Load
-
-```python
-wzn5 = client.Wzn5().load({"path": "path", "region": "region", "version": "version"})
-```
-
-
-### Wzn6
-
-Create an instance: `wzn6 = client.Wzn6()`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `load(match)` | Load a single entity by match criteria. |
-
-#### Example: Load
-
-```python
-wzn6 = client.Wzn6().load({"path": "path", "region": "region", "version": "version"})
 ```
 
 
@@ -1259,11 +1125,11 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-android = client.Android()
-android.load({"id": 1})
+music = client.Music()
+music.load({"id": "example_id", "region": "example", "version": "example"})
 
-# android.data_get() now returns the android data from the last load
-# android.match_get() returns the last match criteria
+# music.data_get() now returns the music data from the last load
+# music.match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

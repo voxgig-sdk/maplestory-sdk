@@ -129,7 +129,7 @@ Both tools take the same argument object:
 
 | Field | Type | Notes |
 |-------|------|-------|
-| `entity` | string | One of the 32 supported entities (see below). |
+| `entity` | string | One of the 27 supported entities (see below). |
 | `query` | object | Optional match map. `{"id":N}` for load; omit or `{}` for list. |
 
 JSON schemas are emitted by the SDK from the `Args` struct's `json` /
@@ -151,9 +151,9 @@ JSON schemas are emitted by the SDK from the `Args` struct's `json` /
 
 ### Entities
 
-The 32 entities valid as the `entity` argument:
+The 27 entities valid as the `entity` argument:
 
-android | avatar | cache | character | chat | cluster | diff | entity1 | gms_new | guild_mark | health | item | job | map | metric | mob | music | name | npc | nxf | performance_metric | pet | quest | system | tip | wzn | wzn2 | wzn3 | wzn4 | wzn5 | wzn6 | z_map
+android | avatar | cache | character | chat | cluster | diff | entity1 | gms_new | guild_mark | health | item | job | map | metric | mob | music | name | npc | nxf | performance_metric | pet | quest | system | tip | wzn | z_map
 
 ### Smoke test via HTTP (raw JSON-RPC)
 

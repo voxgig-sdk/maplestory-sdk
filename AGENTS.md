@@ -31,7 +31,7 @@ Each feature is generated into every SDK target — as a directory
 `<lang>/src/feature/<name>/` (ts/js) or a flat file in the `<lang>/feature/`
 package (other languages). Each target's guide documents its features.
 
-**Entities** (32): `Android`, `Avatar`, `Cache`, `Character`, `Chat`, `Cluster`, `Diff`, `Entity1`, `GmsNew`, `GuildMark`, `Health`, `Item`, `Job`, `Map`, `Metric`, `Mob`, `Music`, `Name`, `Npc`, `Nxf`, `PerformanceMetric`, `Pet`, `Quest`, `System`, `Tip`, `Wzn`, `Wzn2`, `Wzn3`, `Wzn4`, `Wzn5`, `Wzn6`, `ZMap`.
+**Entities** (27): `Android`, `Avatar`, `Cache`, `Character`, `Chat`, `Cluster`, `Diff`, `Entity1`, `GmsNew`, `GuildMark`, `Health`, `Item`, `Job`, `Map`, `Metric`, `Mob`, `Music`, `Name`, `Npc`, `Nxf`, `PerformanceMetric`, `Pet`, `Quest`, `System`, `Tip`, `Wzn`, `ZMap`.
 
 ## Generating and updating the SDK
 

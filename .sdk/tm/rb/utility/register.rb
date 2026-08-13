@@ -24,6 +24,7 @@ require_relative 'prepare_method'
 require_relative 'prepare_params'
 require_relative 'prepare_path'
 require_relative 'prepare_query'
+require_relative 'graphql'
 require_relative 'result_basic'
 require_relative 'result_body'
 require_relative 'result_headers'
@@ -55,6 +56,8 @@ MaplestoryUtility.registrar = ->(u) {
   u.prepare_params = MaplestoryUtilities::PrepareParams
   u.prepare_path = MaplestoryUtilities::PreparePath
   u.prepare_query = MaplestoryUtilities::PrepareQuery
+  u.graphql_body = MaplestoryUtilities::GraphqlBody
+  u.graphql_errors = MaplestoryUtilities::GraphqlErrors
   u.result_basic = MaplestoryUtilities::ResultBasic
   u.result_body = MaplestoryUtilities::ResultBody
   u.result_headers = MaplestoryUtilities::ResultHeaders

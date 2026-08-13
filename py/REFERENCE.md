@@ -145,26 +145,6 @@ Create a new `TipEntity` instance. Pass `None` for no initial data.
 
 Create a new `WznEntity` instance. Pass `None` for no initial data.
 
-#### `Wzn2(data=None)`
-
-Create a new `Wzn2Entity` instance. Pass `None` for no initial data.
-
-#### `Wzn3(data=None)`
-
-Create a new `Wzn3Entity` instance. Pass `None` for no initial data.
-
-#### `Wzn4(data=None)`
-
-Create a new `Wzn4Entity` instance. Pass `None` for no initial data.
-
-#### `Wzn5(data=None)`
-
-Create a new `Wzn5Entity` instance. Pass `None` for no initial data.
-
-#### `Wzn6(data=None)`
-
-Create a new `Wzn6Entity` instance. Pass `None` for no initial data.
-
 #### `ZMap(data=None)`
 
 Create a new `ZMapEntity` instance. Pass `None` for no initial data.
@@ -301,12 +281,12 @@ cache = client.Cache()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `eviction_count` | `int` | No |  |
-| `hit_count` | `int` | No |  |
-| `hit_ratio` | `float` | No |  |
-| `memory_usage` | `int` | No |  |
-| `miss_count` | `int` | No |  |
-| `total_entry` | `int` | No |  |
+| `evictionCount` | `int` | No |  |
+| `hitCount` | `int` | No |  |
+| `hitRatio` | `float` | No |  |
+| `memoryUsage` | `int` | No |  |
+| `missCount` | `int` | No |  |
+| `totalEntries` | `int` | No |  |
 
 ### Operations
 
@@ -448,8 +428,8 @@ cluster = client.Cluster()
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `hostname` | `str` | No |  |
-| `last_seen` | `str` | No |  |
-| `metric` | `dict` | No |  |
+| `lastSeen` | `str` | No |  |
+| `metrics` | `dict` | No |  |
 
 ### Operations
 
@@ -1132,19 +1112,19 @@ performance_metric = client.PerformanceMetric()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `active_request` | `int` | No |  |
-| `average_response_time_m` | `float` | No |  |
+| `activeRequests` | `int` | No |  |
+| `averageResponseTimeMs` | `float` | No |  |
 | `cache` | `dict` | No |  |
-| `errors_by_type` | `dict` | No |  |
-| `last_updated` | `str` | No |  |
-| `memory_used_byte` | `int` | No |  |
-| `redis_cache` | `dict` | No |  |
-| `requests_per_second` | `float` | No |  |
-| `start_time` | `str` | No |  |
+| `errorsByType` | `dict` | No |  |
+| `lastUpdated` | `str` | No |  |
+| `memoryUsedBytes` | `int` | No |  |
+| `redisCache` | `dict` | No |  |
+| `requestsPerSecond` | `float` | No |  |
+| `startTime` | `str` | No |  |
 | `system` | `dict` | No |  |
-| `total_error` | `int` | No |  |
-| `total_request` | `int` | No |  |
-| `wz_properties_loaded` | `int` | No |  |
+| `totalErrors` | `int` | No |  |
+| `totalRequests` | `int` | No |  |
+| `wzPropertiesLoaded` | `int` | No |  |
 
 ### Operations
 
@@ -1285,13 +1265,13 @@ system = client.System()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `cpu_usage_percent` | `float` | No |  |
-| `gc_gen0_collection` | `int` | No |  |
-| `gc_gen1_collection` | `int` | No |  |
-| `gc_gen2_collection` | `int` | No |  |
-| `thread_count` | `int` | No |  |
-| `total_memory_byte` | `int` | No |  |
-| `used_memory_byte` | `int` | No |  |
+| `cpuUsagePercent` | `float` | No |  |
+| `gcGen0Collections` | `int` | No |  |
+| `gcGen1Collections` | `int` | No |  |
+| `gcGen2Collections` | `int` | No |  |
+| `threadCount` | `int` | No |  |
+| `totalMemoryBytes` | `int` | No |  |
+| `usedMemoryBytes` | `int` | No |  |
 
 ### Operations
 
@@ -1414,231 +1394,6 @@ Set the entity match criteria.
 #### `make() -> Entity`
 
 Create a new `WznEntity` instance with the same options.
-
-#### `get_name() -> str`
-
-Return the entity name.
-
-
----
-
-## Wzn2Entity
-
-```python
-wzn2 = client.Wzn2()
-```
-
-### Operations
-
-#### `load(reqmatch, ctrl=None) -> dict`
-
-Load a single entity matching the given criteria. Returns the entity data and raises on error.
-
-```python
-result = client.Wzn2().load({"path": "path", "region": "region", "version": "version"})
-```
-
-### Common Methods
-
-#### `data_get() -> dict`
-
-Get the entity data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> dict`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `Wzn2Entity` instance with the same options.
-
-#### `get_name() -> str`
-
-Return the entity name.
-
-
----
-
-## Wzn3Entity
-
-```python
-wzn3 = client.Wzn3()
-```
-
-### Operations
-
-#### `load(reqmatch, ctrl=None) -> dict`
-
-Load a single entity matching the given criteria. Returns the entity data and raises on error.
-
-```python
-result = client.Wzn3().load({"path": "path", "region": "region", "version": "version"})
-```
-
-### Common Methods
-
-#### `data_get() -> dict`
-
-Get the entity data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> dict`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `Wzn3Entity` instance with the same options.
-
-#### `get_name() -> str`
-
-Return the entity name.
-
-
----
-
-## Wzn4Entity
-
-```python
-wzn4 = client.Wzn4()
-```
-
-### Operations
-
-#### `load(reqmatch, ctrl=None) -> dict`
-
-Load a single entity matching the given criteria. Returns the entity data and raises on error.
-
-```python
-result = client.Wzn4().load({"path": "path", "region": "region", "version": "version"})
-```
-
-### Common Methods
-
-#### `data_get() -> dict`
-
-Get the entity data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> dict`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `Wzn4Entity` instance with the same options.
-
-#### `get_name() -> str`
-
-Return the entity name.
-
-
----
-
-## Wzn5Entity
-
-```python
-wzn5 = client.Wzn5()
-```
-
-### Operations
-
-#### `load(reqmatch, ctrl=None) -> dict`
-
-Load a single entity matching the given criteria. Returns the entity data and raises on error.
-
-```python
-result = client.Wzn5().load({"path": "path", "region": "region", "version": "version"})
-```
-
-### Common Methods
-
-#### `data_get() -> dict`
-
-Get the entity data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> dict`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `Wzn5Entity` instance with the same options.
-
-#### `get_name() -> str`
-
-Return the entity name.
-
-
----
-
-## Wzn6Entity
-
-```python
-wzn6 = client.Wzn6()
-```
-
-### Operations
-
-#### `load(reqmatch, ctrl=None) -> dict`
-
-Load a single entity matching the given criteria. Returns the entity data and raises on error.
-
-```python
-result = client.Wzn6().load({"path": "path", "region": "region", "version": "version"})
-```
-
-### Common Methods
-
-#### `data_get() -> dict`
-
-Get the entity data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> dict`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `Wzn6Entity` instance with the same options.
 
 #### `get_name() -> str`
 

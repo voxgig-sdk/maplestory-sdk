@@ -62,7 +62,7 @@ describe('NxfEntity', async () => {
     // LOAD
     const nxf_ref01_ent = client.Nxf()
     const nxf_ref01_match_dt0: any = {}
-    const nxf_ref01_data_dt0 = await nxf_ref01_ent.load(nxf_ref01_match_dt0)
+    const nxf_ref01_data_dt0 = (await nxf_ref01_ent.load(nxf_ref01_match_dt0)).data()
     assert(null != nxf_ref01_data_dt0)
 
 

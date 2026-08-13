@@ -50,7 +50,7 @@ Entity operations return `(value, err)`. Check `err` before using
 the value:
 
 ```lua
-local android, err = client:Android():load({ id = 1 })
+local music, err = client:Music():load({ id = "example_id", region = "example", version = "example" })
 if err then error(err) end
 ```
 
@@ -108,7 +108,7 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:Android():load({ id = "test01" })
+local result, err = client:Music():load({ id = "test01", region = "example", version = "example" })
 -- result is the returned data; err is set on failure
 ```
 
@@ -213,11 +213,6 @@ Creates a test-mode client with mock transport. Both arguments may be `nil`.
 | `System` | `(data) -> SystemEntity` | Create a System entity instance. |
 | `Tip` | `(data) -> TipEntity` | Create a Tip entity instance. |
 | `Wzn` | `(data) -> WznEntity` | Create a Wzn entity instance. |
-| `Wzn2` | `(data) -> Wzn2Entity` | Create a Wzn2 entity instance. |
-| `Wzn3` | `(data) -> Wzn3Entity` | Create a Wzn3 entity instance. |
-| `Wzn4` | `(data) -> Wzn4Entity` | Create a Wzn4 entity instance. |
-| `Wzn5` | `(data) -> Wzn5Entity` | Create a Wzn5 entity instance. |
-| `Wzn6` | `(data) -> Wzn6Entity` | Create a Wzn6 entity instance. |
 | `ZMap` | `(data) -> ZMapEntity` | Create a ZMap entity instance. |
 
 ### Entity interface
@@ -278,12 +273,12 @@ API path: `/api/character/{items}/{animation}/animated`
 
 | Field | Description |
 | --- | --- |
-| `eviction_count` |  |
-| `hit_count` |  |
-| `hit_ratio` |  |
-| `memory_usage` |  |
-| `miss_count` |  |
-| `total_entry` |  |
+| `evictionCount` |  |
+| `hitCount` |  |
+| `hitRatio` |  |
+| `memoryUsage` |  |
+| `missCount` |  |
+| `totalEntries` |  |
 
 Operations: Load.
 
@@ -312,8 +307,8 @@ API path: `/api/{region}/{version}/chat`
 | Field | Description |
 | --- | --- |
 | `hostname` |  |
-| `last_seen` |  |
-| `metric` |  |
+| `lastSeen` |  |
+| `metrics` |  |
 
 Operations: List.
 
@@ -449,19 +444,19 @@ API path: `/api/about`
 
 | Field | Description |
 | --- | --- |
-| `active_request` |  |
-| `average_response_time_m` |  |
+| `activeRequests` |  |
+| `averageResponseTimeMs` |  |
 | `cache` |  |
-| `errors_by_type` |  |
-| `last_updated` |  |
-| `memory_used_byte` |  |
-| `redis_cache` |  |
-| `requests_per_second` |  |
-| `start_time` |  |
+| `errorsByType` |  |
+| `lastUpdated` |  |
+| `memoryUsedBytes` |  |
+| `redisCache` |  |
+| `requestsPerSecond` |  |
+| `startTime` |  |
 | `system` |  |
-| `total_error` |  |
-| `total_request` |  |
-| `wz_properties_loaded` |  |
+| `totalErrors` |  |
+| `totalRequests` |  |
+| `wzPropertiesLoaded` |  |
 
 Operations: Load.
 
@@ -489,13 +484,13 @@ API path: `/api/{region}/{version}/quest`
 
 | Field | Description |
 | --- | --- |
-| `cpu_usage_percent` |  |
-| `gc_gen0_collection` |  |
-| `gc_gen1_collection` |  |
-| `gc_gen2_collection` |  |
-| `thread_count` |  |
-| `total_memory_byte` |  |
-| `used_memory_byte` |  |
+| `cpuUsagePercent` |  |
+| `gcGen0Collections` |  |
+| `gcGen1Collections` |  |
+| `gcGen2Collections` |  |
+| `threadCount` |  |
+| `totalMemoryBytes` |  |
+| `usedMemoryBytes` |  |
 
 Operations: Load.
 
@@ -517,52 +512,7 @@ API path: `/api/{region}/{version}/tips`
 
 Operations: Load.
 
-API path: `/api/wz`
-
-#### Wzn2
-
-| Field | Description |
-| --- | --- |
-
-Operations: Load.
-
-API path: `/api/wz/audio/{region}/{version}/{path}`
-
-#### Wzn3
-
-| Field | Description |
-| --- | --- |
-
-Operations: Load.
-
 API path: `/api/wz/export/{region}/{version}/{path}`
-
-#### Wzn4
-
-| Field | Description |
-| --- | --- |
-
-Operations: Load.
-
-API path: `/api/wz/img/{region}/{version}/{path}`
-
-#### Wzn5
-
-| Field | Description |
-| --- | --- |
-
-Operations: Load.
-
-API path: `/api/wz/lookup/{region}/{version}/{path}`
-
-#### Wzn6
-
-| Field | Description |
-| --- | --- |
-
-Operations: Load.
-
-API path: `/api/wz/{region}/{version}/{path}`
 
 #### ZMap
 
@@ -626,12 +576,12 @@ Create an instance: `local cache = client:Cache(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `eviction_count` | `number` |  |
-| `hit_count` | `number` |  |
-| `hit_ratio` | `number` |  |
-| `memory_usage` | `number` |  |
-| `miss_count` | `number` |  |
-| `total_entry` | `number` |  |
+| `evictionCount` | `number` |  |
+| `hitCount` | `number` |  |
+| `hitRatio` | `number` |  |
+| `memoryUsage` | `number` |  |
+| `missCount` | `number` |  |
+| `totalEntries` | `number` |  |
 
 #### Example: Load
 
@@ -689,8 +639,8 @@ Create an instance: `local cluster = client:Cluster(nil)`
 | Field | Type | Description |
 | --- | --- | --- |
 | `hostname` | `string` |  |
-| `last_seen` | `string` |  |
-| `metric` | `table` |  |
+| `lastSeen` | `string` |  |
+| `metrics` | `table` |  |
 
 #### Example: List
 
@@ -951,19 +901,19 @@ Create an instance: `local performance_metric = client:PerformanceMetric(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `active_request` | `number` |  |
-| `average_response_time_m` | `number` |  |
+| `activeRequests` | `number` |  |
+| `averageResponseTimeMs` | `number` |  |
 | `cache` | `table` |  |
-| `errors_by_type` | `table` |  |
-| `last_updated` | `string` |  |
-| `memory_used_byte` | `number` |  |
-| `redis_cache` | `table` |  |
-| `requests_per_second` | `number` |  |
-| `start_time` | `string` |  |
+| `errorsByType` | `table` |  |
+| `lastUpdated` | `string` |  |
+| `memoryUsedBytes` | `number` |  |
+| `redisCache` | `table` |  |
+| `requestsPerSecond` | `number` |  |
+| `startTime` | `string` |  |
 | `system` | `table` |  |
-| `total_error` | `number` |  |
-| `total_request` | `number` |  |
-| `wz_properties_loaded` | `number` |  |
+| `totalErrors` | `number` |  |
+| `totalRequests` | `number` |  |
+| `wzPropertiesLoaded` | `number` |  |
 
 #### Example: Load
 
@@ -1020,13 +970,13 @@ Create an instance: `local system = client:System(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `cpu_usage_percent` | `number` |  |
-| `gc_gen0_collection` | `number` |  |
-| `gc_gen1_collection` | `number` |  |
-| `gc_gen2_collection` | `number` |  |
-| `thread_count` | `number` |  |
-| `total_memory_byte` | `number` |  |
-| `used_memory_byte` | `number` |  |
+| `cpuUsagePercent` | `number` |  |
+| `gcGen0Collections` | `number` |  |
+| `gcGen1Collections` | `number` |  |
+| `gcGen2Collections` | `number` |  |
+| `threadCount` | `number` |  |
+| `totalMemoryBytes` | `number` |  |
+| `usedMemoryBytes` | `number` |  |
 
 #### Example: Load
 
@@ -1066,91 +1016,6 @@ Create an instance: `local wzn = client:Wzn(nil)`
 
 ```lua
 local wzn, err = client:Wzn():load({ region = "region", version = "version" })
-```
-
-
-### Wzn2
-
-Create an instance: `local wzn2 = client:Wzn2(nil)`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `load(match)` | Load a single entity by match criteria. |
-
-#### Example: Load
-
-```lua
-local wzn2, err = client:Wzn2():load({ path = "path", region = "region", version = "version" })
-```
-
-
-### Wzn3
-
-Create an instance: `local wzn3 = client:Wzn3(nil)`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `load(match)` | Load a single entity by match criteria. |
-
-#### Example: Load
-
-```lua
-local wzn3, err = client:Wzn3():load({ path = "path", region = "region", version = "version" })
-```
-
-
-### Wzn4
-
-Create an instance: `local wzn4 = client:Wzn4(nil)`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `load(match)` | Load a single entity by match criteria. |
-
-#### Example: Load
-
-```lua
-local wzn4, err = client:Wzn4():load({ path = "path", region = "region", version = "version" })
-```
-
-
-### Wzn5
-
-Create an instance: `local wzn5 = client:Wzn5(nil)`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `load(match)` | Load a single entity by match criteria. |
-
-#### Example: Load
-
-```lua
-local wzn5, err = client:Wzn5():load({ path = "path", region = "region", version = "version" })
-```
-
-
-### Wzn6
-
-Create an instance: `local wzn6 = client:Wzn6(nil)`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `load(match)` | Load a single entity by match criteria. |
-
-#### Example: Load
-
-```lua
-local wzn6, err = client:Wzn6():load({ path = "path", region = "region", version = "version" })
 ```
 
 
@@ -1247,11 +1112,11 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
-local android = client:Android()
-android:load({ id = 1 })
+local music = client:Music()
+music:load({ id = "example_id", region = "example", version = "example" })
 
--- android:data_get() now returns the android data from the last load
--- android:match_get() returns the last match criteria
+-- music:data_get() now returns the music data from the last load
+-- music:match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

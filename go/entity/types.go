@@ -6,7 +6,11 @@
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 package entity
 
-import "encoding/json"
+import (
+	"encoding/json"
+
+	"github.com/voxgig-sdk/maplestory-sdk/go/core"
+)
 
 // Android is the typed data model for the android entity.
 type Android struct {
@@ -33,22 +37,22 @@ type AvatarLoadMatch struct {
 
 // Cache is the typed data model for the cache entity.
 type Cache struct {
-	EvictionCount *int `json:"eviction_count,omitempty"`
-	HitCount *int `json:"hit_count,omitempty"`
-	HitRatio *float64 `json:"hit_ratio,omitempty"`
-	MemoryUsage *int `json:"memory_usage,omitempty"`
-	MissCount *int `json:"miss_count,omitempty"`
-	TotalEntry *int `json:"total_entry,omitempty"`
+	EvictionCount *int `json:"evictionCount,omitempty"`
+	HitCount *int `json:"hitCount,omitempty"`
+	HitRatio *float64 `json:"hitRatio,omitempty"`
+	MemoryUsage *int `json:"memoryUsage,omitempty"`
+	MissCount *int `json:"missCount,omitempty"`
+	TotalEntries *int `json:"totalEntries,omitempty"`
 }
 
 // CacheLoadMatch is the typed request payload for Cache.LoadTyped.
 type CacheLoadMatch struct {
-	EvictionCount *int `json:"eviction_count,omitempty"`
-	HitCount *int `json:"hit_count,omitempty"`
-	HitRatio *float64 `json:"hit_ratio,omitempty"`
-	MemoryUsage *int `json:"memory_usage,omitempty"`
-	MissCount *int `json:"miss_count,omitempty"`
-	TotalEntry *int `json:"total_entry,omitempty"`
+	EvictionCount *int `json:"evictionCount,omitempty"`
+	HitCount *int `json:"hitCount,omitempty"`
+	HitRatio *float64 `json:"hitRatio,omitempty"`
+	MemoryUsage *int `json:"memoryUsage,omitempty"`
+	MissCount *int `json:"missCount,omitempty"`
+	TotalEntries *int `json:"totalEntries,omitempty"`
 }
 
 // Character is the typed data model for the character entity.
@@ -76,15 +80,15 @@ type ChatLoadMatch struct {
 // Cluster is the typed data model for the cluster entity.
 type Cluster struct {
 	Hostname *string `json:"hostname,omitempty"`
-	LastSeen *string `json:"last_seen,omitempty"`
-	Metric *map[string]any `json:"metric,omitempty"`
+	LastSeen *string `json:"lastSeen,omitempty"`
+	Metrics *map[string]any `json:"metrics,omitempty"`
 }
 
 // ClusterListMatch is the typed request payload for Cluster.ListTyped.
 type ClusterListMatch struct {
 	Hostname *string `json:"hostname,omitempty"`
-	LastSeen *string `json:"last_seen,omitempty"`
-	Metric *map[string]any `json:"metric,omitempty"`
+	LastSeen *string `json:"lastSeen,omitempty"`
+	Metrics *map[string]any `json:"metrics,omitempty"`
 }
 
 // Diff is the typed data model for the diff entity.
@@ -244,36 +248,36 @@ type NxfLoadMatch struct {
 
 // PerformanceMetric is the typed data model for the performance_metric entity.
 type PerformanceMetric struct {
-	ActiveRequest *int `json:"active_request,omitempty"`
-	AverageResponseTimeM *float64 `json:"average_response_time_m,omitempty"`
+	ActiveRequests *int `json:"activeRequests,omitempty"`
+	AverageResponseTimeMs *float64 `json:"averageResponseTimeMs,omitempty"`
 	Cache *map[string]any `json:"cache,omitempty"`
-	ErrorsByType *map[string]any `json:"errors_by_type,omitempty"`
-	LastUpdated *string `json:"last_updated,omitempty"`
-	MemoryUsedByte *int `json:"memory_used_byte,omitempty"`
-	RedisCache *map[string]any `json:"redis_cache,omitempty"`
-	RequestsPerSecond *float64 `json:"requests_per_second,omitempty"`
-	StartTime *string `json:"start_time,omitempty"`
+	ErrorsByType *map[string]any `json:"errorsByType,omitempty"`
+	LastUpdated *string `json:"lastUpdated,omitempty"`
+	MemoryUsedBytes *int `json:"memoryUsedBytes,omitempty"`
+	RedisCache *map[string]any `json:"redisCache,omitempty"`
+	RequestsPerSecond *float64 `json:"requestsPerSecond,omitempty"`
+	StartTime *string `json:"startTime,omitempty"`
 	System *map[string]any `json:"system,omitempty"`
-	TotalError *int `json:"total_error,omitempty"`
-	TotalRequest *int `json:"total_request,omitempty"`
-	WzPropertiesLoaded *int `json:"wz_properties_loaded,omitempty"`
+	TotalErrors *int `json:"totalErrors,omitempty"`
+	TotalRequests *int `json:"totalRequests,omitempty"`
+	WzPropertiesLoaded *int `json:"wzPropertiesLoaded,omitempty"`
 }
 
 // PerformanceMetricLoadMatch is the typed request payload for PerformanceMetric.LoadTyped.
 type PerformanceMetricLoadMatch struct {
-	ActiveRequest *int `json:"active_request,omitempty"`
-	AverageResponseTimeM *float64 `json:"average_response_time_m,omitempty"`
+	ActiveRequests *int `json:"activeRequests,omitempty"`
+	AverageResponseTimeMs *float64 `json:"averageResponseTimeMs,omitempty"`
 	Cache *map[string]any `json:"cache,omitempty"`
-	ErrorsByType *map[string]any `json:"errors_by_type,omitempty"`
-	LastUpdated *string `json:"last_updated,omitempty"`
-	MemoryUsedByte *int `json:"memory_used_byte,omitempty"`
-	RedisCache *map[string]any `json:"redis_cache,omitempty"`
-	RequestsPerSecond *float64 `json:"requests_per_second,omitempty"`
-	StartTime *string `json:"start_time,omitempty"`
+	ErrorsByType *map[string]any `json:"errorsByType,omitempty"`
+	LastUpdated *string `json:"lastUpdated,omitempty"`
+	MemoryUsedBytes *int `json:"memoryUsedBytes,omitempty"`
+	RedisCache *map[string]any `json:"redisCache,omitempty"`
+	RequestsPerSecond *float64 `json:"requestsPerSecond,omitempty"`
+	StartTime *string `json:"startTime,omitempty"`
 	System *map[string]any `json:"system,omitempty"`
-	TotalError *int `json:"total_error,omitempty"`
-	TotalRequest *int `json:"total_request,omitempty"`
-	WzPropertiesLoaded *int `json:"wz_properties_loaded,omitempty"`
+	TotalErrors *int `json:"totalErrors,omitempty"`
+	TotalRequests *int `json:"totalRequests,omitempty"`
+	WzPropertiesLoaded *int `json:"wzPropertiesLoaded,omitempty"`
 }
 
 // Pet is the typed data model for the pet entity.
@@ -304,24 +308,24 @@ type QuestLoadMatch struct {
 
 // System is the typed data model for the system entity.
 type System struct {
-	CpuUsagePercent *float64 `json:"cpu_usage_percent,omitempty"`
-	GcGen0Collection *int `json:"gc_gen0_collection,omitempty"`
-	GcGen1Collection *int `json:"gc_gen1_collection,omitempty"`
-	GcGen2Collection *int `json:"gc_gen2_collection,omitempty"`
-	ThreadCount *int `json:"thread_count,omitempty"`
-	TotalMemoryByte *int `json:"total_memory_byte,omitempty"`
-	UsedMemoryByte *int `json:"used_memory_byte,omitempty"`
+	CpuUsagePercent *float64 `json:"cpuUsagePercent,omitempty"`
+	GcGen0Collections *int `json:"gcGen0Collections,omitempty"`
+	GcGen1Collections *int `json:"gcGen1Collections,omitempty"`
+	GcGen2Collections *int `json:"gcGen2Collections,omitempty"`
+	ThreadCount *int `json:"threadCount,omitempty"`
+	TotalMemoryBytes *int `json:"totalMemoryBytes,omitempty"`
+	UsedMemoryBytes *int `json:"usedMemoryBytes,omitempty"`
 }
 
 // SystemLoadMatch is the typed request payload for System.LoadTyped.
 type SystemLoadMatch struct {
-	CpuUsagePercent *float64 `json:"cpu_usage_percent,omitempty"`
-	GcGen0Collection *int `json:"gc_gen0_collection,omitempty"`
-	GcGen1Collection *int `json:"gc_gen1_collection,omitempty"`
-	GcGen2Collection *int `json:"gc_gen2_collection,omitempty"`
-	ThreadCount *int `json:"thread_count,omitempty"`
-	TotalMemoryByte *int `json:"total_memory_byte,omitempty"`
-	UsedMemoryByte *int `json:"used_memory_byte,omitempty"`
+	CpuUsagePercent *float64 `json:"cpuUsagePercent,omitempty"`
+	GcGen0Collections *int `json:"gcGen0Collections,omitempty"`
+	GcGen1Collections *int `json:"gcGen1Collections,omitempty"`
+	GcGen2Collections *int `json:"gcGen2Collections,omitempty"`
+	ThreadCount *int `json:"threadCount,omitempty"`
+	TotalMemoryBytes *int `json:"totalMemoryBytes,omitempty"`
+	UsedMemoryBytes *int `json:"usedMemoryBytes,omitempty"`
 }
 
 // Tip is the typed data model for the tip entity.
@@ -340,61 +344,7 @@ type Wzn struct {
 
 // WznLoadMatch is the typed request payload for Wzn.LoadTyped.
 type WznLoadMatch struct {
-	Region string `json:"region"`
-	Version string `json:"version"`
-}
-
-// Wzn2 is the typed data model for the wzn2 entity.
-type Wzn2 struct {
-}
-
-// Wzn2LoadMatch is the typed request payload for Wzn2.LoadTyped.
-type Wzn2LoadMatch struct {
-	Path string `json:"path"`
-	Region string `json:"region"`
-	Version string `json:"version"`
-}
-
-// Wzn3 is the typed data model for the wzn3 entity.
-type Wzn3 struct {
-}
-
-// Wzn3LoadMatch is the typed request payload for Wzn3.LoadTyped.
-type Wzn3LoadMatch struct {
-	Path string `json:"path"`
-	Region string `json:"region"`
-	Version string `json:"version"`
-}
-
-// Wzn4 is the typed data model for the wzn4 entity.
-type Wzn4 struct {
-}
-
-// Wzn4LoadMatch is the typed request payload for Wzn4.LoadTyped.
-type Wzn4LoadMatch struct {
-	Path string `json:"path"`
-	Region string `json:"region"`
-	Version string `json:"version"`
-}
-
-// Wzn5 is the typed data model for the wzn5 entity.
-type Wzn5 struct {
-}
-
-// Wzn5LoadMatch is the typed request payload for Wzn5.LoadTyped.
-type Wzn5LoadMatch struct {
-	Path string `json:"path"`
-	Region string `json:"region"`
-	Version string `json:"version"`
-}
-
-// Wzn6 is the typed data model for the wzn6 entity.
-type Wzn6 struct {
-}
-
-// Wzn6LoadMatch is the typed request payload for Wzn6.LoadTyped.
-type Wzn6LoadMatch struct {
-	Path string `json:"path"`
+	Path *string `json:"path,omitempty"`
 	Region string `json:"region"`
 	Version string `json:"version"`
 }
@@ -421,12 +371,26 @@ func asMap(v any) map[string]any {
 	return out
 }
 
-// typedFrom decodes a runtime value (a map[string]any produced by the op
-// pipeline) into a typed model T via a JSON round-trip. On any error it
-// returns the zero value of T; the op's own (value, error) tuple carries the
-// real error.
+// entityData unwraps an entity to its data map.
+//
+// Operations resolve to the ENTITY, not the raw data (see AGENTS.md), and an
+// entity's fields are UNEXPORTED — marshalling one directly yields `{}`, so
+// every typed accessor would silently hand back a zero-valued struct. The
+// typed boundary therefore takes the data hop first.
+func entityData(v any) any {
+	if ent, ok := v.(core.Entity); ok {
+		return ent.Data()
+	}
+	return v
+}
+
+// typedFrom decodes a runtime value (an entity, or the map[string]any the op
+// pipeline produced) into a typed model T via a JSON round-trip. On any error
+// it returns the zero value of T; the op's own (value, error) tuple carries
+// the real error.
 func typedFrom[T any](v any) T {
 	var out T
+	v = entityData(v)
 	if v == nil {
 		return out
 	}
@@ -438,12 +402,20 @@ func typedFrom[T any](v any) T {
 	return out
 }
 
-// typedSliceFrom decodes a runtime list value ([]any of maps) into a typed
-// slice []T via a JSON round-trip, for list ops.
+// typedSliceFrom decodes a runtime list value into a typed slice []T via a
+// JSON round-trip, for list ops. `list` resolves to a slice of ENTITY
+// instances, so each element takes the data hop.
 func typedSliceFrom[T any](v any) []T {
 	var out []T
 	if v == nil {
 		return out
+	}
+	if list, ok := v.([]any); ok {
+		unwrapped := make([]any, 0, len(list))
+		for _, item := range list {
+			unwrapped = append(unwrapped, entityData(item))
+		}
+		v = unwrapped
 	}
 	b, err := json.Marshal(v)
 	if err != nil {

@@ -25,21 +25,21 @@ export interface AvatarLoadMatch {
 }
 
 export interface Cache {
-  eviction_count?: number
-  hit_count?: number
-  hit_ratio?: number
-  memory_usage?: number
-  miss_count?: number
-  total_entry?: number
+  evictionCount?: number
+  hitCount?: number
+  hitRatio?: number
+  memoryUsage?: number
+  missCount?: number
+  totalEntries?: number
 }
 
 export interface CacheLoadMatch {
-  eviction_count?: number
-  hit_count?: number
-  hit_ratio?: number
-  memory_usage?: number
-  miss_count?: number
-  total_entry?: number
+  evictionCount?: number
+  hitCount?: number
+  hitRatio?: number
+  memoryUsage?: number
+  missCount?: number
+  totalEntries?: number
 }
 
 export interface Character {
@@ -62,14 +62,14 @@ export interface ChatLoadMatch {
 
 export interface Cluster {
   hostname?: string
-  last_seen?: string
-  metric?: Record<string, any>
+  lastSeen?: string
+  metrics?: Record<string, any>
 }
 
 export interface ClusterListMatch {
   hostname?: string
-  last_seen?: string
-  metric?: Record<string, any>
+  lastSeen?: string
+  metrics?: Record<string, any>
 }
 
 export interface Diff {
@@ -78,6 +78,12 @@ export interface Diff {
 export interface DiffLoadMatch {
   region: string
   version: string
+
+  // Selects a custom action instead of the plain load:
+  //   'grouped'
+  // The remaining keys are that action's own payload.
+  $action?: string
+  [action: string]: any
 }
 
 export interface Entity1 {
@@ -110,6 +116,12 @@ export interface Health {
 }
 
 export interface HealthLoadMatch {
+
+  // Selects a custom action instead of the plain load:
+  //   'alive' | 'ready' | 'start'
+  // The remaining keys are that action's own payload.
+  $action?: string
+  [action: string]: any
 }
 
 export interface Item {
@@ -120,6 +132,12 @@ export interface ItemLoadMatch {
   version: string
   id?: number
   overall_category?: string
+
+  // Selects a custom action instead of the plain load:
+  //   'category' | 'count' | 'icon' | 'icon_raw' | 'list' | 'name'
+  // The remaining keys are that action's own payload.
+  $action?: string
+  [action: string]: any
 }
 
 export interface Job {
@@ -130,6 +148,12 @@ export interface JobLoadMatch {
   region: string
   skill_id?: number
   version: string
+
+  // Selects a custom action instead of the plain load:
+  //   'count' | 'skillbook' | 'skilltree'
+  // The remaining keys are that action's own payload.
+  $action?: string
+  [action: string]: any
 }
 
 export interface Map {
@@ -144,12 +168,24 @@ export interface MapLoadMatch {
   id?: number
   map?: string
   mark_name?: string
+
+  // Selects a custom action instead of the plain load:
+  //   'bgm' | 'count' | 'icon' | 'minimap' | 'name' | 'worldmap'
+  // The remaining keys are that action's own payload.
+  $action?: string
+  [action: string]: any
 }
 
 export interface Metric {
 }
 
 export interface MetricLoadMatch {
+
+  // Selects a custom action instead of the plain load:
+  //   'health'
+  // The remaining keys are that action's own payload.
+  $action?: string
+  [action: string]: any
 }
 
 export interface Mob {
@@ -163,6 +199,12 @@ export interface MobLoadMatch {
   mob_id?: number
   frame?: number
   sound_name?: string
+
+  // Selects a custom action instead of the plain load:
+  //   'count' | 'download' | 'icon' | 'name' | 'sound'
+  // The remaining keys are that action's own payload.
+  $action?: string
+  [action: string]: any
 }
 
 export interface Music {
@@ -191,6 +233,12 @@ export interface NpcLoadMatch {
   region: string
   version: string
   npc_id?: number
+
+  // Selects a custom action instead of the plain load:
+  //   'count' | 'download' | 'icon' | 'name'
+  // The remaining keys are that action's own payload.
+  $action?: string
+  [action: string]: any
 }
 
 export interface Nxf {
@@ -200,35 +248,35 @@ export interface NxfLoadMatch {
 }
 
 export interface PerformanceMetric {
-  active_request?: number
-  average_response_time_m?: number
+  activeRequests?: number
+  averageResponseTimeMs?: number
   cache?: Record<string, any>
-  errors_by_type?: Record<string, any>
-  last_updated?: string
-  memory_used_byte?: number
-  redis_cache?: Record<string, any>
-  requests_per_second?: number
-  start_time?: string
+  errorsByType?: Record<string, any>
+  lastUpdated?: string
+  memoryUsedBytes?: number
+  redisCache?: Record<string, any>
+  requestsPerSecond?: number
+  startTime?: string
   system?: Record<string, any>
-  total_error?: number
-  total_request?: number
-  wz_properties_loaded?: number
+  totalErrors?: number
+  totalRequests?: number
+  wzPropertiesLoaded?: number
 }
 
 export interface PerformanceMetricLoadMatch {
-  active_request?: number
-  average_response_time_m?: number
+  activeRequests?: number
+  averageResponseTimeMs?: number
   cache?: Record<string, any>
-  errors_by_type?: Record<string, any>
-  last_updated?: string
-  memory_used_byte?: number
-  redis_cache?: Record<string, any>
-  requests_per_second?: number
-  start_time?: string
+  errorsByType?: Record<string, any>
+  lastUpdated?: string
+  memoryUsedBytes?: number
+  redisCache?: Record<string, any>
+  requestsPerSecond?: number
+  startTime?: string
   system?: Record<string, any>
-  total_error?: number
-  total_request?: number
-  wz_properties_loaded?: number
+  totalErrors?: number
+  totalRequests?: number
+  wzPropertiesLoaded?: number
 }
 
 export interface Pet {
@@ -241,6 +289,12 @@ export interface PetLoadMatch {
   version: string
   id?: number
   render_id?: string
+
+  // Selects a custom action instead of the plain load:
+  //   'action' | 'count' | 'download' | 'name'
+  // The remaining keys are that action's own payload.
+  $action?: string
+  [action: string]: any
 }
 
 export interface Quest {
@@ -251,26 +305,32 @@ export interface QuestLoadMatch {
   version: string
   category?: number
   id?: number
+
+  // Selects a custom action instead of the plain load:
+  //   'category' | 'count' | 'icon' | 'name'
+  // The remaining keys are that action's own payload.
+  $action?: string
+  [action: string]: any
 }
 
 export interface System {
-  cpu_usage_percent?: number
-  gc_gen0_collection?: number
-  gc_gen1_collection?: number
-  gc_gen2_collection?: number
-  thread_count?: number
-  total_memory_byte?: number
-  used_memory_byte?: number
+  cpuUsagePercent?: number
+  gcGen0Collections?: number
+  gcGen1Collections?: number
+  gcGen2Collections?: number
+  threadCount?: number
+  totalMemoryBytes?: number
+  usedMemoryBytes?: number
 }
 
 export interface SystemLoadMatch {
-  cpu_usage_percent?: number
-  gc_gen0_collection?: number
-  gc_gen1_collection?: number
-  gc_gen2_collection?: number
-  thread_count?: number
-  total_memory_byte?: number
-  used_memory_byte?: number
+  cpuUsagePercent?: number
+  gcGen0Collections?: number
+  gcGen1Collections?: number
+  gcGen2Collections?: number
+  threadCount?: number
+  totalMemoryBytes?: number
+  usedMemoryBytes?: number
 }
 
 export interface Tip {
@@ -285,51 +345,7 @@ export interface Wzn {
 }
 
 export interface WznLoadMatch {
-  region: string
-  version: string
-}
-
-export interface Wzn2 {
-}
-
-export interface Wzn2LoadMatch {
-  path: string
-  region: string
-  version: string
-}
-
-export interface Wzn3 {
-}
-
-export interface Wzn3LoadMatch {
-  path: string
-  region: string
-  version: string
-}
-
-export interface Wzn4 {
-}
-
-export interface Wzn4LoadMatch {
-  path: string
-  region: string
-  version: string
-}
-
-export interface Wzn5 {
-}
-
-export interface Wzn5LoadMatch {
-  path: string
-  region: string
-  version: string
-}
-
-export interface Wzn6 {
-}
-
-export interface Wzn6LoadMatch {
-  path: string
+  path?: string
   region: string
   version: string
 }

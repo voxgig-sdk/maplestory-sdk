@@ -1,7 +1,7 @@
 # Guide
 
 guide: {
-  metrics: count: entity: 32
+  metrics: count: entity: 27
   metrics: count: path: 108
   metrics: count: method: 108
 
@@ -498,33 +498,18 @@ guide: {
     path: "/api/wz": {
       op: load: method: *GET
     }
-  }
-
-  entity: wzn2: {
     path: "/api/wz/audio/{region}/{version}/{path}": {
       op: load: method: *GET
     }
-  }
-
-  entity: wzn3: {
     path: "/api/wz/export/{region}/{version}/{path}": {
       op: load: method: *GET
     }
-  }
-
-  entity: wzn4: {
     path: "/api/wz/img/{region}/{version}/{path}": {
       op: load: method: *GET
     }
-  }
-
-  entity: wzn5: {
     path: "/api/wz/lookup/{region}/{version}/{path}": {
       op: load: method: *GET
     }
-  }
-
-  entity: wzn6: {
     path: "/api/wz/{region}/{version}/{path}": {
       op: load: method: *GET
     }

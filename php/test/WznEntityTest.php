@@ -70,7 +70,7 @@ function wzn_basic_setup($extra)
 
     // Generate idmap.
     $idmap = [];
-    foreach (["wzn01", "wzn02", "wzn03", "region01", "version01"] as $k) {
+    foreach (["wzn01", "wzn02", "wzn03", "audio01", "audio02", "audio03", "export01", "export02", "export03", "img01", "img02", "img03", "lookup01", "lookup02", "lookup03", "wz01", "wz02", "wz03", "region01", "version01"] as $k) {
         $idmap[$k] = strtoupper($k);
     }
 

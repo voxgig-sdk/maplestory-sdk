@@ -151,26 +151,6 @@ Create a new `Tip` entity instance. Pass `nil` for no initial data.
 
 Create a new `Wzn` entity instance. Pass `nil` for no initial data.
 
-#### `Wzn2(data map[string]any) MaplestoryEntity`
-
-Create a new `Wzn2` entity instance. Pass `nil` for no initial data.
-
-#### `Wzn3(data map[string]any) MaplestoryEntity`
-
-Create a new `Wzn3` entity instance. Pass `nil` for no initial data.
-
-#### `Wzn4(data map[string]any) MaplestoryEntity`
-
-Create a new `Wzn4` entity instance. Pass `nil` for no initial data.
-
-#### `Wzn5(data map[string]any) MaplestoryEntity`
-
-Create a new `Wzn5` entity instance. Pass `nil` for no initial data.
-
-#### `Wzn6(data map[string]any) MaplestoryEntity`
-
-Create a new `Wzn6` entity instance. Pass `nil` for no initial data.
-
 #### `ZMap(data map[string]any) MaplestoryEntity`
 
 Create a new `ZMap` entity instance. Pass `nil` for no initial data.
@@ -312,12 +292,12 @@ fmt.Println(cache.GetName()) // "cache"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `eviction_count` | `int` | No |  |
-| `hit_count` | `int` | No |  |
-| `hit_ratio` | `float64` | No |  |
-| `memory_usage` | `int` | No |  |
-| `miss_count` | `int` | No |  |
-| `total_entry` | `int` | No |  |
+| `evictionCount` | `int` | No |  |
+| `hitCount` | `int` | No |  |
+| `hitRatio` | `float64` | No |  |
+| `memoryUsage` | `int` | No |  |
+| `missCount` | `int` | No |  |
+| `totalEntries` | `int` | No |  |
 
 ### Operations
 
@@ -459,8 +439,8 @@ fmt.Println(cluster.GetName()) // "cluster"
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `hostname` | `string` | No |  |
-| `last_seen` | `string` | No |  |
-| `metric` | `map[string]any` | No |  |
+| `lastSeen` | `string` | No |  |
+| `metrics` | `map[string]any` | No |  |
 
 ### Operations
 
@@ -1141,19 +1121,19 @@ fmt.Println(performanceMetric.GetName()) // "performance_metric"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `active_request` | `int` | No |  |
-| `average_response_time_m` | `float64` | No |  |
+| `activeRequests` | `int` | No |  |
+| `averageResponseTimeMs` | `float64` | No |  |
 | `cache` | `map[string]any` | No |  |
-| `errors_by_type` | `map[string]any` | No |  |
-| `last_updated` | `string` | No |  |
-| `memory_used_byte` | `int` | No |  |
-| `redis_cache` | `map[string]any` | No |  |
-| `requests_per_second` | `float64` | No |  |
-| `start_time` | `string` | No |  |
+| `errorsByType` | `map[string]any` | No |  |
+| `lastUpdated` | `string` | No |  |
+| `memoryUsedBytes` | `int` | No |  |
+| `redisCache` | `map[string]any` | No |  |
+| `requestsPerSecond` | `float64` | No |  |
+| `startTime` | `string` | No |  |
 | `system` | `map[string]any` | No |  |
-| `total_error` | `int` | No |  |
-| `total_request` | `int` | No |  |
-| `wz_properties_loaded` | `int` | No |  |
+| `totalErrors` | `int` | No |  |
+| `totalRequests` | `int` | No |  |
+| `wzPropertiesLoaded` | `int` | No |  |
 
 ### Operations
 
@@ -1294,13 +1274,13 @@ fmt.Println(system.GetName()) // "system"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `cpu_usage_percent` | `float64` | No |  |
-| `gc_gen0_collection` | `int` | No |  |
-| `gc_gen1_collection` | `int` | No |  |
-| `gc_gen2_collection` | `int` | No |  |
-| `thread_count` | `int` | No |  |
-| `total_memory_byte` | `int` | No |  |
-| `used_memory_byte` | `int` | No |  |
+| `cpuUsagePercent` | `float64` | No |  |
+| `gcGen0Collections` | `int` | No |  |
+| `gcGen1Collections` | `int` | No |  |
+| `gcGen2Collections` | `int` | No |  |
+| `threadCount` | `int` | No |  |
+| `totalMemoryBytes` | `int` | No |  |
+| `usedMemoryBytes` | `int` | No |  |
 
 ### Operations
 
@@ -1421,231 +1401,6 @@ Get or set the entity match criteria. Works the same as `Data()`.
 #### `Make() Entity`
 
 Create a new `WznEntity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## Wzn2Entity
-
-```go
-wzn2 := client.Wzn2(nil)
-fmt.Println(wzn2.GetName()) // "wzn2"
-```
-
-### Operations
-
-#### `Load(reqmatch, ctrl map[string]any) (any, error)`
-
-Load a single entity matching the given criteria.
-
-```go
-result, err := client.Wzn2(nil).Load(map[string]any{"path": "path", "region": "region", "version": "version"}, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(result)
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `Wzn2Entity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## Wzn3Entity
-
-```go
-wzn3 := client.Wzn3(nil)
-fmt.Println(wzn3.GetName()) // "wzn3"
-```
-
-### Operations
-
-#### `Load(reqmatch, ctrl map[string]any) (any, error)`
-
-Load a single entity matching the given criteria.
-
-```go
-result, err := client.Wzn3(nil).Load(map[string]any{"path": "path", "region": "region", "version": "version"}, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(result)
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `Wzn3Entity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## Wzn4Entity
-
-```go
-wzn4 := client.Wzn4(nil)
-fmt.Println(wzn4.GetName()) // "wzn4"
-```
-
-### Operations
-
-#### `Load(reqmatch, ctrl map[string]any) (any, error)`
-
-Load a single entity matching the given criteria.
-
-```go
-result, err := client.Wzn4(nil).Load(map[string]any{"path": "path", "region": "region", "version": "version"}, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(result)
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `Wzn4Entity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## Wzn5Entity
-
-```go
-wzn5 := client.Wzn5(nil)
-fmt.Println(wzn5.GetName()) // "wzn5"
-```
-
-### Operations
-
-#### `Load(reqmatch, ctrl map[string]any) (any, error)`
-
-Load a single entity matching the given criteria.
-
-```go
-result, err := client.Wzn5(nil).Load(map[string]any{"path": "path", "region": "region", "version": "version"}, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(result)
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `Wzn5Entity` instance with the same client and
-options.
-
-#### `GetName() string`
-
-Return the entity name.
-
-
----
-
-## Wzn6Entity
-
-```go
-wzn6 := client.Wzn6(nil)
-fmt.Println(wzn6.GetName()) // "wzn6"
-```
-
-### Operations
-
-#### `Load(reqmatch, ctrl map[string]any) (any, error)`
-
-Load a single entity matching the given criteria.
-
-```go
-result, err := client.Wzn6(nil).Load(map[string]any{"path": "path", "region": "region", "version": "version"}, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(result)
-```
-
-### Common Methods
-
-#### `Data(args ...any) any`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `Match(args ...any) any`
-
-Get or set the entity match criteria. Works the same as `Data()`.
-
-#### `Make() Entity`
-
-Create a new `Wzn6Entity` instance with the same client and
 options.
 
 #### `GetName() string`

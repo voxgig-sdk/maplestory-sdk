@@ -360,66 +360,6 @@ Create a new `Wzn` entity instance.
 
 **Returns:** `WznEntity` instance.
 
-#### `Wzn2(data?: object)`
-
-Create a new `Wzn2` entity instance.
-
-**Parameters:**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `data` | `object` | Initial entity data. |
-
-**Returns:** `Wzn2Entity` instance.
-
-#### `Wzn3(data?: object)`
-
-Create a new `Wzn3` entity instance.
-
-**Parameters:**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `data` | `object` | Initial entity data. |
-
-**Returns:** `Wzn3Entity` instance.
-
-#### `Wzn4(data?: object)`
-
-Create a new `Wzn4` entity instance.
-
-**Parameters:**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `data` | `object` | Initial entity data. |
-
-**Returns:** `Wzn4Entity` instance.
-
-#### `Wzn5(data?: object)`
-
-Create a new `Wzn5` entity instance.
-
-**Parameters:**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `data` | `object` | Initial entity data. |
-
-**Returns:** `Wzn5Entity` instance.
-
-#### `Wzn6(data?: object)`
-
-Create a new `Wzn6` entity instance.
-
-**Parameters:**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| `data` | `object` | Initial entity data. |
-
-**Returns:** `Wzn6Entity` instance.
-
 #### `ZMap(data?: object)`
 
 Create a new `ZMap` entity instance.
@@ -576,12 +516,12 @@ const cache = client.Cache()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `eviction_count` | `number` | No |  |
-| `hit_count` | `number` | No |  |
-| `hit_ratio` | `number` | No |  |
-| `memory_usage` | `number` | No |  |
-| `miss_count` | `number` | No |  |
-| `total_entry` | `number` | No |  |
+| `evictionCount` | `number` | No |  |
+| `hitCount` | `number` | No |  |
+| `hitRatio` | `number` | No |  |
+| `memoryUsage` | `number` | No |  |
+| `missCount` | `number` | No |  |
+| `totalEntries` | `number` | No |  |
 
 ### Operations
 
@@ -720,8 +660,8 @@ const cluster = client.Cluster()
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `hostname` | `string` | No |  |
-| `last_seen` | `string` | No |  |
-| `metric` | `Record<string, any>` | No |  |
+| `lastSeen` | `string` | No |  |
+| `metrics` | `Record<string, any>` | No |  |
 
 ### Operations
 
@@ -765,6 +705,26 @@ Return a copy of the entity options.
 
 ```ts
 const diff = client.Diff()
+```
+
+### Actions
+
+This entity exposes custom API actions in addition to the standard
+operations. Select one with `$action` in the call's argument; the
+remaining keys are sent as that action's payload.
+
+| Action | Route | Call |
+| --- | --- | --- |
+| `grouped` | `/api/{region}/{version}/diff/grouped` | `client.Diff().load({ $action: 'grouped', ... })` |
+
+An action returns that action's OWN response, which is not necessarily a
+Diff record — check the API definition for its shape.
+
+```ts
+const result = await client.Diff().load({
+  $action: 'grouped',
+  /* ...the action's own arguments */
+})
 ```
 
 ### Operations
@@ -943,6 +903,28 @@ Return a copy of the entity options.
 const health = client.Health()
 ```
 
+### Actions
+
+This entity exposes custom API actions in addition to the standard
+operations. Select one with `$action` in the call's argument; the
+remaining keys are sent as that action's payload.
+
+| Action | Route | Call |
+| --- | --- | --- |
+| `alive` | `/api/health/alive` | `client.Health().load({ $action: 'alive', ... })` |
+| `ready` | `/api/health/ready` | `client.Health().load({ $action: 'ready', ... })` |
+| `start` | `/api/health/start` | `client.Health().load({ $action: 'start', ... })` |
+
+An action returns that action's OWN response, which is not necessarily a
+Health record — check the API definition for its shape.
+
+```ts
+const result = await client.Health().load({
+  $action: 'alive',
+  /* ...the action's own arguments */
+})
+```
+
 ### Operations
 
 #### `load(match: object, ctrl?: object)`
@@ -985,6 +967,31 @@ Return a copy of the entity options.
 
 ```ts
 const item = client.Item()
+```
+
+### Actions
+
+This entity exposes custom API actions in addition to the standard
+operations. Select one with `$action` in the call's argument; the
+remaining keys are sent as that action's payload.
+
+| Action | Route | Call |
+| --- | --- | --- |
+| `category` | `/api/{region}/{version}/item/category` | `client.Item().load({ $action: 'category', ... })` |
+| `count` | `/api/{region}/{version}/item/count` | `client.Item().load({ $action: 'count', ... })` |
+| `icon` | `/api/{region}/{version}/item/{itemId}/icon` | `client.Item().load({ $action: 'icon', ... })` |
+| `icon_raw` | `/api/{region}/{version}/item/{itemId}/iconRaw` | `client.Item().load({ $action: 'icon_raw', ... })` |
+| `list` | `/api/{region}/{version}/item/list` | `client.Item().load({ $action: 'list', ... })` |
+| `name` | `/api/{region}/{version}/item/{itemId}/name` | `client.Item().load({ $action: 'name', ... })` |
+
+An action returns that action's OWN response, which is not necessarily a
+Item record — check the API definition for its shape.
+
+```ts
+const result = await client.Item().load({
+  $action: 'category',
+  /* ...the action's own arguments */
+})
 ```
 
 ### Operations
@@ -1031,6 +1038,28 @@ Return a copy of the entity options.
 const job = client.Job()
 ```
 
+### Actions
+
+This entity exposes custom API actions in addition to the standard
+operations. Select one with `$action` in the call's argument; the
+remaining keys are sent as that action's payload.
+
+| Action | Route | Call |
+| --- | --- | --- |
+| `count` | `/api/{region}/{version}/job/count` | `client.Job().load({ $action: 'count', ... })` |
+| `skillbook` | `/api/{region}/{version}/job/{jobId}/skillbook` | `client.Job().load({ $action: 'skillbook', ... })` |
+| `skilltree` | `/api/{region}/{version}/job/skilltree` | `client.Job().load({ $action: 'skilltree', ... })` |
+
+An action returns that action's OWN response, which is not necessarily a
+Job record — check the API definition for its shape.
+
+```ts
+const result = await client.Job().load({
+  $action: 'count',
+  /* ...the action's own arguments */
+})
+```
+
 ### Operations
 
 #### `load(match: object, ctrl?: object)`
@@ -1073,6 +1102,31 @@ Return a copy of the entity options.
 
 ```ts
 const map = client.Map()
+```
+
+### Actions
+
+This entity exposes custom API actions in addition to the standard
+operations. Select one with `$action` in the call's argument; the
+remaining keys are sent as that action's payload.
+
+| Action | Route | Call |
+| --- | --- | --- |
+| `bgm` | `/api/{region}/{version}/map/{mapId}/bgm` | `client.Map().load({ $action: 'bgm', ... })` |
+| `count` | `/api/{region}/{version}/map/count` | `client.Map().load({ $action: 'count', ... })` |
+| `icon` | `/api/{region}/{version}/map/{mapId}/icon` | `client.Map().load({ $action: 'icon', ... })` |
+| `minimap` | `/api/{region}/{version}/map/{mapId}/minimap` | `client.Map().load({ $action: 'minimap', ... })` |
+| `name` | `/api/{region}/{version}/map/{mapId}/name` | `client.Map().load({ $action: 'name', ... })` |
+| `worldmap` | `/api/{region}/{version}/map/worldmap` | `client.Map().load({ $action: 'worldmap', ... })` |
+
+An action returns that action's OWN response, which is not necessarily a
+Map record — check the API definition for its shape.
+
+```ts
+const result = await client.Map().load({
+  $action: 'bgm',
+  /* ...the action's own arguments */
+})
 ```
 
 ### Operations
@@ -1119,6 +1173,26 @@ Return a copy of the entity options.
 const metric = client.Metric()
 ```
 
+### Actions
+
+This entity exposes custom API actions in addition to the standard
+operations. Select one with `$action` in the call's argument; the
+remaining keys are sent as that action's payload.
+
+| Action | Route | Call |
+| --- | --- | --- |
+| `health` | `/api/metrics/health` | `client.Metric().load({ $action: 'health', ... })` |
+
+An action returns that action's OWN response, which is not necessarily a
+Metric record — check the API definition for its shape.
+
+```ts
+const result = await client.Metric().load({
+  $action: 'health',
+  /* ...the action's own arguments */
+})
+```
+
 ### Operations
 
 #### `load(match: object, ctrl?: object)`
@@ -1161,6 +1235,30 @@ Return a copy of the entity options.
 
 ```ts
 const mob = client.Mob()
+```
+
+### Actions
+
+This entity exposes custom API actions in addition to the standard
+operations. Select one with `$action` in the call's argument; the
+remaining keys are sent as that action's payload.
+
+| Action | Route | Call |
+| --- | --- | --- |
+| `count` | `/api/{region}/{version}/mob/count` | `client.Mob().load({ $action: 'count', ... })` |
+| `download` | `/api/{region}/{version}/mob/{mobId}/download` | `client.Mob().load({ $action: 'download', ... })` |
+| `icon` | `/api/{region}/{version}/mob/{mobId}/icon` | `client.Mob().load({ $action: 'icon', ... })` |
+| `name` | `/api/{region}/{version}/mob/{mobId}/name` | `client.Mob().load({ $action: 'name', ... })` |
+| `sound` | `/api/{region}/{version}/mob/{mobId}/sound` | `client.Mob().load({ $action: 'sound', ... })` |
+
+An action returns that action's OWN response, which is not necessarily a
+Mob record — check the API definition for its shape.
+
+```ts
+const result = await client.Mob().load({
+  $action: 'count',
+  /* ...the action's own arguments */
+})
 ```
 
 ### Operations
@@ -1295,6 +1393,29 @@ Return a copy of the entity options.
 const npc = client.Npc()
 ```
 
+### Actions
+
+This entity exposes custom API actions in addition to the standard
+operations. Select one with `$action` in the call's argument; the
+remaining keys are sent as that action's payload.
+
+| Action | Route | Call |
+| --- | --- | --- |
+| `count` | `/api/{region}/{version}/npc/count` | `client.Npc().load({ $action: 'count', ... })` |
+| `download` | `/api/{region}/{version}/npc/{npcId}/download` | `client.Npc().load({ $action: 'download', ... })` |
+| `icon` | `/api/{region}/{version}/npc/{npcId}/icon` | `client.Npc().load({ $action: 'icon', ... })` |
+| `name` | `/api/{region}/{version}/npc/{npcId}/name` | `client.Npc().load({ $action: 'name', ... })` |
+
+An action returns that action's OWN response, which is not necessarily a
+Npc record — check the API definition for its shape.
+
+```ts
+const result = await client.Npc().load({
+  $action: 'count',
+  /* ...the action's own arguments */
+})
+```
+
 ### Operations
 
 #### `load(match: object, ctrl?: object)`
@@ -1387,19 +1508,19 @@ const performance_metric = client.PerformanceMetric()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `active_request` | `number` | No |  |
-| `average_response_time_m` | `number` | No |  |
+| `activeRequests` | `number` | No |  |
+| `averageResponseTimeMs` | `number` | No |  |
 | `cache` | `Record<string, any>` | No |  |
-| `errors_by_type` | `Record<string, any>` | No |  |
-| `last_updated` | `string` | No |  |
-| `memory_used_byte` | `number` | No |  |
-| `redis_cache` | `Record<string, any>` | No |  |
-| `requests_per_second` | `number` | No |  |
-| `start_time` | `string` | No |  |
+| `errorsByType` | `Record<string, any>` | No |  |
+| `lastUpdated` | `string` | No |  |
+| `memoryUsedBytes` | `number` | No |  |
+| `redisCache` | `Record<string, any>` | No |  |
+| `requestsPerSecond` | `number` | No |  |
+| `startTime` | `string` | No |  |
 | `system` | `Record<string, any>` | No |  |
-| `total_error` | `number` | No |  |
-| `total_request` | `number` | No |  |
-| `wz_properties_loaded` | `number` | No |  |
+| `totalErrors` | `number` | No |  |
+| `totalRequests` | `number` | No |  |
+| `wzPropertiesLoaded` | `number` | No |  |
 
 ### Operations
 
@@ -1445,6 +1566,29 @@ Return a copy of the entity options.
 const pet = client.Pet()
 ```
 
+### Actions
+
+This entity exposes custom API actions in addition to the standard
+operations. Select one with `$action` in the call's argument; the
+remaining keys are sent as that action's payload.
+
+| Action | Route | Call |
+| --- | --- | --- |
+| `action` | `/api/{region}/{version}/pet/{petId}/actions` | `client.Pet().load({ $action: 'action', ... })` |
+| `count` | `/api/{region}/{version}/pet/count` | `client.Pet().load({ $action: 'count', ... })` |
+| `download` | `/api/{region}/{version}/pet/{petId}/download` | `client.Pet().load({ $action: 'download', ... })` |
+| `name` | `/api/{region}/{version}/pet/{petId}/name` | `client.Pet().load({ $action: 'name', ... })` |
+
+An action returns that action's OWN response, which is not necessarily a
+Pet record — check the API definition for its shape.
+
+```ts
+const result = await client.Pet().load({
+  $action: 'action',
+  /* ...the action's own arguments */
+})
+```
+
 ### Operations
 
 #### `load(match: object, ctrl?: object)`
@@ -1487,6 +1631,29 @@ Return a copy of the entity options.
 
 ```ts
 const quest = client.Quest()
+```
+
+### Actions
+
+This entity exposes custom API actions in addition to the standard
+operations. Select one with `$action` in the call's argument; the
+remaining keys are sent as that action's payload.
+
+| Action | Route | Call |
+| --- | --- | --- |
+| `category` | `/api/{region}/{version}/quest/category` | `client.Quest().load({ $action: 'category', ... })` |
+| `count` | `/api/{region}/{version}/quest/count` | `client.Quest().load({ $action: 'count', ... })` |
+| `icon` | `/api/{region}/{version}/quest/{questId}/icon` | `client.Quest().load({ $action: 'icon', ... })` |
+| `name` | `/api/{region}/{version}/quest/{questId}/name` | `client.Quest().load({ $action: 'name', ... })` |
+
+An action returns that action's OWN response, which is not necessarily a
+Quest record — check the API definition for its shape.
+
+```ts
+const result = await client.Quest().load({
+  $action: 'category',
+  /* ...the action's own arguments */
+})
 ```
 
 ### Operations
@@ -1537,13 +1704,13 @@ const system = client.System()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `cpu_usage_percent` | `number` | No |  |
-| `gc_gen0_collection` | `number` | No |  |
-| `gc_gen1_collection` | `number` | No |  |
-| `gc_gen2_collection` | `number` | No |  |
-| `thread_count` | `number` | No |  |
-| `total_memory_byte` | `number` | No |  |
-| `used_memory_byte` | `number` | No |  |
+| `cpuUsagePercent` | `number` | No |  |
+| `gcGen0Collections` | `number` | No |  |
+| `gcGen1Collections` | `number` | No |  |
+| `gcGen2Collections` | `number` | No |  |
+| `threadCount` | `number` | No |  |
+| `totalMemoryBytes` | `number` | No |  |
+| `usedMemoryBytes` | `number` | No |  |
 
 ### Operations
 
@@ -1658,226 +1825,6 @@ Get or set the entity match criteria. Works the same as `data()`.
 #### `make()`
 
 Create a new `WznEntity` instance with the same client and
-options.
-
-#### `client()`
-
-Return the parent `MaplestorySDK` instance.
-
-#### `entopts()`
-
-Return a copy of the entity options.
-
-
----
-
-## Wzn2Entity
-
-```ts
-const wzn2 = client.Wzn2()
-```
-
-### Operations
-
-#### `load(match: object, ctrl?: object)`
-
-Load a single entity matching the given criteria.
-
-```ts
-const result = await client.Wzn2().load({ path: 'path', region: 'region', version: 'version' })
-```
-
-### Common Methods
-
-#### `data(data?: object)`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `match(match?: object)`
-
-Get or set the entity match criteria. Works the same as `data()`.
-
-#### `make()`
-
-Create a new `Wzn2Entity` instance with the same client and
-options.
-
-#### `client()`
-
-Return the parent `MaplestorySDK` instance.
-
-#### `entopts()`
-
-Return a copy of the entity options.
-
-
----
-
-## Wzn3Entity
-
-```ts
-const wzn3 = client.Wzn3()
-```
-
-### Operations
-
-#### `load(match: object, ctrl?: object)`
-
-Load a single entity matching the given criteria.
-
-```ts
-const result = await client.Wzn3().load({ path: 'path', region: 'region', version: 'version' })
-```
-
-### Common Methods
-
-#### `data(data?: object)`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `match(match?: object)`
-
-Get or set the entity match criteria. Works the same as `data()`.
-
-#### `make()`
-
-Create a new `Wzn3Entity` instance with the same client and
-options.
-
-#### `client()`
-
-Return the parent `MaplestorySDK` instance.
-
-#### `entopts()`
-
-Return a copy of the entity options.
-
-
----
-
-## Wzn4Entity
-
-```ts
-const wzn4 = client.Wzn4()
-```
-
-### Operations
-
-#### `load(match: object, ctrl?: object)`
-
-Load a single entity matching the given criteria.
-
-```ts
-const result = await client.Wzn4().load({ path: 'path', region: 'region', version: 'version' })
-```
-
-### Common Methods
-
-#### `data(data?: object)`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `match(match?: object)`
-
-Get or set the entity match criteria. Works the same as `data()`.
-
-#### `make()`
-
-Create a new `Wzn4Entity` instance with the same client and
-options.
-
-#### `client()`
-
-Return the parent `MaplestorySDK` instance.
-
-#### `entopts()`
-
-Return a copy of the entity options.
-
-
----
-
-## Wzn5Entity
-
-```ts
-const wzn5 = client.Wzn5()
-```
-
-### Operations
-
-#### `load(match: object, ctrl?: object)`
-
-Load a single entity matching the given criteria.
-
-```ts
-const result = await client.Wzn5().load({ path: 'path', region: 'region', version: 'version' })
-```
-
-### Common Methods
-
-#### `data(data?: object)`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `match(match?: object)`
-
-Get or set the entity match criteria. Works the same as `data()`.
-
-#### `make()`
-
-Create a new `Wzn5Entity` instance with the same client and
-options.
-
-#### `client()`
-
-Return the parent `MaplestorySDK` instance.
-
-#### `entopts()`
-
-Return a copy of the entity options.
-
-
----
-
-## Wzn6Entity
-
-```ts
-const wzn6 = client.Wzn6()
-```
-
-### Operations
-
-#### `load(match: object, ctrl?: object)`
-
-Load a single entity matching the given criteria.
-
-```ts
-const result = await client.Wzn6().load({ path: 'path', region: 'region', version: 'version' })
-```
-
-### Common Methods
-
-#### `data(data?: object)`
-
-Get or set the entity data. When called with data, sets the entity's
-internal data and returns the current data. When called without
-arguments, returns a copy of the current data.
-
-#### `match(match?: object)`
-
-Get or set the entity match criteria. Works the same as `data()`.
-
-#### `make()`
-
-Create a new `Wzn6Entity` instance with the same client and
 options.
 
 #### `client()`

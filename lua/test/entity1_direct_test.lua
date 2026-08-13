@@ -60,7 +60,7 @@ function entity1_direct_setup(mockres)
   local calls = {}
 
   local env = runner.env_override({
-    ["MAPLESTORY_TEST_ENTITY__ENTID"] = {},
+    ["MAPLESTORY_TEST_ENTITY1_ENTID"] = {},
     ["MAPLESTORY_TEST_LIVE"] = "FALSE",
   })
 

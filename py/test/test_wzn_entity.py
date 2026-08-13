@@ -6,9 +6,9 @@ import time
 
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from maplestory_sdk.utility.voxgig_struct import voxgig_struct as vs
 from maplestory_sdk import MaplestorySDK
-from core import helpers
+from maplestory_sdk.core import helpers
 
 _TEST_DIR = os.path.dirname(os.path.abspath(__file__))
 from test import runner
@@ -70,7 +70,7 @@ def _wzn_basic_setup(extra):
 
     # Generate idmap via transform.
     idmap = vs.transform(
-        ["wzn01", "wzn02", "wzn03", "region01", "version01"],
+        ["wzn01", "wzn02", "wzn03", "audio01", "audio02", "audio03", "export01", "export02", "export03", "img01", "img02", "img03", "lookup01", "lookup02", "lookup03", "wz01", "wz02", "wz03", "region01", "version01"],
         {
             "`$PACK`": ["", {
                 "`$KEY`": "`$COPY`",

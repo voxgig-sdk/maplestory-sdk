@@ -44,11 +44,6 @@ local function make_config()
         ["system"] = {},
         ["tip"] = {},
         ["wzn"] = {},
-        ["wzn2"] = {},
-        ["wzn3"] = {},
-        ["wzn4"] = {},
-        ["wzn5"] = {},
-        ["wzn6"] = {},
         ["z_map"] = {},
       },
     },
@@ -94,6 +89,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/{region}/{version}/android/{androidId}",
                 ["parts"] = {
@@ -145,6 +141,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/{region}/{version}/android",
                 ["parts"] = {
@@ -293,6 +290,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/character/{items}/{animation}/animated",
                 ["parts"] = {
@@ -437,6 +435,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/character/{items}/{animation}/{frame}/download",
                 ["parts"] = {
@@ -582,6 +581,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/character/{items}/download",
                 ["parts"] = {
@@ -716,6 +716,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/character/{items}/actions",
                 ["parts"] = {
@@ -849,6 +850,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/character/{items}/{animation}/{frame}",
                 ["parts"] = {
@@ -900,42 +902,42 @@ local function make_config()
         ["fields"] = {
           {
             ["active"] = true,
-            ["name"] = "eviction_count",
+            ["name"] = "evictionCount",
             ["req"] = false,
             ["type"] = "`$INTEGER`",
             ["index$"] = 0,
           },
           {
             ["active"] = true,
-            ["name"] = "hit_count",
+            ["name"] = "hitCount",
             ["req"] = false,
             ["type"] = "`$INTEGER`",
             ["index$"] = 1,
           },
           {
             ["active"] = true,
-            ["name"] = "hit_ratio",
+            ["name"] = "hitRatio",
             ["req"] = false,
             ["type"] = "`$NUMBER`",
             ["index$"] = 2,
           },
           {
             ["active"] = true,
-            ["name"] = "memory_usage",
+            ["name"] = "memoryUsage",
             ["req"] = false,
             ["type"] = "`$INTEGER`",
             ["index$"] = 3,
           },
           {
             ["active"] = true,
-            ["name"] = "miss_count",
+            ["name"] = "missCount",
             ["req"] = false,
             ["type"] = "`$INTEGER`",
             ["index$"] = 4,
           },
           {
             ["active"] = true,
-            ["name"] = "total_entry",
+            ["name"] = "totalEntries",
             ["req"] = false,
             ["type"] = "`$INTEGER`",
             ["index$"] = 5,
@@ -950,6 +952,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/metrics/cache",
                 ["parts"] = {
@@ -1145,6 +1148,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/{region}/{version}/Character/animated/{skinId}/{items}/{animation}/{frame}",
                 ["parts"] = {
@@ -1314,6 +1318,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/{region}/{version}/Character/{skinId}/{items}/{animation}/{frame}",
                 ["parts"] = {
@@ -1473,6 +1478,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/{region}/{version}/Character/center/{skinId}/{items}/{animation}/{frame}",
                 ["parts"] = {
@@ -1641,6 +1647,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/{region}/{version}/Character/compact/{skinId}/{items}/{animation}/{frame}",
                 ["parts"] = {
@@ -1800,6 +1807,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/{region}/{version}/Character/feetCenter/{skinId}/{items}/{animation}/{frame}",
                 ["parts"] = {
@@ -1959,6 +1967,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/{region}/{version}/Character/navelCenter/{skinId}/{items}/{animation}/{frame}",
                 ["parts"] = {
@@ -2153,6 +2162,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/{region}/{version}/Character/download/{skinId}/{items}",
                 ["parts"] = {
@@ -2284,6 +2294,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/{region}/{version}/Character/actions/{items}",
                 ["parts"] = {
@@ -2401,6 +2412,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/{region}/{version}/Character",
                 ["parts"] = {
@@ -2522,6 +2534,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/{region}/{version}/chat",
                 ["parts"] = {
@@ -2567,14 +2580,14 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "last_seen",
+            ["name"] = "lastSeen",
             ["req"] = false,
             ["type"] = "`$STRING`",
             ["index$"] = 1,
           },
           {
             ["active"] = true,
-            ["name"] = "metric",
+            ["name"] = "metrics",
             ["req"] = false,
             ["type"] = "`$OBJECT`",
             ["index$"] = 2,
@@ -2589,6 +2602,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/metrics/cluster",
                 ["parts"] = {
@@ -2643,6 +2657,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/{region}/{version}/diff",
                 ["parts"] = {
@@ -2685,6 +2700,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/{region}/{version}/diff/grouped",
                 ["parts"] = {
@@ -2730,6 +2746,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/",
                 ["parts"] = {},
@@ -2771,6 +2788,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/gms/latest/news/article/{id}",
                 ["parts"] = {
@@ -2807,6 +2825,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/gms/latest/news/{type}",
                 ["parts"] = {
@@ -2908,6 +2927,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/{region}/{version}/GuildMark/background/{guildBackgroundId}/{guildBackgroundColorId}/mark/{guildMarkId}/{guildMarkColorId}",
                 ["parts"] = {
@@ -2988,6 +3008,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/{region}/{version}/GuildMark/{guildMarkId}/{colorId}",
                 ["parts"] = {
@@ -3047,6 +3068,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/health/alive",
                 ["parts"] = {
@@ -3066,6 +3088,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/health/ready",
                 ["parts"] = {
@@ -3085,6 +3108,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/health/start",
                 ["parts"] = {
@@ -3232,6 +3256,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/{region}/{version}/item",
                 ["parts"] = {
@@ -3378,6 +3403,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/{region}/{version}/item/count",
                 ["parts"] = {
@@ -3526,6 +3552,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/{region}/{version}/item/list",
                 ["parts"] = {
@@ -3592,6 +3619,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/{region}/{version}/item/{itemId}",
                 ["parts"] = {
@@ -3649,6 +3677,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/{region}/{version}/item/{itemId}/icon",
                 ["parts"] = {
@@ -3708,6 +3737,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/{region}/{version}/item/{itemId}/iconRaw",
                 ["parts"] = {
@@ -3767,6 +3797,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/{region}/{version}/item/{itemId}/name",
                 ["parts"] = {
@@ -3829,6 +3860,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/{region}/{version}/item/category/{overallCategory}",
                 ["parts"] = {
@@ -3879,6 +3911,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/{region}/{version}/item/category",
                 ["parts"] = {
@@ -3967,6 +4000,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/{region}/{version}/job/{jobId}/skillbook/{skillId}",
                 ["parts"] = {
@@ -4031,6 +4065,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/{region}/{version}/job/{jobId}",
                 ["parts"] = {
@@ -4088,6 +4123,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/{region}/{version}/job/{jobId}/skillbook",
                 ["parts"] = {
@@ -4150,6 +4186,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/{region}/{version}/job/skill/{skillId}",
                 ["parts"] = {
@@ -4202,6 +4239,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/{region}/{version}/job",
                 ["parts"] = {
@@ -4244,6 +4282,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/{region}/{version}/job/count",
                 ["parts"] = {
@@ -4288,6 +4327,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/{region}/{version}/job/skilltree",
                 ["parts"] = {
@@ -4417,6 +4457,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/{region}/{version}/map/{mapId}/render/layer/{layer}/{frame}",
                 ["parts"] = {
@@ -4516,6 +4557,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/{region}/{version}/map/{mapId}/render/{frame}",
                 ["parts"] = {
@@ -4599,6 +4641,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/{region}/{version}/map",
                 ["parts"] = {
@@ -4671,6 +4714,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/{region}/{version}/map/count",
                 ["parts"] = {
@@ -4729,6 +4773,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/{region}/{version}/map/{mapId}",
                 ["parts"] = {
@@ -4786,6 +4831,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/{region}/{version}/map/{mapId}/bgm",
                 ["parts"] = {
@@ -4845,6 +4891,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/{region}/{version}/map/{mapId}/icon",
                 ["parts"] = {
@@ -4904,6 +4951,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/{region}/{version}/map/{mapId}/minimap",
                 ["parts"] = {
@@ -4963,6 +5011,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/{region}/{version}/map/{mapId}/name",
                 ["parts"] = {
@@ -5025,6 +5074,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/{region}/{version}/map/worldmap/{map}",
                 ["parts"] = {
@@ -5081,6 +5131,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/{region}/{version}/map/icon/{markName}",
                 ["parts"] = {
@@ -5131,6 +5182,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/{region}/{version}/map/worldmap",
                 ["parts"] = {
@@ -5193,6 +5245,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/metrics/health",
                 ["parts"] = {
@@ -5292,6 +5345,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/{region}/{version}/mob",
                 ["parts"] = {
@@ -5384,6 +5438,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/{region}/{version}/mob/count",
                 ["parts"] = {
@@ -5464,6 +5519,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/{region}/{version}/mob/{mobId}/render/animated/{animation}",
                 ["parts"] = {
@@ -5550,6 +5606,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/{region}/{version}/mob/{mobId}/render/{animation}",
                 ["parts"] = {
@@ -5634,6 +5691,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/{region}/{version}/mob/animated/{mobId}/{animation}",
                 ["parts"] = {
@@ -5717,6 +5775,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/{region}/{version}/mob/{mobId}/render/{animation}/{frame}",
                 ["parts"] = {
@@ -5791,6 +5850,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/{region}/{version}/mob/{mobId}/sound/{soundName}",
                 ["parts"] = {
@@ -5855,6 +5915,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/{region}/{version}/mob/{mobId}",
                 ["parts"] = {
@@ -5912,6 +5973,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/{region}/{version}/mob/{mobId}/download",
                 ["parts"] = {
@@ -5971,6 +6033,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/{region}/{version}/mob/{mobId}/icon",
                 ["parts"] = {
@@ -6030,6 +6093,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/{region}/{version}/mob/{mobId}/name",
                 ["parts"] = {
@@ -6089,6 +6153,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/{region}/{version}/mob/{mobId}/sound",
                 ["parts"] = {
@@ -6188,6 +6253,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/{region}/{version}/music/{songPath}",
                 ["parts"] = {
@@ -6278,6 +6344,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/{region}/{version}/name",
                 ["parts"] = {
@@ -6380,6 +6447,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/{region}/{version}/npc/{npcId}/render/animated/{framebook}",
                 ["parts"] = {
@@ -6473,6 +6541,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/{region}/{version}/npc/{npcId}/render/{framebook}/{frame}",
                 ["parts"] = {
@@ -6559,6 +6628,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/{region}/{version}/npc",
                 ["parts"] = {
@@ -6633,6 +6703,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/{region}/{version}/npc/count",
                 ["parts"] = {
@@ -6691,6 +6762,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/{region}/{version}/npc/{npcId}",
                 ["parts"] = {
@@ -6748,6 +6820,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/{region}/{version}/npc/{npcId}/download",
                 ["parts"] = {
@@ -6807,6 +6880,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/{region}/{version}/npc/{npcId}/icon",
                 ["parts"] = {
@@ -6866,6 +6940,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/{region}/{version}/npc/{npcId}/name",
                 ["parts"] = {
@@ -6927,6 +7002,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/about",
                 ["parts"] = {
@@ -6943,6 +7019,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/banners",
                 ["parts"] = {
@@ -6968,14 +7045,14 @@ local function make_config()
         ["fields"] = {
           {
             ["active"] = true,
-            ["name"] = "active_request",
+            ["name"] = "activeRequests",
             ["req"] = false,
             ["type"] = "`$INTEGER`",
             ["index$"] = 0,
           },
           {
             ["active"] = true,
-            ["name"] = "average_response_time_m",
+            ["name"] = "averageResponseTimeMs",
             ["req"] = false,
             ["type"] = "`$NUMBER`",
             ["index$"] = 1,
@@ -6989,42 +7066,42 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "errors_by_type",
+            ["name"] = "errorsByType",
             ["req"] = false,
             ["type"] = "`$OBJECT`",
             ["index$"] = 3,
           },
           {
             ["active"] = true,
-            ["name"] = "last_updated",
+            ["name"] = "lastUpdated",
             ["req"] = false,
             ["type"] = "`$STRING`",
             ["index$"] = 4,
           },
           {
             ["active"] = true,
-            ["name"] = "memory_used_byte",
+            ["name"] = "memoryUsedBytes",
             ["req"] = false,
             ["type"] = "`$INTEGER`",
             ["index$"] = 5,
           },
           {
             ["active"] = true,
-            ["name"] = "redis_cache",
+            ["name"] = "redisCache",
             ["req"] = false,
             ["type"] = "`$OBJECT`",
             ["index$"] = 6,
           },
           {
             ["active"] = true,
-            ["name"] = "requests_per_second",
+            ["name"] = "requestsPerSecond",
             ["req"] = false,
             ["type"] = "`$NUMBER`",
             ["index$"] = 7,
           },
           {
             ["active"] = true,
-            ["name"] = "start_time",
+            ["name"] = "startTime",
             ["req"] = false,
             ["type"] = "`$STRING`",
             ["index$"] = 8,
@@ -7038,21 +7115,21 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "total_error",
+            ["name"] = "totalErrors",
             ["req"] = false,
             ["type"] = "`$INTEGER`",
             ["index$"] = 10,
           },
           {
             ["active"] = true,
-            ["name"] = "total_request",
+            ["name"] = "totalRequests",
             ["req"] = false,
             ["type"] = "`$INTEGER`",
             ["index$"] = 11,
           },
           {
             ["active"] = true,
-            ["name"] = "wz_properties_loaded",
+            ["name"] = "wzPropertiesLoaded",
             ["req"] = false,
             ["type"] = "`$INTEGER`",
             ["index$"] = 12,
@@ -7067,6 +7144,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/metrics",
                 ["parts"] = {
@@ -7159,6 +7237,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/{region}/{version}/pet/{petId}/render/{animation}/{frame}/{petEquip}",
                 ["parts"] = {
@@ -7257,6 +7336,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/{region}/{version}/pet/{petId}/render/{animation}/animated/{petEquip}",
                 ["parts"] = {
@@ -7326,6 +7406,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/{region}/{version}/pet/{petId}",
                 ["parts"] = {
@@ -7383,6 +7464,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/{region}/{version}/pet/{petId}/actions",
                 ["parts"] = {
@@ -7442,6 +7524,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/{region}/{version}/pet/{petId}/download",
                 ["parts"] = {
@@ -7501,6 +7584,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/{region}/{version}/pet/{petId}/name",
                 ["parts"] = {
@@ -7554,6 +7638,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/{region}/{version}/pet",
                 ["parts"] = {
@@ -7596,6 +7681,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/{region}/{version}/pet/count",
                 ["parts"] = {
@@ -7699,6 +7785,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/{region}/{version}/quest",
                 ["parts"] = {
@@ -7773,6 +7860,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/{region}/{version}/quest/count",
                 ["parts"] = {
@@ -7831,6 +7919,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/{region}/{version}/quest/category/{category}",
                 ["parts"] = {
@@ -7887,6 +7976,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/{region}/{version}/quest/{questId}",
                 ["parts"] = {
@@ -7944,6 +8034,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/{region}/{version}/quest/{questId}/icon",
                 ["parts"] = {
@@ -8003,6 +8094,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/{region}/{version}/quest/{questId}/name",
                 ["parts"] = {
@@ -8054,6 +8146,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/{region}/{version}/quest/category",
                 ["parts"] = {
@@ -8096,49 +8189,49 @@ local function make_config()
         ["fields"] = {
           {
             ["active"] = true,
-            ["name"] = "cpu_usage_percent",
+            ["name"] = "cpuUsagePercent",
             ["req"] = false,
             ["type"] = "`$NUMBER`",
             ["index$"] = 0,
           },
           {
             ["active"] = true,
-            ["name"] = "gc_gen0_collection",
+            ["name"] = "gcGen0Collections",
             ["req"] = false,
             ["type"] = "`$INTEGER`",
             ["index$"] = 1,
           },
           {
             ["active"] = true,
-            ["name"] = "gc_gen1_collection",
+            ["name"] = "gcGen1Collections",
             ["req"] = false,
             ["type"] = "`$INTEGER`",
             ["index$"] = 2,
           },
           {
             ["active"] = true,
-            ["name"] = "gc_gen2_collection",
+            ["name"] = "gcGen2Collections",
             ["req"] = false,
             ["type"] = "`$INTEGER`",
             ["index$"] = 3,
           },
           {
             ["active"] = true,
-            ["name"] = "thread_count",
+            ["name"] = "threadCount",
             ["req"] = false,
             ["type"] = "`$INTEGER`",
             ["index$"] = 4,
           },
           {
             ["active"] = true,
-            ["name"] = "total_memory_byte",
+            ["name"] = "totalMemoryBytes",
             ["req"] = false,
             ["type"] = "`$INTEGER`",
             ["index$"] = 5,
           },
           {
             ["active"] = true,
-            ["name"] = "used_memory_byte",
+            ["name"] = "usedMemoryBytes",
             ["req"] = false,
             ["type"] = "`$INTEGER`",
             ["index$"] = 6,
@@ -8153,6 +8246,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/metrics/system",
                 ["parts"] = {
@@ -8207,6 +8301,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/{region}/{version}/tips",
                 ["parts"] = {
@@ -8242,158 +8337,6 @@ local function make_config()
       ["wzn"] = {
         ["fields"] = {},
         ["name"] = "wzn",
-        ["op"] = {
-          ["load"] = {
-            ["input"] = "data",
-            ["name"] = "load",
-            ["points"] = {
-              {
-                ["active"] = true,
-                ["args"] = {
-                  ["params"] = {
-                    {
-                      ["active"] = true,
-                      ["kind"] = "param",
-                      ["name"] = "region",
-                      ["orig"] = "region",
-                      ["reqd"] = true,
-                      ["type"] = "`$STRING`",
-                      ["index$"] = 0,
-                    },
-                    {
-                      ["active"] = true,
-                      ["kind"] = "param",
-                      ["name"] = "version",
-                      ["orig"] = "version",
-                      ["reqd"] = true,
-                      ["type"] = "`$STRING`",
-                      ["index$"] = 1,
-                    },
-                  },
-                },
-                ["method"] = "GET",
-                ["orig"] = "/api/wz",
-                ["parts"] = {
-                  "api",
-                  "wz",
-                },
-                ["select"] = {
-                  ["exist"] = {
-                    "region",
-                    "version",
-                  },
-                },
-                ["transform"] = {
-                  ["req"] = "`reqdata`",
-                  ["res"] = "`body`",
-                },
-                ["index$"] = 0,
-              },
-            },
-            ["key$"] = "load",
-          },
-        },
-        ["relations"] = {
-          ["ancestors"] = {},
-        },
-      },
-      ["wzn2"] = {
-        ["fields"] = {},
-        ["name"] = "wzn2",
-        ["op"] = {
-          ["load"] = {
-            ["input"] = "data",
-            ["name"] = "load",
-            ["points"] = {
-              {
-                ["active"] = true,
-                ["args"] = {
-                  ["params"] = {
-                    {
-                      ["active"] = true,
-                      ["kind"] = "param",
-                      ["name"] = "path",
-                      ["orig"] = "path",
-                      ["reqd"] = true,
-                      ["type"] = "`$STRING`",
-                      ["index$"] = 0,
-                    },
-                    {
-                      ["active"] = true,
-                      ["kind"] = "param",
-                      ["name"] = "region",
-                      ["orig"] = "region",
-                      ["reqd"] = true,
-                      ["type"] = "`$STRING`",
-                      ["index$"] = 1,
-                    },
-                    {
-                      ["active"] = true,
-                      ["kind"] = "param",
-                      ["name"] = "version",
-                      ["orig"] = "version",
-                      ["reqd"] = true,
-                      ["type"] = "`$STRING`",
-                      ["index$"] = 2,
-                    },
-                  },
-                  ["query"] = {
-                    {
-                      ["active"] = true,
-                      ["kind"] = "query",
-                      ["name"] = "region",
-                      ["orig"] = "region",
-                      ["reqd"] = false,
-                      ["type"] = "`$STRING`",
-                    },
-                    {
-                      ["active"] = true,
-                      ["kind"] = "query",
-                      ["name"] = "version",
-                      ["orig"] = "version",
-                      ["reqd"] = false,
-                      ["type"] = "`$STRING`",
-                    },
-                  },
-                },
-                ["method"] = "GET",
-                ["orig"] = "/api/wz/audio/{region}/{version}/{path}",
-                ["parts"] = {
-                  "api",
-                  "wz",
-                  "audio",
-                  "{region}",
-                  "{version}",
-                  "{path}",
-                },
-                ["select"] = {
-                  ["exist"] = {
-                    "path",
-                    "region",
-                    "version",
-                  },
-                },
-                ["transform"] = {
-                  ["req"] = "`reqdata`",
-                  ["res"] = "`body`",
-                },
-                ["index$"] = 0,
-              },
-            },
-            ["key$"] = "load",
-          },
-        },
-        ["relations"] = {
-          ["ancestors"] = {
-            {
-              "audio",
-            },
-          },
-        },
-      },
-      ["wzn3"] = {
-        ["fields"] = {},
-        ["name"] = "wzn3",
         ["op"] = {
           ["load"] = {
             ["input"] = "data",
@@ -8459,6 +8402,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/wz/export/{region}/{version}/{path}",
                 ["parts"] = {
@@ -8483,26 +8427,6 @@ local function make_config()
                 },
                 ["index$"] = 0,
               },
-            },
-            ["key$"] = "load",
-          },
-        },
-        ["relations"] = {
-          ["ancestors"] = {
-            {
-              "export",
-            },
-          },
-        },
-      },
-      ["wzn4"] = {
-        ["fields"] = {},
-        ["name"] = "wzn4",
-        ["op"] = {
-          ["load"] = {
-            ["input"] = "data",
-            ["name"] = "load",
-            ["points"] = {
               {
                 ["active"] = true,
                 ["args"] = {
@@ -8554,6 +8478,82 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
+                ["method"] = "GET",
+                ["orig"] = "/api/wz/audio/{region}/{version}/{path}",
+                ["parts"] = {
+                  "api",
+                  "wz",
+                  "audio",
+                  "{region}",
+                  "{version}",
+                  "{path}",
+                },
+                ["select"] = {
+                  ["exist"] = {
+                    "path",
+                    "region",
+                    "version",
+                  },
+                },
+                ["transform"] = {
+                  ["req"] = "`reqdata`",
+                  ["res"] = "`body`",
+                },
+                ["index$"] = 1,
+              },
+              {
+                ["active"] = true,
+                ["args"] = {
+                  ["params"] = {
+                    {
+                      ["active"] = true,
+                      ["kind"] = "param",
+                      ["name"] = "path",
+                      ["orig"] = "path",
+                      ["reqd"] = true,
+                      ["type"] = "`$STRING`",
+                      ["index$"] = 0,
+                    },
+                    {
+                      ["active"] = true,
+                      ["kind"] = "param",
+                      ["name"] = "region",
+                      ["orig"] = "region",
+                      ["reqd"] = true,
+                      ["type"] = "`$STRING`",
+                      ["index$"] = 1,
+                    },
+                    {
+                      ["active"] = true,
+                      ["kind"] = "param",
+                      ["name"] = "version",
+                      ["orig"] = "version",
+                      ["reqd"] = true,
+                      ["type"] = "`$STRING`",
+                      ["index$"] = 2,
+                    },
+                  },
+                  ["query"] = {
+                    {
+                      ["active"] = true,
+                      ["kind"] = "query",
+                      ["name"] = "region",
+                      ["orig"] = "region",
+                      ["reqd"] = false,
+                      ["type"] = "`$STRING`",
+                    },
+                    {
+                      ["active"] = true,
+                      ["kind"] = "query",
+                      ["name"] = "version",
+                      ["orig"] = "version",
+                      ["reqd"] = false,
+                      ["type"] = "`$STRING`",
+                    },
+                  },
+                },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/wz/img/{region}/{version}/{path}",
                 ["parts"] = {
@@ -8575,28 +8575,8 @@ local function make_config()
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
                 },
-                ["index$"] = 0,
+                ["index$"] = 2,
               },
-            },
-            ["key$"] = "load",
-          },
-        },
-        ["relations"] = {
-          ["ancestors"] = {
-            {
-              "img",
-            },
-          },
-        },
-      },
-      ["wzn5"] = {
-        ["fields"] = {},
-        ["name"] = "wzn5",
-        ["op"] = {
-          ["load"] = {
-            ["input"] = "data",
-            ["name"] = "load",
-            ["points"] = {
               {
                 ["active"] = true,
                 ["args"] = {
@@ -8648,6 +8628,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/wz/lookup/{region}/{version}/{path}",
                 ["parts"] = {
@@ -8669,28 +8650,8 @@ local function make_config()
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
                 },
-                ["index$"] = 0,
+                ["index$"] = 3,
               },
-            },
-            ["key$"] = "load",
-          },
-        },
-        ["relations"] = {
-          ["ancestors"] = {
-            {
-              "lookup",
-            },
-          },
-        },
-      },
-      ["wzn6"] = {
-        ["fields"] = {},
-        ["name"] = "wzn6",
-        ["op"] = {
-          ["load"] = {
-            ["input"] = "data",
-            ["name"] = "load",
-            ["points"] = {
               {
                 ["active"] = true,
                 ["args"] = {
@@ -8742,6 +8703,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/wz/{region}/{version}/{path}",
                 ["parts"] = {
@@ -8762,7 +8724,50 @@ local function make_config()
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
                 },
-                ["index$"] = 0,
+                ["index$"] = 4,
+              },
+              {
+                ["active"] = true,
+                ["args"] = {
+                  ["params"] = {
+                    {
+                      ["active"] = true,
+                      ["kind"] = "param",
+                      ["name"] = "region",
+                      ["orig"] = "region",
+                      ["reqd"] = true,
+                      ["type"] = "`$STRING`",
+                      ["index$"] = 0,
+                    },
+                    {
+                      ["active"] = true,
+                      ["kind"] = "param",
+                      ["name"] = "version",
+                      ["orig"] = "version",
+                      ["reqd"] = true,
+                      ["type"] = "`$STRING`",
+                      ["index$"] = 1,
+                    },
+                  },
+                },
+                ["kind"] = "http",
+                ["method"] = "GET",
+                ["orig"] = "/api/wz",
+                ["parts"] = {
+                  "api",
+                  "wz",
+                },
+                ["select"] = {
+                  ["exist"] = {
+                    "region",
+                    "version",
+                  },
+                },
+                ["transform"] = {
+                  ["req"] = "`reqdata`",
+                  ["res"] = "`body`",
+                },
+                ["index$"] = 5,
               },
             },
             ["key$"] = "load",
@@ -8770,6 +8775,18 @@ local function make_config()
         },
         ["relations"] = {
           ["ancestors"] = {
+            {
+              "audio",
+            },
+            {
+              "export",
+            },
+            {
+              "img",
+            },
+            {
+              "lookup",
+            },
             {
               "wz",
             },
@@ -8808,6 +8825,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/{region}/{version}/zmap",
                 ["parts"] = {
@@ -8852,6 +8870,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/{region}/{version}/zmap/smap",
                 ["parts"] = {

@@ -145,26 +145,6 @@ Create a new `TipEntity` instance. Pass `null` for no initial data.
 
 Create a new `WznEntity` instance. Pass `null` for no initial data.
 
-#### `Wzn2($data = null)`
-
-Create a new `Wzn2Entity` instance. Pass `null` for no initial data.
-
-#### `Wzn3($data = null)`
-
-Create a new `Wzn3Entity` instance. Pass `null` for no initial data.
-
-#### `Wzn4($data = null)`
-
-Create a new `Wzn4Entity` instance. Pass `null` for no initial data.
-
-#### `Wzn5($data = null)`
-
-Create a new `Wzn5Entity` instance. Pass `null` for no initial data.
-
-#### `Wzn6($data = null)`
-
-Create a new `Wzn6Entity` instance. Pass `null` for no initial data.
-
 #### `ZMap($data = null)`
 
 Create a new `ZMapEntity` instance. Pass `null` for no initial data.
@@ -308,12 +288,12 @@ $cache = $client->Cache();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `eviction_count` | `int` | No |  |
-| `hit_count` | `int` | No |  |
-| `hit_ratio` | `float` | No |  |
-| `memory_usage` | `int` | No |  |
-| `miss_count` | `int` | No |  |
-| `total_entry` | `int` | No |  |
+| `evictionCount` | `int` | No |  |
+| `hitCount` | `int` | No |  |
+| `hitRatio` | `float` | No |  |
+| `memoryUsage` | `int` | No |  |
+| `missCount` | `int` | No |  |
+| `totalEntries` | `int` | No |  |
 
 ### Operations
 
@@ -458,8 +438,8 @@ $cluster = $client->Cluster();
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `hostname` | `string` | No |  |
-| `last_seen` | `string` | No |  |
-| `metric` | `array` | No |  |
+| `lastSeen` | `string` | No |  |
+| `metrics` | `array` | No |  |
 
 ### Operations
 
@@ -1155,19 +1135,19 @@ $performance_metric = $client->PerformanceMetric();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `active_request` | `int` | No |  |
-| `average_response_time_m` | `float` | No |  |
+| `activeRequests` | `int` | No |  |
+| `averageResponseTimeMs` | `float` | No |  |
 | `cache` | `array` | No |  |
-| `errors_by_type` | `array` | No |  |
-| `last_updated` | `string` | No |  |
-| `memory_used_byte` | `int` | No |  |
-| `redis_cache` | `array` | No |  |
-| `requests_per_second` | `float` | No |  |
-| `start_time` | `string` | No |  |
+| `errorsByType` | `array` | No |  |
+| `lastUpdated` | `string` | No |  |
+| `memoryUsedBytes` | `int` | No |  |
+| `redisCache` | `array` | No |  |
+| `requestsPerSecond` | `float` | No |  |
+| `startTime` | `string` | No |  |
 | `system` | `array` | No |  |
-| `total_error` | `int` | No |  |
-| `total_request` | `int` | No |  |
-| `wz_properties_loaded` | `int` | No |  |
+| `totalErrors` | `int` | No |  |
+| `totalRequests` | `int` | No |  |
+| `wzPropertiesLoaded` | `int` | No |  |
 
 ### Operations
 
@@ -1311,13 +1291,13 @@ $system = $client->System();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `cpu_usage_percent` | `float` | No |  |
-| `gc_gen0_collection` | `int` | No |  |
-| `gc_gen1_collection` | `int` | No |  |
-| `gc_gen2_collection` | `int` | No |  |
-| `thread_count` | `int` | No |  |
-| `total_memory_byte` | `int` | No |  |
-| `used_memory_byte` | `int` | No |  |
+| `cpuUsagePercent` | `float` | No |  |
+| `gcGen0Collections` | `int` | No |  |
+| `gcGen1Collections` | `int` | No |  |
+| `gcGen2Collections` | `int` | No |  |
+| `threadCount` | `int` | No |  |
+| `totalMemoryBytes` | `int` | No |  |
+| `usedMemoryBytes` | `int` | No |  |
 
 ### Operations
 
@@ -1442,236 +1422,6 @@ Set the entity match criteria.
 #### `make(): WznEntity`
 
 Create a new `WznEntity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## Wzn2Entity
-
-```php
-$wzn2 = $client->Wzn2();
-```
-
-### Operations
-
-#### `load(array $reqmatch, ?array $ctrl = null): mixed`
-
-Load a single entity matching the given criteria. Throws on error.
-
-```php
-$result = $client->Wzn2()->load(["path" => "path", "region" => "region", "version" => "version"]);
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): Wzn2Entity`
-
-Create a new `Wzn2Entity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## Wzn3Entity
-
-```php
-$wzn3 = $client->Wzn3();
-```
-
-### Operations
-
-#### `load(array $reqmatch, ?array $ctrl = null): mixed`
-
-Load a single entity matching the given criteria. Throws on error.
-
-```php
-$result = $client->Wzn3()->load(["path" => "path", "region" => "region", "version" => "version"]);
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): Wzn3Entity`
-
-Create a new `Wzn3Entity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## Wzn4Entity
-
-```php
-$wzn4 = $client->Wzn4();
-```
-
-### Operations
-
-#### `load(array $reqmatch, ?array $ctrl = null): mixed`
-
-Load a single entity matching the given criteria. Throws on error.
-
-```php
-$result = $client->Wzn4()->load(["path" => "path", "region" => "region", "version" => "version"]);
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): Wzn4Entity`
-
-Create a new `Wzn4Entity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## Wzn5Entity
-
-```php
-$wzn5 = $client->Wzn5();
-```
-
-### Operations
-
-#### `load(array $reqmatch, ?array $ctrl = null): mixed`
-
-Load a single entity matching the given criteria. Throws on error.
-
-```php
-$result = $client->Wzn5()->load(["path" => "path", "region" => "region", "version" => "version"]);
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): Wzn5Entity`
-
-Create a new `Wzn5Entity` instance with the same client and
-options.
-
-#### `get_name(): string`
-
-Return the entity name.
-
-
----
-
-## Wzn6Entity
-
-```php
-$wzn6 = $client->Wzn6();
-```
-
-### Operations
-
-#### `load(array $reqmatch, ?array $ctrl = null): mixed`
-
-Load a single entity matching the given criteria. Throws on error.
-
-```php
-$result = $client->Wzn6()->load(["path" => "path", "region" => "region", "version" => "version"]);
-```
-
-### Common Methods
-
-#### `data_get(): array`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set($data): void`
-
-Set the entity data.
-
-#### `match_get(): array`
-
-Get the entity match criteria.
-
-#### `match_set($match): void`
-
-Set the entity match criteria.
-
-#### `make(): Wzn6Entity`
-
-Create a new `Wzn6Entity` instance with the same client and
 options.
 
 #### `get_name(): string`

@@ -62,7 +62,7 @@ describe('SystemEntity', async () => {
     // LOAD
     const system_ref01_ent = client.System()
     const system_ref01_match_dt0: any = {}
-    const system_ref01_data_dt0 = await system_ref01_ent.load(system_ref01_match_dt0)
+    const system_ref01_data_dt0 = (await system_ref01_ent.load(system_ref01_match_dt0)).data()
     assert(null != system_ref01_data_dt0)
 
 

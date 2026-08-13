@@ -18,13 +18,25 @@ class WznDirectTest extends TestCase
             $this->markTestSkipped($_reason ?? "skipped via sdk-test-control.json");
             return;
         }
+        if ($setup["live"]) {
+            $this->markTestSkipped("live direct-load needs real ID — set *_ENTID env var with real IDs to run");
+            return;
+        }
         $client = $setup["client"];
 
+        $params = [];
+        $query = [];
+        if (!$setup["live"]) {
+            $params["path"] = "direct01";
+            $params["region"] = "direct02";
+            $params["version"] = "direct03";
+        }
 
         $result = $client->direct([
-            "path" => "api/wz",
+            "path" => "api/wz/export/{region}/{version}/{path}",
             "method" => "GET",
-            "params" => [],
+            "params" => $params,
+            "query" => $query,
         ]);
         if ($setup["live"]) {
             // Live mode is lenient: synthetic IDs frequently 4xx. Skip

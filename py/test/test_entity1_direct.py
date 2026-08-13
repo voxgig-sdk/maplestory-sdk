@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from maplestory_sdk.utility.voxgig_struct import voxgig_struct as vs
 from maplestory_sdk import MaplestorySDK
-from core import helpers
+from maplestory_sdk.core import helpers
 from test import runner
 
 
@@ -56,7 +56,7 @@ def _entity1_direct_setup(mockres):
     calls = []
 
     env = runner.env_override({
-        "MAPLESTORY_TEST_ENTITY__ENTID": {},
+        "MAPLESTORY_TEST_ENTITY1_ENTID": {},
         "MAPLESTORY_TEST_LIVE": "FALSE",
     })
 

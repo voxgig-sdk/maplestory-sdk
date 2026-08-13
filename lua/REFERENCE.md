@@ -144,26 +144,6 @@ Create a new `Tip` entity instance. Pass `nil` for no initial data.
 
 Create a new `Wzn` entity instance. Pass `nil` for no initial data.
 
-#### `Wzn2(data)`
-
-Create a new `Wzn2` entity instance. Pass `nil` for no initial data.
-
-#### `Wzn3(data)`
-
-Create a new `Wzn3` entity instance. Pass `nil` for no initial data.
-
-#### `Wzn4(data)`
-
-Create a new `Wzn4` entity instance. Pass `nil` for no initial data.
-
-#### `Wzn5(data)`
-
-Create a new `Wzn5` entity instance. Pass `nil` for no initial data.
-
-#### `Wzn6(data)`
-
-Create a new `Wzn6` entity instance. Pass `nil` for no initial data.
-
 #### `ZMap(data)`
 
 Create a new `ZMap` entity instance. Pass `nil` for no initial data.
@@ -306,12 +286,12 @@ local cache = client:Cache(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `eviction_count` | `number` | No |  |
-| `hit_count` | `number` | No |  |
-| `hit_ratio` | `number` | No |  |
-| `memory_usage` | `number` | No |  |
-| `miss_count` | `number` | No |  |
-| `total_entry` | `number` | No |  |
+| `evictionCount` | `number` | No |  |
+| `hitCount` | `number` | No |  |
+| `hitRatio` | `number` | No |  |
+| `memoryUsage` | `number` | No |  |
+| `missCount` | `number` | No |  |
+| `totalEntries` | `number` | No |  |
 
 ### Operations
 
@@ -456,8 +436,8 @@ local cluster = client:Cluster(nil)
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `hostname` | `string` | No |  |
-| `last_seen` | `string` | No |  |
-| `metric` | `table` | No |  |
+| `lastSeen` | `string` | No |  |
+| `metrics` | `table` | No |  |
 
 ### Operations
 
@@ -1153,19 +1133,19 @@ local performance_metric = client:PerformanceMetric(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `active_request` | `number` | No |  |
-| `average_response_time_m` | `number` | No |  |
+| `activeRequests` | `number` | No |  |
+| `averageResponseTimeMs` | `number` | No |  |
 | `cache` | `table` | No |  |
-| `errors_by_type` | `table` | No |  |
-| `last_updated` | `string` | No |  |
-| `memory_used_byte` | `number` | No |  |
-| `redis_cache` | `table` | No |  |
-| `requests_per_second` | `number` | No |  |
-| `start_time` | `string` | No |  |
+| `errorsByType` | `table` | No |  |
+| `lastUpdated` | `string` | No |  |
+| `memoryUsedBytes` | `number` | No |  |
+| `redisCache` | `table` | No |  |
+| `requestsPerSecond` | `number` | No |  |
+| `startTime` | `string` | No |  |
 | `system` | `table` | No |  |
-| `total_error` | `number` | No |  |
-| `total_request` | `number` | No |  |
-| `wz_properties_loaded` | `number` | No |  |
+| `totalErrors` | `number` | No |  |
+| `totalRequests` | `number` | No |  |
+| `wzPropertiesLoaded` | `number` | No |  |
 
 ### Operations
 
@@ -1309,13 +1289,13 @@ local system = client:System(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `cpu_usage_percent` | `number` | No |  |
-| `gc_gen0_collection` | `number` | No |  |
-| `gc_gen1_collection` | `number` | No |  |
-| `gc_gen2_collection` | `number` | No |  |
-| `thread_count` | `number` | No |  |
-| `total_memory_byte` | `number` | No |  |
-| `used_memory_byte` | `number` | No |  |
+| `cpuUsagePercent` | `number` | No |  |
+| `gcGen0Collections` | `number` | No |  |
+| `gcGen1Collections` | `number` | No |  |
+| `gcGen2Collections` | `number` | No |  |
+| `threadCount` | `number` | No |  |
+| `totalMemoryBytes` | `number` | No |  |
+| `usedMemoryBytes` | `number` | No |  |
 
 ### Operations
 
@@ -1440,236 +1420,6 @@ Set the entity match criteria.
 #### `make() -> Entity`
 
 Create a new `WznEntity` instance with the same client and
-options.
-
-#### `get_name() -> string`
-
-Return the entity name.
-
-
----
-
-## Wzn2Entity
-
-```lua
-local wzn2 = client:Wzn2(nil)
-```
-
-### Operations
-
-#### `load(reqmatch, ctrl) -> any, err`
-
-Load a single entity matching the given criteria.
-
-```lua
-local result, err = client:Wzn2():load({ path = "path", region = "region", version = "version" })
-```
-
-### Common Methods
-
-#### `data_get() -> table`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> table`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `Wzn2Entity` instance with the same client and
-options.
-
-#### `get_name() -> string`
-
-Return the entity name.
-
-
----
-
-## Wzn3Entity
-
-```lua
-local wzn3 = client:Wzn3(nil)
-```
-
-### Operations
-
-#### `load(reqmatch, ctrl) -> any, err`
-
-Load a single entity matching the given criteria.
-
-```lua
-local result, err = client:Wzn3():load({ path = "path", region = "region", version = "version" })
-```
-
-### Common Methods
-
-#### `data_get() -> table`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> table`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `Wzn3Entity` instance with the same client and
-options.
-
-#### `get_name() -> string`
-
-Return the entity name.
-
-
----
-
-## Wzn4Entity
-
-```lua
-local wzn4 = client:Wzn4(nil)
-```
-
-### Operations
-
-#### `load(reqmatch, ctrl) -> any, err`
-
-Load a single entity matching the given criteria.
-
-```lua
-local result, err = client:Wzn4():load({ path = "path", region = "region", version = "version" })
-```
-
-### Common Methods
-
-#### `data_get() -> table`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> table`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `Wzn4Entity` instance with the same client and
-options.
-
-#### `get_name() -> string`
-
-Return the entity name.
-
-
----
-
-## Wzn5Entity
-
-```lua
-local wzn5 = client:Wzn5(nil)
-```
-
-### Operations
-
-#### `load(reqmatch, ctrl) -> any, err`
-
-Load a single entity matching the given criteria.
-
-```lua
-local result, err = client:Wzn5():load({ path = "path", region = "region", version = "version" })
-```
-
-### Common Methods
-
-#### `data_get() -> table`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> table`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `Wzn5Entity` instance with the same client and
-options.
-
-#### `get_name() -> string`
-
-Return the entity name.
-
-
----
-
-## Wzn6Entity
-
-```lua
-local wzn6 = client:Wzn6(nil)
-```
-
-### Operations
-
-#### `load(reqmatch, ctrl) -> any, err`
-
-Load a single entity matching the given criteria.
-
-```lua
-local result, err = client:Wzn6():load({ path = "path", region = "region", version = "version" })
-```
-
-### Common Methods
-
-#### `data_get() -> table`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get() -> table`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make() -> Entity`
-
-Create a new `Wzn6Entity` instance with the same client and
 options.
 
 #### `get_name() -> string`

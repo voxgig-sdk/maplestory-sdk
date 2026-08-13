@@ -44,11 +44,6 @@ func MakeConfig() map[string]any {
 				"system": map[string]any{},
 				"tip": map[string]any{},
 				"wzn": map[string]any{},
-				"wzn2": map[string]any{},
-				"wzn3": map[string]any{},
-				"wzn4": map[string]any{},
-				"wzn5": map[string]any{},
-				"wzn6": map[string]any{},
 				"z_map": map[string]any{},
 			},
 		},
@@ -94,6 +89,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/{region}/{version}/android/{androidId}",
 								"parts": []any{
@@ -145,6 +141,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/{region}/{version}/android",
 								"parts": []any{
@@ -166,7 +163,6 @@ func MakeConfig() map[string]any {
 								"index$": 1,
 							},
 						},
-						"key$": "load",
 					},
 				},
 				"relations": map[string]any{
@@ -293,6 +289,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/character/{items}/{animation}/animated",
 								"parts": []any{
@@ -437,6 +434,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/character/{items}/{animation}/{frame}/download",
 								"parts": []any{
@@ -582,6 +580,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/character/{items}/download",
 								"parts": []any{
@@ -716,6 +715,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/character/{items}/actions",
 								"parts": []any{
@@ -849,6 +849,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/character/{items}/{animation}/{frame}",
 								"parts": []any{
@@ -885,7 +886,6 @@ func MakeConfig() map[string]any {
 								"index$": 4,
 							},
 						},
-						"key$": "load",
 					},
 				},
 				"relations": map[string]any{
@@ -900,42 +900,42 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"active": true,
-						"name": "eviction_count",
+						"name": "evictionCount",
 						"req": false,
 						"type": "`$INTEGER`",
 						"index$": 0,
 					},
 					map[string]any{
 						"active": true,
-						"name": "hit_count",
+						"name": "hitCount",
 						"req": false,
 						"type": "`$INTEGER`",
 						"index$": 1,
 					},
 					map[string]any{
 						"active": true,
-						"name": "hit_ratio",
+						"name": "hitRatio",
 						"req": false,
 						"type": "`$NUMBER`",
 						"index$": 2,
 					},
 					map[string]any{
 						"active": true,
-						"name": "memory_usage",
+						"name": "memoryUsage",
 						"req": false,
 						"type": "`$INTEGER`",
 						"index$": 3,
 					},
 					map[string]any{
 						"active": true,
-						"name": "miss_count",
+						"name": "missCount",
 						"req": false,
 						"type": "`$INTEGER`",
 						"index$": 4,
 					},
 					map[string]any{
 						"active": true,
-						"name": "total_entry",
+						"name": "totalEntries",
 						"req": false,
 						"type": "`$INTEGER`",
 						"index$": 5,
@@ -950,6 +950,7 @@ func MakeConfig() map[string]any {
 							map[string]any{
 								"active": true,
 								"args": map[string]any{},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/metrics/cache",
 								"parts": []any{
@@ -965,7 +966,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "load",
 					},
 				},
 				"relations": map[string]any{
@@ -1145,6 +1145,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/{region}/{version}/Character/animated/{skinId}/{items}/{animation}/{frame}",
 								"parts": []any{
@@ -1314,6 +1315,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/{region}/{version}/Character/{skinId}/{items}/{animation}/{frame}",
 								"parts": []any{
@@ -1473,6 +1475,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/{region}/{version}/Character/center/{skinId}/{items}/{animation}/{frame}",
 								"parts": []any{
@@ -1641,6 +1644,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/{region}/{version}/Character/compact/{skinId}/{items}/{animation}/{frame}",
 								"parts": []any{
@@ -1800,6 +1804,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/{region}/{version}/Character/feetCenter/{skinId}/{items}/{animation}/{frame}",
 								"parts": []any{
@@ -1959,6 +1964,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/{region}/{version}/Character/navelCenter/{skinId}/{items}/{animation}/{frame}",
 								"parts": []any{
@@ -2153,6 +2159,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/{region}/{version}/Character/download/{skinId}/{items}",
 								"parts": []any{
@@ -2284,6 +2291,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/{region}/{version}/Character/actions/{items}",
 								"parts": []any{
@@ -2401,6 +2409,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/{region}/{version}/Character",
 								"parts": []any{
@@ -2429,7 +2438,6 @@ func MakeConfig() map[string]any {
 								"index$": 8,
 							},
 						},
-						"key$": "load",
 					},
 				},
 				"relations": map[string]any{
@@ -2522,6 +2530,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/{region}/{version}/chat",
 								"parts": []any{
@@ -2545,7 +2554,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "load",
 					},
 				},
 				"relations": map[string]any{
@@ -2567,14 +2575,14 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "last_seen",
+						"name": "lastSeen",
 						"req": false,
 						"type": "`$STRING`",
 						"index$": 1,
 					},
 					map[string]any{
 						"active": true,
-						"name": "metric",
+						"name": "metrics",
 						"req": false,
 						"type": "`$OBJECT`",
 						"index$": 2,
@@ -2589,6 +2597,7 @@ func MakeConfig() map[string]any {
 							map[string]any{
 								"active": true,
 								"args": map[string]any{},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/metrics/cluster",
 								"parts": []any{
@@ -2604,7 +2613,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "list",
 					},
 				},
 				"relations": map[string]any{
@@ -2643,6 +2651,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/{region}/{version}/diff",
 								"parts": []any{
@@ -2685,6 +2694,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/{region}/{version}/diff/grouped",
 								"parts": []any{
@@ -2708,7 +2718,6 @@ func MakeConfig() map[string]any {
 								"index$": 1,
 							},
 						},
-						"key$": "load",
 					},
 				},
 				"relations": map[string]any{
@@ -2730,6 +2739,7 @@ func MakeConfig() map[string]any {
 							map[string]any{
 								"active": true,
 								"args": map[string]any{},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/",
 								"parts": []any{},
@@ -2741,7 +2751,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "load",
 					},
 				},
 				"relations": map[string]any{
@@ -2771,6 +2780,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/gms/latest/news/article/{id}",
 								"parts": []any{
@@ -2807,6 +2817,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/gms/latest/news/{type}",
 								"parts": []any{
@@ -2833,7 +2844,6 @@ func MakeConfig() map[string]any {
 								"index$": 1,
 							},
 						},
-						"key$": "load",
 					},
 				},
 				"relations": map[string]any{
@@ -2908,6 +2918,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/{region}/{version}/GuildMark/background/{guildBackgroundId}/{guildBackgroundColorId}/mark/{guildMarkId}/{guildMarkColorId}",
 								"parts": []any{
@@ -2988,6 +2999,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/{region}/{version}/GuildMark/{guildMarkId}/{colorId}",
 								"parts": []any{
@@ -3019,7 +3031,6 @@ func MakeConfig() map[string]any {
 								"index$": 1,
 							},
 						},
-						"key$": "load",
 					},
 				},
 				"relations": map[string]any{
@@ -3047,6 +3058,7 @@ func MakeConfig() map[string]any {
 							map[string]any{
 								"active": true,
 								"args": map[string]any{},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/health/alive",
 								"parts": []any{
@@ -3066,6 +3078,7 @@ func MakeConfig() map[string]any {
 							map[string]any{
 								"active": true,
 								"args": map[string]any{},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/health/ready",
 								"parts": []any{
@@ -3085,6 +3098,7 @@ func MakeConfig() map[string]any {
 							map[string]any{
 								"active": true,
 								"args": map[string]any{},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/health/start",
 								"parts": []any{
@@ -3102,7 +3116,6 @@ func MakeConfig() map[string]any {
 								"index$": 2,
 							},
 						},
-						"key$": "load",
 					},
 				},
 				"relations": map[string]any{
@@ -3232,6 +3245,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/{region}/{version}/item",
 								"parts": []any{
@@ -3376,6 +3390,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/{region}/{version}/item/count",
 								"parts": []any{
@@ -3522,6 +3537,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/{region}/{version}/item/list",
 								"parts": []any{
@@ -3588,6 +3604,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/{region}/{version}/item/{itemId}",
 								"parts": []any{
@@ -3645,6 +3662,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/{region}/{version}/item/{itemId}/icon",
 								"parts": []any{
@@ -3704,6 +3722,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/{region}/{version}/item/{itemId}/iconRaw",
 								"parts": []any{
@@ -3763,6 +3782,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/{region}/{version}/item/{itemId}/name",
 								"parts": []any{
@@ -3825,6 +3845,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/{region}/{version}/item/category/{overallCategory}",
 								"parts": []any{
@@ -3875,6 +3896,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/{region}/{version}/item/category",
 								"parts": []any{
@@ -3898,7 +3920,6 @@ func MakeConfig() map[string]any {
 								"index$": 8,
 							},
 						},
-						"key$": "load",
 					},
 				},
 				"relations": map[string]any{
@@ -3963,6 +3984,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/{region}/{version}/job/{jobId}/skillbook/{skillId}",
 								"parts": []any{
@@ -4027,6 +4049,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/{region}/{version}/job/{jobId}",
 								"parts": []any{
@@ -4084,6 +4107,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/{region}/{version}/job/{jobId}/skillbook",
 								"parts": []any{
@@ -4146,6 +4170,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/{region}/{version}/job/skill/{skillId}",
 								"parts": []any{
@@ -4198,6 +4223,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/{region}/{version}/job",
 								"parts": []any{
@@ -4240,6 +4266,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/{region}/{version}/job/count",
 								"parts": []any{
@@ -4284,6 +4311,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/{region}/{version}/job/skilltree",
 								"parts": []any{
@@ -4307,7 +4335,6 @@ func MakeConfig() map[string]any {
 								"index$": 6,
 							},
 						},
-						"key$": "load",
 					},
 				},
 				"relations": map[string]any{
@@ -4413,6 +4440,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/{region}/{version}/map/{mapId}/render/layer/{layer}/{frame}",
 								"parts": []any{
@@ -4512,6 +4540,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/{region}/{version}/map/{mapId}/render/{frame}",
 								"parts": []any{
@@ -4595,6 +4624,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/{region}/{version}/map",
 								"parts": []any{
@@ -4667,6 +4697,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/{region}/{version}/map/count",
 								"parts": []any{
@@ -4725,6 +4756,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/{region}/{version}/map/{mapId}",
 								"parts": []any{
@@ -4782,6 +4814,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/{region}/{version}/map/{mapId}/bgm",
 								"parts": []any{
@@ -4841,6 +4874,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/{region}/{version}/map/{mapId}/icon",
 								"parts": []any{
@@ -4900,6 +4934,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/{region}/{version}/map/{mapId}/minimap",
 								"parts": []any{
@@ -4959,6 +4994,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/{region}/{version}/map/{mapId}/name",
 								"parts": []any{
@@ -5021,6 +5057,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/{region}/{version}/map/worldmap/{map}",
 								"parts": []any{
@@ -5077,6 +5114,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/{region}/{version}/map/icon/{markName}",
 								"parts": []any{
@@ -5127,6 +5165,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/{region}/{version}/map/worldmap",
 								"parts": []any{
@@ -5150,7 +5189,6 @@ func MakeConfig() map[string]any {
 								"index$": 11,
 							},
 						},
-						"key$": "load",
 					},
 				},
 				"relations": map[string]any{
@@ -5189,6 +5227,7 @@ func MakeConfig() map[string]any {
 							map[string]any{
 								"active": true,
 								"args": map[string]any{},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/metrics/health",
 								"parts": []any{
@@ -5206,7 +5245,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "load",
 					},
 				},
 				"relations": map[string]any{
@@ -5288,6 +5326,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/{region}/{version}/mob",
 								"parts": []any{
@@ -5378,6 +5417,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/{region}/{version}/mob/count",
 								"parts": []any{
@@ -5458,6 +5498,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/{region}/{version}/mob/{mobId}/render/animated/{animation}",
 								"parts": []any{
@@ -5544,6 +5585,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/{region}/{version}/mob/{mobId}/render/{animation}",
 								"parts": []any{
@@ -5628,6 +5670,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/{region}/{version}/mob/animated/{mobId}/{animation}",
 								"parts": []any{
@@ -5711,6 +5754,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/{region}/{version}/mob/{mobId}/render/{animation}/{frame}",
 								"parts": []any{
@@ -5785,6 +5829,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/{region}/{version}/mob/{mobId}/sound/{soundName}",
 								"parts": []any{
@@ -5849,6 +5894,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/{region}/{version}/mob/{mobId}",
 								"parts": []any{
@@ -5906,6 +5952,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/{region}/{version}/mob/{mobId}/download",
 								"parts": []any{
@@ -5965,6 +6012,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/{region}/{version}/mob/{mobId}/icon",
 								"parts": []any{
@@ -6024,6 +6072,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/{region}/{version}/mob/{mobId}/name",
 								"parts": []any{
@@ -6083,6 +6132,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/{region}/{version}/mob/{mobId}/sound",
 								"parts": []any{
@@ -6113,7 +6163,6 @@ func MakeConfig() map[string]any {
 								"index$": 11,
 							},
 						},
-						"key$": "load",
 					},
 				},
 				"relations": map[string]any{
@@ -6182,6 +6231,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/{region}/{version}/music/{songPath}",
 								"parts": []any{
@@ -6210,7 +6260,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "load",
 					},
 				},
 				"relations": map[string]any{
@@ -6272,6 +6321,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/{region}/{version}/name",
 								"parts": []any{
@@ -6295,7 +6345,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "load",
 					},
 				},
 				"relations": map[string]any{
@@ -6374,6 +6423,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/{region}/{version}/npc/{npcId}/render/animated/{framebook}",
 								"parts": []any{
@@ -6467,6 +6517,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/{region}/{version}/npc/{npcId}/render/{framebook}/{frame}",
 								"parts": []any{
@@ -6553,6 +6604,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/{region}/{version}/npc",
 								"parts": []any{
@@ -6627,6 +6679,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/{region}/{version}/npc/count",
 								"parts": []any{
@@ -6685,6 +6738,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/{region}/{version}/npc/{npcId}",
 								"parts": []any{
@@ -6742,6 +6796,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/{region}/{version}/npc/{npcId}/download",
 								"parts": []any{
@@ -6801,6 +6856,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/{region}/{version}/npc/{npcId}/icon",
 								"parts": []any{
@@ -6860,6 +6916,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/{region}/{version}/npc/{npcId}/name",
 								"parts": []any{
@@ -6890,7 +6947,6 @@ func MakeConfig() map[string]any {
 								"index$": 7,
 							},
 						},
-						"key$": "load",
 					},
 				},
 				"relations": map[string]any{
@@ -6921,6 +6977,7 @@ func MakeConfig() map[string]any {
 							map[string]any{
 								"active": true,
 								"args": map[string]any{},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/about",
 								"parts": []any{
@@ -6937,6 +6994,7 @@ func MakeConfig() map[string]any {
 							map[string]any{
 								"active": true,
 								"args": map[string]any{},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/banners",
 								"parts": []any{
@@ -6951,7 +7009,6 @@ func MakeConfig() map[string]any {
 								"index$": 1,
 							},
 						},
-						"key$": "load",
 					},
 				},
 				"relations": map[string]any{
@@ -6962,14 +7019,14 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"active": true,
-						"name": "active_request",
+						"name": "activeRequests",
 						"req": false,
 						"type": "`$INTEGER`",
 						"index$": 0,
 					},
 					map[string]any{
 						"active": true,
-						"name": "average_response_time_m",
+						"name": "averageResponseTimeMs",
 						"req": false,
 						"type": "`$NUMBER`",
 						"index$": 1,
@@ -6983,42 +7040,42 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "errors_by_type",
+						"name": "errorsByType",
 						"req": false,
 						"type": "`$OBJECT`",
 						"index$": 3,
 					},
 					map[string]any{
 						"active": true,
-						"name": "last_updated",
+						"name": "lastUpdated",
 						"req": false,
 						"type": "`$STRING`",
 						"index$": 4,
 					},
 					map[string]any{
 						"active": true,
-						"name": "memory_used_byte",
+						"name": "memoryUsedBytes",
 						"req": false,
 						"type": "`$INTEGER`",
 						"index$": 5,
 					},
 					map[string]any{
 						"active": true,
-						"name": "redis_cache",
+						"name": "redisCache",
 						"req": false,
 						"type": "`$OBJECT`",
 						"index$": 6,
 					},
 					map[string]any{
 						"active": true,
-						"name": "requests_per_second",
+						"name": "requestsPerSecond",
 						"req": false,
 						"type": "`$NUMBER`",
 						"index$": 7,
 					},
 					map[string]any{
 						"active": true,
-						"name": "start_time",
+						"name": "startTime",
 						"req": false,
 						"type": "`$STRING`",
 						"index$": 8,
@@ -7032,21 +7089,21 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "total_error",
+						"name": "totalErrors",
 						"req": false,
 						"type": "`$INTEGER`",
 						"index$": 10,
 					},
 					map[string]any{
 						"active": true,
-						"name": "total_request",
+						"name": "totalRequests",
 						"req": false,
 						"type": "`$INTEGER`",
 						"index$": 11,
 					},
 					map[string]any{
 						"active": true,
-						"name": "wz_properties_loaded",
+						"name": "wzPropertiesLoaded",
 						"req": false,
 						"type": "`$INTEGER`",
 						"index$": 12,
@@ -7061,6 +7118,7 @@ func MakeConfig() map[string]any {
 							map[string]any{
 								"active": true,
 								"args": map[string]any{},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/metrics",
 								"parts": []any{
@@ -7075,7 +7133,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "load",
 					},
 				},
 				"relations": map[string]any{
@@ -7153,6 +7210,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/{region}/{version}/pet/{petId}/render/{animation}/{frame}/{petEquip}",
 								"parts": []any{
@@ -7251,6 +7309,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/{region}/{version}/pet/{petId}/render/{animation}/animated/{petEquip}",
 								"parts": []any{
@@ -7320,6 +7379,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/{region}/{version}/pet/{petId}",
 								"parts": []any{
@@ -7377,6 +7437,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/{region}/{version}/pet/{petId}/actions",
 								"parts": []any{
@@ -7436,6 +7497,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/{region}/{version}/pet/{petId}/download",
 								"parts": []any{
@@ -7495,6 +7557,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/{region}/{version}/pet/{petId}/name",
 								"parts": []any{
@@ -7548,6 +7611,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/{region}/{version}/pet",
 								"parts": []any{
@@ -7590,6 +7654,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/{region}/{version}/pet/count",
 								"parts": []any{
@@ -7613,7 +7678,6 @@ func MakeConfig() map[string]any {
 								"index$": 7,
 							},
 						},
-						"key$": "load",
 					},
 				},
 				"relations": map[string]any{
@@ -7693,6 +7757,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/{region}/{version}/quest",
 								"parts": []any{
@@ -7765,6 +7830,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/{region}/{version}/quest/count",
 								"parts": []any{
@@ -7823,6 +7889,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/{region}/{version}/quest/category/{category}",
 								"parts": []any{
@@ -7879,6 +7946,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/{region}/{version}/quest/{questId}",
 								"parts": []any{
@@ -7936,6 +8004,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/{region}/{version}/quest/{questId}/icon",
 								"parts": []any{
@@ -7995,6 +8064,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/{region}/{version}/quest/{questId}/name",
 								"parts": []any{
@@ -8046,6 +8116,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/{region}/{version}/quest/category",
 								"parts": []any{
@@ -8069,7 +8140,6 @@ func MakeConfig() map[string]any {
 								"index$": 6,
 							},
 						},
-						"key$": "load",
 					},
 				},
 				"relations": map[string]any{
@@ -8088,49 +8158,49 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"active": true,
-						"name": "cpu_usage_percent",
+						"name": "cpuUsagePercent",
 						"req": false,
 						"type": "`$NUMBER`",
 						"index$": 0,
 					},
 					map[string]any{
 						"active": true,
-						"name": "gc_gen0_collection",
+						"name": "gcGen0Collections",
 						"req": false,
 						"type": "`$INTEGER`",
 						"index$": 1,
 					},
 					map[string]any{
 						"active": true,
-						"name": "gc_gen1_collection",
+						"name": "gcGen1Collections",
 						"req": false,
 						"type": "`$INTEGER`",
 						"index$": 2,
 					},
 					map[string]any{
 						"active": true,
-						"name": "gc_gen2_collection",
+						"name": "gcGen2Collections",
 						"req": false,
 						"type": "`$INTEGER`",
 						"index$": 3,
 					},
 					map[string]any{
 						"active": true,
-						"name": "thread_count",
+						"name": "threadCount",
 						"req": false,
 						"type": "`$INTEGER`",
 						"index$": 4,
 					},
 					map[string]any{
 						"active": true,
-						"name": "total_memory_byte",
+						"name": "totalMemoryBytes",
 						"req": false,
 						"type": "`$INTEGER`",
 						"index$": 5,
 					},
 					map[string]any{
 						"active": true,
-						"name": "used_memory_byte",
+						"name": "usedMemoryBytes",
 						"req": false,
 						"type": "`$INTEGER`",
 						"index$": 6,
@@ -8145,6 +8215,7 @@ func MakeConfig() map[string]any {
 							map[string]any{
 								"active": true,
 								"args": map[string]any{},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/metrics/system",
 								"parts": []any{
@@ -8160,7 +8231,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "load",
 					},
 				},
 				"relations": map[string]any{
@@ -8199,6 +8269,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/{region}/{version}/tips",
 								"parts": []any{
@@ -8220,7 +8291,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "load",
 					},
 				},
 				"relations": map[string]any{
@@ -8234,158 +8304,6 @@ func MakeConfig() map[string]any {
 			"wzn": map[string]any{
 				"fields": []any{},
 				"name": "wzn",
-				"op": map[string]any{
-					"load": map[string]any{
-						"input": "data",
-						"name": "load",
-						"points": []any{
-							map[string]any{
-								"active": true,
-								"args": map[string]any{
-									"params": []any{
-										map[string]any{
-											"active": true,
-											"kind": "param",
-											"name": "region",
-											"orig": "region",
-											"reqd": true,
-											"type": "`$STRING`",
-											"index$": 0,
-										},
-										map[string]any{
-											"active": true,
-											"kind": "param",
-											"name": "version",
-											"orig": "version",
-											"reqd": true,
-											"type": "`$STRING`",
-											"index$": 1,
-										},
-									},
-								},
-								"method": "GET",
-								"orig": "/api/wz",
-								"parts": []any{
-									"api",
-									"wz",
-								},
-								"select": map[string]any{
-									"exist": []any{
-										"region",
-										"version",
-									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
-								"index$": 0,
-							},
-						},
-						"key$": "load",
-					},
-				},
-				"relations": map[string]any{
-					"ancestors": []any{},
-				},
-			},
-			"wzn2": map[string]any{
-				"fields": []any{},
-				"name": "wzn2",
-				"op": map[string]any{
-					"load": map[string]any{
-						"input": "data",
-						"name": "load",
-						"points": []any{
-							map[string]any{
-								"active": true,
-								"args": map[string]any{
-									"params": []any{
-										map[string]any{
-											"active": true,
-											"kind": "param",
-											"name": "path",
-											"orig": "path",
-											"reqd": true,
-											"type": "`$STRING`",
-											"index$": 0,
-										},
-										map[string]any{
-											"active": true,
-											"kind": "param",
-											"name": "region",
-											"orig": "region",
-											"reqd": true,
-											"type": "`$STRING`",
-											"index$": 1,
-										},
-										map[string]any{
-											"active": true,
-											"kind": "param",
-											"name": "version",
-											"orig": "version",
-											"reqd": true,
-											"type": "`$STRING`",
-											"index$": 2,
-										},
-									},
-									"query": []any{
-										map[string]any{
-											"active": true,
-											"kind": "query",
-											"name": "region",
-											"orig": "region",
-											"reqd": false,
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"active": true,
-											"kind": "query",
-											"name": "version",
-											"orig": "version",
-											"reqd": false,
-											"type": "`$STRING`",
-										},
-									},
-								},
-								"method": "GET",
-								"orig": "/api/wz/audio/{region}/{version}/{path}",
-								"parts": []any{
-									"api",
-									"wz",
-									"audio",
-									"{region}",
-									"{version}",
-									"{path}",
-								},
-								"select": map[string]any{
-									"exist": []any{
-										"path",
-										"region",
-										"version",
-									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
-								"index$": 0,
-							},
-						},
-						"key$": "load",
-					},
-				},
-				"relations": map[string]any{
-					"ancestors": []any{
-						[]any{
-							"audio",
-						},
-					},
-				},
-			},
-			"wzn3": map[string]any{
-				"fields": []any{},
-				"name": "wzn3",
 				"op": map[string]any{
 					"load": map[string]any{
 						"input": "data",
@@ -8451,6 +8369,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/wz/export/{region}/{version}/{path}",
 								"parts": []any{
@@ -8475,26 +8394,6 @@ func MakeConfig() map[string]any {
 								},
 								"index$": 0,
 							},
-						},
-						"key$": "load",
-					},
-				},
-				"relations": map[string]any{
-					"ancestors": []any{
-						[]any{
-							"export",
-						},
-					},
-				},
-			},
-			"wzn4": map[string]any{
-				"fields": []any{},
-				"name": "wzn4",
-				"op": map[string]any{
-					"load": map[string]any{
-						"input": "data",
-						"name": "load",
-						"points": []any{
 							map[string]any{
 								"active": true,
 								"args": map[string]any{
@@ -8546,6 +8445,82 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
+								"method": "GET",
+								"orig": "/api/wz/audio/{region}/{version}/{path}",
+								"parts": []any{
+									"api",
+									"wz",
+									"audio",
+									"{region}",
+									"{version}",
+									"{path}",
+								},
+								"select": map[string]any{
+									"exist": []any{
+										"path",
+										"region",
+										"version",
+									},
+								},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"index$": 1,
+							},
+							map[string]any{
+								"active": true,
+								"args": map[string]any{
+									"params": []any{
+										map[string]any{
+											"active": true,
+											"kind": "param",
+											"name": "path",
+											"orig": "path",
+											"reqd": true,
+											"type": "`$STRING`",
+											"index$": 0,
+										},
+										map[string]any{
+											"active": true,
+											"kind": "param",
+											"name": "region",
+											"orig": "region",
+											"reqd": true,
+											"type": "`$STRING`",
+											"index$": 1,
+										},
+										map[string]any{
+											"active": true,
+											"kind": "param",
+											"name": "version",
+											"orig": "version",
+											"reqd": true,
+											"type": "`$STRING`",
+											"index$": 2,
+										},
+									},
+									"query": []any{
+										map[string]any{
+											"active": true,
+											"kind": "query",
+											"name": "region",
+											"orig": "region",
+											"reqd": false,
+											"type": "`$STRING`",
+										},
+										map[string]any{
+											"active": true,
+											"kind": "query",
+											"name": "version",
+											"orig": "version",
+											"reqd": false,
+											"type": "`$STRING`",
+										},
+									},
+								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/wz/img/{region}/{version}/{path}",
 								"parts": []any{
@@ -8567,28 +8542,8 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"index$": 0,
+								"index$": 2,
 							},
-						},
-						"key$": "load",
-					},
-				},
-				"relations": map[string]any{
-					"ancestors": []any{
-						[]any{
-							"img",
-						},
-					},
-				},
-			},
-			"wzn5": map[string]any{
-				"fields": []any{},
-				"name": "wzn5",
-				"op": map[string]any{
-					"load": map[string]any{
-						"input": "data",
-						"name": "load",
-						"points": []any{
 							map[string]any{
 								"active": true,
 								"args": map[string]any{
@@ -8640,6 +8595,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/wz/lookup/{region}/{version}/{path}",
 								"parts": []any{
@@ -8661,28 +8617,8 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"index$": 0,
+								"index$": 3,
 							},
-						},
-						"key$": "load",
-					},
-				},
-				"relations": map[string]any{
-					"ancestors": []any{
-						[]any{
-							"lookup",
-						},
-					},
-				},
-			},
-			"wzn6": map[string]any{
-				"fields": []any{},
-				"name": "wzn6",
-				"op": map[string]any{
-					"load": map[string]any{
-						"input": "data",
-						"name": "load",
-						"points": []any{
 							map[string]any{
 								"active": true,
 								"args": map[string]any{
@@ -8734,6 +8670,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/wz/{region}/{version}/{path}",
 								"parts": []any{
@@ -8754,14 +8691,68 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"index$": 0,
+								"index$": 4,
+							},
+							map[string]any{
+								"active": true,
+								"args": map[string]any{
+									"params": []any{
+										map[string]any{
+											"active": true,
+											"kind": "param",
+											"name": "region",
+											"orig": "region",
+											"reqd": true,
+											"type": "`$STRING`",
+											"index$": 0,
+										},
+										map[string]any{
+											"active": true,
+											"kind": "param",
+											"name": "version",
+											"orig": "version",
+											"reqd": true,
+											"type": "`$STRING`",
+											"index$": 1,
+										},
+									},
+								},
+								"kind": "http",
+								"method": "GET",
+								"orig": "/api/wz",
+								"parts": []any{
+									"api",
+									"wz",
+								},
+								"select": map[string]any{
+									"exist": []any{
+										"region",
+										"version",
+									},
+								},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"index$": 5,
 							},
 						},
-						"key$": "load",
 					},
 				},
 				"relations": map[string]any{
 					"ancestors": []any{
+						[]any{
+							"audio",
+						},
+						[]any{
+							"export",
+						},
+						[]any{
+							"img",
+						},
+						[]any{
+							"lookup",
+						},
 						[]any{
 							"wz",
 						},
@@ -8800,6 +8791,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/{region}/{version}/zmap",
 								"parts": []any{
@@ -8844,6 +8836,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/{region}/{version}/zmap/smap",
 								"parts": []any{
@@ -8866,7 +8859,6 @@ func MakeConfig() map[string]any {
 								"index$": 1,
 							},
 						},
-						"key$": "load",
 					},
 				},
 				"relations": map[string]any{

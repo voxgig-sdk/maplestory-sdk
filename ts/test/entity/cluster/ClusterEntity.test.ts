@@ -63,7 +63,7 @@ describe('ClusterEntity', async () => {
     const cluster_ref01_ent = client.Cluster()
     const cluster_ref01_match: any = {}
 
-    const cluster_ref01_list = await cluster_ref01_ent.list(cluster_ref01_match)
+    const cluster_ref01_list = (await cluster_ref01_ent.list(cluster_ref01_match)).map((e: any) => e.data())
 
 
   })

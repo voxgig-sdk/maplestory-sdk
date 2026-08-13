@@ -37,7 +37,7 @@ Android is nested under region, so provide the `region`.
 
 ```php
 try {
-    // load() returns the bare Android record (throws on error).
+    // load() returns the ENTITY — call data_get() for the Android record (throws on error).
     $android = $client->Android()->load(["region" => "example_region", "version" => "example_version"]);
     print_r($android);
 } catch (\Throwable $err) {
@@ -53,7 +53,7 @@ Entity operations throw a `\Throwable` on failure, so wrap them in
 
 ```php
 try {
-    $android = $client->Android()->load(["id" => 1]);
+    $music = $client->Music()->load(["id" => "example_id", "region" => "example", "version" => "example"]);
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
@@ -125,12 +125,13 @@ data via the `entity` option so offline calls resolve without a live server:
 
 ```php
 $client = MaplestorySDK::test([
-    "entity" => ["android" => ["test01" => ["id" => "test01"]]],
+    "entity" => ["music" => ["test01" => ["id" => "test01"]]],
 ]);
 
-// Entity ops return the bare mock record (throws on error).
-$android = $client->Android()->load(["id" => "test01"]);
-print_r($android);
+// Entity ops return the ENTITY (throws on error);
+// call data_get() for the mock record.
+$music = $client->Music()->load(["id" => "test01", "region" => "example", "version" => "example"]);
+print_r($music);
 ```
 
 ### Use a custom fetch function
@@ -235,11 +236,6 @@ Creates a test-mode client with mock transport. Both arguments may be `null`.
 | `System` | `($data): SystemEntity` | Create a System entity instance. |
 | `Tip` | `($data): TipEntity` | Create a Tip entity instance. |
 | `Wzn` | `($data): WznEntity` | Create a Wzn entity instance. |
-| `Wzn2` | `($data): Wzn2Entity` | Create a Wzn2 entity instance. |
-| `Wzn3` | `($data): Wzn3Entity` | Create a Wzn3 entity instance. |
-| `Wzn4` | `($data): Wzn4Entity` | Create a Wzn4 entity instance. |
-| `Wzn5` | `($data): Wzn5Entity` | Create a Wzn5 entity instance. |
-| `Wzn6` | `($data): Wzn6Entity` | Create a Wzn6 entity instance. |
 | `ZMap` | `($data): ZMapEntity` | Create a ZMap entity instance. |
 
 ### Entity interface
@@ -259,7 +255,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (an `array` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (an `array` for single-entity
 ops, a `list` for `list`) and throw on error. Wrap calls in
 `try`/`catch` to handle failures.
 
@@ -299,12 +295,12 @@ API path: `/api/character/{items}/{animation}/animated`
 
 | Field | Description |
 | --- | --- |
-| `eviction_count` |  |
-| `hit_count` |  |
-| `hit_ratio` |  |
-| `memory_usage` |  |
-| `miss_count` |  |
-| `total_entry` |  |
+| `evictionCount` |  |
+| `hitCount` |  |
+| `hitRatio` |  |
+| `memoryUsage` |  |
+| `missCount` |  |
+| `totalEntries` |  |
 
 Operations: Load.
 
@@ -333,8 +329,8 @@ API path: `/api/{region}/{version}/chat`
 | Field | Description |
 | --- | --- |
 | `hostname` |  |
-| `last_seen` |  |
-| `metric` |  |
+| `lastSeen` |  |
+| `metrics` |  |
 
 Operations: List.
 
@@ -470,19 +466,19 @@ API path: `/api/about`
 
 | Field | Description |
 | --- | --- |
-| `active_request` |  |
-| `average_response_time_m` |  |
+| `activeRequests` |  |
+| `averageResponseTimeMs` |  |
 | `cache` |  |
-| `errors_by_type` |  |
-| `last_updated` |  |
-| `memory_used_byte` |  |
-| `redis_cache` |  |
-| `requests_per_second` |  |
-| `start_time` |  |
+| `errorsByType` |  |
+| `lastUpdated` |  |
+| `memoryUsedBytes` |  |
+| `redisCache` |  |
+| `requestsPerSecond` |  |
+| `startTime` |  |
 | `system` |  |
-| `total_error` |  |
-| `total_request` |  |
-| `wz_properties_loaded` |  |
+| `totalErrors` |  |
+| `totalRequests` |  |
+| `wzPropertiesLoaded` |  |
 
 Operations: Load.
 
@@ -510,13 +506,13 @@ API path: `/api/{region}/{version}/quest`
 
 | Field | Description |
 | --- | --- |
-| `cpu_usage_percent` |  |
-| `gc_gen0_collection` |  |
-| `gc_gen1_collection` |  |
-| `gc_gen2_collection` |  |
-| `thread_count` |  |
-| `total_memory_byte` |  |
-| `used_memory_byte` |  |
+| `cpuUsagePercent` |  |
+| `gcGen0Collections` |  |
+| `gcGen1Collections` |  |
+| `gcGen2Collections` |  |
+| `threadCount` |  |
+| `totalMemoryBytes` |  |
+| `usedMemoryBytes` |  |
 
 Operations: Load.
 
@@ -538,52 +534,7 @@ API path: `/api/{region}/{version}/tips`
 
 Operations: Load.
 
-API path: `/api/wz`
-
-#### Wzn2
-
-| Field | Description |
-| --- | --- |
-
-Operations: Load.
-
-API path: `/api/wz/audio/{region}/{version}/{path}`
-
-#### Wzn3
-
-| Field | Description |
-| --- | --- |
-
-Operations: Load.
-
 API path: `/api/wz/export/{region}/{version}/{path}`
-
-#### Wzn4
-
-| Field | Description |
-| --- | --- |
-
-Operations: Load.
-
-API path: `/api/wz/img/{region}/{version}/{path}`
-
-#### Wzn5
-
-| Field | Description |
-| --- | --- |
-
-Operations: Load.
-
-API path: `/api/wz/lookup/{region}/{version}/{path}`
-
-#### Wzn6
-
-| Field | Description |
-| --- | --- |
-
-Operations: Load.
-
-API path: `/api/wz/{region}/{version}/{path}`
 
 #### ZMap
 
@@ -612,7 +563,7 @@ Create an instance: `$android = $client->Android();`
 #### Example: Load
 
 ```php
-// load() returns the bare Android record (throws on error).
+// load() returns the ENTITY — call data_get() for the Android record (throws on error).
 $android = $client->Android()->load(["id" => 1, "region" => "region", "version" => "version"]);
 ```
 
@@ -630,7 +581,7 @@ Create an instance: `$avatar = $client->Avatar();`
 #### Example: Load
 
 ```php
-// load() returns the bare Avatar record (throws on error).
+// load() returns the ENTITY — call data_get() for the Avatar record (throws on error).
 $avatar = $client->Avatar()->load(["animation" => "animation", "frame" => 1]);
 ```
 
@@ -649,17 +600,17 @@ Create an instance: `$cache = $client->Cache();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `eviction_count` | `int` |  |
-| `hit_count` | `int` |  |
-| `hit_ratio` | `float` |  |
-| `memory_usage` | `int` |  |
-| `miss_count` | `int` |  |
-| `total_entry` | `int` |  |
+| `evictionCount` | `int` |  |
+| `hitCount` | `int` |  |
+| `hitRatio` | `float` |  |
+| `memoryUsage` | `int` |  |
+| `missCount` | `int` |  |
+| `totalEntries` | `int` |  |
 
 #### Example: Load
 
 ```php
-// load() returns the bare Cache record (throws on error).
+// load() returns the ENTITY — call data_get() for the Cache record (throws on error).
 $cache = $client->Cache()->load();
 ```
 
@@ -677,7 +628,7 @@ Create an instance: `$character = $client->Character();`
 #### Example: Load
 
 ```php
-// load() returns the bare Character record (throws on error).
+// load() returns the ENTITY — call data_get() for the Character record (throws on error).
 $character = $client->Character()->load(["region" => "region", "version" => "version"]);
 ```
 
@@ -695,7 +646,7 @@ Create an instance: `$chat = $client->Chat();`
 #### Example: Load
 
 ```php
-// load() returns the bare Chat record (throws on error).
+// load() returns the ENTITY — call data_get() for the Chat record (throws on error).
 $chat = $client->Chat()->load(["region" => "region", "version" => "version"]);
 ```
 
@@ -715,8 +666,8 @@ Create an instance: `$cluster = $client->Cluster();`
 | Field | Type | Description |
 | --- | --- | --- |
 | `hostname` | `string` |  |
-| `last_seen` | `string` |  |
-| `metric` | `array` |  |
+| `lastSeen` | `string` |  |
+| `metrics` | `array` |  |
 
 #### Example: List
 
@@ -739,7 +690,7 @@ Create an instance: `$diff = $client->Diff();`
 #### Example: Load
 
 ```php
-// load() returns the bare Diff record (throws on error).
+// load() returns the ENTITY — call data_get() for the Diff record (throws on error).
 $diff = $client->Diff()->load(["region" => "region", "version" => "version"]);
 ```
 
@@ -757,7 +708,7 @@ Create an instance: `$entity1 = $client->Entity1();`
 #### Example: Load
 
 ```php
-// load() returns the bare Entity1 record (throws on error).
+// load() returns the ENTITY — call data_get() for the Entity1 record (throws on error).
 $entity1 = $client->Entity1()->load();
 ```
 
@@ -775,7 +726,7 @@ Create an instance: `$gms_new = $client->GmsNew();`
 #### Example: Load
 
 ```php
-// load() returns the bare GmsNew record (throws on error).
+// load() returns the ENTITY — call data_get() for the GmsNew record (throws on error).
 $gms_new = $client->GmsNew()->load(["id" => 1]);
 ```
 
@@ -793,7 +744,7 @@ Create an instance: `$guild_mark = $client->GuildMark();`
 #### Example: Load
 
 ```php
-// load() returns the bare GuildMark record (throws on error).
+// load() returns the ENTITY — call data_get() for the GuildMark record (throws on error).
 $guild_mark = $client->GuildMark()->load(["guild_mark_id" => 1, "region" => "region", "version" => "version"]);
 ```
 
@@ -811,7 +762,7 @@ Create an instance: `$health = $client->Health();`
 #### Example: Load
 
 ```php
-// load() returns the bare Health record (throws on error).
+// load() returns the ENTITY — call data_get() for the Health record (throws on error).
 $health = $client->Health()->load();
 ```
 
@@ -829,7 +780,7 @@ Create an instance: `$item = $client->Item();`
 #### Example: Load
 
 ```php
-// load() returns the bare Item record (throws on error).
+// load() returns the ENTITY — call data_get() for the Item record (throws on error).
 $item = $client->Item()->load(["id" => 1, "region" => "region", "version" => "version"]);
 ```
 
@@ -847,7 +798,7 @@ Create an instance: `$job = $client->Job();`
 #### Example: Load
 
 ```php
-// load() returns the bare Job record (throws on error).
+// load() returns the ENTITY — call data_get() for the Job record (throws on error).
 $job = $client->Job()->load(["id" => 1, "region" => "region", "version" => "version"]);
 ```
 
@@ -865,7 +816,7 @@ Create an instance: `$map = $client->Map();`
 #### Example: Load
 
 ```php
-// load() returns the bare Map record (throws on error).
+// load() returns the ENTITY — call data_get() for the Map record (throws on error).
 $map = $client->Map()->load(["id" => 1, "region" => "region", "version" => "version"]);
 ```
 
@@ -883,7 +834,7 @@ Create an instance: `$metric = $client->Metric();`
 #### Example: Load
 
 ```php
-// load() returns the bare Metric record (throws on error).
+// load() returns the ENTITY — call data_get() for the Metric record (throws on error).
 $metric = $client->Metric()->load();
 ```
 
@@ -901,7 +852,7 @@ Create an instance: `$mob = $client->Mob();`
 #### Example: Load
 
 ```php
-// load() returns the bare Mob record (throws on error).
+// load() returns the ENTITY — call data_get() for the Mob record (throws on error).
 $mob = $client->Mob()->load(["id" => 1, "region" => "region", "version" => "version"]);
 ```
 
@@ -919,7 +870,7 @@ Create an instance: `$music = $client->Music();`
 #### Example: Load
 
 ```php
-// load() returns the bare Music record (throws on error).
+// load() returns the ENTITY — call data_get() for the Music record (throws on error).
 $music = $client->Music()->load(["id" => "music_id", "region" => "region", "version" => "version"]);
 ```
 
@@ -937,7 +888,7 @@ Create an instance: `$name = $client->Name();`
 #### Example: Load
 
 ```php
-// load() returns the bare Name record (throws on error).
+// load() returns the ENTITY — call data_get() for the Name record (throws on error).
 $name = $client->Name()->load(["region" => "region", "version" => "version"]);
 ```
 
@@ -955,7 +906,7 @@ Create an instance: `$npc = $client->Npc();`
 #### Example: Load
 
 ```php
-// load() returns the bare Npc record (throws on error).
+// load() returns the ENTITY — call data_get() for the Npc record (throws on error).
 $npc = $client->Npc()->load(["id" => 1, "region" => "region", "version" => "version"]);
 ```
 
@@ -973,7 +924,7 @@ Create an instance: `$nxf = $client->Nxf();`
 #### Example: Load
 
 ```php
-// load() returns the bare Nxf record (throws on error).
+// load() returns the ENTITY — call data_get() for the Nxf record (throws on error).
 $nxf = $client->Nxf()->load();
 ```
 
@@ -992,24 +943,24 @@ Create an instance: `$performance_metric = $client->PerformanceMetric();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `active_request` | `int` |  |
-| `average_response_time_m` | `float` |  |
+| `activeRequests` | `int` |  |
+| `averageResponseTimeMs` | `float` |  |
 | `cache` | `array` |  |
-| `errors_by_type` | `array` |  |
-| `last_updated` | `string` |  |
-| `memory_used_byte` | `int` |  |
-| `redis_cache` | `array` |  |
-| `requests_per_second` | `float` |  |
-| `start_time` | `string` |  |
+| `errorsByType` | `array` |  |
+| `lastUpdated` | `string` |  |
+| `memoryUsedBytes` | `int` |  |
+| `redisCache` | `array` |  |
+| `requestsPerSecond` | `float` |  |
+| `startTime` | `string` |  |
 | `system` | `array` |  |
-| `total_error` | `int` |  |
-| `total_request` | `int` |  |
-| `wz_properties_loaded` | `int` |  |
+| `totalErrors` | `int` |  |
+| `totalRequests` | `int` |  |
+| `wzPropertiesLoaded` | `int` |  |
 
 #### Example: Load
 
 ```php
-// load() returns the bare PerformanceMetric record (throws on error).
+// load() returns the ENTITY — call data_get() for the PerformanceMetric record (throws on error).
 $performance_metric = $client->PerformanceMetric()->load();
 ```
 
@@ -1027,7 +978,7 @@ Create an instance: `$pet = $client->Pet();`
 #### Example: Load
 
 ```php
-// load() returns the bare Pet record (throws on error).
+// load() returns the ENTITY — call data_get() for the Pet record (throws on error).
 $pet = $client->Pet()->load(["id" => 1, "region" => "region", "version" => "version"]);
 ```
 
@@ -1045,7 +996,7 @@ Create an instance: `$quest = $client->Quest();`
 #### Example: Load
 
 ```php
-// load() returns the bare Quest record (throws on error).
+// load() returns the ENTITY — call data_get() for the Quest record (throws on error).
 $quest = $client->Quest()->load(["id" => 1, "region" => "region", "version" => "version"]);
 ```
 
@@ -1064,18 +1015,18 @@ Create an instance: `$system = $client->System();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `cpu_usage_percent` | `float` |  |
-| `gc_gen0_collection` | `int` |  |
-| `gc_gen1_collection` | `int` |  |
-| `gc_gen2_collection` | `int` |  |
-| `thread_count` | `int` |  |
-| `total_memory_byte` | `int` |  |
-| `used_memory_byte` | `int` |  |
+| `cpuUsagePercent` | `float` |  |
+| `gcGen0Collections` | `int` |  |
+| `gcGen1Collections` | `int` |  |
+| `gcGen2Collections` | `int` |  |
+| `threadCount` | `int` |  |
+| `totalMemoryBytes` | `int` |  |
+| `usedMemoryBytes` | `int` |  |
 
 #### Example: Load
 
 ```php
-// load() returns the bare System record (throws on error).
+// load() returns the ENTITY — call data_get() for the System record (throws on error).
 $system = $client->System()->load();
 ```
 
@@ -1093,7 +1044,7 @@ Create an instance: `$tip = $client->Tip();`
 #### Example: Load
 
 ```php
-// load() returns the bare Tip record (throws on error).
+// load() returns the ENTITY — call data_get() for the Tip record (throws on error).
 $tip = $client->Tip()->load(["region" => "region", "version" => "version"]);
 ```
 
@@ -1111,98 +1062,8 @@ Create an instance: `$wzn = $client->Wzn();`
 #### Example: Load
 
 ```php
-// load() returns the bare Wzn record (throws on error).
+// load() returns the ENTITY — call data_get() for the Wzn record (throws on error).
 $wzn = $client->Wzn()->load(["region" => "region", "version" => "version"]);
-```
-
-
-### Wzn2
-
-Create an instance: `$wzn2 = $client->Wzn2();`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `load(match)` | Load a single entity by match criteria. |
-
-#### Example: Load
-
-```php
-// load() returns the bare Wzn2 record (throws on error).
-$wzn2 = $client->Wzn2()->load(["path" => "path", "region" => "region", "version" => "version"]);
-```
-
-
-### Wzn3
-
-Create an instance: `$wzn3 = $client->Wzn3();`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `load(match)` | Load a single entity by match criteria. |
-
-#### Example: Load
-
-```php
-// load() returns the bare Wzn3 record (throws on error).
-$wzn3 = $client->Wzn3()->load(["path" => "path", "region" => "region", "version" => "version"]);
-```
-
-
-### Wzn4
-
-Create an instance: `$wzn4 = $client->Wzn4();`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `load(match)` | Load a single entity by match criteria. |
-
-#### Example: Load
-
-```php
-// load() returns the bare Wzn4 record (throws on error).
-$wzn4 = $client->Wzn4()->load(["path" => "path", "region" => "region", "version" => "version"]);
-```
-
-
-### Wzn5
-
-Create an instance: `$wzn5 = $client->Wzn5();`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `load(match)` | Load a single entity by match criteria. |
-
-#### Example: Load
-
-```php
-// load() returns the bare Wzn5 record (throws on error).
-$wzn5 = $client->Wzn5()->load(["path" => "path", "region" => "region", "version" => "version"]);
-```
-
-
-### Wzn6
-
-Create an instance: `$wzn6 = $client->Wzn6();`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `load(match)` | Load a single entity by match criteria. |
-
-#### Example: Load
-
-```php
-// load() returns the bare Wzn6 record (throws on error).
-$wzn6 = $client->Wzn6()->load(["path" => "path", "region" => "region", "version" => "version"]);
 ```
 
 
@@ -1219,7 +1080,7 @@ Create an instance: `$z_map = $client->ZMap();`
 #### Example: Load
 
 ```php
-// load() returns the bare ZMap record (throws on error).
+// load() returns the ENTITY — call data_get() for the ZMap record (throws on error).
 $z_map = $client->ZMap()->load(["region" => "region", "version" => "version"]);
 ```
 
@@ -1300,11 +1161,11 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$android = $client->Android();
-$android->load(["id" => 1]);
+$music = $client->Music();
+$music->load(["id" => "example_id", "region" => "example", "version" => "example"]);
 
-// $android->data_get() now returns the android data from the last load
-// $android->match_get() returns the last match criteria
+// $music->data_get() now returns the music data from the last load
+// $music->match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

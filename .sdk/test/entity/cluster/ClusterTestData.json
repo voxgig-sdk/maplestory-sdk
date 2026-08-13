@@ -3,18 +3,18 @@
     "cluster": {
       "CLUSTER00": {
         "hostname": "s1e",
-        "last_seen": "s1f",
-        "metric": {}
+        "lastSeen": "s1f",
+        "metrics": {}
       },
       "CLUSTER01": {
         "hostname": "s3c",
-        "last_seen": "s3d",
-        "metric": {}
+        "lastSeen": "s3d",
+        "metrics": {}
       },
       "CLUSTER02": {
         "hostname": "s5a",
-        "last_seen": "s5b",
-        "metric": {}
+        "lastSeen": "s5b",
+        "metrics": {}
       }
     }
   },
@@ -22,8 +22,8 @@
     "cluster": {
       "cluster_ref01": {
         "hostname": "s78",
-        "last_seen": "s79",
-        "metric": {}
+        "lastSeen": "s79",
+        "metrics": {}
       }
     }
   }

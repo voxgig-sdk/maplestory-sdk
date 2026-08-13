@@ -26,11 +26,6 @@ import { QuestEntity } from './entity/QuestEntity'
 import { SystemEntity } from './entity/SystemEntity'
 import { TipEntity } from './entity/TipEntity'
 import { WznEntity } from './entity/WznEntity'
-import { Wzn2Entity } from './entity/Wzn2Entity'
-import { Wzn3Entity } from './entity/Wzn3Entity'
-import { Wzn4Entity } from './entity/Wzn4Entity'
-import { Wzn5Entity } from './entity/Wzn5Entity'
-import { Wzn6Entity } from './entity/Wzn6Entity'
 import { ZMapEntity } from './entity/ZMapEntity'
 
 export type * from './MaplestoryTypes'
@@ -177,8 +172,29 @@ class MaplestorySDK {
   }
 
 
+  // Raw endpoint access is operator-controllable, like every entity op.
+  // Blocking it means denying BOTH the 'direct' and 'graphql' tokens, since
+  // either one reaches the same endpoint.
   async direct(fetchargs?: any) {
+    if (!this._options.allow.op.includes('direct')) {
+      return {
+        ok: false,
+        err: new Error('MaplestorySDK: direct: operation not allowed by' +
+          ' SDK option allow.op value: "' + this._options.allow.op + '"'),
+      }
+    }
+
+    return this._rawRequest(fetchargs)
+  }
+
+
+  // Ungated request path shared by direct() and graphql(), each of which
+  // checks its own allow.op token first. Private, rather than a flag on
+  // fetchargs: a caller-supplied marker would let anyone opt straight back
+  // out of the gate by passing it.
+  async _rawRequest(fetchargs?: any) {
     const utility = this._utility
+
     const fetcher = utility.fetcher
     const makeContext = utility.makeContext
 
@@ -239,227 +255,300 @@ class MaplestorySDK {
 
 
 
+  // Raw GraphQL access: the pressure valve that makes the generated
+  // surface's deliberate omissions (per-call selection sets, typed filter
+  // builders, batching, subscriptions) livable — the whole schema stays
+  // reachable.
+  //
+  // Thin wrapper over the same prepare/fetch path `direct` uses, with the
+  // one thing raw `direct` cannot do for GraphQL: a GraphQL failure rides
+  // HTTP 200 as a top-level `errors` array, so status alone would report a
+  // failed query as ok.
+  //
+  // NOTE: like `direct`, this bypasses the feature pipeline — no retry,
+  // ratelimit or paging features apply.
+  async graphql(query: string, variables?: any, ctrl?: any) {
+    const options = this._options
+
+    if (!options.allow.op.includes('graphql')) {
+      return {
+        ok: false,
+        err: new Error('MaplestorySDK: graphql: operation not allowed by' +
+          ' SDK option allow.op value: "' + options.allow.op + '"'),
+      }
+    }
+
+    const res: any = await this._rawRequest({
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: { query, variables: variables || {} },
+      ctrl,
+    })
+
+    if (res instanceof Error) {
+      return res
+    }
+
+    // Errors are read BEFORE any status check: a GraphQL parse or validation
+    // failure comes back as HTTP 400 carrying the standard { errors: [...] }
+    // body, and the raw path represents a non-2xx as { ok: false } with no
+    // err — so returning early on status would discard the server's own
+    // diagnostics, which are the only useful part of that response.
+    const errors = null == res.data ? undefined : res.data.errors
+
+    if (null != errors && Array.isArray(errors) && 0 < errors.length) {
+      const first = errors[0] || {}
+      const err: any = new Error('MaplestorySDK: graphql: ' +
+        (first.message || 'graphql error'))
+      err.graphql = errors
+      return { ok: false, status: res.status, headers: res.headers, err, data: res.data }
+    }
+
+    return res
+  }
+
+
+
   // Entity access: `client.Android().list()` / `client.Android().load({ id })`.
-  Android(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  Android(entopts?: Record<string, any>) {
     const self = this
-    return new AndroidEntity(self,data)
+    return new AndroidEntity(self, entopts)
   }
 
 
   // Entity access: `client.Avatar().list()` / `client.Avatar().load({ id })`.
-  Avatar(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  Avatar(entopts?: Record<string, any>) {
     const self = this
-    return new AvatarEntity(self,data)
+    return new AvatarEntity(self, entopts)
   }
 
 
   // Entity access: `client.Cache().list()` / `client.Cache().load({ id })`.
-  Cache(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  Cache(entopts?: Record<string, any>) {
     const self = this
-    return new CacheEntity(self,data)
+    return new CacheEntity(self, entopts)
   }
 
 
   // Entity access: `client.Character().list()` / `client.Character().load({ id })`.
-  Character(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  Character(entopts?: Record<string, any>) {
     const self = this
-    return new CharacterEntity(self,data)
+    return new CharacterEntity(self, entopts)
   }
 
 
   // Entity access: `client.Chat().list()` / `client.Chat().load({ id })`.
-  Chat(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  Chat(entopts?: Record<string, any>) {
     const self = this
-    return new ChatEntity(self,data)
+    return new ChatEntity(self, entopts)
   }
 
 
   // Entity access: `client.Cluster().list()` / `client.Cluster().load({ id })`.
-  Cluster(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  Cluster(entopts?: Record<string, any>) {
     const self = this
-    return new ClusterEntity(self,data)
+    return new ClusterEntity(self, entopts)
   }
 
 
   // Entity access: `client.Diff().list()` / `client.Diff().load({ id })`.
-  Diff(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  Diff(entopts?: Record<string, any>) {
     const self = this
-    return new DiffEntity(self,data)
+    return new DiffEntity(self, entopts)
   }
 
 
   // Entity access: `client.Entity1().list()` / `client.Entity1().load({ id })`.
-  Entity1(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  Entity1(entopts?: Record<string, any>) {
     const self = this
-    return new Entity1Entity(self,data)
+    return new Entity1Entity(self, entopts)
   }
 
 
   // Entity access: `client.GmsNew().list()` / `client.GmsNew().load({ id })`.
-  GmsNew(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  GmsNew(entopts?: Record<string, any>) {
     const self = this
-    return new GmsNewEntity(self,data)
+    return new GmsNewEntity(self, entopts)
   }
 
 
   // Entity access: `client.GuildMark().list()` / `client.GuildMark().load({ id })`.
-  GuildMark(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  GuildMark(entopts?: Record<string, any>) {
     const self = this
-    return new GuildMarkEntity(self,data)
+    return new GuildMarkEntity(self, entopts)
   }
 
 
   // Entity access: `client.Health().list()` / `client.Health().load({ id })`.
-  Health(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  Health(entopts?: Record<string, any>) {
     const self = this
-    return new HealthEntity(self,data)
+    return new HealthEntity(self, entopts)
   }
 
 
   // Entity access: `client.Item().list()` / `client.Item().load({ id })`.
-  Item(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  Item(entopts?: Record<string, any>) {
     const self = this
-    return new ItemEntity(self,data)
+    return new ItemEntity(self, entopts)
   }
 
 
   // Entity access: `client.Job().list()` / `client.Job().load({ id })`.
-  Job(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  Job(entopts?: Record<string, any>) {
     const self = this
-    return new JobEntity(self,data)
+    return new JobEntity(self, entopts)
   }
 
 
   // Entity access: `client.Map().list()` / `client.Map().load({ id })`.
-  Map(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  Map(entopts?: Record<string, any>) {
     const self = this
-    return new MapEntity(self,data)
+    return new MapEntity(self, entopts)
   }
 
 
   // Entity access: `client.Metric().list()` / `client.Metric().load({ id })`.
-  Metric(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  Metric(entopts?: Record<string, any>) {
     const self = this
-    return new MetricEntity(self,data)
+    return new MetricEntity(self, entopts)
   }
 
 
   // Entity access: `client.Mob().list()` / `client.Mob().load({ id })`.
-  Mob(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  Mob(entopts?: Record<string, any>) {
     const self = this
-    return new MobEntity(self,data)
+    return new MobEntity(self, entopts)
   }
 
 
   // Entity access: `client.Music().list()` / `client.Music().load({ id })`.
-  Music(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  Music(entopts?: Record<string, any>) {
     const self = this
-    return new MusicEntity(self,data)
+    return new MusicEntity(self, entopts)
   }
 
 
   // Entity access: `client.Name().list()` / `client.Name().load({ id })`.
-  Name(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  Name(entopts?: Record<string, any>) {
     const self = this
-    return new NameEntity(self,data)
+    return new NameEntity(self, entopts)
   }
 
 
   // Entity access: `client.Npc().list()` / `client.Npc().load({ id })`.
-  Npc(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  Npc(entopts?: Record<string, any>) {
     const self = this
-    return new NpcEntity(self,data)
+    return new NpcEntity(self, entopts)
   }
 
 
   // Entity access: `client.Nxf().list()` / `client.Nxf().load({ id })`.
-  Nxf(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  Nxf(entopts?: Record<string, any>) {
     const self = this
-    return new NxfEntity(self,data)
+    return new NxfEntity(self, entopts)
   }
 
 
   // Entity access: `client.PerformanceMetric().list()` / `client.PerformanceMetric().load({ id })`.
-  PerformanceMetric(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  PerformanceMetric(entopts?: Record<string, any>) {
     const self = this
-    return new PerformanceMetricEntity(self,data)
+    return new PerformanceMetricEntity(self, entopts)
   }
 
 
   // Entity access: `client.Pet().list()` / `client.Pet().load({ id })`.
-  Pet(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  Pet(entopts?: Record<string, any>) {
     const self = this
-    return new PetEntity(self,data)
+    return new PetEntity(self, entopts)
   }
 
 
   // Entity access: `client.Quest().list()` / `client.Quest().load({ id })`.
-  Quest(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  Quest(entopts?: Record<string, any>) {
     const self = this
-    return new QuestEntity(self,data)
+    return new QuestEntity(self, entopts)
   }
 
 
   // Entity access: `client.System().list()` / `client.System().load({ id })`.
-  System(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  System(entopts?: Record<string, any>) {
     const self = this
-    return new SystemEntity(self,data)
+    return new SystemEntity(self, entopts)
   }
 
 
   // Entity access: `client.Tip().list()` / `client.Tip().load({ id })`.
-  Tip(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  Tip(entopts?: Record<string, any>) {
     const self = this
-    return new TipEntity(self,data)
+    return new TipEntity(self, entopts)
   }
 
 
   // Entity access: `client.Wzn().list()` / `client.Wzn().load({ id })`.
-  Wzn(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  Wzn(entopts?: Record<string, any>) {
     const self = this
-    return new WznEntity(self,data)
-  }
-
-
-  // Entity access: `client.Wzn2().list()` / `client.Wzn2().load({ id })`.
-  Wzn2(data?: any) {
-    const self = this
-    return new Wzn2Entity(self,data)
-  }
-
-
-  // Entity access: `client.Wzn3().list()` / `client.Wzn3().load({ id })`.
-  Wzn3(data?: any) {
-    const self = this
-    return new Wzn3Entity(self,data)
-  }
-
-
-  // Entity access: `client.Wzn4().list()` / `client.Wzn4().load({ id })`.
-  Wzn4(data?: any) {
-    const self = this
-    return new Wzn4Entity(self,data)
-  }
-
-
-  // Entity access: `client.Wzn5().list()` / `client.Wzn5().load({ id })`.
-  Wzn5(data?: any) {
-    const self = this
-    return new Wzn5Entity(self,data)
-  }
-
-
-  // Entity access: `client.Wzn6().list()` / `client.Wzn6().load({ id })`.
-  Wzn6(data?: any) {
-    const self = this
-    return new Wzn6Entity(self,data)
+    return new WznEntity(self, entopts)
   }
 
 
   // Entity access: `client.ZMap().list()` / `client.ZMap().load({ id })`.
-  ZMap(data?: any) {
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  ZMap(entopts?: Record<string, any>) {
     const self = this
-    return new ZMapEntity(self,data)
+    return new ZMapEntity(self, entopts)
   }
 
 

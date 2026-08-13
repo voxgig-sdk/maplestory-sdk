@@ -149,7 +149,37 @@ class MaplestorySDK
     fetchdef
   end
 
+  # Raw endpoint access is operator-controllable, like every entity op.
+  # Blocking it means denying BOTH the 'direct' and 'graphql' tokens, since
+  # either one reaches the same endpoint.
   def direct(fetchargs = {})
+    return op_denied("direct") unless op_allowed?("direct")
+
+    raw_request(fetchargs)
+  end
+
+  # Is this raw-access op permitted by the SDK's allow.op option?
+  def op_allowed?(op)
+    allow_op = VoxgigStruct.getpath(@options, "allow.op")
+    allow_op.is_a?(String) && allow_op.include?(op)
+  end
+
+  def op_denied(op)
+    allow_op = VoxgigStruct.getpath(@options, "allow.op")
+    {
+      "ok" => false,
+      "err" => MaplestoryError.new(
+        "#{op}_allow",
+        "MaplestorySDK: #{op}: operation not allowed by" \
+        " SDK option allow.op value: \"#{allow_op}\""),
+    }
+  end
+
+  # Ungated request path shared by direct and graphql, each of which checks
+  # its own allow.op token first. Separate, rather than a flag on fetchargs:
+  # a caller-supplied marker would let anyone opt straight back out of the
+  # gate by passing it.
+  def raw_request(fetchargs = {})
     utility = @_utility
 
     # direct() is the raw-HTTP escape hatch: it always returns a result hash
@@ -215,6 +245,47 @@ class MaplestorySDK
       "ok" => false,
       "err" => ctx.make_error("direct_invalid", "invalid response type"),
     }
+  end
+
+  # Raw GraphQL access: the pressure valve that makes the generated surface's
+  # deliberate omissions (per-call selection sets, typed filter builders,
+  # batching, subscriptions) livable — the whole schema stays reachable.
+  #
+  # Thin wrapper over the same prepare/fetch path direct uses, with the one
+  # thing raw direct cannot do for GraphQL: a GraphQL failure rides HTTP 200
+  # as a top-level `errors` array, so status alone would report a failed
+  # query as ok.
+  #
+  # NOTE: like direct, this bypasses the feature pipeline — no retry,
+  # ratelimit or paging features apply.
+  def graphql(query, variables = nil, ctrl = nil)
+    return op_denied("graphql") unless op_allowed?("graphql")
+
+    res = raw_request({
+      "method" => "POST",
+      "headers" => { "content-type" => "application/json" },
+      "body" => { "query" => query, "variables" => variables || {} },
+      "ctrl" => ctrl || {},
+    })
+
+    # Errors are read BEFORE any status check: a GraphQL parse or validation
+    # failure comes back as HTTP 400 carrying the standard { errors: [...] }
+    # body, and the raw path represents a non-2xx as ok:false with no err —
+    # so returning early on status would discard the server's own
+    # diagnostics, which are the only useful part of that response.
+    errors = VoxgigStruct.getpath(res, "data.errors")
+
+    if errors.is_a?(Array) && !errors.empty?
+      first = errors[0].is_a?(Hash) ? errors[0] : {}
+      msg = first["message"]
+      msg = "graphql error" if msg.nil? || msg.to_s.empty?
+      res["ok"] = false
+      res["err"] = MaplestoryError.new(
+        "graphql_error", "MaplestorySDK: graphql: #{msg}")
+      res["graphql"] = errors
+    end
+
+    res
   end
 
 
@@ -397,41 +468,6 @@ class MaplestorySDK
   def Wzn(data = nil)
     require_relative 'entity/wzn_entity'
     WznEntity.new(self, data)
-  end
-
-
-  # Canonical facade: client.Wzn2.list / client.Wzn2.load({ "id" => ... })
-  def Wzn2(data = nil)
-    require_relative 'entity/wzn2_entity'
-    Wzn2Entity.new(self, data)
-  end
-
-
-  # Canonical facade: client.Wzn3.list / client.Wzn3.load({ "id" => ... })
-  def Wzn3(data = nil)
-    require_relative 'entity/wzn3_entity'
-    Wzn3Entity.new(self, data)
-  end
-
-
-  # Canonical facade: client.Wzn4.list / client.Wzn4.load({ "id" => ... })
-  def Wzn4(data = nil)
-    require_relative 'entity/wzn4_entity'
-    Wzn4Entity.new(self, data)
-  end
-
-
-  # Canonical facade: client.Wzn5.list / client.Wzn5.load({ "id" => ... })
-  def Wzn5(data = nil)
-    require_relative 'entity/wzn5_entity'
-    Wzn5Entity.new(self, data)
-  end
-
-
-  # Canonical facade: client.Wzn6.list / client.Wzn6.load({ "id" => ... })
-  def Wzn6(data = nil)
-    require_relative 'entity/wzn6_entity'
-    Wzn6Entity.new(self, data)
   end
 
 

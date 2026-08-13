@@ -44,7 +44,7 @@ func TestEntity1Entity(t *testing.T) {
 		// The basic flow consumes synthetic IDs from the fixture. In live mode
 		// without an *_ENTID env override, those IDs hit the live API and 4xx.
 		if setup.syntheticOnly {
-			t.Skip("live entity test uses synthetic IDs from fixture — set MAPLESTORY_TEST_ENTITY__ENTID JSON to run live")
+			t.Skip("live entity test uses synthetic IDs from fixture — set MAPLESTORY_TEST_ENTITY1_ENTID JSON to run live")
 			return
 		}
 		client := setup.client
@@ -110,16 +110,16 @@ func entity1BasicSetup(extra map[string]any) *entityTestSetup {
 	// Detect ENTID env override before envOverride consumes it. When live
 	// mode is on without a real override, the basic test runs against synthetic
 	// IDs from the fixture and 4xx's. Surface this so the test can skip.
-	entidEnvRaw := os.Getenv("MAPLESTORY_TEST_ENTITY__ENTID")
+	entidEnvRaw := os.Getenv("MAPLESTORY_TEST_ENTITY1_ENTID")
 	idmapOverridden := entidEnvRaw != "" && strings.HasPrefix(strings.TrimSpace(entidEnvRaw), "{")
 
 	env := envOverride(map[string]any{
-		"MAPLESTORY_TEST_ENTITY__ENTID": idmap,
+		"MAPLESTORY_TEST_ENTITY1_ENTID": idmap,
 		"MAPLESTORY_TEST_LIVE":      "FALSE",
 		"MAPLESTORY_TEST_EXPLAIN":   "FALSE",
 	})
 
-	idmapResolved := core.ToMapAny(env["MAPLESTORY_TEST_ENTITY__ENTID"])
+	idmapResolved := core.ToMapAny(env["MAPLESTORY_TEST_ENTITY1_ENTID"])
 	if idmapResolved == nil {
 		idmapResolved = core.ToMapAny(idmap)
 	}

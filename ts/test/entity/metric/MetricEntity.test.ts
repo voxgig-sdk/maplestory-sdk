@@ -62,7 +62,7 @@ describe('MetricEntity', async () => {
     // LOAD
     const metric_ref01_ent = client.Metric()
     const metric_ref01_match_dt0: any = {}
-    const metric_ref01_data_dt0 = await metric_ref01_ent.load(metric_ref01_match_dt0)
+    const metric_ref01_data_dt0 = (await metric_ref01_ent.load(metric_ref01_match_dt0)).data()
     assert(null != metric_ref01_data_dt0)
 
 

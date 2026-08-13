@@ -2,16 +2,19 @@
   "existing": {
     "wzn": {
       "WZN00": {
+        "path": "PATH01",
         "region": "REGION01",
         "version": "VERSION01",
         "id": "WZN00"
       },
       "WZN01": {
+        "path": "PATH01",
         "region": "REGION01",
         "version": "VERSION01",
         "id": "WZN01"
       },
       "WZN02": {
+        "path": "PATH01",
         "region": "REGION01",
         "version": "VERSION01",
         "id": "WZN02"

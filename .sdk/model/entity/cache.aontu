@@ -6,32 +6,32 @@ main: kit: entity: cache: {
 
   fields: [
     {
-      name: "eviction_count"
+      name: "evictionCount"
       req: false
       type: "`$INTEGER`"
     }
     {
-      name: "hit_count"
+      name: "hitCount"
       req: false
       type: "`$INTEGER`"
     }
     {
-      name: "hit_ratio"
+      name: "hitRatio"
       req: false
       type: "`$NUMBER`"
     }
     {
-      name: "memory_usage"
+      name: "memoryUsage"
       req: false
       type: "`$INTEGER`"
     }
     {
-      name: "miss_count"
+      name: "missCount"
       req: false
       type: "`$INTEGER`"
     }
     {
-      name: "total_entry"
+      name: "totalEntries"
       req: false
       type: "`$INTEGER`"
     }

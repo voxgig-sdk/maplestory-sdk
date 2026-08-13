@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# Maplestory SDK exists test
 
 import pytest
 from maplestory_sdk import MaplestorySDK

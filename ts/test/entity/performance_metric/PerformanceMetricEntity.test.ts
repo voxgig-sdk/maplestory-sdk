@@ -62,7 +62,7 @@ describe('PerformanceMetricEntity', async () => {
     // LOAD
     const performance_metric_ref01_ent = client.PerformanceMetric()
     const performance_metric_ref01_match_dt0: any = {}
-    const performance_metric_ref01_data_dt0 = await performance_metric_ref01_ent.load(performance_metric_ref01_match_dt0)
+    const performance_metric_ref01_data_dt0 = (await performance_metric_ref01_ent.load(performance_metric_ref01_match_dt0)).data()
     assert(null != performance_metric_ref01_data_dt0)
 
 

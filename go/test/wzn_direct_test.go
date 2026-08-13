@@ -24,18 +24,36 @@ func TestWznDirect(t *testing.T) {
 			t.Skip(_reason)
 			return
 		}
+		if setup.live {
+			for _, _liveKey := range []string{"path01", "region01", "version01"} {
+				if v := setup.idmap[_liveKey]; v == nil {
+					t.Skipf("live test needs %s via *_ENTID env var (synthetic IDs only)", _liveKey)
+					return
+				}
+			}
+		}
 		client := setup.client
 
+		params := map[string]any{}
+		query := map[string]any{}
+		if setup.live {
+		} else {
+			params["path"] = "direct01"
+			params["region"] = "direct02"
+			params["version"] = "direct03"
+		}
 
 		result, err := client.Direct(map[string]any{
-			"path":   "api/wz",
+			"path":   "api/wz/export/{region}/{version}/{path}",
 			"method": "GET",
-			"params": map[string]any{},
+			"params": params,
+			"query":  query,
 		})
 		if setup.live {
 			// Live mode is lenient: synthetic IDs frequently 4xx. Skip
 			// rather than fail when the load endpoint isn't reachable with
-			// the IDs we can construct from setup.idmap.
+			// the IDs we can construct from setup.idmap — unless the model
+			// sets main.kit.test.live.strict.
 			if err != nil {
 				t.Skipf("load call failed (likely synthetic IDs against live API): %v", err)
 			}
@@ -77,7 +95,16 @@ func TestWznDirect(t *testing.T) {
 					t.Fatalf("expected method GET, got %v", initMap["method"])
 				}
 			}
-			if _, ok := call["url"].(string); ok {
+			if url, ok := call["url"].(string); ok {
+				if !strings.Contains(url, "direct01") {
+					t.Fatalf("expected url to contain direct01, got %v", url)
+				}
+				if !strings.Contains(url, "direct02") {
+					t.Fatalf("expected url to contain direct02, got %v", url)
+				}
+				if !strings.Contains(url, "direct03") {
+					t.Fatalf("expected url to contain direct03, got %v", url)
+				}
 			}
 		}
 	})

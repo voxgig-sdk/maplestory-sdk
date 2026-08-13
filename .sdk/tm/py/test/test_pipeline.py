@@ -16,11 +16,11 @@
 import pytest
 
 from projectname_sdk import MaplestorySDK
-from core.error import MaplestoryError
-from core.result import MaplestoryResult
-from core.response import MaplestoryResponse
-from core.spec import MaplestorySpec
-from feature.base_feature import MaplestoryBaseFeature
+from projectname_sdk.core.error import MaplestoryError
+from projectname_sdk.core.result import MaplestoryResult
+from projectname_sdk.core.response import MaplestoryResponse
+from projectname_sdk.core.spec import MaplestorySpec
+from projectname_sdk.feature.base_feature import MaplestoryBaseFeature
 
 
 def _client():

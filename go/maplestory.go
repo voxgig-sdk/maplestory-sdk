@@ -110,21 +110,6 @@ func init() {
 	core.NewWznEntityFunc = func(client *core.MaplestorySDK, entopts map[string]any) core.MaplestoryEntity {
 		return entity.NewWznEntity(client, entopts)
 	}
-	core.NewWzn2EntityFunc = func(client *core.MaplestorySDK, entopts map[string]any) core.MaplestoryEntity {
-		return entity.NewWzn2Entity(client, entopts)
-	}
-	core.NewWzn3EntityFunc = func(client *core.MaplestorySDK, entopts map[string]any) core.MaplestoryEntity {
-		return entity.NewWzn3Entity(client, entopts)
-	}
-	core.NewWzn4EntityFunc = func(client *core.MaplestorySDK, entopts map[string]any) core.MaplestoryEntity {
-		return entity.NewWzn4Entity(client, entopts)
-	}
-	core.NewWzn5EntityFunc = func(client *core.MaplestorySDK, entopts map[string]any) core.MaplestoryEntity {
-		return entity.NewWzn5Entity(client, entopts)
-	}
-	core.NewWzn6EntityFunc = func(client *core.MaplestorySDK, entopts map[string]any) core.MaplestoryEntity {
-		return entity.NewWzn6Entity(client, entopts)
-	}
 	core.NewZMapEntityFunc = func(client *core.MaplestorySDK, entopts map[string]any) core.MaplestoryEntity {
 		return entity.NewZMapEntity(client, entopts)
 	}

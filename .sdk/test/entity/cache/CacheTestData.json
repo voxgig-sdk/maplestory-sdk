@@ -2,30 +2,30 @@
   "existing": {
     "cache": {
       "CACHE00": {
-        "eviction_count": "s3c",
-        "hit_count": "s3d",
-        "hit_ratio": 62,
-        "memory_usage": "s3f",
-        "miss_count": "s40",
-        "total_entry": "s41",
+        "evictionCount": "s3c",
+        "hitCount": "s3d",
+        "hitRatio": 62,
+        "memoryUsage": "s3f",
+        "missCount": "s40",
+        "totalEntries": "s41",
         "id": "CACHE00"
       },
       "CACHE01": {
-        "eviction_count": "s78",
-        "hit_count": "s79",
-        "hit_ratio": 122,
-        "memory_usage": "s7b",
-        "miss_count": "s7c",
-        "total_entry": "s7d",
+        "evictionCount": "s78",
+        "hitCount": "s79",
+        "hitRatio": 122,
+        "memoryUsage": "s7b",
+        "missCount": "s7c",
+        "totalEntries": "s7d",
         "id": "CACHE01"
       },
       "CACHE02": {
-        "eviction_count": "sb4",
-        "hit_count": "sb5",
-        "hit_ratio": 182,
-        "memory_usage": "sb7",
-        "miss_count": "sb8",
-        "total_entry": "sb9",
+        "evictionCount": "sb4",
+        "hitCount": "sb5",
+        "hitRatio": 182,
+        "memoryUsage": "sb7",
+        "missCount": "sb8",
+        "totalEntries": "sb9",
         "id": "CACHE02"
       }
     }
@@ -33,12 +33,12 @@
   "new": {
     "cache": {
       "cache_ref01": {
-        "eviction_count": "sf0",
-        "hit_count": "sf1",
-        "hit_ratio": 242,
-        "memory_usage": "sf3",
-        "miss_count": "sf4",
-        "total_entry": "sf5"
+        "evictionCount": "sf0",
+        "hitCount": "sf1",
+        "hitRatio": 242,
+        "memoryUsage": "sf3",
+        "missCount": "sf4",
+        "totalEntries": "sf5"
       }
     }
   }

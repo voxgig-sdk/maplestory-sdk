@@ -145,26 +145,6 @@ Create a new `Tip` entity instance. Pass `nil` for no initial data.
 
 Create a new `Wzn` entity instance. Pass `nil` for no initial data.
 
-#### `Wzn2(data = nil)`
-
-Create a new `Wzn2` entity instance. Pass `nil` for no initial data.
-
-#### `Wzn3(data = nil)`
-
-Create a new `Wzn3` entity instance. Pass `nil` for no initial data.
-
-#### `Wzn4(data = nil)`
-
-Create a new `Wzn4` entity instance. Pass `nil` for no initial data.
-
-#### `Wzn5(data = nil)`
-
-Create a new `Wzn5` entity instance. Pass `nil` for no initial data.
-
-#### `Wzn6(data = nil)`
-
-Create a new `Wzn6` entity instance. Pass `nil` for no initial data.
-
 #### `ZMap(data = nil)`
 
 Create a new `ZMap` entity instance. Pass `nil` for no initial data.
@@ -309,12 +289,12 @@ cache = client.Cache
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `eviction_count` | `Integer` | No |  |
-| `hit_count` | `Integer` | No |  |
-| `hit_ratio` | `Float` | No |  |
-| `memory_usage` | `Integer` | No |  |
-| `miss_count` | `Integer` | No |  |
-| `total_entry` | `Integer` | No |  |
+| `evictionCount` | `Integer` | No |  |
+| `hitCount` | `Integer` | No |  |
+| `hitRatio` | `Float` | No |  |
+| `memoryUsage` | `Integer` | No |  |
+| `missCount` | `Integer` | No |  |
+| `totalEntries` | `Integer` | No |  |
 
 ### Operations
 
@@ -459,8 +439,8 @@ cluster = client.Cluster
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `hostname` | `String` | No |  |
-| `last_seen` | `String` | No |  |
-| `metric` | `Hash` | No |  |
+| `lastSeen` | `String` | No |  |
+| `metrics` | `Hash` | No |  |
 
 ### Operations
 
@@ -1156,19 +1136,19 @@ performance_metric = client.PerformanceMetric
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `active_request` | `Integer` | No |  |
-| `average_response_time_m` | `Float` | No |  |
+| `activeRequests` | `Integer` | No |  |
+| `averageResponseTimeMs` | `Float` | No |  |
 | `cache` | `Hash` | No |  |
-| `errors_by_type` | `Hash` | No |  |
-| `last_updated` | `String` | No |  |
-| `memory_used_byte` | `Integer` | No |  |
-| `redis_cache` | `Hash` | No |  |
-| `requests_per_second` | `Float` | No |  |
-| `start_time` | `String` | No |  |
+| `errorsByType` | `Hash` | No |  |
+| `lastUpdated` | `String` | No |  |
+| `memoryUsedBytes` | `Integer` | No |  |
+| `redisCache` | `Hash` | No |  |
+| `requestsPerSecond` | `Float` | No |  |
+| `startTime` | `String` | No |  |
 | `system` | `Hash` | No |  |
-| `total_error` | `Integer` | No |  |
-| `total_request` | `Integer` | No |  |
-| `wz_properties_loaded` | `Integer` | No |  |
+| `totalErrors` | `Integer` | No |  |
+| `totalRequests` | `Integer` | No |  |
+| `wzPropertiesLoaded` | `Integer` | No |  |
 
 ### Operations
 
@@ -1312,13 +1292,13 @@ system = client.System
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `cpu_usage_percent` | `Float` | No |  |
-| `gc_gen0_collection` | `Integer` | No |  |
-| `gc_gen1_collection` | `Integer` | No |  |
-| `gc_gen2_collection` | `Integer` | No |  |
-| `thread_count` | `Integer` | No |  |
-| `total_memory_byte` | `Integer` | No |  |
-| `used_memory_byte` | `Integer` | No |  |
+| `cpuUsagePercent` | `Float` | No |  |
+| `gcGen0Collections` | `Integer` | No |  |
+| `gcGen1Collections` | `Integer` | No |  |
+| `gcGen2Collections` | `Integer` | No |  |
+| `threadCount` | `Integer` | No |  |
+| `totalMemoryBytes` | `Integer` | No |  |
+| `usedMemoryBytes` | `Integer` | No |  |
 
 ### Operations
 
@@ -1443,236 +1423,6 @@ Set the entity match criteria.
 #### `make -> Entity`
 
 Create a new `WznEntity` instance with the same client and
-options.
-
-#### `get_name -> String`
-
-Return the entity name.
-
-
----
-
-## Wzn2Entity
-
-```ruby
-wzn2 = client.Wzn2
-```
-
-### Operations
-
-#### `load(reqmatch, ctrl = nil) -> result`
-
-Load a single entity matching the given criteria. Raises on error.
-
-```ruby
-result = client.Wzn2.load({ "path" => "path", "region" => "region", "version" => "version" })
-```
-
-### Common Methods
-
-#### `data_get -> Hash`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get -> Hash`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make -> Entity`
-
-Create a new `Wzn2Entity` instance with the same client and
-options.
-
-#### `get_name -> String`
-
-Return the entity name.
-
-
----
-
-## Wzn3Entity
-
-```ruby
-wzn3 = client.Wzn3
-```
-
-### Operations
-
-#### `load(reqmatch, ctrl = nil) -> result`
-
-Load a single entity matching the given criteria. Raises on error.
-
-```ruby
-result = client.Wzn3.load({ "path" => "path", "region" => "region", "version" => "version" })
-```
-
-### Common Methods
-
-#### `data_get -> Hash`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get -> Hash`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make -> Entity`
-
-Create a new `Wzn3Entity` instance with the same client and
-options.
-
-#### `get_name -> String`
-
-Return the entity name.
-
-
----
-
-## Wzn4Entity
-
-```ruby
-wzn4 = client.Wzn4
-```
-
-### Operations
-
-#### `load(reqmatch, ctrl = nil) -> result`
-
-Load a single entity matching the given criteria. Raises on error.
-
-```ruby
-result = client.Wzn4.load({ "path" => "path", "region" => "region", "version" => "version" })
-```
-
-### Common Methods
-
-#### `data_get -> Hash`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get -> Hash`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make -> Entity`
-
-Create a new `Wzn4Entity` instance with the same client and
-options.
-
-#### `get_name -> String`
-
-Return the entity name.
-
-
----
-
-## Wzn5Entity
-
-```ruby
-wzn5 = client.Wzn5
-```
-
-### Operations
-
-#### `load(reqmatch, ctrl = nil) -> result`
-
-Load a single entity matching the given criteria. Raises on error.
-
-```ruby
-result = client.Wzn5.load({ "path" => "path", "region" => "region", "version" => "version" })
-```
-
-### Common Methods
-
-#### `data_get -> Hash`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get -> Hash`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make -> Entity`
-
-Create a new `Wzn5Entity` instance with the same client and
-options.
-
-#### `get_name -> String`
-
-Return the entity name.
-
-
----
-
-## Wzn6Entity
-
-```ruby
-wzn6 = client.Wzn6
-```
-
-### Operations
-
-#### `load(reqmatch, ctrl = nil) -> result`
-
-Load a single entity matching the given criteria. Raises on error.
-
-```ruby
-result = client.Wzn6.load({ "path" => "path", "region" => "region", "version" => "version" })
-```
-
-### Common Methods
-
-#### `data_get -> Hash`
-
-Get the entity data. Returns a copy of the current data.
-
-#### `data_set(data)`
-
-Set the entity data.
-
-#### `match_get -> Hash`
-
-Get the entity match criteria.
-
-#### `match_set(match)`
-
-Set the entity match criteria.
-
-#### `make -> Entity`
-
-Create a new `Wzn6Entity` instance with the same client and
 options.
 
 #### `get_name -> String`

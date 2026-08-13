@@ -66,12 +66,12 @@ Every entity operation returns `(value, error)`. Check `err` before
 using the value — there is no exception to catch:
 
 ```go
-android, err := client.Android(nil).Load(map[string]any{"id": 1}, nil)
+music, err := client.Music(nil).Load(map[string]any{"id": "example_id", "region": "example", "version": "example"}, nil)
 if err != nil {
     // handle err
     return
 }
-_ = android
+_ = music
 ```
 
 `Direct` follows the same `(value, error)` convention:
@@ -135,13 +135,13 @@ Create a mock client for unit testing — no server required:
 ```go
 client := sdk.Test()
 
-android, err := client.Android(nil).Load(
-    map[string]any{"id": "test01"}, nil,
+music, err := client.Music(nil).Load(
+    map[string]any{"id": "test01", "region": "example", "version": "example"}, nil,
 )
 if err != nil {
     panic(err)
 }
-fmt.Println(android) // the returned mock data
+fmt.Println(music) // the returned mock data
 ```
 
 ### Use a custom fetch function
@@ -244,11 +244,6 @@ Creates a test-mode client with mock transport. Both arguments may be `nil`.
 | `System` | `(data map[string]any) MaplestoryEntity` | Create a System entity instance. |
 | `Tip` | `(data map[string]any) MaplestoryEntity` | Create a Tip entity instance. |
 | `Wzn` | `(data map[string]any) MaplestoryEntity` | Create a Wzn entity instance. |
-| `Wzn2` | `(data map[string]any) MaplestoryEntity` | Create a Wzn2 entity instance. |
-| `Wzn3` | `(data map[string]any) MaplestoryEntity` | Create a Wzn3 entity instance. |
-| `Wzn4` | `(data map[string]any) MaplestoryEntity` | Create a Wzn4 entity instance. |
-| `Wzn5` | `(data map[string]any) MaplestoryEntity` | Create a Wzn5 entity instance. |
-| `Wzn6` | `(data map[string]any) MaplestoryEntity` | Create a Wzn6 entity instance. |
 | `ZMap` | `(data map[string]any) MaplestoryEntity` | Create a ZMap entity instance. |
 
 ### Entity interface (MaplestoryEntity)
@@ -309,12 +304,12 @@ API path: `/api/character/{items}/{animation}/animated`
 
 | Field | Description |
 | --- | --- |
-| `"eviction_count"` |  |
-| `"hit_count"` |  |
-| `"hit_ratio"` |  |
-| `"memory_usage"` |  |
-| `"miss_count"` |  |
-| `"total_entry"` |  |
+| `"evictionCount"` |  |
+| `"hitCount"` |  |
+| `"hitRatio"` |  |
+| `"memoryUsage"` |  |
+| `"missCount"` |  |
+| `"totalEntries"` |  |
 
 Operations: Load.
 
@@ -343,8 +338,8 @@ API path: `/api/{region}/{version}/chat`
 | Field | Description |
 | --- | --- |
 | `"hostname"` |  |
-| `"last_seen"` |  |
-| `"metric"` |  |
+| `"lastSeen"` |  |
+| `"metrics"` |  |
 
 Operations: List.
 
@@ -480,19 +475,19 @@ API path: `/api/about`
 
 | Field | Description |
 | --- | --- |
-| `"active_request"` |  |
-| `"average_response_time_m"` |  |
+| `"activeRequests"` |  |
+| `"averageResponseTimeMs"` |  |
 | `"cache"` |  |
-| `"errors_by_type"` |  |
-| `"last_updated"` |  |
-| `"memory_used_byte"` |  |
-| `"redis_cache"` |  |
-| `"requests_per_second"` |  |
-| `"start_time"` |  |
+| `"errorsByType"` |  |
+| `"lastUpdated"` |  |
+| `"memoryUsedBytes"` |  |
+| `"redisCache"` |  |
+| `"requestsPerSecond"` |  |
+| `"startTime"` |  |
 | `"system"` |  |
-| `"total_error"` |  |
-| `"total_request"` |  |
-| `"wz_properties_loaded"` |  |
+| `"totalErrors"` |  |
+| `"totalRequests"` |  |
+| `"wzPropertiesLoaded"` |  |
 
 Operations: Load.
 
@@ -520,13 +515,13 @@ API path: `/api/{region}/{version}/quest`
 
 | Field | Description |
 | --- | --- |
-| `"cpu_usage_percent"` |  |
-| `"gc_gen0_collection"` |  |
-| `"gc_gen1_collection"` |  |
-| `"gc_gen2_collection"` |  |
-| `"thread_count"` |  |
-| `"total_memory_byte"` |  |
-| `"used_memory_byte"` |  |
+| `"cpuUsagePercent"` |  |
+| `"gcGen0Collections"` |  |
+| `"gcGen1Collections"` |  |
+| `"gcGen2Collections"` |  |
+| `"threadCount"` |  |
+| `"totalMemoryBytes"` |  |
+| `"usedMemoryBytes"` |  |
 
 Operations: Load.
 
@@ -548,52 +543,7 @@ API path: `/api/{region}/{version}/tips`
 
 Operations: Load.
 
-API path: `/api/wz`
-
-#### Wzn2
-
-| Field | Description |
-| --- | --- |
-
-Operations: Load.
-
-API path: `/api/wz/audio/{region}/{version}/{path}`
-
-#### Wzn3
-
-| Field | Description |
-| --- | --- |
-
-Operations: Load.
-
 API path: `/api/wz/export/{region}/{version}/{path}`
-
-#### Wzn4
-
-| Field | Description |
-| --- | --- |
-
-Operations: Load.
-
-API path: `/api/wz/img/{region}/{version}/{path}`
-
-#### Wzn5
-
-| Field | Description |
-| --- | --- |
-
-Operations: Load.
-
-API path: `/api/wz/lookup/{region}/{version}/{path}`
-
-#### Wzn6
-
-| Field | Description |
-| --- | --- |
-
-Operations: Load.
-
-API path: `/api/wz/{region}/{version}/{path}`
 
 #### ZMap
 
@@ -665,12 +615,12 @@ Create an instance: `cache := client.Cache(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `eviction_count` | `int` |  |
-| `hit_count` | `int` |  |
-| `hit_ratio` | `float64` |  |
-| `memory_usage` | `int` |  |
-| `miss_count` | `int` |  |
-| `total_entry` | `int` |  |
+| `evictionCount` | `int` |  |
+| `hitCount` | `int` |  |
+| `hitRatio` | `float64` |  |
+| `memoryUsage` | `int` |  |
+| `missCount` | `int` |  |
+| `totalEntries` | `int` |  |
 
 #### Example: Load
 
@@ -740,8 +690,8 @@ Create an instance: `cluster := client.Cluster(nil)`
 | Field | Type | Description |
 | --- | --- | --- |
 | `hostname` | `string` |  |
-| `last_seen` | `string` |  |
-| `metric` | `map[string]any` |  |
+| `lastSeen` | `string` |  |
+| `metrics` | `map[string]any` |  |
 
 #### Example: List
 
@@ -1062,19 +1012,19 @@ Create an instance: `performanceMetric := client.PerformanceMetric(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `active_request` | `int` |  |
-| `average_response_time_m` | `float64` |  |
+| `activeRequests` | `int` |  |
+| `averageResponseTimeMs` | `float64` |  |
 | `cache` | `map[string]any` |  |
-| `errors_by_type` | `map[string]any` |  |
-| `last_updated` | `string` |  |
-| `memory_used_byte` | `int` |  |
-| `redis_cache` | `map[string]any` |  |
-| `requests_per_second` | `float64` |  |
-| `start_time` | `string` |  |
+| `errorsByType` | `map[string]any` |  |
+| `lastUpdated` | `string` |  |
+| `memoryUsedBytes` | `int` |  |
+| `redisCache` | `map[string]any` |  |
+| `requestsPerSecond` | `float64` |  |
+| `startTime` | `string` |  |
 | `system` | `map[string]any` |  |
-| `total_error` | `int` |  |
-| `total_request` | `int` |  |
-| `wz_properties_loaded` | `int` |  |
+| `totalErrors` | `int` |  |
+| `totalRequests` | `int` |  |
+| `wzPropertiesLoaded` | `int` |  |
 
 #### Example: Load
 
@@ -1143,13 +1093,13 @@ Create an instance: `system := client.System(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `cpu_usage_percent` | `float64` |  |
-| `gc_gen0_collection` | `int` |  |
-| `gc_gen1_collection` | `int` |  |
-| `gc_gen2_collection` | `int` |  |
-| `thread_count` | `int` |  |
-| `total_memory_byte` | `int` |  |
-| `used_memory_byte` | `int` |  |
+| `cpuUsagePercent` | `float64` |  |
+| `gcGen0Collections` | `int` |  |
+| `gcGen1Collections` | `int` |  |
+| `gcGen2Collections` | `int` |  |
+| `threadCount` | `int` |  |
+| `totalMemoryBytes` | `int` |  |
+| `usedMemoryBytes` | `int` |  |
 
 #### Example: Load
 
@@ -1201,111 +1151,6 @@ if err != nil {
     panic(err)
 }
 fmt.Println(wzn) // the loaded record
-```
-
-
-### Wzn2
-
-Create an instance: `wzn2 := client.Wzn2(nil)`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `Load(match, ctrl)` | Load a single entity by match criteria. |
-
-#### Example: Load
-
-```go
-wzn2, err := client.Wzn2(nil).Load(map[string]any{"path": "path", "region": "region", "version": "version"}, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(wzn2) // the loaded record
-```
-
-
-### Wzn3
-
-Create an instance: `wzn3 := client.Wzn3(nil)`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `Load(match, ctrl)` | Load a single entity by match criteria. |
-
-#### Example: Load
-
-```go
-wzn3, err := client.Wzn3(nil).Load(map[string]any{"path": "path", "region": "region", "version": "version"}, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(wzn3) // the loaded record
-```
-
-
-### Wzn4
-
-Create an instance: `wzn4 := client.Wzn4(nil)`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `Load(match, ctrl)` | Load a single entity by match criteria. |
-
-#### Example: Load
-
-```go
-wzn4, err := client.Wzn4(nil).Load(map[string]any{"path": "path", "region": "region", "version": "version"}, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(wzn4) // the loaded record
-```
-
-
-### Wzn5
-
-Create an instance: `wzn5 := client.Wzn5(nil)`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `Load(match, ctrl)` | Load a single entity by match criteria. |
-
-#### Example: Load
-
-```go
-wzn5, err := client.Wzn5(nil).Load(map[string]any{"path": "path", "region": "region", "version": "version"}, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(wzn5) // the loaded record
-```
-
-
-### Wzn6
-
-Create an instance: `wzn6 := client.Wzn6(nil)`
-
-#### Operations
-
-| Method | Description |
-| --- | --- |
-| `Load(match, ctrl)` | Load a single entity by match criteria. |
-
-#### Example: Load
-
-```go
-wzn6, err := client.Wzn6(nil).Load(map[string]any{"path": "path", "region": "region", "version": "version"}, nil)
-if err != nil {
-    panic(err)
-}
-fmt.Println(wzn6) // the loaded record
 ```
 
 
@@ -1403,11 +1248,11 @@ Entity instances are stateful. After a successful `Load`, the entity
 stores the returned data and match criteria internally.
 
 ```go
-android := client.Android(nil)
-android.Load(map[string]any{"id": 1}, nil)
+music := client.Music(nil)
+music.Load(map[string]any{"id": "example_id", "region": "example", "version": "example"}, nil)
 
-// android.Data() now returns the android data from the last load
-// android.Match() returns the last match criteria
+// music.Data() now returns the music data from the last load
+// music.Match() returns the last match criteria
 ```
 
 Call `Make()` to create a fresh instance with the same configuration
