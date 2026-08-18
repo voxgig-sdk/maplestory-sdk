@@ -710,7 +710,7 @@ Create an instance: `gms_new = client.GmsNew()`
 #### Example: Load
 
 ```python
-gms_new = client.GmsNew().load({"id": 1})
+gms_new = client.GmsNew().load()
 ```
 
 

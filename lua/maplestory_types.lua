@@ -74,7 +74,6 @@
 ---@class GmsNew
 
 ---@class GmsNewLoadMatch
----@field id? number
 
 ---@class GuildMark
 

@@ -96,7 +96,6 @@ export interface GmsNew {
 }
 
 export interface GmsNewLoadMatch {
-  id?: number
 }
 
 export interface GuildMark {

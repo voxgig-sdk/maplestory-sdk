@@ -759,7 +759,7 @@ Create an instance: `const gms_new = client.GmsNew()`
 #### Example: Load
 
 ```ts
-const gms_new = await client.GmsNew().load({ id: 1 })
+const gms_new = await client.GmsNew().load()
 ```
 
 

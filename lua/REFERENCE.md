@@ -584,7 +584,7 @@ local gms_new = client:GmsNew(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:GmsNew():load({ id = 1 })
+local result, err = client:GmsNew():load()
 ```
 
 ### Common Methods

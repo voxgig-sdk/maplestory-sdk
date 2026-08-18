@@ -584,7 +584,7 @@ fmt.Println(gmsNew.GetName()) // "gms_new"
 Load a single entity matching the given criteria.
 
 ```go
-result, err := client.GmsNew(nil).Load(map[string]any{"id": 1}, nil)
+result, err := client.GmsNew(nil).Load(nil, nil)
 if err != nil {
     panic(err)
 }

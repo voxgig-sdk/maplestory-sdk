@@ -28,7 +28,7 @@ class MaplestorySDK
     utility = MaplestoryUtility.new
     @_utility = utility
 
-    config = MaplestoryConfig.make_config
+    config = MaplestoryConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,

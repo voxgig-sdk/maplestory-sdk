@@ -40,7 +40,7 @@ class MaplestorySDK
         $utility = new MaplestoryUtility();
         $this->_utility = $utility;
 
-        $config = MaplestoryConfig::make_config();
+        $config = MaplestoryConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,

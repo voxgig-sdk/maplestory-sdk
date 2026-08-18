@@ -822,7 +822,7 @@ const gms_new = client.GmsNew()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.GmsNew().load({ id: 1 })
+const result = await client.GmsNew().load()
 ```
 
 ### Common Methods

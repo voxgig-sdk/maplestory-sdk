@@ -218,13 +218,8 @@ class GmsNew
 end
 
 # Request payload for GmsNew#load.
-#
-# @!attribute [rw] id
-#   @return [Integer, nil]
-GmsNewLoadMatch = Struct.new(
-  :id,
-  keyword_init: true
-)
+class GmsNewLoadMatch
+end
 
 # GuildMark entity data model.
 class GuildMark

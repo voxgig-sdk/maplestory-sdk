@@ -15,7 +15,7 @@ require_relative "../Maplestory_sdk"
 module MaplestoryFeatureHarness
   # True when this SDK was generated with the named feature.
   def self.has_feature?(name)
-    f = MaplestoryConfig.make_config["feature"]
+    f = MaplestoryConfig.shared_config["feature"]
     f.is_a?(Hash) && !f[name].nil?
   end
 

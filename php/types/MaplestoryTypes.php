@@ -133,7 +133,6 @@ class GmsNew
 /** Request payload for GmsNew#load. */
 class GmsNewLoadMatch
 {
-    public ?int $id = null;
 }
 
 /** GuildMark entity data model. */

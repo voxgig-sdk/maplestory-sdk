@@ -696,7 +696,7 @@ Create an instance: `local gms_new = client:GmsNew(nil)`
 #### Example: Load
 
 ```lua
-local gms_new, err = client:GmsNew():load({ id = 1 })
+local gms_new, err = client:GmsNew():load()
 ```
 
 

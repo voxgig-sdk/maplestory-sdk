@@ -727,7 +727,7 @@ Create an instance: `$gms_new = $client->GmsNew();`
 
 ```php
 // load() returns the ENTITY — call data_get() for the GmsNew record (throws on error).
-$gms_new = $client->GmsNew()->load(["id" => 1]);
+$gms_new = $client->GmsNew()->load();
 ```
 
 

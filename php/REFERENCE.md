@@ -586,7 +586,7 @@ $gms_new = $client->GmsNew();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->GmsNew()->load(["id" => 1]);
+$result = $client->GmsNew()->load();
 ```
 
 ### Common Methods

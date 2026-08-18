@@ -717,7 +717,7 @@ Create an instance: `gms_new = client.GmsNew`
 
 ```ruby
 # load returns the ENTITY — call data_get for the GmsNew record (raises on error).
-gms_new = client.GmsNew.load({ "id" => 1 })
+gms_new = client.GmsNew.load()
 ```
 
 

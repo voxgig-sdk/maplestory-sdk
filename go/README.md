@@ -759,7 +759,7 @@ Create an instance: `gmsNew := client.GmsNew(nil)`
 #### Example: Load
 
 ```go
-gmsNew, err := client.GmsNew(nil).Load(map[string]any{"id": 1}, nil)
+gmsNew, err := client.GmsNew(nil).Load(nil, nil)
 if err != nil {
     panic(err)
 }

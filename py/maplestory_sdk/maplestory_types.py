@@ -117,8 +117,8 @@ class GmsNew(TypedDict):
     pass
 
 
-class GmsNewLoadMatch(TypedDict, total=False):
-    id: int
+class GmsNewLoadMatch(TypedDict):
+    pass
 
 
 class GuildMark(TypedDict):

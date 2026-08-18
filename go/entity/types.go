@@ -115,7 +115,6 @@ type GmsNew struct {
 
 // GmsNewLoadMatch is the typed request payload for GmsNew.LoadTyped.
 type GmsNewLoadMatch struct {
-	Id *int `json:"id,omitempty"`
 }
 
 // GuildMark is the typed data model for the guild_mark entity.
