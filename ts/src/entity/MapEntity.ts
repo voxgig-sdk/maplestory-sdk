@@ -15,12 +15,12 @@ import type {
 } from '../types'
 
 import type {
-  Map,
+  MapType,
   MapLoadMatch,
 } from '../MaplestoryTypes'
 
 // TODO: needs Entity superclass
-class MapEntity extends MaplestoryEntityBase<Map> {
+class MapEntity extends MaplestoryEntityBase<MapType> {
 
   constructor(client: MaplestorySDK, entopts: any) {
     super(client, entopts)

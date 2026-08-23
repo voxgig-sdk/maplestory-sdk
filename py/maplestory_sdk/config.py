@@ -28,6 +28,9 @@ def make_config():
     return {
         "main": {
             "name": "Maplestory",
+            "slug": "maplestory",
+            "version": "0.0.1",
+            "target": "py",
         },
         "feature": {
             "test": {

@@ -33,6 +33,9 @@ class MaplestoryConfig
         return [
             "main" => [
                 "name" => "Maplestory",
+                "slug" => "maplestory",
+                "version" => "0.0.1",
+                "target" => "php",
             ],
             "feature" => [
                 "test" => [

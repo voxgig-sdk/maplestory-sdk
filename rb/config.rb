@@ -19,6 +19,9 @@ module MaplestoryConfig
     {
       "main" => {
         "name" => "Maplestory",
+        "slug" => "maplestory",
+        "version" => "0.0.1",
+        "target" => "rb",
       },
       "feature" => {
         "test" => {

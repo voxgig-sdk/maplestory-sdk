@@ -155,7 +155,7 @@ export interface JobLoadMatch {
   [action: string]: any
 }
 
-export interface Map {
+export interface MapType {
 }
 
 export interface MapLoadMatch {
