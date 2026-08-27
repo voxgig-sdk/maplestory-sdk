@@ -61,13 +61,19 @@ func TestGmsNewEntity(t *testing.T) {
 
 		// LOAD
 		gmsNewRef01Ent := client.GmsNew(nil)
-		gmsNewRef01MatchDt0 := map[string]any{}
+		gmsNewRef01MatchDt0 := map[string]any{
+			"id": gmsNewRef01Data["id"],
+		}
 		gmsNewRef01DataDt0Loaded, err := gmsNewRef01Ent.Load(gmsNewRef01MatchDt0, nil)
 		if err != nil {
 			t.Fatalf("load failed: %v", err)
 		}
-		if gmsNewRef01DataDt0Loaded == nil {
-			t.Fatal("expected load result to be non-nil")
+		gmsNewRef01DataDt0LoadResult := core.ToMapAny(entityData(gmsNewRef01DataDt0Loaded))
+		if gmsNewRef01DataDt0LoadResult == nil {
+			t.Fatal("expected load result to be a map")
+		}
+		if gmsNewRef01DataDt0LoadResult["id"] != gmsNewRef01Data["id"] {
+			t.Fatal("expected load result id to match")
 		}
 
 	})

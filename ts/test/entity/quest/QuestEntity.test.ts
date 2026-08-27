@@ -59,9 +59,12 @@ describe('QuestEntity', async () => {
 
     let quest_ref01_data = Object.values(setup.data.existing.quest)[0] as any
 
-    // LOAD: skipped — no entity id field and load requires path params.
-    // Entity-var is declared here so later flow steps still compile.
+    // LOAD
     const quest_ref01_ent = client.Quest()
+    const quest_ref01_match_dt0: any = {}
+    quest_ref01_match_dt0.id = quest_ref01_data.id
+    const quest_ref01_data_dt0 = (await quest_ref01_ent.load(quest_ref01_match_dt0)).data()
+    assert(quest_ref01_data_dt0.id === quest_ref01_data.id)
 
 
   })

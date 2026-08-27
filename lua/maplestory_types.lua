@@ -7,6 +7,7 @@
 -- edit by hand.
 
 ---@class Android
+---@field id? string
 
 ---@class AndroidLoadMatch
 ---@field id? number
@@ -72,8 +73,10 @@
 ---@class Entity1LoadMatch
 
 ---@class GmsNew
+---@field id? string
 
 ---@class GmsNewLoadMatch
+---@field id string
 
 ---@class GuildMark
 
@@ -91,6 +94,7 @@
 ---@class HealthLoadMatch
 
 ---@class Item
+---@field id? string
 
 ---@class ItemLoadMatch
 ---@field region string
@@ -99,6 +103,7 @@
 ---@field overall_category? string
 
 ---@class Job
+---@field id? string
 
 ---@class JobLoadMatch
 ---@field id? number
@@ -107,6 +112,7 @@
 ---@field version string
 
 ---@class Map
+---@field id? string
 
 ---@class MapLoadMatch
 ---@field frame? number
@@ -123,6 +129,7 @@
 ---@class MetricLoadMatch
 
 ---@class Mob
+---@field id? string
 
 ---@class MobLoadMatch
 ---@field region string
@@ -134,6 +141,7 @@
 ---@field sound_name? string
 
 ---@class Music
+---@field id? string
 
 ---@class MusicLoadMatch
 ---@field id string
@@ -147,6 +155,7 @@
 ---@field version string
 
 ---@class Npc
+---@field id? string
 
 ---@class NpcLoadMatch
 ---@field framebook? string
@@ -190,6 +199,7 @@
 ---@field wzPropertiesLoaded? number
 
 ---@class Pet
+---@field id? string
 
 ---@class PetLoadMatch
 ---@field animation? string
@@ -200,6 +210,7 @@
 ---@field render_id? string
 
 ---@class Quest
+---@field id? string
 
 ---@class QuestLoadMatch
 ---@field region string

@@ -2,19 +2,19 @@
   "existing": {
     "android": {
       "ANDROID00": {
+        "id": "ANDROID00",
         "region": "REGION01",
-        "version": "VERSION01",
-        "id": "ANDROID00"
+        "version": "VERSION01"
       },
       "ANDROID01": {
+        "id": "ANDROID01",
         "region": "REGION01",
-        "version": "VERSION01",
-        "id": "ANDROID01"
+        "version": "VERSION01"
       },
       "ANDROID02": {
+        "id": "ANDROID02",
         "region": "REGION01",
-        "version": "VERSION01",
-        "id": "ANDROID02"
+        "version": "VERSION01"
       }
     }
   },

@@ -2,22 +2,22 @@
   "existing": {
     "quest": {
       "QUEST00": {
+        "id": "QUEST00",
         "region": "REGION01",
         "version": "VERSION01",
-        "category": "CATEGORY01",
-        "id": "QUEST00"
+        "category": "CATEGORY01"
       },
       "QUEST01": {
+        "id": "QUEST01",
         "region": "REGION01",
         "version": "VERSION01",
-        "category": "CATEGORY01",
-        "id": "QUEST01"
+        "category": "CATEGORY01"
       },
       "QUEST02": {
+        "id": "QUEST02",
         "region": "REGION01",
         "version": "VERSION01",
-        "category": "CATEGORY01",
-        "id": "QUEST02"
+        "category": "CATEGORY01"
       }
     }
   },

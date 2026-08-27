@@ -48,9 +48,13 @@ class JobEntityTest extends TestCase
 
         // LOAD
         $job_ref01_ent = $client->Job(null);
-        $job_ref01_match_dt0 = [];
+        $job_ref01_match_dt0 = [
+            "id" => $job_ref01_data["id"],
+        ];
         $job_ref01_data_dt0_loaded = $job_ref01_ent->load($job_ref01_match_dt0, null);
-        $this->assertNotNull($job_ref01_data_dt0_loaded);
+        $job_ref01_data_dt0_load_result = Helpers::to_map(is_object($job_ref01_data_dt0_loaded) && method_exists($job_ref01_data_dt0_loaded, 'data_get') ? $job_ref01_data_dt0_loaded->data_get() : $job_ref01_data_dt0_loaded);
+        $this->assertNotNull($job_ref01_data_dt0_load_result);
+        $this->assertEquals($job_ref01_data_dt0_load_result["id"], $job_ref01_data["id"]);
 
     }
 }

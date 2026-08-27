@@ -59,9 +59,12 @@ describe('MusicEntity', async () => {
 
     let music_ref01_data = Object.values(setup.data.existing.music)[0] as any
 
-    // LOAD: skipped — no entity id field and load requires path params.
-    // Entity-var is declared here so later flow steps still compile.
+    // LOAD
     const music_ref01_ent = client.Music()
+    const music_ref01_match_dt0: any = {}
+    music_ref01_match_dt0.id = music_ref01_data.id
+    const music_ref01_data_dt0 = (await music_ref01_ent.load(music_ref01_match_dt0)).data()
+    assert(music_ref01_data_dt0.id === music_ref01_data.id)
 
 
   })

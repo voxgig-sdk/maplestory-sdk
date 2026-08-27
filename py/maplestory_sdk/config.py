@@ -37,6 +37,7 @@ def make_config():
         "options": {
           "active": False,
         },
+        "transport": "base",
       },
         },
         "options": {
@@ -76,7 +77,12 @@ def make_config():
         },
         "entity": {
       "android": {
-        "fields": [],
+        "fields": [
+          {
+            "name": "id",
+            "type": "`$STRING`",
+          },
+        ],
         "name": "android",
         "op": {
           "load": {
@@ -2330,7 +2336,12 @@ def make_config():
         },
       },
       "gms_new": {
-        "fields": [],
+        "fields": [
+          {
+            "name": "id",
+            "type": "`$STRING`",
+          },
+        ],
         "name": "gms_new",
         "op": {
           "load": {
@@ -2657,7 +2668,12 @@ def make_config():
         },
       },
       "item": {
-        "fields": [],
+        "fields": [
+          {
+            "name": "id",
+            "type": "`$STRING`",
+          },
+        ],
         "name": "item",
         "op": {
           "load": {
@@ -3354,7 +3370,12 @@ def make_config():
         },
       },
       "job": {
-        "fields": [],
+        "fields": [
+          {
+            "name": "id",
+            "type": "`$STRING`",
+          },
+        ],
         "name": "job",
         "op": {
           "load": {
@@ -3728,7 +3749,12 @@ def make_config():
         },
       },
       "map": {
-        "fields": [],
+        "fields": [
+          {
+            "name": "id",
+            "type": "`$STRING`",
+          },
+        ],
         "name": "map",
         "op": {
           "load": {
@@ -4522,7 +4548,12 @@ def make_config():
         },
       },
       "mob": {
-        "fields": [],
+        "fields": [
+          {
+            "name": "id",
+            "type": "`$STRING`",
+          },
+        ],
         "name": "mob",
         "op": {
           "load": {
@@ -5345,7 +5376,12 @@ def make_config():
         },
       },
       "music": {
-        "fields": [],
+        "fields": [
+          {
+            "name": "id",
+            "type": "`$STRING`",
+          },
+        ],
         "name": "music",
         "op": {
           "load": {
@@ -5492,7 +5528,12 @@ def make_config():
         },
       },
       "npc": {
-        "fields": [],
+        "fields": [
+          {
+            "name": "id",
+            "type": "`$STRING`",
+          },
+        ],
         "name": "npc",
         "op": {
           "load": {
@@ -6158,7 +6199,12 @@ def make_config():
         },
       },
       "pet": {
-        "fields": [],
+        "fields": [
+          {
+            "name": "id",
+            "type": "`$STRING`",
+          },
+        ],
         "name": "pet",
         "op": {
           "load": {
@@ -6656,7 +6702,12 @@ def make_config():
         },
       },
       "quest": {
-        "fields": [],
+        "fields": [
+          {
+            "name": "id",
+            "type": "`$STRING`",
+          },
+        ],
         "name": "quest",
         "op": {
           "load": {

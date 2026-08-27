@@ -48,9 +48,13 @@ class TestGmsNewEntity:
 
         # LOAD
         gms_new_ref01_ent = client.GmsNew(None)
-        gms_new_ref01_match_dt0 = {}
+        gms_new_ref01_match_dt0 = {
+            "id": gms_new_ref01_data["id"],
+        }
         gms_new_ref01_data_dt0_loaded = gms_new_ref01_ent.load(gms_new_ref01_match_dt0, None)
-        assert gms_new_ref01_data_dt0_loaded is not None
+        gms_new_ref01_data_dt0_load_result = helpers.to_map(runner.entity_data(gms_new_ref01_data_dt0_loaded))
+        assert gms_new_ref01_data_dt0_load_result is not None
+        assert gms_new_ref01_data_dt0_load_result["id"] == gms_new_ref01_data["id"]
 
 
 

@@ -44,10 +44,14 @@ describe("MapEntity", function()
 
     -- LOAD
     local map_ref01_ent = client:Map(nil)
-    local map_ref01_match_dt0 = {}
+    local map_ref01_match_dt0 = {
+      id = map_ref01_data["id"],
+    }
     local map_ref01_data_dt0_loaded, err = map_ref01_ent:load(map_ref01_match_dt0, nil)
     assert.is_nil(err)
-    assert.is_not_nil(map_ref01_data_dt0_loaded)
+    local map_ref01_data_dt0_load_result = helpers.to_map(type(map_ref01_data_dt0_loaded) == 'table' and map_ref01_data_dt0_loaded.data_get and map_ref01_data_dt0_loaded:data_get() or map_ref01_data_dt0_loaded)
+    assert.is_not_nil(map_ref01_data_dt0_load_result)
+    assert.are.equal(map_ref01_data_dt0_load_result["id"], map_ref01_data["id"])
 
   end)
 end)

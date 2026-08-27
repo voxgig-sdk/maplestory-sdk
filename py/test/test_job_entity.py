@@ -48,9 +48,13 @@ class TestJobEntity:
 
         # LOAD
         job_ref01_ent = client.Job(None)
-        job_ref01_match_dt0 = {}
+        job_ref01_match_dt0 = {
+            "id": job_ref01_data["id"],
+        }
         job_ref01_data_dt0_loaded = job_ref01_ent.load(job_ref01_match_dt0, None)
-        assert job_ref01_data_dt0_loaded is not None
+        job_ref01_data_dt0_load_result = helpers.to_map(runner.entity_data(job_ref01_data_dt0_loaded))
+        assert job_ref01_data_dt0_load_result is not None
+        assert job_ref01_data_dt0_load_result["id"] == job_ref01_data["id"]
 
 
 

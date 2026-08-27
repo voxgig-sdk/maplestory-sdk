@@ -14,6 +14,7 @@ import (
 
 // Android is the typed data model for the android entity.
 type Android struct {
+	Id *string `json:"id,omitempty"`
 }
 
 // AndroidLoadMatch is the typed request payload for Android.LoadTyped.
@@ -111,10 +112,12 @@ type Entity1LoadMatch struct {
 
 // GmsNew is the typed data model for the gms_new entity.
 type GmsNew struct {
+	Id *string `json:"id,omitempty"`
 }
 
 // GmsNewLoadMatch is the typed request payload for GmsNew.LoadTyped.
 type GmsNewLoadMatch struct {
+	Id string `json:"id"`
 }
 
 // GuildMark is the typed data model for the guild_mark entity.
@@ -142,6 +145,7 @@ type HealthLoadMatch struct {
 
 // Item is the typed data model for the item entity.
 type Item struct {
+	Id *string `json:"id,omitempty"`
 }
 
 // ItemLoadMatch is the typed request payload for Item.LoadTyped.
@@ -154,6 +158,7 @@ type ItemLoadMatch struct {
 
 // Job is the typed data model for the job entity.
 type Job struct {
+	Id *string `json:"id,omitempty"`
 }
 
 // JobLoadMatch is the typed request payload for Job.LoadTyped.
@@ -166,6 +171,7 @@ type JobLoadMatch struct {
 
 // Map is the typed data model for the map entity.
 type Map struct {
+	Id *string `json:"id,omitempty"`
 }
 
 // MapLoadMatch is the typed request payload for Map.LoadTyped.
@@ -190,6 +196,7 @@ type MetricLoadMatch struct {
 
 // Mob is the typed data model for the mob entity.
 type Mob struct {
+	Id *string `json:"id,omitempty"`
 }
 
 // MobLoadMatch is the typed request payload for Mob.LoadTyped.
@@ -205,6 +212,7 @@ type MobLoadMatch struct {
 
 // Music is the typed data model for the music entity.
 type Music struct {
+	Id *string `json:"id,omitempty"`
 }
 
 // MusicLoadMatch is the typed request payload for Music.LoadTyped.
@@ -226,6 +234,7 @@ type NameLoadMatch struct {
 
 // Npc is the typed data model for the npc entity.
 type Npc struct {
+	Id *string `json:"id,omitempty"`
 }
 
 // NpcLoadMatch is the typed request payload for Npc.LoadTyped.
@@ -281,6 +290,7 @@ type PerformanceMetricLoadMatch struct {
 
 // Pet is the typed data model for the pet entity.
 type Pet struct {
+	Id *string `json:"id,omitempty"`
 }
 
 // PetLoadMatch is the typed request payload for Pet.LoadTyped.
@@ -295,6 +305,7 @@ type PetLoadMatch struct {
 
 // Quest is the typed data model for the quest entity.
 type Quest struct {
+	Id *string `json:"id,omitempty"`
 }
 
 // QuestLoadMatch is the typed request payload for Quest.LoadTyped.

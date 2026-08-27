@@ -41,9 +41,13 @@ class PetEntityTest < Minitest::Test
 
     # LOAD
     pet_ref01_ent = client.Pet(nil)
-    pet_ref01_match_dt0 = {}
+    pet_ref01_match_dt0 = {
+      "id" => pet_ref01_data["id"],
+    }
     pet_ref01_data_dt0_loaded = pet_ref01_ent.load(pet_ref01_match_dt0, nil)
-    assert !pet_ref01_data_dt0_loaded.nil?
+    pet_ref01_data_dt0_load_result = Helpers.to_map(pet_ref01_data_dt0_loaded.respond_to?(:data_get) ? pet_ref01_data_dt0_loaded.data_get : pet_ref01_data_dt0_loaded)
+    assert !pet_ref01_data_dt0_load_result.nil?
+    assert_equal pet_ref01_data_dt0_load_result["id"], pet_ref01_data["id"]
 
   end
 end

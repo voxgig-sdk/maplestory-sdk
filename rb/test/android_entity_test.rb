@@ -41,9 +41,13 @@ class AndroidEntityTest < Minitest::Test
 
     # LOAD
     android_ref01_ent = client.Android(nil)
-    android_ref01_match_dt0 = {}
+    android_ref01_match_dt0 = {
+      "id" => android_ref01_data["id"],
+    }
     android_ref01_data_dt0_loaded = android_ref01_ent.load(android_ref01_match_dt0, nil)
-    assert !android_ref01_data_dt0_loaded.nil?
+    android_ref01_data_dt0_load_result = Helpers.to_map(android_ref01_data_dt0_loaded.respond_to?(:data_get) ? android_ref01_data_dt0_loaded.data_get : android_ref01_data_dt0_loaded)
+    assert !android_ref01_data_dt0_load_result.nil?
+    assert_equal android_ref01_data_dt0_load_result["id"], android_ref01_data["id"]
 
   end
 end

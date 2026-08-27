@@ -2,22 +2,22 @@
   "existing": {
     "item": {
       "ITEM00": {
+        "id": "ITEM00",
         "region": "REGION01",
         "version": "VERSION01",
-        "overall_category": "OVERALL_CATEGORY01",
-        "id": "ITEM00"
+        "overall_category": "OVERALL_CATEGORY01"
       },
       "ITEM01": {
+        "id": "ITEM01",
         "region": "REGION01",
         "version": "VERSION01",
-        "overall_category": "OVERALL_CATEGORY01",
-        "id": "ITEM01"
+        "overall_category": "OVERALL_CATEGORY01"
       },
       "ITEM02": {
+        "id": "ITEM02",
         "region": "REGION01",
         "version": "VERSION01",
-        "overall_category": "OVERALL_CATEGORY01",
-        "id": "ITEM02"
+        "overall_category": "OVERALL_CATEGORY01"
       }
     }
   },

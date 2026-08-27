@@ -2,28 +2,28 @@
   "existing": {
     "pet": {
       "PET00": {
+        "id": "PET00",
         "animation": "ANIMATION01",
         "pet_id": "PET01",
         "region": "REGION01",
         "version": "VERSION01",
-        "render_id": "RENDER01",
-        "id": "PET00"
+        "render_id": "RENDER01"
       },
       "PET01": {
+        "id": "PET01",
         "animation": "ANIMATION01",
         "pet_id": "PET01",
         "region": "REGION01",
         "version": "VERSION01",
-        "render_id": "RENDER01",
-        "id": "PET01"
+        "render_id": "RENDER01"
       },
       "PET02": {
+        "id": "PET02",
         "animation": "ANIMATION01",
         "pet_id": "PET01",
         "region": "REGION01",
         "version": "VERSION01",
-        "render_id": "RENDER01",
-        "id": "PET02"
+        "render_id": "RENDER01"
       }
     }
   },

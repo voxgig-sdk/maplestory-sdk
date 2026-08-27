@@ -48,9 +48,13 @@ class GmsNewEntityTest extends TestCase
 
         // LOAD
         $gms_new_ref01_ent = $client->GmsNew(null);
-        $gms_new_ref01_match_dt0 = [];
+        $gms_new_ref01_match_dt0 = [
+            "id" => $gms_new_ref01_data["id"],
+        ];
         $gms_new_ref01_data_dt0_loaded = $gms_new_ref01_ent->load($gms_new_ref01_match_dt0, null);
-        $this->assertNotNull($gms_new_ref01_data_dt0_loaded);
+        $gms_new_ref01_data_dt0_load_result = Helpers::to_map(is_object($gms_new_ref01_data_dt0_loaded) && method_exists($gms_new_ref01_data_dt0_loaded, 'data_get') ? $gms_new_ref01_data_dt0_loaded->data_get() : $gms_new_ref01_data_dt0_loaded);
+        $this->assertNotNull($gms_new_ref01_data_dt0_load_result);
+        $this->assertEquals($gms_new_ref01_data_dt0_load_result["id"], $gms_new_ref01_data["id"]);
 
     }
 }

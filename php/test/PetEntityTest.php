@@ -48,9 +48,13 @@ class PetEntityTest extends TestCase
 
         // LOAD
         $pet_ref01_ent = $client->Pet(null);
-        $pet_ref01_match_dt0 = [];
+        $pet_ref01_match_dt0 = [
+            "id" => $pet_ref01_data["id"],
+        ];
         $pet_ref01_data_dt0_loaded = $pet_ref01_ent->load($pet_ref01_match_dt0, null);
-        $this->assertNotNull($pet_ref01_data_dt0_loaded);
+        $pet_ref01_data_dt0_load_result = Helpers::to_map(is_object($pet_ref01_data_dt0_loaded) && method_exists($pet_ref01_data_dt0_loaded, 'data_get') ? $pet_ref01_data_dt0_loaded->data_get() : $pet_ref01_data_dt0_loaded);
+        $this->assertNotNull($pet_ref01_data_dt0_load_result);
+        $this->assertEquals($pet_ref01_data_dt0_load_result["id"], $pet_ref01_data["id"]);
 
     }
 }

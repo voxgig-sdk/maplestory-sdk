@@ -59,9 +59,12 @@ describe('JobEntity', async () => {
 
     let job_ref01_data = Object.values(setup.data.existing.job)[0] as any
 
-    // LOAD: skipped — no entity id field and load requires path params.
-    // Entity-var is declared here so later flow steps still compile.
+    // LOAD
     const job_ref01_ent = client.Job()
+    const job_ref01_match_dt0: any = {}
+    job_ref01_match_dt0.id = job_ref01_data.id
+    const job_ref01_data_dt0 = (await job_ref01_ent.load(job_ref01_match_dt0)).data()
+    assert(job_ref01_data_dt0.id === job_ref01_data.id)
 
 
   })

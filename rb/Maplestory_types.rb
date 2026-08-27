@@ -9,8 +9,13 @@
 # annotations document the shapes. Do not edit by hand.
 
 # Android entity data model.
-class Android
-end
+#
+# @!attribute [rw] id
+#   @return [String, nil]
+Android = Struct.new(
+  :id,
+  keyword_init: true
+)
 
 # Request payload for Android#load.
 #
@@ -214,12 +219,22 @@ class Entity1LoadMatch
 end
 
 # GmsNew entity data model.
-class GmsNew
-end
+#
+# @!attribute [rw] id
+#   @return [String, nil]
+GmsNew = Struct.new(
+  :id,
+  keyword_init: true
+)
 
 # Request payload for GmsNew#load.
-class GmsNewLoadMatch
-end
+#
+# @!attribute [rw] id
+#   @return [String]
+GmsNewLoadMatch = Struct.new(
+  :id,
+  keyword_init: true
+)
 
 # GuildMark entity data model.
 class GuildMark
@@ -267,8 +282,13 @@ class HealthLoadMatch
 end
 
 # Item entity data model.
-class Item
-end
+#
+# @!attribute [rw] id
+#   @return [String, nil]
+Item = Struct.new(
+  :id,
+  keyword_init: true
+)
 
 # Request payload for Item#load.
 #
@@ -292,8 +312,13 @@ ItemLoadMatch = Struct.new(
 )
 
 # Job entity data model.
-class Job
-end
+#
+# @!attribute [rw] id
+#   @return [String, nil]
+Job = Struct.new(
+  :id,
+  keyword_init: true
+)
 
 # Request payload for Job#load.
 #
@@ -317,8 +342,13 @@ JobLoadMatch = Struct.new(
 )
 
 # Map entity data model.
-class Map
-end
+#
+# @!attribute [rw] id
+#   @return [String, nil]
+Map = Struct.new(
+  :id,
+  keyword_init: true
+)
 
 # Request payload for Map#load.
 #
@@ -366,8 +396,13 @@ class MetricLoadMatch
 end
 
 # Mob entity data model.
-class Mob
-end
+#
+# @!attribute [rw] id
+#   @return [String, nil]
+Mob = Struct.new(
+  :id,
+  keyword_init: true
+)
 
 # Request payload for Mob#load.
 #
@@ -403,8 +438,13 @@ MobLoadMatch = Struct.new(
 )
 
 # Music entity data model.
-class Music
-end
+#
+# @!attribute [rw] id
+#   @return [String, nil]
+Music = Struct.new(
+  :id,
+  keyword_init: true
+)
 
 # Request payload for Music#load.
 #
@@ -441,8 +481,13 @@ NameLoadMatch = Struct.new(
 )
 
 # Npc entity data model.
-class Npc
-end
+#
+# @!attribute [rw] id
+#   @return [String, nil]
+Npc = Struct.new(
+  :id,
+  keyword_init: true
+)
 
 # Request payload for Npc#load.
 #
@@ -592,8 +637,13 @@ PerformanceMetricLoadMatch = Struct.new(
 )
 
 # Pet entity data model.
-class Pet
-end
+#
+# @!attribute [rw] id
+#   @return [String, nil]
+Pet = Struct.new(
+  :id,
+  keyword_init: true
+)
 
 # Request payload for Pet#load.
 #
@@ -625,8 +675,13 @@ PetLoadMatch = Struct.new(
 )
 
 # Quest entity data model.
-class Quest
-end
+#
+# @!attribute [rw] id
+#   @return [String, nil]
+Quest = Struct.new(
+  :id,
+  keyword_init: true
+)
 
 # Request payload for Quest#load.
 #

@@ -20,6 +20,7 @@ func MakeConfig() map[string]any {
 				"options": map[string]any{
 					"active": false,
 				},
+				"transport": "base",
 			},
 		},
 		"options": map[string]any{
@@ -59,7 +60,12 @@ func MakeConfig() map[string]any {
 		},
 		"entity": map[string]any{
 			"android": map[string]any{
-				"fields": []any{},
+				"fields": []any{
+					map[string]any{
+						"name": "id",
+						"type": "`$STRING`",
+					},
+				},
 				"name": "android",
 				"op": map[string]any{
 					"load": map[string]any{
@@ -2313,7 +2319,12 @@ func MakeConfig() map[string]any {
 				},
 			},
 			"gms_new": map[string]any{
-				"fields": []any{},
+				"fields": []any{
+					map[string]any{
+						"name": "id",
+						"type": "`$STRING`",
+					},
+				},
 				"name": "gms_new",
 				"op": map[string]any{
 					"load": map[string]any{
@@ -2640,7 +2651,12 @@ func MakeConfig() map[string]any {
 				},
 			},
 			"item": map[string]any{
-				"fields": []any{},
+				"fields": []any{
+					map[string]any{
+						"name": "id",
+						"type": "`$STRING`",
+					},
+				},
 				"name": "item",
 				"op": map[string]any{
 					"load": map[string]any{
@@ -3337,7 +3353,12 @@ func MakeConfig() map[string]any {
 				},
 			},
 			"job": map[string]any{
-				"fields": []any{},
+				"fields": []any{
+					map[string]any{
+						"name": "id",
+						"type": "`$STRING`",
+					},
+				},
 				"name": "job",
 				"op": map[string]any{
 					"load": map[string]any{
@@ -3711,7 +3732,12 @@ func MakeConfig() map[string]any {
 				},
 			},
 			"map": map[string]any{
-				"fields": []any{},
+				"fields": []any{
+					map[string]any{
+						"name": "id",
+						"type": "`$STRING`",
+					},
+				},
 				"name": "map",
 				"op": map[string]any{
 					"load": map[string]any{
@@ -4505,7 +4531,12 @@ func MakeConfig() map[string]any {
 				},
 			},
 			"mob": map[string]any{
-				"fields": []any{},
+				"fields": []any{
+					map[string]any{
+						"name": "id",
+						"type": "`$STRING`",
+					},
+				},
 				"name": "mob",
 				"op": map[string]any{
 					"load": map[string]any{
@@ -5328,7 +5359,12 @@ func MakeConfig() map[string]any {
 				},
 			},
 			"music": map[string]any{
-				"fields": []any{},
+				"fields": []any{
+					map[string]any{
+						"name": "id",
+						"type": "`$STRING`",
+					},
+				},
 				"name": "music",
 				"op": map[string]any{
 					"load": map[string]any{
@@ -5475,7 +5511,12 @@ func MakeConfig() map[string]any {
 				},
 			},
 			"npc": map[string]any{
-				"fields": []any{},
+				"fields": []any{
+					map[string]any{
+						"name": "id",
+						"type": "`$STRING`",
+					},
+				},
 				"name": "npc",
 				"op": map[string]any{
 					"load": map[string]any{
@@ -6141,7 +6182,12 @@ func MakeConfig() map[string]any {
 				},
 			},
 			"pet": map[string]any{
-				"fields": []any{},
+				"fields": []any{
+					map[string]any{
+						"name": "id",
+						"type": "`$STRING`",
+					},
+				},
 				"name": "pet",
 				"op": map[string]any{
 					"load": map[string]any{
@@ -6639,7 +6685,12 @@ func MakeConfig() map[string]any {
 				},
 			},
 			"quest": map[string]any{
-				"fields": []any{},
+				"fields": []any{
+					map[string]any{
+						"name": "id",
+						"type": "`$STRING`",
+					},
+				},
 				"name": "quest",
 				"op": map[string]any{
 					"load": map[string]any{

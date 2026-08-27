@@ -61,13 +61,19 @@ func TestMusicEntity(t *testing.T) {
 
 		// LOAD
 		musicRef01Ent := client.Music(nil)
-		musicRef01MatchDt0 := map[string]any{}
+		musicRef01MatchDt0 := map[string]any{
+			"id": musicRef01Data["id"],
+		}
 		musicRef01DataDt0Loaded, err := musicRef01Ent.Load(musicRef01MatchDt0, nil)
 		if err != nil {
 			t.Fatalf("load failed: %v", err)
 		}
-		if musicRef01DataDt0Loaded == nil {
-			t.Fatal("expected load result to be non-nil")
+		musicRef01DataDt0LoadResult := core.ToMapAny(entityData(musicRef01DataDt0Loaded))
+		if musicRef01DataDt0LoadResult == nil {
+			t.Fatal("expected load result to be a map")
+		}
+		if musicRef01DataDt0LoadResult["id"] != musicRef01Data["id"] {
+			t.Fatal("expected load result id to match")
 		}
 
 	})

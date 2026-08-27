@@ -48,9 +48,13 @@ class TestAndroidEntity:
 
         # LOAD
         android_ref01_ent = client.Android(None)
-        android_ref01_match_dt0 = {}
+        android_ref01_match_dt0 = {
+            "id": android_ref01_data["id"],
+        }
         android_ref01_data_dt0_loaded = android_ref01_ent.load(android_ref01_match_dt0, None)
-        assert android_ref01_data_dt0_loaded is not None
+        android_ref01_data_dt0_load_result = helpers.to_map(runner.entity_data(android_ref01_data_dt0_loaded))
+        assert android_ref01_data_dt0_load_result is not None
+        assert android_ref01_data_dt0_load_result["id"] == android_ref01_data["id"]
 
 
 

@@ -190,6 +190,12 @@ same parameters as `direct()`.
 local android = client:Android(nil)
 ```
 
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
+
 ### Operations
 
 #### `load(reqmatch, ctrl) -> any, err`
@@ -577,6 +583,12 @@ Return the entity name.
 local gms_new = client:GmsNew(nil)
 ```
 
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
+
 ### Operations
 
 #### `load(reqmatch, ctrl) -> any, err`
@@ -584,7 +596,7 @@ local gms_new = client:GmsNew(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:GmsNew():load()
+local result, err = client:GmsNew():load({ id = "gms_new_id" })
 ```
 
 ### Common Methods
@@ -715,6 +727,12 @@ Return the entity name.
 local item = client:Item(nil)
 ```
 
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
+
 ### Operations
 
 #### `load(reqmatch, ctrl) -> any, err`
@@ -761,6 +779,12 @@ Return the entity name.
 local job = client:Job(nil)
 ```
 
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
+
 ### Operations
 
 #### `load(reqmatch, ctrl) -> any, err`
@@ -806,6 +830,12 @@ Return the entity name.
 ```lua
 local map = client:Map(nil)
 ```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
 
 ### Operations
 
@@ -899,6 +929,12 @@ Return the entity name.
 local mob = client:Mob(nil)
 ```
 
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
+
 ### Operations
 
 #### `load(reqmatch, ctrl) -> any, err`
@@ -944,6 +980,12 @@ Return the entity name.
 ```lua
 local music = client:Music(nil)
 ```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
 
 ### Operations
 
@@ -1036,6 +1078,12 @@ Return the entity name.
 ```lua
 local npc = client:Npc(nil)
 ```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
 
 ### Operations
 
@@ -1193,6 +1241,12 @@ Return the entity name.
 local pet = client:Pet(nil)
 ```
 
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
+
 ### Operations
 
 #### `load(reqmatch, ctrl) -> any, err`
@@ -1238,6 +1292,12 @@ Return the entity name.
 ```lua
 local quest = client:Quest(nil)
 ```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
 
 ### Operations
 

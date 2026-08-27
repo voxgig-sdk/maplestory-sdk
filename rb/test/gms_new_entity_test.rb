@@ -41,9 +41,13 @@ class GmsNewEntityTest < Minitest::Test
 
     # LOAD
     gms_new_ref01_ent = client.GmsNew(nil)
-    gms_new_ref01_match_dt0 = {}
+    gms_new_ref01_match_dt0 = {
+      "id" => gms_new_ref01_data["id"],
+    }
     gms_new_ref01_data_dt0_loaded = gms_new_ref01_ent.load(gms_new_ref01_match_dt0, nil)
-    assert !gms_new_ref01_data_dt0_loaded.nil?
+    gms_new_ref01_data_dt0_load_result = Helpers.to_map(gms_new_ref01_data_dt0_loaded.respond_to?(:data_get) ? gms_new_ref01_data_dt0_loaded.data_get : gms_new_ref01_data_dt0_loaded)
+    assert !gms_new_ref01_data_dt0_load_result.nil?
+    assert_equal gms_new_ref01_data_dt0_load_result["id"], gms_new_ref01_data["id"]
 
   end
 end

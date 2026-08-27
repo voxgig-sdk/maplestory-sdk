@@ -16,6 +16,7 @@ local function make_config()
         ["options"] = {
           ["active"] = false,
         },
+        ["transport"] = "base",
       },
     },
     options = {
@@ -55,7 +56,12 @@ local function make_config()
     },
     entity = {
       ["android"] = {
-        ["fields"] = {},
+        ["fields"] = {
+          {
+            ["name"] = "id",
+            ["type"] = "`$STRING`",
+          },
+        },
         ["name"] = "android",
         ["op"] = {
           ["load"] = {
@@ -2309,7 +2315,12 @@ local function make_config()
         },
       },
       ["gms_new"] = {
-        ["fields"] = {},
+        ["fields"] = {
+          {
+            ["name"] = "id",
+            ["type"] = "`$STRING`",
+          },
+        },
         ["name"] = "gms_new",
         ["op"] = {
           ["load"] = {
@@ -2636,7 +2647,12 @@ local function make_config()
         },
       },
       ["item"] = {
-        ["fields"] = {},
+        ["fields"] = {
+          {
+            ["name"] = "id",
+            ["type"] = "`$STRING`",
+          },
+        },
         ["name"] = "item",
         ["op"] = {
           ["load"] = {
@@ -3333,7 +3349,12 @@ local function make_config()
         },
       },
       ["job"] = {
-        ["fields"] = {},
+        ["fields"] = {
+          {
+            ["name"] = "id",
+            ["type"] = "`$STRING`",
+          },
+        },
         ["name"] = "job",
         ["op"] = {
           ["load"] = {
@@ -3707,7 +3728,12 @@ local function make_config()
         },
       },
       ["map"] = {
-        ["fields"] = {},
+        ["fields"] = {
+          {
+            ["name"] = "id",
+            ["type"] = "`$STRING`",
+          },
+        },
         ["name"] = "map",
         ["op"] = {
           ["load"] = {
@@ -4501,7 +4527,12 @@ local function make_config()
         },
       },
       ["mob"] = {
-        ["fields"] = {},
+        ["fields"] = {
+          {
+            ["name"] = "id",
+            ["type"] = "`$STRING`",
+          },
+        },
         ["name"] = "mob",
         ["op"] = {
           ["load"] = {
@@ -5324,7 +5355,12 @@ local function make_config()
         },
       },
       ["music"] = {
-        ["fields"] = {},
+        ["fields"] = {
+          {
+            ["name"] = "id",
+            ["type"] = "`$STRING`",
+          },
+        },
         ["name"] = "music",
         ["op"] = {
           ["load"] = {
@@ -5471,7 +5507,12 @@ local function make_config()
         },
       },
       ["npc"] = {
-        ["fields"] = {},
+        ["fields"] = {
+          {
+            ["name"] = "id",
+            ["type"] = "`$STRING`",
+          },
+        },
         ["name"] = "npc",
         ["op"] = {
           ["load"] = {
@@ -6137,7 +6178,12 @@ local function make_config()
         },
       },
       ["pet"] = {
-        ["fields"] = {},
+        ["fields"] = {
+          {
+            ["name"] = "id",
+            ["type"] = "`$STRING`",
+          },
+        },
         ["name"] = "pet",
         ["op"] = {
           ["load"] = {
@@ -6635,7 +6681,12 @@ local function make_config()
         },
       },
       ["quest"] = {
-        ["fields"] = {},
+        ["fields"] = {
+          {
+            ["name"] = "id",
+            ["type"] = "`$STRING`",
+          },
+        },
         ["name"] = "quest",
         ["op"] = {
           ["load"] = {

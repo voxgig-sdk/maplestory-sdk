@@ -44,10 +44,14 @@ describe("GmsNewEntity", function()
 
     -- LOAD
     local gms_new_ref01_ent = client:GmsNew(nil)
-    local gms_new_ref01_match_dt0 = {}
+    local gms_new_ref01_match_dt0 = {
+      id = gms_new_ref01_data["id"],
+    }
     local gms_new_ref01_data_dt0_loaded, err = gms_new_ref01_ent:load(gms_new_ref01_match_dt0, nil)
     assert.is_nil(err)
-    assert.is_not_nil(gms_new_ref01_data_dt0_loaded)
+    local gms_new_ref01_data_dt0_load_result = helpers.to_map(type(gms_new_ref01_data_dt0_loaded) == 'table' and gms_new_ref01_data_dt0_loaded.data_get and gms_new_ref01_data_dt0_loaded:data_get() or gms_new_ref01_data_dt0_loaded)
+    assert.is_not_nil(gms_new_ref01_data_dt0_load_result)
+    assert.are.equal(gms_new_ref01_data_dt0_load_result["id"], gms_new_ref01_data["id"])
 
   end)
 end)

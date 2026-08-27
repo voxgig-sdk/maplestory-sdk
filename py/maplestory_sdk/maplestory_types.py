@@ -16,8 +16,8 @@ from __future__ import annotations
 from typing import TypedDict, Any
 
 
-class Android(TypedDict):
-    pass
+class Android(TypedDict, total=False):
+    id: str
 
 
 class AndroidLoadMatchRequired(TypedDict):
@@ -113,12 +113,12 @@ class Entity1LoadMatch(TypedDict):
     pass
 
 
-class GmsNew(TypedDict):
-    pass
+class GmsNew(TypedDict, total=False):
+    id: str
 
 
 class GmsNewLoadMatch(TypedDict):
-    pass
+    id: str
 
 
 class GuildMark(TypedDict):
@@ -146,8 +146,8 @@ class HealthLoadMatch(TypedDict):
     pass
 
 
-class Item(TypedDict):
-    pass
+class Item(TypedDict, total=False):
+    id: str
 
 
 class ItemLoadMatchRequired(TypedDict):
@@ -160,8 +160,8 @@ class ItemLoadMatch(ItemLoadMatchRequired, total=False):
     overall_category: str
 
 
-class Job(TypedDict):
-    pass
+class Job(TypedDict, total=False):
+    id: str
 
 
 class JobLoadMatchRequired(TypedDict):
@@ -174,8 +174,8 @@ class JobLoadMatch(JobLoadMatchRequired, total=False):
     skill_id: int
 
 
-class Map(TypedDict):
-    pass
+class Map(TypedDict, total=False):
+    id: str
 
 
 class MapLoadMatchRequired(TypedDict):
@@ -200,8 +200,8 @@ class MetricLoadMatch(TypedDict):
     pass
 
 
-class Mob(TypedDict):
-    pass
+class Mob(TypedDict, total=False):
+    id: str
 
 
 class MobLoadMatchRequired(TypedDict):
@@ -217,8 +217,8 @@ class MobLoadMatch(MobLoadMatchRequired, total=False):
     sound_name: str
 
 
-class Music(TypedDict):
-    pass
+class Music(TypedDict, total=False):
+    id: str
 
 
 class MusicLoadMatch(TypedDict):
@@ -236,8 +236,8 @@ class NameLoadMatch(TypedDict):
     version: str
 
 
-class Npc(TypedDict):
-    pass
+class Npc(TypedDict, total=False):
+    id: str
 
 
 class NpcLoadMatchRequired(TypedDict):
@@ -291,8 +291,8 @@ class PerformanceMetricLoadMatch(TypedDict, total=False):
     wzPropertiesLoaded: int
 
 
-class Pet(TypedDict):
-    pass
+class Pet(TypedDict, total=False):
+    id: str
 
 
 class PetLoadMatchRequired(TypedDict):
@@ -307,8 +307,8 @@ class PetLoadMatch(PetLoadMatchRequired, total=False):
     render_id: str
 
 
-class Quest(TypedDict):
-    pass
+class Quest(TypedDict, total=False):
+    id: str
 
 
 class QuestLoadMatchRequired(TypedDict):

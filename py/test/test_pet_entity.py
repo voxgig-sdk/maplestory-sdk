@@ -48,9 +48,13 @@ class TestPetEntity:
 
         # LOAD
         pet_ref01_ent = client.Pet(None)
-        pet_ref01_match_dt0 = {}
+        pet_ref01_match_dt0 = {
+            "id": pet_ref01_data["id"],
+        }
         pet_ref01_data_dt0_loaded = pet_ref01_ent.load(pet_ref01_match_dt0, None)
-        assert pet_ref01_data_dt0_loaded is not None
+        pet_ref01_data_dt0_load_result = helpers.to_map(runner.entity_data(pet_ref01_data_dt0_loaded))
+        assert pet_ref01_data_dt0_load_result is not None
+        assert pet_ref01_data_dt0_load_result["id"] == pet_ref01_data["id"]
 
 
 

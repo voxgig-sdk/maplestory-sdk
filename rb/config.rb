@@ -28,6 +28,7 @@ module MaplestoryConfig
           "options" => {
             "active" => false,
           },
+          "transport" => "base",
         },
       },
       "options" => {
@@ -67,7 +68,12 @@ module MaplestoryConfig
       },
       "entity" => {
         "android" => {
-          "fields" => [],
+          "fields" => [
+            {
+              "name" => "id",
+              "type" => "`$STRING`",
+            },
+          ],
           "name" => "android",
           "op" => {
             "load" => {
@@ -2321,7 +2327,12 @@ module MaplestoryConfig
           },
         },
         "gms_new" => {
-          "fields" => [],
+          "fields" => [
+            {
+              "name" => "id",
+              "type" => "`$STRING`",
+            },
+          ],
           "name" => "gms_new",
           "op" => {
             "load" => {
@@ -2648,7 +2659,12 @@ module MaplestoryConfig
           },
         },
         "item" => {
-          "fields" => [],
+          "fields" => [
+            {
+              "name" => "id",
+              "type" => "`$STRING`",
+            },
+          ],
           "name" => "item",
           "op" => {
             "load" => {
@@ -3345,7 +3361,12 @@ module MaplestoryConfig
           },
         },
         "job" => {
-          "fields" => [],
+          "fields" => [
+            {
+              "name" => "id",
+              "type" => "`$STRING`",
+            },
+          ],
           "name" => "job",
           "op" => {
             "load" => {
@@ -3719,7 +3740,12 @@ module MaplestoryConfig
           },
         },
         "map" => {
-          "fields" => [],
+          "fields" => [
+            {
+              "name" => "id",
+              "type" => "`$STRING`",
+            },
+          ],
           "name" => "map",
           "op" => {
             "load" => {
@@ -4513,7 +4539,12 @@ module MaplestoryConfig
           },
         },
         "mob" => {
-          "fields" => [],
+          "fields" => [
+            {
+              "name" => "id",
+              "type" => "`$STRING`",
+            },
+          ],
           "name" => "mob",
           "op" => {
             "load" => {
@@ -5336,7 +5367,12 @@ module MaplestoryConfig
           },
         },
         "music" => {
-          "fields" => [],
+          "fields" => [
+            {
+              "name" => "id",
+              "type" => "`$STRING`",
+            },
+          ],
           "name" => "music",
           "op" => {
             "load" => {
@@ -5483,7 +5519,12 @@ module MaplestoryConfig
           },
         },
         "npc" => {
-          "fields" => [],
+          "fields" => [
+            {
+              "name" => "id",
+              "type" => "`$STRING`",
+            },
+          ],
           "name" => "npc",
           "op" => {
             "load" => {
@@ -6149,7 +6190,12 @@ module MaplestoryConfig
           },
         },
         "pet" => {
-          "fields" => [],
+          "fields" => [
+            {
+              "name" => "id",
+              "type" => "`$STRING`",
+            },
+          ],
           "name" => "pet",
           "op" => {
             "load" => {
@@ -6647,7 +6693,12 @@ module MaplestoryConfig
           },
         },
         "quest" => {
-          "fields" => [],
+          "fields" => [
+            {
+              "name" => "id",
+              "type" => "`$STRING`",
+            },
+          ],
           "name" => "quest",
           "op" => {
             "load" => {

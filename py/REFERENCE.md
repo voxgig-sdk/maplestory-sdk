@@ -187,6 +187,12 @@ Prepare a fetch definition without sending. Returns the `fetchdef` and raises on
 android = client.Android()
 ```
 
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `str` | No |  |
+
 ### Operations
 
 #### `load(reqmatch, ctrl=None) -> dict`
@@ -568,6 +574,12 @@ Return the entity name.
 gms_new = client.GmsNew()
 ```
 
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `str` | No |  |
+
 ### Operations
 
 #### `load(reqmatch, ctrl=None) -> dict`
@@ -575,7 +587,7 @@ gms_new = client.GmsNew()
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.GmsNew().load()
+result = client.GmsNew().load({"id": "gms_new_id"})
 ```
 
 ### Common Methods
@@ -703,6 +715,12 @@ Return the entity name.
 item = client.Item()
 ```
 
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `str` | No |  |
+
 ### Operations
 
 #### `load(reqmatch, ctrl=None) -> dict`
@@ -748,6 +766,12 @@ Return the entity name.
 job = client.Job()
 ```
 
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `str` | No |  |
+
 ### Operations
 
 #### `load(reqmatch, ctrl=None) -> dict`
@@ -792,6 +816,12 @@ Return the entity name.
 ```python
 map = client.Map()
 ```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `str` | No |  |
 
 ### Operations
 
@@ -883,6 +913,12 @@ Return the entity name.
 mob = client.Mob()
 ```
 
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `str` | No |  |
+
 ### Operations
 
 #### `load(reqmatch, ctrl=None) -> dict`
@@ -927,6 +963,12 @@ Return the entity name.
 ```python
 music = client.Music()
 ```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `str` | No |  |
 
 ### Operations
 
@@ -1017,6 +1059,12 @@ Return the entity name.
 ```python
 npc = client.Npc()
 ```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `str` | No |  |
 
 ### Operations
 
@@ -1171,6 +1219,12 @@ Return the entity name.
 pet = client.Pet()
 ```
 
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `str` | No |  |
+
 ### Operations
 
 #### `load(reqmatch, ctrl=None) -> dict`
@@ -1215,6 +1269,12 @@ Return the entity name.
 ```python
 quest = client.Quest()
 ```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `str` | No |  |
 
 ### Operations
 

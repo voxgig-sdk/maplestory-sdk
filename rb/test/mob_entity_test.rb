@@ -41,9 +41,13 @@ class MobEntityTest < Minitest::Test
 
     # LOAD
     mob_ref01_ent = client.Mob(nil)
-    mob_ref01_match_dt0 = {}
+    mob_ref01_match_dt0 = {
+      "id" => mob_ref01_data["id"],
+    }
     mob_ref01_data_dt0_loaded = mob_ref01_ent.load(mob_ref01_match_dt0, nil)
-    assert !mob_ref01_data_dt0_loaded.nil?
+    mob_ref01_data_dt0_load_result = Helpers.to_map(mob_ref01_data_dt0_loaded.respond_to?(:data_get) ? mob_ref01_data_dt0_loaded.data_get : mob_ref01_data_dt0_loaded)
+    assert !mob_ref01_data_dt0_load_result.nil?
+    assert_equal mob_ref01_data_dt0_load_result["id"], mob_ref01_data["id"]
 
   end
 end

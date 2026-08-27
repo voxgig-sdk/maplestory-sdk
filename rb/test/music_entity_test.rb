@@ -41,9 +41,13 @@ class MusicEntityTest < Minitest::Test
 
     # LOAD
     music_ref01_ent = client.Music(nil)
-    music_ref01_match_dt0 = {}
+    music_ref01_match_dt0 = {
+      "id" => music_ref01_data["id"],
+    }
     music_ref01_data_dt0_loaded = music_ref01_ent.load(music_ref01_match_dt0, nil)
-    assert !music_ref01_data_dt0_loaded.nil?
+    music_ref01_data_dt0_load_result = Helpers.to_map(music_ref01_data_dt0_loaded.respond_to?(:data_get) ? music_ref01_data_dt0_loaded.data_get : music_ref01_data_dt0_loaded)
+    assert !music_ref01_data_dt0_load_result.nil?
+    assert_equal music_ref01_data_dt0_load_result["id"], music_ref01_data["id"]
 
   end
 end

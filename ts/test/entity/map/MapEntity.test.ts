@@ -59,9 +59,12 @@ describe('MapEntity', async () => {
 
     let map_ref01_data = Object.values(setup.data.existing.map)[0] as any
 
-    // LOAD: skipped — no entity id field and load requires path params.
-    // Entity-var is declared here so later flow steps still compile.
+    // LOAD
     const map_ref01_ent = client.Map()
+    const map_ref01_match_dt0: any = {}
+    map_ref01_match_dt0.id = map_ref01_data.id
+    const map_ref01_data_dt0 = (await map_ref01_ent.load(map_ref01_match_dt0)).data()
+    assert(map_ref01_data_dt0.id === map_ref01_data.id)
 
 
   })

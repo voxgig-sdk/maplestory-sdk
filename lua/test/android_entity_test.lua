@@ -44,10 +44,14 @@ describe("AndroidEntity", function()
 
     -- LOAD
     local android_ref01_ent = client:Android(nil)
-    local android_ref01_match_dt0 = {}
+    local android_ref01_match_dt0 = {
+      id = android_ref01_data["id"],
+    }
     local android_ref01_data_dt0_loaded, err = android_ref01_ent:load(android_ref01_match_dt0, nil)
     assert.is_nil(err)
-    assert.is_not_nil(android_ref01_data_dt0_loaded)
+    local android_ref01_data_dt0_load_result = helpers.to_map(type(android_ref01_data_dt0_loaded) == 'table' and android_ref01_data_dt0_loaded.data_get and android_ref01_data_dt0_loaded:data_get() or android_ref01_data_dt0_loaded)
+    assert.is_not_nil(android_ref01_data_dt0_load_result)
+    assert.are.equal(android_ref01_data_dt0_load_result["id"], android_ref01_data["id"])
 
   end)
 end)

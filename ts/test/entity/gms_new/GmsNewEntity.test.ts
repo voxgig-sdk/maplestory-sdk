@@ -59,9 +59,12 @@ describe('GmsNewEntity', async () => {
 
     let gms_new_ref01_data = Object.values(setup.data.existing.gms_new)[0] as any
 
-    // LOAD: skipped — no entity id field and load requires path params.
-    // Entity-var is declared here so later flow steps still compile.
+    // LOAD
     const gms_new_ref01_ent = client.GmsNew()
+    const gms_new_ref01_match_dt0: any = {}
+    gms_new_ref01_match_dt0.id = gms_new_ref01_data.id
+    const gms_new_ref01_data_dt0 = (await gms_new_ref01_ent.load(gms_new_ref01_match_dt0)).data()
+    assert(gms_new_ref01_data_dt0.id === gms_new_ref01_data.id)
 
 
   })

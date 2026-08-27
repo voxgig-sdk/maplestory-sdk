@@ -192,6 +192,12 @@ Prepare a fetch definition without sending the request. Returns the
 $android = $client->Android();
 ```
 
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
+
 ### Operations
 
 #### `load(array $reqmatch, ?array $ctrl = null): mixed`
@@ -579,6 +585,12 @@ Return the entity name.
 $gms_new = $client->GmsNew();
 ```
 
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
+
 ### Operations
 
 #### `load(array $reqmatch, ?array $ctrl = null): mixed`
@@ -586,7 +598,7 @@ $gms_new = $client->GmsNew();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->GmsNew()->load();
+$result = $client->GmsNew()->load(["id" => "gms_new_id"]);
 ```
 
 ### Common Methods
@@ -717,6 +729,12 @@ Return the entity name.
 $item = $client->Item();
 ```
 
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
+
 ### Operations
 
 #### `load(array $reqmatch, ?array $ctrl = null): mixed`
@@ -763,6 +781,12 @@ Return the entity name.
 $job = $client->Job();
 ```
 
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
+
 ### Operations
 
 #### `load(array $reqmatch, ?array $ctrl = null): mixed`
@@ -808,6 +832,12 @@ Return the entity name.
 ```php
 $map = $client->Map();
 ```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
 
 ### Operations
 
@@ -901,6 +931,12 @@ Return the entity name.
 $mob = $client->Mob();
 ```
 
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
+
 ### Operations
 
 #### `load(array $reqmatch, ?array $ctrl = null): mixed`
@@ -946,6 +982,12 @@ Return the entity name.
 ```php
 $music = $client->Music();
 ```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
 
 ### Operations
 
@@ -1038,6 +1080,12 @@ Return the entity name.
 ```php
 $npc = $client->Npc();
 ```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
 
 ### Operations
 
@@ -1195,6 +1243,12 @@ Return the entity name.
 $pet = $client->Pet();
 ```
 
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
+
 ### Operations
 
 #### `load(array $reqmatch, ?array $ctrl = null): mixed`
@@ -1240,6 +1294,12 @@ Return the entity name.
 ```php
 $quest = $client->Quest();
 ```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
 
 ### Operations
 

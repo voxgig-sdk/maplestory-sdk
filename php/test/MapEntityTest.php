@@ -48,9 +48,13 @@ class MapEntityTest extends TestCase
 
         // LOAD
         $map_ref01_ent = $client->Map(null);
-        $map_ref01_match_dt0 = [];
+        $map_ref01_match_dt0 = [
+            "id" => $map_ref01_data["id"],
+        ];
         $map_ref01_data_dt0_loaded = $map_ref01_ent->load($map_ref01_match_dt0, null);
-        $this->assertNotNull($map_ref01_data_dt0_loaded);
+        $map_ref01_data_dt0_load_result = Helpers::to_map(is_object($map_ref01_data_dt0_loaded) && method_exists($map_ref01_data_dt0_loaded, 'data_get') ? $map_ref01_data_dt0_loaded->data_get() : $map_ref01_data_dt0_loaded);
+        $this->assertNotNull($map_ref01_data_dt0_load_result);
+        $this->assertEquals($map_ref01_data_dt0_load_result["id"], $map_ref01_data["id"]);
 
     }
 }

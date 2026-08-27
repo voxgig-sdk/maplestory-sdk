@@ -4,6 +4,19 @@ main: kit: entity: gms_new: {
 
   alias: field: {}
 
+  fields: [
+    {
+      name: "id"
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
   name: "gms_new"
   op: {
     load: {

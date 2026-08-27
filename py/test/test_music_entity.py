@@ -48,9 +48,13 @@ class TestMusicEntity:
 
         # LOAD
         music_ref01_ent = client.Music(None)
-        music_ref01_match_dt0 = {}
+        music_ref01_match_dt0 = {
+            "id": music_ref01_data["id"],
+        }
         music_ref01_data_dt0_loaded = music_ref01_ent.load(music_ref01_match_dt0, None)
-        assert music_ref01_data_dt0_loaded is not None
+        music_ref01_data_dt0_load_result = helpers.to_map(runner.entity_data(music_ref01_data_dt0_loaded))
+        assert music_ref01_data_dt0_load_result is not None
+        assert music_ref01_data_dt0_load_result["id"] == music_ref01_data["id"]
 
 
 

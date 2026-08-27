@@ -40,7 +40,8 @@ class Config {
      test:     {
       "options": {
         "active": false
-      }
+      },
+      "transport": "base"
     },
 
   }
@@ -142,7 +143,12 @@ class Config {
 
   entity = {
     "android": {
-      "fields": [],
+      "fields": [
+        {
+          "name": "id",
+          "type": "`$STRING`"
+        }
+      ],
       "name": "android",
       "op": {
         "load": {
@@ -2396,7 +2402,12 @@ class Config {
       }
     },
     "gms_new": {
-      "fields": [],
+      "fields": [
+        {
+          "name": "id",
+          "type": "`$STRING`"
+        }
+      ],
       "name": "gms_new",
       "op": {
         "load": {
@@ -2723,7 +2734,12 @@ class Config {
       }
     },
     "item": {
-      "fields": [],
+      "fields": [
+        {
+          "name": "id",
+          "type": "`$STRING`"
+        }
+      ],
       "name": "item",
       "op": {
         "load": {
@@ -3420,7 +3436,12 @@ class Config {
       }
     },
     "job": {
-      "fields": [],
+      "fields": [
+        {
+          "name": "id",
+          "type": "`$STRING`"
+        }
+      ],
       "name": "job",
       "op": {
         "load": {
@@ -3794,7 +3815,12 @@ class Config {
       }
     },
     "map": {
-      "fields": [],
+      "fields": [
+        {
+          "name": "id",
+          "type": "`$STRING`"
+        }
+      ],
       "name": "map",
       "op": {
         "load": {
@@ -4588,7 +4614,12 @@ class Config {
       }
     },
     "mob": {
-      "fields": [],
+      "fields": [
+        {
+          "name": "id",
+          "type": "`$STRING`"
+        }
+      ],
       "name": "mob",
       "op": {
         "load": {
@@ -5411,7 +5442,12 @@ class Config {
       }
     },
     "music": {
-      "fields": [],
+      "fields": [
+        {
+          "name": "id",
+          "type": "`$STRING`"
+        }
+      ],
       "name": "music",
       "op": {
         "load": {
@@ -5558,7 +5594,12 @@ class Config {
       }
     },
     "npc": {
-      "fields": [],
+      "fields": [
+        {
+          "name": "id",
+          "type": "`$STRING`"
+        }
+      ],
       "name": "npc",
       "op": {
         "load": {
@@ -6224,7 +6265,12 @@ class Config {
       }
     },
     "pet": {
-      "fields": [],
+      "fields": [
+        {
+          "name": "id",
+          "type": "`$STRING`"
+        }
+      ],
       "name": "pet",
       "op": {
         "load": {
@@ -6722,7 +6768,12 @@ class Config {
       }
     },
     "quest": {
-      "fields": [],
+      "fields": [
+        {
+          "name": "id",
+          "type": "`$STRING`"
+        }
+      ],
       "name": "quest",
       "op": {
         "load": {

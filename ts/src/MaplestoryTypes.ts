@@ -6,6 +6,7 @@
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 
 export interface Android {
+  id?: string
 }
 
 export interface AndroidLoadMatch {
@@ -93,9 +94,11 @@ export interface Entity1LoadMatch {
 }
 
 export interface GmsNew {
+  id?: string
 }
 
 export interface GmsNewLoadMatch {
+  id: string
 }
 
 export interface GuildMark {
@@ -124,6 +127,7 @@ export interface HealthLoadMatch {
 }
 
 export interface Item {
+  id?: string
 }
 
 export interface ItemLoadMatch {
@@ -140,6 +144,7 @@ export interface ItemLoadMatch {
 }
 
 export interface Job {
+  id?: string
 }
 
 export interface JobLoadMatch {
@@ -156,6 +161,7 @@ export interface JobLoadMatch {
 }
 
 export interface MapType {
+  id?: string
 }
 
 export interface MapLoadMatch {
@@ -188,6 +194,7 @@ export interface MetricLoadMatch {
 }
 
 export interface Mob {
+  id?: string
 }
 
 export interface MobLoadMatch {
@@ -207,6 +214,7 @@ export interface MobLoadMatch {
 }
 
 export interface Music {
+  id?: string
 }
 
 export interface MusicLoadMatch {
@@ -224,6 +232,7 @@ export interface NameLoadMatch {
 }
 
 export interface Npc {
+  id?: string
 }
 
 export interface NpcLoadMatch {
@@ -279,6 +288,7 @@ export interface PerformanceMetricLoadMatch {
 }
 
 export interface Pet {
+  id?: string
 }
 
 export interface PetLoadMatch {
@@ -297,6 +307,7 @@ export interface PetLoadMatch {
 }
 
 export interface Quest {
+  id?: string
 }
 
 export interface QuestLoadMatch {

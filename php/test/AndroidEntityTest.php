@@ -48,9 +48,13 @@ class AndroidEntityTest extends TestCase
 
         // LOAD
         $android_ref01_ent = $client->Android(null);
-        $android_ref01_match_dt0 = [];
+        $android_ref01_match_dt0 = [
+            "id" => $android_ref01_data["id"],
+        ];
         $android_ref01_data_dt0_loaded = $android_ref01_ent->load($android_ref01_match_dt0, null);
-        $this->assertNotNull($android_ref01_data_dt0_loaded);
+        $android_ref01_data_dt0_load_result = Helpers::to_map(is_object($android_ref01_data_dt0_loaded) && method_exists($android_ref01_data_dt0_loaded, 'data_get') ? $android_ref01_data_dt0_loaded->data_get() : $android_ref01_data_dt0_loaded);
+        $this->assertNotNull($android_ref01_data_dt0_load_result);
+        $this->assertEquals($android_ref01_data_dt0_load_result["id"], $android_ref01_data["id"]);
 
     }
 }

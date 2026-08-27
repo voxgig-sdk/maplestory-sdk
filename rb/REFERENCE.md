@@ -193,6 +193,12 @@ same parameters as `direct()`. Raises on error.
 android = client.Android
 ```
 
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `String` | No |  |
+
 ### Operations
 
 #### `load(reqmatch, ctrl = nil) -> result`
@@ -580,6 +586,12 @@ Return the entity name.
 gms_new = client.GmsNew
 ```
 
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `String` | No |  |
+
 ### Operations
 
 #### `load(reqmatch, ctrl = nil) -> result`
@@ -587,7 +599,7 @@ gms_new = client.GmsNew
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.GmsNew.load()
+result = client.GmsNew.load({ "id" => "gms_new_id" })
 ```
 
 ### Common Methods
@@ -718,6 +730,12 @@ Return the entity name.
 item = client.Item
 ```
 
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `String` | No |  |
+
 ### Operations
 
 #### `load(reqmatch, ctrl = nil) -> result`
@@ -764,6 +782,12 @@ Return the entity name.
 job = client.Job
 ```
 
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `String` | No |  |
+
 ### Operations
 
 #### `load(reqmatch, ctrl = nil) -> result`
@@ -809,6 +833,12 @@ Return the entity name.
 ```ruby
 map = client.Map
 ```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `String` | No |  |
 
 ### Operations
 
@@ -902,6 +932,12 @@ Return the entity name.
 mob = client.Mob
 ```
 
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `String` | No |  |
+
 ### Operations
 
 #### `load(reqmatch, ctrl = nil) -> result`
@@ -947,6 +983,12 @@ Return the entity name.
 ```ruby
 music = client.Music
 ```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `String` | No |  |
 
 ### Operations
 
@@ -1039,6 +1081,12 @@ Return the entity name.
 ```ruby
 npc = client.Npc
 ```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `String` | No |  |
 
 ### Operations
 
@@ -1196,6 +1244,12 @@ Return the entity name.
 pet = client.Pet
 ```
 
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `String` | No |  |
+
 ### Operations
 
 #### `load(reqmatch, ctrl = nil) -> result`
@@ -1241,6 +1295,12 @@ Return the entity name.
 ```ruby
 quest = client.Quest
 ```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `String` | No |  |
 
 ### Operations
 

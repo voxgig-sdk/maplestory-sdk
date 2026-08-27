@@ -44,10 +44,14 @@ describe("PetEntity", function()
 
     -- LOAD
     local pet_ref01_ent = client:Pet(nil)
-    local pet_ref01_match_dt0 = {}
+    local pet_ref01_match_dt0 = {
+      id = pet_ref01_data["id"],
+    }
     local pet_ref01_data_dt0_loaded, err = pet_ref01_ent:load(pet_ref01_match_dt0, nil)
     assert.is_nil(err)
-    assert.is_not_nil(pet_ref01_data_dt0_loaded)
+    local pet_ref01_data_dt0_load_result = helpers.to_map(type(pet_ref01_data_dt0_loaded) == 'table' and pet_ref01_data_dt0_loaded.data_get and pet_ref01_data_dt0_loaded:data_get() or pet_ref01_data_dt0_loaded)
+    assert.is_not_nil(pet_ref01_data_dt0_load_result)
+    assert.are.equal(pet_ref01_data_dt0_load_result["id"], pet_ref01_data["id"])
 
   end)
 end)

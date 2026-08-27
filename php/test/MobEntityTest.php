@@ -48,9 +48,13 @@ class MobEntityTest extends TestCase
 
         // LOAD
         $mob_ref01_ent = $client->Mob(null);
-        $mob_ref01_match_dt0 = [];
+        $mob_ref01_match_dt0 = [
+            "id" => $mob_ref01_data["id"],
+        ];
         $mob_ref01_data_dt0_loaded = $mob_ref01_ent->load($mob_ref01_match_dt0, null);
-        $this->assertNotNull($mob_ref01_data_dt0_loaded);
+        $mob_ref01_data_dt0_load_result = Helpers::to_map(is_object($mob_ref01_data_dt0_loaded) && method_exists($mob_ref01_data_dt0_loaded, 'data_get') ? $mob_ref01_data_dt0_loaded->data_get() : $mob_ref01_data_dt0_loaded);
+        $this->assertNotNull($mob_ref01_data_dt0_load_result);
+        $this->assertEquals($mob_ref01_data_dt0_load_result["id"], $mob_ref01_data["id"]);
 
     }
 }

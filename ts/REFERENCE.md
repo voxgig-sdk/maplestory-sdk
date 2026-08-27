@@ -424,6 +424,12 @@ Alias for `MaplestorySDK.test()`.
 const android = client.Android()
 ```
 
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
+
 ### Operations
 
 #### `load(match: object, ctrl?: object)`
@@ -815,6 +821,12 @@ Return a copy of the entity options.
 const gms_new = client.GmsNew()
 ```
 
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
+
 ### Operations
 
 #### `load(match: object, ctrl?: object)`
@@ -822,7 +834,7 @@ const gms_new = client.GmsNew()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.GmsNew().load()
+const result = await client.GmsNew().load({ id: 'gms_new_id' })
 ```
 
 ### Common Methods
@@ -969,6 +981,12 @@ Return a copy of the entity options.
 const item = client.Item()
 ```
 
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
+
 ### Actions
 
 This entity exposes custom API actions in addition to the standard
@@ -1038,6 +1056,12 @@ Return a copy of the entity options.
 const job = client.Job()
 ```
 
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
+
 ### Actions
 
 This entity exposes custom API actions in addition to the standard
@@ -1103,6 +1127,12 @@ Return a copy of the entity options.
 ```ts
 const map = client.Map()
 ```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
 
 ### Actions
 
@@ -1237,6 +1267,12 @@ Return a copy of the entity options.
 const mob = client.Mob()
 ```
 
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
+
 ### Actions
 
 This entity exposes custom API actions in addition to the standard
@@ -1304,6 +1340,12 @@ Return a copy of the entity options.
 ```ts
 const music = client.Music()
 ```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
 
 ### Operations
 
@@ -1392,6 +1434,12 @@ Return a copy of the entity options.
 ```ts
 const npc = client.Npc()
 ```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
 
 ### Actions
 
@@ -1566,6 +1614,12 @@ Return a copy of the entity options.
 const pet = client.Pet()
 ```
 
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
+
 ### Actions
 
 This entity exposes custom API actions in addition to the standard
@@ -1632,6 +1686,12 @@ Return a copy of the entity options.
 ```ts
 const quest = client.Quest()
 ```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
 
 ### Actions
 

@@ -198,6 +198,12 @@ android := client.Android(nil)
 fmt.Println(android.GetName()) // "android"
 ```
 
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
+
 ### Operations
 
 #### `Load(reqmatch, ctrl map[string]any) (any, error)`
@@ -577,6 +583,12 @@ gmsNew := client.GmsNew(nil)
 fmt.Println(gmsNew.GetName()) // "gms_new"
 ```
 
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
+
 ### Operations
 
 #### `Load(reqmatch, ctrl map[string]any) (any, error)`
@@ -584,7 +596,7 @@ fmt.Println(gmsNew.GetName()) // "gms_new"
 Load a single entity matching the given criteria.
 
 ```go
-result, err := client.GmsNew(nil).Load(nil, nil)
+result, err := client.GmsNew(nil).Load(map[string]any{"id": "gms_new_id"}, nil)
 if err != nil {
     panic(err)
 }
@@ -712,6 +724,12 @@ item := client.Item(nil)
 fmt.Println(item.GetName()) // "item"
 ```
 
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
+
 ### Operations
 
 #### `Load(reqmatch, ctrl map[string]any) (any, error)`
@@ -757,6 +775,12 @@ job := client.Job(nil)
 fmt.Println(job.GetName()) // "job"
 ```
 
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
+
 ### Operations
 
 #### `Load(reqmatch, ctrl map[string]any) (any, error)`
@@ -801,6 +825,12 @@ Return the entity name.
 map_ := client.Map(nil)
 fmt.Println(map_.GetName()) // "map"
 ```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
 
 ### Operations
 
@@ -892,6 +922,12 @@ mob := client.Mob(nil)
 fmt.Println(mob.GetName()) // "mob"
 ```
 
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
+
 ### Operations
 
 #### `Load(reqmatch, ctrl map[string]any) (any, error)`
@@ -936,6 +972,12 @@ Return the entity name.
 music := client.Music(nil)
 fmt.Println(music.GetName()) // "music"
 ```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
 
 ### Operations
 
@@ -1026,6 +1068,12 @@ Return the entity name.
 npc := client.Npc(nil)
 fmt.Println(npc.GetName()) // "npc"
 ```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
 
 ### Operations
 
@@ -1180,6 +1228,12 @@ pet := client.Pet(nil)
 fmt.Println(pet.GetName()) // "pet"
 ```
 
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
+
 ### Operations
 
 #### `Load(reqmatch, ctrl map[string]any) (any, error)`
@@ -1224,6 +1278,12 @@ Return the entity name.
 quest := client.Quest(nil)
 fmt.Println(quest.GetName()) // "quest"
 ```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
 
 ### Operations
 

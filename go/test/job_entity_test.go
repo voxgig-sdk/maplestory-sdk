@@ -61,13 +61,19 @@ func TestJobEntity(t *testing.T) {
 
 		// LOAD
 		jobRef01Ent := client.Job(nil)
-		jobRef01MatchDt0 := map[string]any{}
+		jobRef01MatchDt0 := map[string]any{
+			"id": jobRef01Data["id"],
+		}
 		jobRef01DataDt0Loaded, err := jobRef01Ent.Load(jobRef01MatchDt0, nil)
 		if err != nil {
 			t.Fatalf("load failed: %v", err)
 		}
-		if jobRef01DataDt0Loaded == nil {
-			t.Fatal("expected load result to be non-nil")
+		jobRef01DataDt0LoadResult := core.ToMapAny(entityData(jobRef01DataDt0Loaded))
+		if jobRef01DataDt0LoadResult == nil {
+			t.Fatal("expected load result to be a map")
+		}
+		if jobRef01DataDt0LoadResult["id"] != jobRef01Data["id"] {
+			t.Fatal("expected load result id to match")
 		}
 
 	})

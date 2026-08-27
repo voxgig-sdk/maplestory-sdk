@@ -44,10 +44,14 @@ describe("MusicEntity", function()
 
     -- LOAD
     local music_ref01_ent = client:Music(nil)
-    local music_ref01_match_dt0 = {}
+    local music_ref01_match_dt0 = {
+      id = music_ref01_data["id"],
+    }
     local music_ref01_data_dt0_loaded, err = music_ref01_ent:load(music_ref01_match_dt0, nil)
     assert.is_nil(err)
-    assert.is_not_nil(music_ref01_data_dt0_loaded)
+    local music_ref01_data_dt0_load_result = helpers.to_map(type(music_ref01_data_dt0_loaded) == 'table' and music_ref01_data_dt0_loaded.data_get and music_ref01_data_dt0_loaded:data_get() or music_ref01_data_dt0_loaded)
+    assert.is_not_nil(music_ref01_data_dt0_load_result)
+    assert.are.equal(music_ref01_data_dt0_load_result["id"], music_ref01_data["id"])
 
   end)
 end)

@@ -41,9 +41,13 @@ class MapEntityTest < Minitest::Test
 
     # LOAD
     map_ref01_ent = client.Map(nil)
-    map_ref01_match_dt0 = {}
+    map_ref01_match_dt0 = {
+      "id" => map_ref01_data["id"],
+    }
     map_ref01_data_dt0_loaded = map_ref01_ent.load(map_ref01_match_dt0, nil)
-    assert !map_ref01_data_dt0_loaded.nil?
+    map_ref01_data_dt0_load_result = Helpers.to_map(map_ref01_data_dt0_loaded.respond_to?(:data_get) ? map_ref01_data_dt0_loaded.data_get : map_ref01_data_dt0_loaded)
+    assert !map_ref01_data_dt0_load_result.nil?
+    assert_equal map_ref01_data_dt0_load_result["id"], map_ref01_data["id"]
 
   end
 end

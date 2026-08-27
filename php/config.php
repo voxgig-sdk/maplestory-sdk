@@ -42,6 +42,7 @@ class MaplestoryConfig
           'options' => [
             'active' => false,
           ],
+          'transport' => 'base',
         ],
             ],
             "options" => [
@@ -81,7 +82,12 @@ class MaplestoryConfig
             ],
             "entity" => [
         'android' => [
-          'fields' => [],
+          'fields' => [
+            [
+              'name' => 'id',
+              'type' => '`$STRING`',
+            ],
+          ],
           'name' => 'android',
           'op' => [
             'load' => [
@@ -2335,7 +2341,12 @@ class MaplestoryConfig
           ],
         ],
         'gms_new' => [
-          'fields' => [],
+          'fields' => [
+            [
+              'name' => 'id',
+              'type' => '`$STRING`',
+            ],
+          ],
           'name' => 'gms_new',
           'op' => [
             'load' => [
@@ -2662,7 +2673,12 @@ class MaplestoryConfig
           ],
         ],
         'item' => [
-          'fields' => [],
+          'fields' => [
+            [
+              'name' => 'id',
+              'type' => '`$STRING`',
+            ],
+          ],
           'name' => 'item',
           'op' => [
             'load' => [
@@ -3359,7 +3375,12 @@ class MaplestoryConfig
           ],
         ],
         'job' => [
-          'fields' => [],
+          'fields' => [
+            [
+              'name' => 'id',
+              'type' => '`$STRING`',
+            ],
+          ],
           'name' => 'job',
           'op' => [
             'load' => [
@@ -3733,7 +3754,12 @@ class MaplestoryConfig
           ],
         ],
         'map' => [
-          'fields' => [],
+          'fields' => [
+            [
+              'name' => 'id',
+              'type' => '`$STRING`',
+            ],
+          ],
           'name' => 'map',
           'op' => [
             'load' => [
@@ -4527,7 +4553,12 @@ class MaplestoryConfig
           ],
         ],
         'mob' => [
-          'fields' => [],
+          'fields' => [
+            [
+              'name' => 'id',
+              'type' => '`$STRING`',
+            ],
+          ],
           'name' => 'mob',
           'op' => [
             'load' => [
@@ -5350,7 +5381,12 @@ class MaplestoryConfig
           ],
         ],
         'music' => [
-          'fields' => [],
+          'fields' => [
+            [
+              'name' => 'id',
+              'type' => '`$STRING`',
+            ],
+          ],
           'name' => 'music',
           'op' => [
             'load' => [
@@ -5497,7 +5533,12 @@ class MaplestoryConfig
           ],
         ],
         'npc' => [
-          'fields' => [],
+          'fields' => [
+            [
+              'name' => 'id',
+              'type' => '`$STRING`',
+            ],
+          ],
           'name' => 'npc',
           'op' => [
             'load' => [
@@ -6163,7 +6204,12 @@ class MaplestoryConfig
           ],
         ],
         'pet' => [
-          'fields' => [],
+          'fields' => [
+            [
+              'name' => 'id',
+              'type' => '`$STRING`',
+            ],
+          ],
           'name' => 'pet',
           'op' => [
             'load' => [
@@ -6661,7 +6707,12 @@ class MaplestoryConfig
           ],
         ],
         'quest' => [
-          'fields' => [],
+          'fields' => [
+            [
+              'name' => 'id',
+              'type' => '`$STRING`',
+            ],
+          ],
           'name' => 'quest',
           'op' => [
             'load' => [

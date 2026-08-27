@@ -15,6 +15,7 @@ declare(strict_types=1);
 /** Android entity data model. */
 class Android
 {
+    public ?string $id = null;
 }
 
 /** Request payload for Android#load. */
@@ -128,11 +129,13 @@ class Entity1LoadMatch
 /** GmsNew entity data model. */
 class GmsNew
 {
+    public ?string $id = null;
 }
 
 /** Request payload for GmsNew#load. */
 class GmsNewLoadMatch
 {
+    public string $id;
 }
 
 /** GuildMark entity data model. */
@@ -165,6 +168,7 @@ class HealthLoadMatch
 /** Item entity data model. */
 class Item
 {
+    public ?string $id = null;
 }
 
 /** Request payload for Item#load. */
@@ -179,6 +183,7 @@ class ItemLoadMatch
 /** Job entity data model. */
 class Job
 {
+    public ?string $id = null;
 }
 
 /** Request payload for Job#load. */
@@ -193,6 +198,7 @@ class JobLoadMatch
 /** Map entity data model. */
 class Map
 {
+    public ?string $id = null;
 }
 
 /** Request payload for Map#load. */
@@ -221,6 +227,7 @@ class MetricLoadMatch
 /** Mob entity data model. */
 class Mob
 {
+    public ?string $id = null;
 }
 
 /** Request payload for Mob#load. */
@@ -238,6 +245,7 @@ class MobLoadMatch
 /** Music entity data model. */
 class Music
 {
+    public ?string $id = null;
 }
 
 /** Request payload for Music#load. */
@@ -263,6 +271,7 @@ class NameLoadMatch
 /** Npc entity data model. */
 class Npc
 {
+    public ?string $id = null;
 }
 
 /** Request payload for Npc#load. */
@@ -324,6 +333,7 @@ class PerformanceMetricLoadMatch
 /** Pet entity data model. */
 class Pet
 {
+    public ?string $id = null;
 }
 
 /** Request payload for Pet#load. */
@@ -340,6 +350,7 @@ class PetLoadMatch
 /** Quest entity data model. */
 class Quest
 {
+    public ?string $id = null;
 }
 
 /** Request payload for Quest#load. */

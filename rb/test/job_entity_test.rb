@@ -41,9 +41,13 @@ class JobEntityTest < Minitest::Test
 
     # LOAD
     job_ref01_ent = client.Job(nil)
-    job_ref01_match_dt0 = {}
+    job_ref01_match_dt0 = {
+      "id" => job_ref01_data["id"],
+    }
     job_ref01_data_dt0_loaded = job_ref01_ent.load(job_ref01_match_dt0, nil)
-    assert !job_ref01_data_dt0_loaded.nil?
+    job_ref01_data_dt0_load_result = Helpers.to_map(job_ref01_data_dt0_loaded.respond_to?(:data_get) ? job_ref01_data_dt0_loaded.data_get : job_ref01_data_dt0_loaded)
+    assert !job_ref01_data_dt0_load_result.nil?
+    assert_equal job_ref01_data_dt0_load_result["id"], job_ref01_data["id"]
 
   end
 end

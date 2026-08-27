@@ -2,22 +2,22 @@
   "existing": {
     "job": {
       "JOB00": {
+        "id": "JOB00",
         "region": "REGION01",
         "skill_id": "SKILL01",
-        "version": "VERSION01",
-        "id": "JOB00"
+        "version": "VERSION01"
       },
       "JOB01": {
+        "id": "JOB01",
         "region": "REGION01",
         "skill_id": "SKILL01",
-        "version": "VERSION01",
-        "id": "JOB01"
+        "version": "VERSION01"
       },
       "JOB02": {
+        "id": "JOB02",
         "region": "REGION01",
         "skill_id": "SKILL01",
-        "version": "VERSION01",
-        "id": "JOB02"
+        "version": "VERSION01"
       }
     }
   },
