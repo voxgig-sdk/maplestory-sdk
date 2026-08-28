@@ -33,6 +33,16 @@ type AvatarLoadMatch struct {
 	Animation string `json:"animation"`
 	CharacterId *string `json:"character_id,omitempty"`
 	Frame int `json:"frame"`
+	BgColor *string `json:"bg_color,omitempty"`
+	FlipX *bool `json:"flip_x,omitempty"`
+	Name *string `json:"name,omitempty"`
+	Padding *int `json:"padding,omitempty"`
+	RenderMode *int `json:"render_mode,omitempty"`
+	Resize *float64 `json:"resize,omitempty"`
+	ShowEar *bool `json:"show_ear,omitempty"`
+	ShowHighLefEar *bool `json:"show_high_lef_ear,omitempty"`
+	ShowLefEar *bool `json:"show_lef_ear,omitempty"`
+	Format *int `json:"format,omitempty"`
 	Item *string `json:"item,omitempty"`
 }
 
@@ -66,6 +76,18 @@ type CharacterLoadMatch struct {
 	Region string `json:"region"`
 	SkinId *int `json:"skin_id,omitempty"`
 	Version string `json:"version"`
+	Animation *string `json:"animation,omitempty"`
+	BgColor *string `json:"bg_color,omitempty"`
+	FlipX *bool `json:"flip_x,omitempty"`
+	Item *string `json:"item,omitempty"`
+	Name *string `json:"name,omitempty"`
+	Padding *int `json:"padding,omitempty"`
+	RenderMode *int `json:"render_mode,omitempty"`
+	Resize *float64 `json:"resize,omitempty"`
+	ShowEar *bool `json:"show_ear,omitempty"`
+	ShowHighLefEar *bool `json:"show_high_lef_ear,omitempty"`
+	ShowLefEar *bool `json:"show_lef_ear,omitempty"`
+	Format *int `json:"format,omitempty"`
 }
 
 // Chat is the typed data model for the chat entity.
@@ -76,6 +98,8 @@ type Chat struct {
 type ChatLoadMatch struct {
 	Region string `json:"region"`
 	Version string `json:"version"`
+	Message *string `json:"message,omitempty"`
+	RingIdsJoined *string `json:"ring_ids_joined,omitempty"`
 }
 
 // Cluster is the typed data model for the cluster entity.
@@ -117,7 +141,7 @@ type GmsNew struct {
 
 // GmsNewLoadMatch is the typed request payload for GmsNew.LoadTyped.
 type GmsNewLoadMatch struct {
-	Id string `json:"id"`
+	Type *string `json:"type,omitempty"`
 }
 
 // GuildMark is the typed data model for the guild_mark entity.
@@ -152,6 +176,17 @@ type Item struct {
 type ItemLoadMatch struct {
 	Region string `json:"region"`
 	Version string `json:"version"`
+	CashFilter *bool `json:"cash_filter,omitempty"`
+	CategoryFilter *string `json:"category_filter,omitempty"`
+	Count *int `json:"count,omitempty"`
+	GenderFilter *int `json:"gender_filter,omitempty"`
+	JobFilter *int `json:"job_filter,omitempty"`
+	MaxLevelFilter *int `json:"max_level_filter,omitempty"`
+	MinLevelFilter *int `json:"min_level_filter,omitempty"`
+	OverallCategoryFilter *string `json:"overall_category_filter,omitempty"`
+	SearchFor *string `json:"search_for,omitempty"`
+	StartPosition *int `json:"start_position,omitempty"`
+	SubCategoryFilter *string `json:"sub_category_filter,omitempty"`
 	Id *int `json:"id,omitempty"`
 	OverallCategory *string `json:"overall_category,omitempty"`
 }
@@ -181,7 +216,15 @@ type MapLoadMatch struct {
 	MapId *int `json:"map_id,omitempty"`
 	Region string `json:"region"`
 	Version string `json:"version"`
+	FilterTrash *bool `json:"filter_trash,omitempty"`
+	MinX *int `json:"min_x,omitempty"`
+	MinY *int `json:"min_y,omitempty"`
 	Id *int `json:"id,omitempty"`
+	ShowLife *bool `json:"show_life,omitempty"`
+	ShowPortal *bool `json:"show_portal,omitempty"`
+	Count *int `json:"count,omitempty"`
+	SearchFor *string `json:"search_for,omitempty"`
+	StartPosition *int `json:"start_position,omitempty"`
 	Map *string `json:"map,omitempty"`
 	MarkName *string `json:"mark_name,omitempty"`
 }
@@ -203,8 +246,14 @@ type Mob struct {
 type MobLoadMatch struct {
 	Region string `json:"region"`
 	Version string `json:"version"`
+	Count *int `json:"count,omitempty"`
+	MaxLevelFilter *int `json:"max_level_filter,omitempty"`
+	MinLevelFilter *int `json:"min_level_filter,omitempty"`
+	SearchFor *string `json:"search_for,omitempty"`
+	StartPosition *int `json:"start_position,omitempty"`
 	Animation *string `json:"animation,omitempty"`
 	Id *int `json:"id,omitempty"`
+	BgColor *string `json:"bg_color,omitempty"`
 	MobId *int `json:"mob_id,omitempty"`
 	Frame *int `json:"frame,omitempty"`
 	SoundName *string `json:"sound_name,omitempty"`
@@ -230,6 +279,8 @@ type Name struct {
 type NameLoadMatch struct {
 	Region string `json:"region"`
 	Version string `json:"version"`
+	Name *string `json:"name,omitempty"`
+	RingIdsJoined *string `json:"ring_ids_joined,omitempty"`
 }
 
 // Npc is the typed data model for the npc entity.
@@ -243,7 +294,13 @@ type NpcLoadMatch struct {
 	Id *int `json:"id,omitempty"`
 	Region string `json:"region"`
 	Version string `json:"version"`
+	Animation *string `json:"animation,omitempty"`
+	BgColor *string `json:"bg_color,omitempty"`
 	NpcId *int `json:"npc_id,omitempty"`
+	Frame *int `json:"frame,omitempty"`
+	Count *int `json:"count,omitempty"`
+	SearchFor *string `json:"search_for,omitempty"`
+	StartAt *int `json:"start_at,omitempty"`
 }
 
 // Nxf is the typed data model for the nxf entity.
@@ -299,8 +356,11 @@ type PetLoadMatch struct {
 	PetId *int `json:"pet_id,omitempty"`
 	Region string `json:"region"`
 	Version string `json:"version"`
+	Frame *int `json:"frame,omitempty"`
+	PetEquip *int `json:"pet_equip,omitempty"`
 	Id *int `json:"id,omitempty"`
 	RenderId *string `json:"render_id,omitempty"`
+	BgColor *string `json:"bg_color,omitempty"`
 }
 
 // Quest is the typed data model for the quest entity.
@@ -312,6 +372,9 @@ type Quest struct {
 type QuestLoadMatch struct {
 	Region string `json:"region"`
 	Version string `json:"version"`
+	Count *int `json:"count,omitempty"`
+	SearchFor *string `json:"search_for,omitempty"`
+	StartPosition *int `json:"start_position,omitempty"`
 	Category *int `json:"category,omitempty"`
 	Id *int `json:"id,omitempty"`
 }
@@ -354,9 +417,9 @@ type Wzn struct {
 
 // WznLoadMatch is the typed request payload for Wzn.LoadTyped.
 type WznLoadMatch struct {
-	Path *string `json:"path,omitempty"`
-	Region string `json:"region"`
-	Version string `json:"version"`
+	Path string `json:"path"`
+	Region *string `json:"region,omitempty"`
+	Version *string `json:"version,omitempty"`
 }
 
 // ZMap is the typed data model for the z_map entity.

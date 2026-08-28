@@ -749,7 +749,7 @@ Create an instance: `$gms_new = $client->GmsNew();`
 
 ```php
 // load() returns the ENTITY — call data_get() for the GmsNew record (throws on error).
-$gms_new = $client->GmsNew()->load(["id" => "gms_new_id"]);
+$gms_new = $client->GmsNew()->load();
 ```
 
 
@@ -1133,7 +1133,7 @@ Create an instance: `$wzn = $client->Wzn();`
 
 ```php
 // load() returns the ENTITY — call data_get() for the Wzn record (throws on error).
-$wzn = $client->Wzn()->load(["region" => "region", "version" => "version"]);
+$wzn = $client->Wzn()->load(["path" => "path"]);
 ```
 
 
@@ -1153,6 +1153,29 @@ Create an instance: `$z_map = $client->ZMap();`
 // load() returns the ENTITY — call data_get() for the ZMap record (throws on error).
 $z_map = $client->ZMap()->load(["region" => "region", "version" => "version"]);
 ```
+
+## Features
+
+This SDK ships 1 optional features. Each is **inactive until you
+switch it on**, so an SDK you have not configured behaves exactly as if none of
+them existed — no retries, no cache, no logging, no measurable overhead.
+
+Activate a feature by name in the client options, alongside the options shown
+above:
+
+| Feature | What it does |
+|---|---|
+| [`test`](#test) | In-memory mock transport for testing without a live server |
+
+### test
+
+In-memory mock transport for testing without a live server.
+
+| Option | Default |
+|---|---|
+| `active` | `false` |
+
+Set `feature.test.active` to enable it, then override any of the options above.
 
 
 ## Advanced

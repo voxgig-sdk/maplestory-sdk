@@ -37,6 +37,16 @@ class AvatarLoadMatch
     public string $animation;
     public ?string $character_id = null;
     public int $frame;
+    public ?string $bg_color = null;
+    public ?bool $flip_x = null;
+    public ?string $name = null;
+    public ?int $padding = null;
+    public ?int $render_mode = null;
+    public ?float $resize = null;
+    public ?bool $show_ear = null;
+    public ?bool $show_high_lef_ear = null;
+    public ?bool $show_lef_ear = null;
+    public ?int $format = null;
     public ?string $item = null;
 }
 
@@ -74,6 +84,18 @@ class CharacterLoadMatch
     public string $region;
     public ?int $skin_id = null;
     public string $version;
+    public ?string $animation = null;
+    public ?string $bg_color = null;
+    public ?bool $flip_x = null;
+    public ?string $item = null;
+    public ?string $name = null;
+    public ?int $padding = null;
+    public ?int $render_mode = null;
+    public ?float $resize = null;
+    public ?bool $show_ear = null;
+    public ?bool $show_high_lef_ear = null;
+    public ?bool $show_lef_ear = null;
+    public ?int $format = null;
 }
 
 /** Chat entity data model. */
@@ -86,6 +108,8 @@ class ChatLoadMatch
 {
     public string $region;
     public string $version;
+    public ?string $message = null;
+    public ?string $ring_ids_joined = null;
 }
 
 /** Cluster entity data model. */
@@ -135,7 +159,7 @@ class GmsNew
 /** Request payload for GmsNew#load. */
 class GmsNewLoadMatch
 {
-    public string $id;
+    public ?string $type = null;
 }
 
 /** GuildMark entity data model. */
@@ -176,6 +200,17 @@ class ItemLoadMatch
 {
     public string $region;
     public string $version;
+    public ?bool $cash_filter = null;
+    public ?string $category_filter = null;
+    public ?int $count = null;
+    public ?int $gender_filter = null;
+    public ?int $job_filter = null;
+    public ?int $max_level_filter = null;
+    public ?int $min_level_filter = null;
+    public ?string $overall_category_filter = null;
+    public ?string $search_for = null;
+    public ?int $start_position = null;
+    public ?string $sub_category_filter = null;
     public ?int $id = null;
     public ?string $overall_category = null;
 }
@@ -209,7 +244,15 @@ class MapLoadMatch
     public ?int $map_id = null;
     public string $region;
     public string $version;
+    public ?bool $filter_trash = null;
+    public ?int $min_x = null;
+    public ?int $min_y = null;
     public ?int $id = null;
+    public ?bool $show_life = null;
+    public ?bool $show_portal = null;
+    public ?int $count = null;
+    public ?string $search_for = null;
+    public ?int $start_position = null;
     public ?string $map = null;
     public ?string $mark_name = null;
 }
@@ -235,8 +278,14 @@ class MobLoadMatch
 {
     public string $region;
     public string $version;
+    public ?int $count = null;
+    public ?int $max_level_filter = null;
+    public ?int $min_level_filter = null;
+    public ?string $search_for = null;
+    public ?int $start_position = null;
     public ?string $animation = null;
     public ?int $id = null;
+    public ?string $bg_color = null;
     public ?int $mob_id = null;
     public ?int $frame = null;
     public ?string $sound_name = null;
@@ -266,6 +315,8 @@ class NameLoadMatch
 {
     public string $region;
     public string $version;
+    public ?string $name = null;
+    public ?string $ring_ids_joined = null;
 }
 
 /** Npc entity data model. */
@@ -281,7 +332,13 @@ class NpcLoadMatch
     public ?int $id = null;
     public string $region;
     public string $version;
+    public ?string $animation = null;
+    public ?string $bg_color = null;
     public ?int $npc_id = null;
+    public ?int $frame = null;
+    public ?int $count = null;
+    public ?string $search_for = null;
+    public ?int $start_at = null;
 }
 
 /** Nxf entity data model. */
@@ -343,8 +400,11 @@ class PetLoadMatch
     public ?int $pet_id = null;
     public string $region;
     public string $version;
+    public ?int $frame = null;
+    public ?int $pet_equip = null;
     public ?int $id = null;
     public ?string $render_id = null;
+    public ?string $bg_color = null;
 }
 
 /** Quest entity data model. */
@@ -358,6 +418,9 @@ class QuestLoadMatch
 {
     public string $region;
     public string $version;
+    public ?int $count = null;
+    public ?string $search_for = null;
+    public ?int $start_position = null;
     public ?int $category = null;
     public ?int $id = null;
 }
@@ -406,9 +469,9 @@ class Wzn
 /** Request payload for Wzn#load. */
 class WznLoadMatch
 {
-    public ?string $path = null;
-    public string $region;
-    public string $version;
+    public string $path;
+    public ?string $region = null;
+    public ?string $version = null;
 }
 
 /** ZMap entity data model. */

@@ -40,6 +40,16 @@ class AvatarLoadMatchRequired(TypedDict):
 
 class AvatarLoadMatch(AvatarLoadMatchRequired, total=False):
     character_id: str
+    bg_color: str
+    flip_x: bool
+    name: str
+    padding: int
+    render_mode: int
+    resize: float
+    show_ear: bool
+    show_high_lef_ear: bool
+    show_lef_ear: bool
+    format: int
     item: str
 
 
@@ -73,15 +83,32 @@ class CharacterLoadMatchRequired(TypedDict):
 class CharacterLoadMatch(CharacterLoadMatchRequired, total=False):
     frame: str
     skin_id: int
+    animation: str
+    bg_color: str
+    flip_x: bool
+    item: str
+    name: str
+    padding: int
+    render_mode: int
+    resize: float
+    show_ear: bool
+    show_high_lef_ear: bool
+    show_lef_ear: bool
+    format: int
 
 
 class Chat(TypedDict):
     pass
 
 
-class ChatLoadMatch(TypedDict):
+class ChatLoadMatchRequired(TypedDict):
     region: str
     version: str
+
+
+class ChatLoadMatch(ChatLoadMatchRequired, total=False):
+    message: str
+    ring_ids_joined: str
 
 
 class Cluster(TypedDict, total=False):
@@ -117,8 +144,8 @@ class GmsNew(TypedDict, total=False):
     id: str
 
 
-class GmsNewLoadMatch(TypedDict):
-    id: str
+class GmsNewLoadMatch(TypedDict, total=False):
+    type: str
 
 
 class GuildMark(TypedDict):
@@ -156,6 +183,17 @@ class ItemLoadMatchRequired(TypedDict):
 
 
 class ItemLoadMatch(ItemLoadMatchRequired, total=False):
+    cash_filter: bool
+    category_filter: str
+    count: int
+    gender_filter: int
+    job_filter: int
+    max_level_filter: int
+    min_level_filter: int
+    overall_category_filter: str
+    search_for: str
+    start_position: int
+    sub_category_filter: str
     id: int
     overall_category: str
 
@@ -187,7 +225,15 @@ class MapLoadMatch(MapLoadMatchRequired, total=False):
     frame: int
     layer: int
     map_id: int
+    filter_trash: bool
+    min_x: int
+    min_y: int
     id: int
+    show_life: bool
+    show_portal: bool
+    count: int
+    search_for: str
+    start_position: int
     map: str
     mark_name: str
 
@@ -210,8 +256,14 @@ class MobLoadMatchRequired(TypedDict):
 
 
 class MobLoadMatch(MobLoadMatchRequired, total=False):
+    count: int
+    max_level_filter: int
+    min_level_filter: int
+    search_for: str
+    start_position: int
     animation: str
     id: int
+    bg_color: str
     mob_id: int
     frame: int
     sound_name: str
@@ -231,9 +283,14 @@ class Name(TypedDict):
     pass
 
 
-class NameLoadMatch(TypedDict):
+class NameLoadMatchRequired(TypedDict):
     region: str
     version: str
+
+
+class NameLoadMatch(NameLoadMatchRequired, total=False):
+    name: str
+    ring_ids_joined: str
 
 
 class Npc(TypedDict, total=False):
@@ -248,7 +305,13 @@ class NpcLoadMatchRequired(TypedDict):
 class NpcLoadMatch(NpcLoadMatchRequired, total=False):
     framebook: str
     id: int
+    animation: str
+    bg_color: str
     npc_id: int
+    frame: int
+    count: int
+    search_for: str
+    start_at: int
 
 
 class Nxf(TypedDict):
@@ -303,8 +366,11 @@ class PetLoadMatchRequired(TypedDict):
 class PetLoadMatch(PetLoadMatchRequired, total=False):
     animation: str
     pet_id: int
+    frame: int
+    pet_equip: int
     id: int
     render_id: str
+    bg_color: str
 
 
 class Quest(TypedDict, total=False):
@@ -317,6 +383,9 @@ class QuestLoadMatchRequired(TypedDict):
 
 
 class QuestLoadMatch(QuestLoadMatchRequired, total=False):
+    count: int
+    search_for: str
+    start_position: int
     category: int
     id: int
 
@@ -355,12 +424,12 @@ class Wzn(TypedDict):
 
 
 class WznLoadMatchRequired(TypedDict):
-    region: str
-    version: str
+    path: str
 
 
 class WznLoadMatch(WznLoadMatchRequired, total=False):
-    path: str
+    region: str
+    version: str
 
 
 class ZMap(TypedDict):

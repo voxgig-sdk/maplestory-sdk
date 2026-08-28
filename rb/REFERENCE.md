@@ -599,7 +599,7 @@ gms_new = client.GmsNew
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.GmsNew.load({ "id" => "gms_new_id" })
+result = client.GmsNew.load()
 ```
 
 ### Common Methods
@@ -1459,7 +1459,7 @@ wzn = client.Wzn
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.Wzn.load({ "region" => "region", "version" => "version" })
+result = client.Wzn.load({ "path" => "path" })
 ```
 
 ### Common Methods
@@ -1554,4 +1554,42 @@ client = MaplestorySDK.new({
   },
 })
 ```
+
+
+### Configuring features
+
+Each feature is inactive until switched on, and an SDK with no feature
+configured does no feature work at all. Every option below keeps its default
+unless you name it.
+
+The array form of \`feature\` is significant: several features wrap the
+transport, and the order you list them in is the order they nest.
+
+#### `test`
+
+In-memory mock transport for testing without a live server.
+
+**Configuration**
+
+| Option | Default |
+|---|---|
+| `active` | `false` |
+
+Options above are those the model carries a default for. A feature may
+also accept callback options — a `sink` to receive each record, for
+instance — which have no default and are covered in the full feature
+reference.
+
+**Usage**
+
+Set `feature.test.active` to true in the client options, and override any option above in the same entry. Every option keeps
+its default unless you name it.
+
+**Considerations**
+
+- Attaches to pipeline hooks, not the transport, so activation order does
+  not change what it observes.
+- Installs the BASE transport that the wrapping features wrap, so it must be
+  activated before them.
+- Inactive by default: leaving it out costs nothing at runtime.
 

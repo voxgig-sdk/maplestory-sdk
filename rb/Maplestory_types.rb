@@ -49,12 +49,52 @@ end
 # @!attribute [rw] frame
 #   @return [Integer]
 #
+# @!attribute [rw] bg_color
+#   @return [String, nil]
+#
+# @!attribute [rw] flip_x
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] name
+#   @return [String, nil]
+#
+# @!attribute [rw] padding
+#   @return [Integer, nil]
+#
+# @!attribute [rw] render_mode
+#   @return [Integer, nil]
+#
+# @!attribute [rw] resize
+#   @return [Float, nil]
+#
+# @!attribute [rw] show_ear
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] show_high_lef_ear
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] show_lef_ear
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] format
+#   @return [Integer, nil]
+#
 # @!attribute [rw] item
 #   @return [String, nil]
 AvatarLoadMatch = Struct.new(
   :animation,
   :character_id,
   :frame,
+  :bg_color,
+  :flip_x,
+  :name,
+  :padding,
+  :render_mode,
+  :resize,
+  :show_ear,
+  :show_high_lef_ear,
+  :show_lef_ear,
+  :format,
   :item,
   keyword_init: true
 )
@@ -134,11 +174,59 @@ end
 #
 # @!attribute [rw] version
 #   @return [String]
+#
+# @!attribute [rw] animation
+#   @return [String, nil]
+#
+# @!attribute [rw] bg_color
+#   @return [String, nil]
+#
+# @!attribute [rw] flip_x
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] item
+#   @return [String, nil]
+#
+# @!attribute [rw] name
+#   @return [String, nil]
+#
+# @!attribute [rw] padding
+#   @return [Integer, nil]
+#
+# @!attribute [rw] render_mode
+#   @return [Integer, nil]
+#
+# @!attribute [rw] resize
+#   @return [Float, nil]
+#
+# @!attribute [rw] show_ear
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] show_high_lef_ear
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] show_lef_ear
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] format
+#   @return [Integer, nil]
 CharacterLoadMatch = Struct.new(
   :frame,
   :region,
   :skin_id,
   :version,
+  :animation,
+  :bg_color,
+  :flip_x,
+  :item,
+  :name,
+  :padding,
+  :render_mode,
+  :resize,
+  :show_ear,
+  :show_high_lef_ear,
+  :show_lef_ear,
+  :format,
   keyword_init: true
 )
 
@@ -153,9 +241,17 @@ end
 #
 # @!attribute [rw] version
 #   @return [String]
+#
+# @!attribute [rw] message
+#   @return [String, nil]
+#
+# @!attribute [rw] ring_ids_joined
+#   @return [String, nil]
 ChatLoadMatch = Struct.new(
   :region,
   :version,
+  :message,
+  :ring_ids_joined,
   keyword_init: true
 )
 
@@ -229,10 +325,10 @@ GmsNew = Struct.new(
 
 # Request payload for GmsNew#load.
 #
-# @!attribute [rw] id
-#   @return [String]
+# @!attribute [rw] type
+#   @return [String, nil]
 GmsNewLoadMatch = Struct.new(
-  :id,
+  :type,
   keyword_init: true
 )
 
@@ -298,6 +394,39 @@ Item = Struct.new(
 # @!attribute [rw] version
 #   @return [String]
 #
+# @!attribute [rw] cash_filter
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] category_filter
+#   @return [String, nil]
+#
+# @!attribute [rw] count
+#   @return [Integer, nil]
+#
+# @!attribute [rw] gender_filter
+#   @return [Integer, nil]
+#
+# @!attribute [rw] job_filter
+#   @return [Integer, nil]
+#
+# @!attribute [rw] max_level_filter
+#   @return [Integer, nil]
+#
+# @!attribute [rw] min_level_filter
+#   @return [Integer, nil]
+#
+# @!attribute [rw] overall_category_filter
+#   @return [String, nil]
+#
+# @!attribute [rw] search_for
+#   @return [String, nil]
+#
+# @!attribute [rw] start_position
+#   @return [Integer, nil]
+#
+# @!attribute [rw] sub_category_filter
+#   @return [String, nil]
+#
 # @!attribute [rw] id
 #   @return [Integer, nil]
 #
@@ -306,6 +435,17 @@ Item = Struct.new(
 ItemLoadMatch = Struct.new(
   :region,
   :version,
+  :cash_filter,
+  :category_filter,
+  :count,
+  :gender_filter,
+  :job_filter,
+  :max_level_filter,
+  :min_level_filter,
+  :overall_category_filter,
+  :search_for,
+  :start_position,
+  :sub_category_filter,
   :id,
   :overall_category,
   keyword_init: true
@@ -367,7 +507,31 @@ Map = Struct.new(
 # @!attribute [rw] version
 #   @return [String]
 #
+# @!attribute [rw] filter_trash
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] min_x
+#   @return [Integer, nil]
+#
+# @!attribute [rw] min_y
+#   @return [Integer, nil]
+#
 # @!attribute [rw] id
+#   @return [Integer, nil]
+#
+# @!attribute [rw] show_life
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] show_portal
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] count
+#   @return [Integer, nil]
+#
+# @!attribute [rw] search_for
+#   @return [String, nil]
+#
+# @!attribute [rw] start_position
 #   @return [Integer, nil]
 #
 # @!attribute [rw] map
@@ -381,7 +545,15 @@ MapLoadMatch = Struct.new(
   :map_id,
   :region,
   :version,
+  :filter_trash,
+  :min_x,
+  :min_y,
   :id,
+  :show_life,
+  :show_portal,
+  :count,
+  :search_for,
+  :start_position,
   :map,
   :mark_name,
   keyword_init: true
@@ -412,11 +584,29 @@ Mob = Struct.new(
 # @!attribute [rw] version
 #   @return [String]
 #
+# @!attribute [rw] count
+#   @return [Integer, nil]
+#
+# @!attribute [rw] max_level_filter
+#   @return [Integer, nil]
+#
+# @!attribute [rw] min_level_filter
+#   @return [Integer, nil]
+#
+# @!attribute [rw] search_for
+#   @return [String, nil]
+#
+# @!attribute [rw] start_position
+#   @return [Integer, nil]
+#
 # @!attribute [rw] animation
 #   @return [String, nil]
 #
 # @!attribute [rw] id
 #   @return [Integer, nil]
+#
+# @!attribute [rw] bg_color
+#   @return [String, nil]
 #
 # @!attribute [rw] mob_id
 #   @return [Integer, nil]
@@ -429,8 +619,14 @@ Mob = Struct.new(
 MobLoadMatch = Struct.new(
   :region,
   :version,
+  :count,
+  :max_level_filter,
+  :min_level_filter,
+  :search_for,
+  :start_position,
   :animation,
   :id,
+  :bg_color,
   :mob_id,
   :frame,
   :sound_name,
@@ -474,9 +670,17 @@ end
 #
 # @!attribute [rw] version
 #   @return [String]
+#
+# @!attribute [rw] name
+#   @return [String, nil]
+#
+# @!attribute [rw] ring_ids_joined
+#   @return [String, nil]
 NameLoadMatch = Struct.new(
   :region,
   :version,
+  :name,
+  :ring_ids_joined,
   keyword_init: true
 )
 
@@ -503,14 +707,38 @@ Npc = Struct.new(
 # @!attribute [rw] version
 #   @return [String]
 #
+# @!attribute [rw] animation
+#   @return [String, nil]
+#
+# @!attribute [rw] bg_color
+#   @return [String, nil]
+#
 # @!attribute [rw] npc_id
+#   @return [Integer, nil]
+#
+# @!attribute [rw] frame
+#   @return [Integer, nil]
+#
+# @!attribute [rw] count
+#   @return [Integer, nil]
+#
+# @!attribute [rw] search_for
+#   @return [String, nil]
+#
+# @!attribute [rw] start_at
 #   @return [Integer, nil]
 NpcLoadMatch = Struct.new(
   :framebook,
   :id,
   :region,
   :version,
+  :animation,
+  :bg_color,
   :npc_id,
+  :frame,
+  :count,
+  :search_for,
+  :start_at,
   keyword_init: true
 )
 
@@ -659,18 +887,30 @@ Pet = Struct.new(
 # @!attribute [rw] version
 #   @return [String]
 #
+# @!attribute [rw] frame
+#   @return [Integer, nil]
+#
+# @!attribute [rw] pet_equip
+#   @return [Integer, nil]
+#
 # @!attribute [rw] id
 #   @return [Integer, nil]
 #
 # @!attribute [rw] render_id
+#   @return [String, nil]
+#
+# @!attribute [rw] bg_color
 #   @return [String, nil]
 PetLoadMatch = Struct.new(
   :animation,
   :pet_id,
   :region,
   :version,
+  :frame,
+  :pet_equip,
   :id,
   :render_id,
+  :bg_color,
   keyword_init: true
 )
 
@@ -691,6 +931,15 @@ Quest = Struct.new(
 # @!attribute [rw] version
 #   @return [String]
 #
+# @!attribute [rw] count
+#   @return [Integer, nil]
+#
+# @!attribute [rw] search_for
+#   @return [String, nil]
+#
+# @!attribute [rw] start_position
+#   @return [Integer, nil]
+#
 # @!attribute [rw] category
 #   @return [Integer, nil]
 #
@@ -699,6 +948,9 @@ Quest = Struct.new(
 QuestLoadMatch = Struct.new(
   :region,
   :version,
+  :count,
+  :search_for,
+  :start_position,
   :category,
   :id,
   keyword_init: true
@@ -794,13 +1046,13 @@ end
 # Request payload for Wzn#load.
 #
 # @!attribute [rw] path
-#   @return [String, nil]
+#   @return [String]
 #
 # @!attribute [rw] region
-#   @return [String]
+#   @return [String, nil]
 #
 # @!attribute [rw] version
-#   @return [String]
+#   @return [String, nil]
 WznLoadMatch = Struct.new(
   :path,
   :region,

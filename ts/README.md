@@ -781,7 +781,7 @@ Create an instance: `const gms_new = client.GmsNew()`
 #### Example: Load
 
 ```ts
-const gms_new = await client.GmsNew().load({ id: 'gms_new_id' })
+const gms_new = await client.GmsNew().load()
 ```
 
 
@@ -1148,7 +1148,7 @@ Create an instance: `const wzn = client.Wzn()`
 #### Example: Load
 
 ```ts
-const wzn = await client.Wzn().load({ region: 'region', version: 'version' })
+const wzn = await client.Wzn().load({ path: 'path' })
 ```
 
 
@@ -1167,6 +1167,29 @@ Create an instance: `const z_map = client.ZMap()`
 ```ts
 const z_map = await client.ZMap().load({ region: 'region', version: 'version' })
 ```
+
+## Features
+
+This SDK ships 1 optional features. Each is **inactive until you
+switch it on**, so an SDK you have not configured behaves exactly as if none of
+them existed — no retries, no cache, no logging, no measurable overhead.
+
+Activate a feature by name in the client options, alongside the options shown
+above:
+
+| Feature | What it does |
+|---|---|
+| [`test`](#test) | In-memory mock transport for testing without a live server |
+
+### test
+
+In-memory mock transport for testing without a live server.
+
+| Option | Default |
+|---|---|
+| `active` | `false` |
+
+Set `feature.test.active` to enable it, then override any of the options above.
 
 
 ## Advanced

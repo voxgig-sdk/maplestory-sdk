@@ -22,6 +22,16 @@ export interface AvatarLoadMatch {
   animation: string
   character_id?: string
   frame: number
+  bg_color?: string
+  flip_x?: boolean
+  name?: string
+  padding?: number
+  render_mode?: number
+  resize?: number
+  show_ear?: boolean
+  show_high_lef_ear?: boolean
+  show_lef_ear?: boolean
+  format?: number
   item?: string
 }
 
@@ -51,6 +61,18 @@ export interface CharacterLoadMatch {
   region: string
   skin_id?: number
   version: string
+  animation?: string
+  bg_color?: string
+  flip_x?: boolean
+  item?: string
+  name?: string
+  padding?: number
+  render_mode?: number
+  resize?: number
+  show_ear?: boolean
+  show_high_lef_ear?: boolean
+  show_lef_ear?: boolean
+  format?: number
 }
 
 export interface Chat {
@@ -59,6 +81,8 @@ export interface Chat {
 export interface ChatLoadMatch {
   region: string
   version: string
+  message?: string
+  ring_ids_joined?: string
 }
 
 export interface Cluster {
@@ -98,7 +122,7 @@ export interface GmsNew {
 }
 
 export interface GmsNewLoadMatch {
-  id: string
+  type?: string
 }
 
 export interface GuildMark {
@@ -133,6 +157,17 @@ export interface Item {
 export interface ItemLoadMatch {
   region: string
   version: string
+  cash_filter?: boolean
+  category_filter?: string
+  count?: number
+  gender_filter?: number
+  job_filter?: number
+  max_level_filter?: number
+  min_level_filter?: number
+  overall_category_filter?: string
+  search_for?: string
+  start_position?: number
+  sub_category_filter?: string
   id?: number
   overall_category?: string
 
@@ -170,7 +205,15 @@ export interface MapLoadMatch {
   map_id?: number
   region: string
   version: string
+  filter_trash?: boolean
+  min_x?: number
+  min_y?: number
   id?: number
+  show_life?: boolean
+  show_portal?: boolean
+  count?: number
+  search_for?: string
+  start_position?: number
   map?: string
   mark_name?: string
 
@@ -200,8 +243,14 @@ export interface Mob {
 export interface MobLoadMatch {
   region: string
   version: string
+  count?: number
+  max_level_filter?: number
+  min_level_filter?: number
+  search_for?: string
+  start_position?: number
   animation?: string
   id?: number
+  bg_color?: string
   mob_id?: number
   frame?: number
   sound_name?: string
@@ -229,6 +278,8 @@ export interface Name {
 export interface NameLoadMatch {
   region: string
   version: string
+  name?: string
+  ring_ids_joined?: string
 }
 
 export interface Npc {
@@ -240,7 +291,13 @@ export interface NpcLoadMatch {
   id?: number
   region: string
   version: string
+  animation?: string
+  bg_color?: string
   npc_id?: number
+  frame?: number
+  count?: number
+  search_for?: string
+  start_at?: number
 
   // Selects a custom action instead of the plain load:
   //   'count' | 'download' | 'icon' | 'name'
@@ -296,8 +353,11 @@ export interface PetLoadMatch {
   pet_id?: number
   region: string
   version: string
+  frame?: number
+  pet_equip?: number
   id?: number
   render_id?: string
+  bg_color?: string
 
   // Selects a custom action instead of the plain load:
   //   'action' | 'count' | 'download' | 'name'
@@ -313,6 +373,9 @@ export interface Quest {
 export interface QuestLoadMatch {
   region: string
   version: string
+  count?: number
+  search_for?: string
+  start_position?: number
   category?: number
   id?: number
 
@@ -355,9 +418,9 @@ export interface Wzn {
 }
 
 export interface WznLoadMatch {
-  path?: string
-  region: string
-  version: string
+  path: string
+  region?: string
+  version?: string
 }
 
 export interface ZMap {
