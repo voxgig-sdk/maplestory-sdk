@@ -46,11 +46,19 @@ main: kit: entity: chat: {
           }
           method: "GET"
           orig: "/api/{region}/{version}/chat"
-          parts: [
-            "api"
-            "{region}"
-            "{version}"
-            "chat"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              var: "region"
+            }
+            {
+              var: "version"
+            }
+            {
+              lit: "chat"
+            }
           ]
           select: {
             exist: [

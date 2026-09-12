@@ -15,6 +15,7 @@
 ---@field version string
 
 ---@class Avatar
+---@field id? string
 
 ---@class AvatarLoadMatch
 ---@field animation string
@@ -49,6 +50,7 @@
 ---@field totalEntries? number
 
 ---@class Character
+---@field id? string
 
 ---@class CharacterLoadMatch
 ---@field frame? string
@@ -103,6 +105,7 @@
 ---@field type? string
 
 ---@class GuildMark
+---@field id? string
 
 ---@class GuildMarkLoadMatch
 ---@field guild_background_color_id? number
@@ -306,6 +309,7 @@
 ---@field version string
 
 ---@class Wzn
+---@field id? string
 
 ---@class WznLoadMatch
 ---@field path string

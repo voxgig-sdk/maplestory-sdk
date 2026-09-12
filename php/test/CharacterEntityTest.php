@@ -48,9 +48,13 @@ class CharacterEntityTest extends TestCase
 
         // LOAD
         $character_ref01_ent = $client->Character(null);
-        $character_ref01_match_dt0 = [];
+        $character_ref01_match_dt0 = [
+            "id" => $character_ref01_data["id"],
+        ];
         $character_ref01_data_dt0_loaded = $character_ref01_ent->load($character_ref01_match_dt0, null);
-        $this->assertNotNull($character_ref01_data_dt0_loaded);
+        $character_ref01_data_dt0_load_result = Helpers::to_map(is_object($character_ref01_data_dt0_loaded) && method_exists($character_ref01_data_dt0_loaded, 'data_get') ? $character_ref01_data_dt0_loaded->data_get() : $character_ref01_data_dt0_loaded);
+        $this->assertNotNull($character_ref01_data_dt0_load_result);
+        $this->assertEquals($character_ref01_data_dt0_load_result["id"], $character_ref01_data["id"]);
 
     }
 }
@@ -94,9 +98,16 @@ function character_basic_setup($extra)
 
     if ($env["MAPLESTORY_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
+            // FIRST, so the generated fields below win: sdk-test-control.json's
+            // test.client.options adds to the live client, it does not redirect it.
+            Runner::live_client_options(),
             [
             ],
-            $extra ?? [],
+            // ismap, not a plain "?? []" default: an empty PHP array is a
+            // LIST, and a non-map later entry REPLACES the accumulated map in
+            // merge - so the no-extras call discarded live_client_options()
+            // and the apikey/server map above it.
+            Vs::ismap($extra) ? $extra : new \stdClass(),
         ]);
         $client = new MaplestorySDK(Helpers::to_map($merged_opts));
     }

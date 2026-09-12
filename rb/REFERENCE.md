@@ -245,6 +245,12 @@ Return the entity name.
 avatar = client.Avatar
 ```
 
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `String` | No |  |
+
 ### Operations
 
 #### `load(reqmatch, ctrl = nil) -> result`
@@ -347,6 +353,12 @@ Return the entity name.
 ```ruby
 character = client.Character
 ```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `String` | No |  |
 
 ### Operations
 
@@ -637,6 +649,12 @@ Return the entity name.
 ```ruby
 guild_mark = client.GuildMark
 ```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `String` | No |  |
 
 ### Operations
 
@@ -1451,6 +1469,12 @@ Return the entity name.
 ```ruby
 wzn = client.Wzn
 ```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `String` | No |  |
 
 ### Operations
 

@@ -12,9 +12,13 @@ main: kit: entity: nxf: {
         {
           method: "GET"
           orig: "/api/about"
-          parts: [
-            "api"
-            "about"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "about"
+            }
           ]
           transform: {
             req: "`reqdata`"
@@ -24,9 +28,13 @@ main: kit: entity: nxf: {
         {
           method: "GET"
           orig: "/api/banners"
-          parts: [
-            "api"
-            "banners"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "banners"
+            }
           ]
           transform: {
             req: "`reqdata`"

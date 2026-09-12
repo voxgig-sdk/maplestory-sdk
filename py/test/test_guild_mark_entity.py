@@ -48,9 +48,13 @@ class TestGuildMarkEntity:
 
         # LOAD
         guild_mark_ref01_ent = client.GuildMark(None)
-        guild_mark_ref01_match_dt0 = {}
+        guild_mark_ref01_match_dt0 = {
+            "id": guild_mark_ref01_data["id"],
+        }
         guild_mark_ref01_data_dt0_loaded = guild_mark_ref01_ent.load(guild_mark_ref01_match_dt0, None)
-        assert guild_mark_ref01_data_dt0_loaded is not None
+        guild_mark_ref01_data_dt0_load_result = helpers.to_map(runner.entity_data(guild_mark_ref01_data_dt0_loaded))
+        assert guild_mark_ref01_data_dt0_load_result is not None
+        assert guild_mark_ref01_data_dt0_load_result["id"] == guild_mark_ref01_data["id"]
 
 
 
@@ -99,6 +103,10 @@ def _guild_mark_basic_setup(extra):
 
     if env.get("MAPLESTORY_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
+            # FIRST, so the generated fields below win: sdk-test-control.json's
+            # test.client.options adds to the live client, it does not
+            # redirect it.
+            runner.live_client_options(),
             {
             },
             extra or {},

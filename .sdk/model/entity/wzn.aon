@@ -4,6 +4,25 @@ main: kit: entity: wzn: {
 
   alias: field: {}
 
+  fields: [
+    {
+      name: "id"
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+    parts: [
+      "region"
+      "version"
+      "path"
+    ]
+    sep: "/"
+  }
+
   name: "wzn"
   op: {
     load: {
@@ -61,13 +80,25 @@ main: kit: entity: wzn: {
           }
           method: "GET"
           orig: "/api/wz/export/{region}/{version}/{path}"
-          parts: [
-            "api"
-            "wz"
-            "export"
-            "{region}"
-            "{version}"
-            "{path}"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "wz"
+            }
+            {
+              lit: "export"
+            }
+            {
+              var: "region"
+            }
+            {
+              var: "version"
+            }
+            {
+              var: "path"
+            }
           ]
           select: {
             exist: [
@@ -126,13 +157,25 @@ main: kit: entity: wzn: {
           }
           method: "GET"
           orig: "/api/wz/audio/{region}/{version}/{path}"
-          parts: [
-            "api"
-            "wz"
-            "audio"
-            "{region}"
-            "{version}"
-            "{path}"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "wz"
+            }
+            {
+              lit: "audio"
+            }
+            {
+              var: "region"
+            }
+            {
+              var: "version"
+            }
+            {
+              var: "path"
+            }
           ]
           select: {
             exist: [
@@ -190,13 +233,25 @@ main: kit: entity: wzn: {
           }
           method: "GET"
           orig: "/api/wz/img/{region}/{version}/{path}"
-          parts: [
-            "api"
-            "wz"
-            "img"
-            "{region}"
-            "{version}"
-            "{path}"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "wz"
+            }
+            {
+              lit: "img"
+            }
+            {
+              var: "region"
+            }
+            {
+              var: "version"
+            }
+            {
+              var: "path"
+            }
           ]
           select: {
             exist: [
@@ -254,13 +309,25 @@ main: kit: entity: wzn: {
           }
           method: "GET"
           orig: "/api/wz/lookup/{region}/{version}/{path}"
-          parts: [
-            "api"
-            "wz"
-            "lookup"
-            "{region}"
-            "{version}"
-            "{path}"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "wz"
+            }
+            {
+              lit: "lookup"
+            }
+            {
+              var: "region"
+            }
+            {
+              var: "version"
+            }
+            {
+              var: "path"
+            }
           ]
           select: {
             exist: [
@@ -318,12 +385,22 @@ main: kit: entity: wzn: {
           }
           method: "GET"
           orig: "/api/wz/{region}/{version}/{path}"
-          parts: [
-            "api"
-            "wz"
-            "{region}"
-            "{version}"
-            "{path}"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "wz"
+            }
+            {
+              var: "region"
+            }
+            {
+              var: "version"
+            }
+            {
+              var: "path"
+            }
           ]
           select: {
             exist: [
@@ -358,9 +435,13 @@ main: kit: entity: wzn: {
           }
           method: "GET"
           orig: "/api/wz"
-          parts: [
-            "api"
-            "wz"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "wz"
+            }
           ]
           select: {
             exist: [

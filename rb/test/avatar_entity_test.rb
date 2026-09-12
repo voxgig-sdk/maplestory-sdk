@@ -41,9 +41,13 @@ class AvatarEntityTest < Minitest::Test
 
     # LOAD
     avatar_ref01_ent = client.Avatar(nil)
-    avatar_ref01_match_dt0 = {}
+    avatar_ref01_match_dt0 = {
+      "id" => avatar_ref01_data["id"],
+    }
     avatar_ref01_data_dt0_loaded = avatar_ref01_ent.load(avatar_ref01_match_dt0, nil)
-    assert !avatar_ref01_data_dt0_loaded.nil?
+    avatar_ref01_data_dt0_load_result = Helpers.to_map(avatar_ref01_data_dt0_loaded.respond_to?(:data_get) ? avatar_ref01_data_dt0_loaded.data_get : avatar_ref01_data_dt0_loaded)
+    assert !avatar_ref01_data_dt0_load_result.nil?
+    assert_equal avatar_ref01_data_dt0_load_result["id"], avatar_ref01_data["id"]
 
   end
 end
@@ -91,6 +95,9 @@ def avatar_basic_setup(extra)
 
   if env["MAPLESTORY_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
+      # FIRST, so the generated fields below win: sdk-test-control.json's
+      # test.client.options adds to the live client, it does not redirect it.
+      Runner.live_client_options,
       {
       },
       extra || {},

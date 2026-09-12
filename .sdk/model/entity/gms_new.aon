@@ -36,13 +36,25 @@ main: kit: entity: gms_new: {
           }
           method: "GET"
           orig: "/api/gms/latest/news/article/{id}"
-          parts: [
-            "api"
-            "gms"
-            "latest"
-            "news"
-            "article"
-            "{id}"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "gms"
+            }
+            {
+              lit: "latest"
+            }
+            {
+              lit: "news"
+            }
+            {
+              lit: "article"
+            }
+            {
+              var: "id"
+            }
           ]
           select: {
             exist: [
@@ -69,18 +81,28 @@ main: kit: entity: gms_new: {
           }
           method: "GET"
           orig: "/api/gms/latest/news/{type}"
-          parts: [
-            "api"
-            "gms"
-            "latest"
-            "news"
-            "{id}"
-          ]
           rename: {
             param: {
               type: "id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "gms"
+            }
+            {
+              lit: "latest"
+            }
+            {
+              lit: "news"
+            }
+            {
+              var: "id"
+            }
+          ]
           select: {
             exist: [
               "type"

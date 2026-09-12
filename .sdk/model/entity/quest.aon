@@ -67,11 +67,19 @@ main: kit: entity: quest: {
           }
           method: "GET"
           orig: "/api/{region}/{version}/quest"
-          parts: [
-            "api"
-            "{region}"
-            "{version}"
-            "quest"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              var: "region"
+            }
+            {
+              var: "version"
+            }
+            {
+              lit: "quest"
+            }
           ]
           select: {
             exist: [
@@ -132,12 +140,22 @@ main: kit: entity: quest: {
           }
           method: "GET"
           orig: "/api/{region}/{version}/quest/count"
-          parts: [
-            "api"
-            "{region}"
-            "{version}"
-            "quest"
-            "count"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              var: "region"
+            }
+            {
+              var: "version"
+            }
+            {
+              lit: "quest"
+            }
+            {
+              lit: "count"
+            }
           ]
           select: {
             "$action": "count"
@@ -182,13 +200,25 @@ main: kit: entity: quest: {
           }
           method: "GET"
           orig: "/api/{region}/{version}/quest/category/{category}"
-          parts: [
-            "api"
-            "{region}"
-            "{version}"
-            "quest"
-            "category"
-            "{category}"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              var: "region"
+            }
+            {
+              var: "version"
+            }
+            {
+              lit: "quest"
+            }
+            {
+              lit: "category"
+            }
+            {
+              var: "category"
+            }
           ]
           select: {
             exist: [
@@ -230,18 +260,28 @@ main: kit: entity: quest: {
           }
           method: "GET"
           orig: "/api/{region}/{version}/quest/{questId}"
-          parts: [
-            "api"
-            "{region}"
-            "{version}"
-            "quest"
-            "{id}"
-          ]
           rename: {
             param: {
               questId: "id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              var: "region"
+            }
+            {
+              var: "version"
+            }
+            {
+              lit: "quest"
+            }
+            {
+              var: "id"
+            }
+          ]
           select: {
             exist: [
               "id"
@@ -282,19 +322,31 @@ main: kit: entity: quest: {
           }
           method: "GET"
           orig: "/api/{region}/{version}/quest/{questId}/icon"
-          parts: [
-            "api"
-            "{region}"
-            "{version}"
-            "quest"
-            "{id}"
-            "icon"
-          ]
           rename: {
             param: {
               questId: "id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              var: "region"
+            }
+            {
+              var: "version"
+            }
+            {
+              lit: "quest"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "icon"
+            }
+          ]
           select: {
             "$action": "icon"
             exist: [
@@ -336,19 +388,31 @@ main: kit: entity: quest: {
           }
           method: "GET"
           orig: "/api/{region}/{version}/quest/{questId}/name"
-          parts: [
-            "api"
-            "{region}"
-            "{version}"
-            "quest"
-            "{id}"
-            "name"
-          ]
           rename: {
             param: {
               questId: "id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              var: "region"
+            }
+            {
+              var: "version"
+            }
+            {
+              lit: "quest"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "name"
+            }
+          ]
           select: {
             "$action": "name"
             exist: [
@@ -383,12 +447,22 @@ main: kit: entity: quest: {
           }
           method: "GET"
           orig: "/api/{region}/{version}/quest/category"
-          parts: [
-            "api"
-            "{region}"
-            "{version}"
-            "quest"
-            "category"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              var: "region"
+            }
+            {
+              var: "version"
+            }
+            {
+              lit: "quest"
+            }
+            {
+              lit: "category"
+            }
           ]
           select: {
             "$action": "category"

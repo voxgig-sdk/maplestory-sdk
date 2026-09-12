@@ -26,6 +26,7 @@ type AndroidLoadMatch struct {
 
 // Avatar is the typed data model for the avatar entity.
 type Avatar struct {
+	Id *string `json:"id,omitempty"`
 }
 
 // AvatarLoadMatch is the typed request payload for Avatar.LoadTyped.
@@ -68,6 +69,7 @@ type CacheLoadMatch struct {
 
 // Character is the typed data model for the character entity.
 type Character struct {
+	Id *string `json:"id,omitempty"`
 }
 
 // CharacterLoadMatch is the typed request payload for Character.LoadTyped.
@@ -146,6 +148,7 @@ type GmsNewLoadMatch struct {
 
 // GuildMark is the typed data model for the guild_mark entity.
 type GuildMark struct {
+	Id *string `json:"id,omitempty"`
 }
 
 // GuildMarkLoadMatch is the typed request payload for GuildMark.LoadTyped.
@@ -413,6 +416,7 @@ type TipLoadMatch struct {
 
 // Wzn is the typed data model for the wzn entity.
 type Wzn struct {
+	Id *string `json:"id,omitempty"`
 }
 
 // WznLoadMatch is the typed request payload for Wzn.LoadTyped.

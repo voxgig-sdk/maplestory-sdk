@@ -76,23 +76,41 @@ main: kit: entity: pet: {
           }
           method: "GET"
           orig: "/api/{region}/{version}/pet/{petId}/render/{animation}/{frame}/{petEquip}"
-          parts: [
-            "api"
-            "{region}"
-            "{version}"
-            "pet"
-            "{pet_id}"
-            "render"
-            "{animation}"
-            "{frame}"
-            "{pet_equip}"
-          ]
           rename: {
             param: {
               petEquip: "pet_equip"
               petId: "pet_id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              var: "region"
+            }
+            {
+              var: "version"
+            }
+            {
+              lit: "pet"
+            }
+            {
+              var: "pet_id"
+            }
+            {
+              lit: "render"
+            }
+            {
+              var: "animation"
+            }
+            {
+              var: "frame"
+            }
+            {
+              var: "pet_equip"
+            }
+          ]
           select: {
             exist: [
               "animation"
@@ -162,17 +180,6 @@ main: kit: entity: pet: {
           }
           method: "GET"
           orig: "/api/{region}/{version}/pet/{petId}/render/{animation}/animated/{petEquip}"
-          parts: [
-            "api"
-            "{region}"
-            "{version}"
-            "pet"
-            "{id}"
-            "render"
-            "{render_id}"
-            "animated"
-            "{pet_equip}"
-          ]
           rename: {
             param: {
               animation: "render_id"
@@ -180,6 +187,35 @@ main: kit: entity: pet: {
               petId: "id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              var: "region"
+            }
+            {
+              var: "version"
+            }
+            {
+              lit: "pet"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "render"
+            }
+            {
+              var: "render_id"
+            }
+            {
+              lit: "animated"
+            }
+            {
+              var: "pet_equip"
+            }
+          ]
           select: {
             exist: [
               "bg_color"
@@ -223,18 +259,28 @@ main: kit: entity: pet: {
           }
           method: "GET"
           orig: "/api/{region}/{version}/pet/{petId}"
-          parts: [
-            "api"
-            "{region}"
-            "{version}"
-            "pet"
-            "{id}"
-          ]
           rename: {
             param: {
               petId: "id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              var: "region"
+            }
+            {
+              var: "version"
+            }
+            {
+              lit: "pet"
+            }
+            {
+              var: "id"
+            }
+          ]
           select: {
             exist: [
               "id"
@@ -275,19 +321,31 @@ main: kit: entity: pet: {
           }
           method: "GET"
           orig: "/api/{region}/{version}/pet/{petId}/actions"
-          parts: [
-            "api"
-            "{region}"
-            "{version}"
-            "pet"
-            "{id}"
-            "actions"
-          ]
           rename: {
             param: {
               petId: "id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              var: "region"
+            }
+            {
+              var: "version"
+            }
+            {
+              lit: "pet"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "actions"
+            }
+          ]
           select: {
             "$action": "action"
             exist: [
@@ -329,19 +387,31 @@ main: kit: entity: pet: {
           }
           method: "GET"
           orig: "/api/{region}/{version}/pet/{petId}/download"
-          parts: [
-            "api"
-            "{region}"
-            "{version}"
-            "pet"
-            "{id}"
-            "download"
-          ]
           rename: {
             param: {
               petId: "id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              var: "region"
+            }
+            {
+              var: "version"
+            }
+            {
+              lit: "pet"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "download"
+            }
+          ]
           select: {
             "$action": "download"
             exist: [
@@ -383,19 +453,31 @@ main: kit: entity: pet: {
           }
           method: "GET"
           orig: "/api/{region}/{version}/pet/{petId}/name"
-          parts: [
-            "api"
-            "{region}"
-            "{version}"
-            "pet"
-            "{id}"
-            "name"
-          ]
           rename: {
             param: {
               petId: "id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              var: "region"
+            }
+            {
+              var: "version"
+            }
+            {
+              lit: "pet"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "name"
+            }
+          ]
           select: {
             "$action": "name"
             exist: [
@@ -430,11 +512,19 @@ main: kit: entity: pet: {
           }
           method: "GET"
           orig: "/api/{region}/{version}/pet"
-          parts: [
-            "api"
-            "{region}"
-            "{version}"
-            "pet"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              var: "region"
+            }
+            {
+              var: "version"
+            }
+            {
+              lit: "pet"
+            }
           ]
           select: {
             exist: [
@@ -468,12 +558,22 @@ main: kit: entity: pet: {
           }
           method: "GET"
           orig: "/api/{region}/{version}/pet/count"
-          parts: [
-            "api"
-            "{region}"
-            "{version}"
-            "pet"
-            "count"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              var: "region"
+            }
+            {
+              var: "version"
+            }
+            {
+              lit: "pet"
+            }
+            {
+              lit: "count"
+            }
           ]
           select: {
             "$action": "count"

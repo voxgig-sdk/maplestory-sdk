@@ -73,21 +73,37 @@ main: kit: entity: npc: {
           }
           method: "GET"
           orig: "/api/{region}/{version}/npc/{npcId}/render/animated/{framebook}"
-          parts: [
-            "api"
-            "{region}"
-            "{version}"
-            "npc"
-            "{id}"
-            "render"
-            "animated"
-            "{framebook}"
-          ]
           rename: {
             param: {
               npcId: "id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              var: "region"
+            }
+            {
+              var: "version"
+            }
+            {
+              lit: "npc"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "render"
+            }
+            {
+              lit: "animated"
+            }
+            {
+              var: "framebook"
+            }
+          ]
           select: {
             exist: [
               "animation"
@@ -154,21 +170,37 @@ main: kit: entity: npc: {
           }
           method: "GET"
           orig: "/api/{region}/{version}/npc/{npcId}/render/{framebook}/{frame}"
-          parts: [
-            "api"
-            "{region}"
-            "{version}"
-            "npc"
-            "{npc_id}"
-            "render"
-            "{framebook}"
-            "{frame}"
-          ]
           rename: {
             param: {
               npcId: "npc_id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              var: "region"
+            }
+            {
+              var: "version"
+            }
+            {
+              lit: "npc"
+            }
+            {
+              var: "npc_id"
+            }
+            {
+              lit: "render"
+            }
+            {
+              var: "framebook"
+            }
+            {
+              var: "frame"
+            }
+          ]
           select: {
             exist: [
               "bg_color"
@@ -231,11 +263,19 @@ main: kit: entity: npc: {
           }
           method: "GET"
           orig: "/api/{region}/{version}/npc"
-          parts: [
-            "api"
-            "{region}"
-            "{version}"
-            "npc"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              var: "region"
+            }
+            {
+              var: "version"
+            }
+            {
+              lit: "npc"
+            }
           ]
           select: {
             exist: [
@@ -298,12 +338,22 @@ main: kit: entity: npc: {
           }
           method: "GET"
           orig: "/api/{region}/{version}/npc/count"
-          parts: [
-            "api"
-            "{region}"
-            "{version}"
-            "npc"
-            "count"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              var: "region"
+            }
+            {
+              var: "version"
+            }
+            {
+              lit: "npc"
+            }
+            {
+              lit: "count"
+            }
           ]
           select: {
             "$action": "count"
@@ -348,18 +398,28 @@ main: kit: entity: npc: {
           }
           method: "GET"
           orig: "/api/{region}/{version}/npc/{npcId}"
-          parts: [
-            "api"
-            "{region}"
-            "{version}"
-            "npc"
-            "{id}"
-          ]
           rename: {
             param: {
               npcId: "id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              var: "region"
+            }
+            {
+              var: "version"
+            }
+            {
+              lit: "npc"
+            }
+            {
+              var: "id"
+            }
+          ]
           select: {
             exist: [
               "id"
@@ -400,19 +460,31 @@ main: kit: entity: npc: {
           }
           method: "GET"
           orig: "/api/{region}/{version}/npc/{npcId}/download"
-          parts: [
-            "api"
-            "{region}"
-            "{version}"
-            "npc"
-            "{id}"
-            "download"
-          ]
           rename: {
             param: {
               npcId: "id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              var: "region"
+            }
+            {
+              var: "version"
+            }
+            {
+              lit: "npc"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "download"
+            }
+          ]
           select: {
             "$action": "download"
             exist: [
@@ -454,19 +526,31 @@ main: kit: entity: npc: {
           }
           method: "GET"
           orig: "/api/{region}/{version}/npc/{npcId}/icon"
-          parts: [
-            "api"
-            "{region}"
-            "{version}"
-            "npc"
-            "{id}"
-            "icon"
-          ]
           rename: {
             param: {
               npcId: "id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              var: "region"
+            }
+            {
+              var: "version"
+            }
+            {
+              lit: "npc"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "icon"
+            }
+          ]
           select: {
             "$action": "icon"
             exist: [
@@ -508,19 +592,31 @@ main: kit: entity: npc: {
           }
           method: "GET"
           orig: "/api/{region}/{version}/npc/{npcId}/name"
-          parts: [
-            "api"
-            "{region}"
-            "{version}"
-            "npc"
-            "{id}"
-            "name"
-          ]
           rename: {
             param: {
               npcId: "id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              var: "region"
+            }
+            {
+              var: "version"
+            }
+            {
+              lit: "npc"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "name"
+            }
+          ]
           select: {
             "$action": "name"
             exist: [

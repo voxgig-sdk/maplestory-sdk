@@ -4,6 +4,26 @@ main: kit: entity: character: {
 
   alias: field: {}
 
+  fields: [
+    {
+      name: "id"
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+    parts: [
+      "skin_id"
+      "item"
+      "animation"
+      "frame"
+    ]
+    sep: "/"
+  }
+
   name: "character"
   op: {
     load: {
@@ -152,23 +172,41 @@ main: kit: entity: character: {
           }
           method: "GET"
           orig: "/api/{region}/{version}/Character/animated/{skinId}/{items}/{animation}/{frame}"
-          parts: [
-            "api"
-            "{region}"
-            "{version}"
-            "Character"
-            "animated"
-            "{skin_id}"
-            "{item}"
-            "{animation}"
-            "{frame}"
-          ]
           rename: {
             param: {
               items: "item"
               skinId: "skin_id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              var: "region"
+            }
+            {
+              var: "version"
+            }
+            {
+              lit: "Character"
+            }
+            {
+              lit: "animated"
+            }
+            {
+              var: "skin_id"
+            }
+            {
+              var: "item"
+            }
+            {
+              var: "animation"
+            }
+            {
+              var: "frame"
+            }
+          ]
           select: {
             exist: [
               "animation"
@@ -302,22 +340,38 @@ main: kit: entity: character: {
           }
           method: "GET"
           orig: "/api/{region}/{version}/Character/{skinId}/{items}/{animation}/{frame}"
-          parts: [
-            "api"
-            "{region}"
-            "{version}"
-            "Character"
-            "{skin_id}"
-            "{item}"
-            "{animation}"
-            "{frame}"
-          ]
           rename: {
             param: {
               items: "item"
               skinId: "skin_id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              var: "region"
+            }
+            {
+              var: "version"
+            }
+            {
+              lit: "Character"
+            }
+            {
+              var: "skin_id"
+            }
+            {
+              var: "item"
+            }
+            {
+              var: "animation"
+            }
+            {
+              var: "frame"
+            }
+          ]
           select: {
             exist: [
               "animation"
@@ -443,23 +497,41 @@ main: kit: entity: character: {
           }
           method: "GET"
           orig: "/api/{region}/{version}/Character/center/{skinId}/{items}/{animation}/{frame}"
-          parts: [
-            "api"
-            "{region}"
-            "{version}"
-            "Character"
-            "center"
-            "{skin_id}"
-            "{item}"
-            "{animation}"
-            "{frame}"
-          ]
           rename: {
             param: {
               items: "item"
               skinId: "skin_id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              var: "region"
+            }
+            {
+              var: "version"
+            }
+            {
+              lit: "Character"
+            }
+            {
+              lit: "center"
+            }
+            {
+              var: "skin_id"
+            }
+            {
+              var: "item"
+            }
+            {
+              var: "animation"
+            }
+            {
+              var: "frame"
+            }
+          ]
           select: {
             exist: [
               "animation"
@@ -592,23 +664,41 @@ main: kit: entity: character: {
           }
           method: "GET"
           orig: "/api/{region}/{version}/Character/compact/{skinId}/{items}/{animation}/{frame}"
-          parts: [
-            "api"
-            "{region}"
-            "{version}"
-            "Character"
-            "compact"
-            "{skin_id}"
-            "{item}"
-            "{animation}"
-            "{frame}"
-          ]
           rename: {
             param: {
               items: "item"
               skinId: "skin_id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              var: "region"
+            }
+            {
+              var: "version"
+            }
+            {
+              lit: "Character"
+            }
+            {
+              lit: "compact"
+            }
+            {
+              var: "skin_id"
+            }
+            {
+              var: "item"
+            }
+            {
+              var: "animation"
+            }
+            {
+              var: "frame"
+            }
+          ]
           select: {
             exist: [
               "animation"
@@ -733,23 +823,41 @@ main: kit: entity: character: {
           }
           method: "GET"
           orig: "/api/{region}/{version}/Character/feetCenter/{skinId}/{items}/{animation}/{frame}"
-          parts: [
-            "api"
-            "{region}"
-            "{version}"
-            "Character"
-            "feetCenter"
-            "{skin_id}"
-            "{item}"
-            "{animation}"
-            "{frame}"
-          ]
           rename: {
             param: {
               items: "item"
               skinId: "skin_id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              var: "region"
+            }
+            {
+              var: "version"
+            }
+            {
+              lit: "Character"
+            }
+            {
+              lit: "feetCenter"
+            }
+            {
+              var: "skin_id"
+            }
+            {
+              var: "item"
+            }
+            {
+              var: "animation"
+            }
+            {
+              var: "frame"
+            }
+          ]
           select: {
             exist: [
               "animation"
@@ -874,23 +982,41 @@ main: kit: entity: character: {
           }
           method: "GET"
           orig: "/api/{region}/{version}/Character/navelCenter/{skinId}/{items}/{animation}/{frame}"
-          parts: [
-            "api"
-            "{region}"
-            "{version}"
-            "Character"
-            "navelCenter"
-            "{skin_id}"
-            "{item}"
-            "{animation}"
-            "{frame}"
-          ]
           rename: {
             param: {
               items: "item"
               skinId: "skin_id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              var: "region"
+            }
+            {
+              var: "version"
+            }
+            {
+              lit: "Character"
+            }
+            {
+              lit: "navelCenter"
+            }
+            {
+              var: "skin_id"
+            }
+            {
+              var: "item"
+            }
+            {
+              var: "animation"
+            }
+            {
+              var: "frame"
+            }
+          ]
           select: {
             exist: [
               "animation"
@@ -1046,21 +1172,35 @@ main: kit: entity: character: {
           }
           method: "GET"
           orig: "/api/{region}/{version}/Character/download/{skinId}/{items}"
-          parts: [
-            "api"
-            "{region}"
-            "{version}"
-            "Character"
-            "download"
-            "{skin_id}"
-            "{item}"
-          ]
           rename: {
             param: {
               items: "item"
               skinId: "skin_id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              var: "region"
+            }
+            {
+              var: "version"
+            }
+            {
+              lit: "Character"
+            }
+            {
+              lit: "download"
+            }
+            {
+              var: "skin_id"
+            }
+            {
+              var: "item"
+            }
+          ]
           select: {
             exist: [
               "flip_x"
@@ -1163,19 +1303,31 @@ main: kit: entity: character: {
           }
           method: "GET"
           orig: "/api/{region}/{version}/Character/actions/{items}"
-          parts: [
-            "api"
-            "{region}"
-            "{version}"
-            "Character"
-            "actions"
-            "{item}"
-          ]
           rename: {
             param: {
               items: "item"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              var: "region"
+            }
+            {
+              var: "version"
+            }
+            {
+              lit: "Character"
+            }
+            {
+              lit: "actions"
+            }
+            {
+              var: "item"
+            }
+          ]
           select: {
             exist: [
               "flip_x"
@@ -1267,11 +1419,19 @@ main: kit: entity: character: {
           }
           method: "GET"
           orig: "/api/{region}/{version}/Character"
-          parts: [
-            "api"
-            "{region}"
-            "{version}"
-            "Character"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              var: "region"
+            }
+            {
+              var: "version"
+            }
+            {
+              lit: "Character"
+            }
           ]
           select: {
             exist: [

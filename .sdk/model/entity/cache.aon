@@ -6,31 +6,37 @@ main: kit: entity: cache: {
 
   fields: [
     {
+      format: "int64"
       name: "evictionCount"
       req: false
       type: "`$INTEGER`"
     }
     {
+      format: "int64"
       name: "hitCount"
       req: false
       type: "`$INTEGER`"
     }
     {
+      format: "double"
       name: "hitRatio"
       req: false
       type: "`$NUMBER`"
     }
     {
+      format: "int64"
       name: "memoryUsage"
       req: false
       type: "`$INTEGER`"
     }
     {
+      format: "int64"
       name: "missCount"
       req: false
       type: "`$INTEGER`"
     }
     {
+      format: "int64"
       name: "totalEntries"
       req: false
       type: "`$INTEGER`"
@@ -45,10 +51,16 @@ main: kit: entity: cache: {
         {
           method: "GET"
           orig: "/api/metrics/cache"
-          parts: [
-            "api"
-            "metrics"
-            "cache"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "metrics"
+            }
+            {
+              lit: "cache"
+            }
           ]
           transform: {
             req: "`reqdata`"

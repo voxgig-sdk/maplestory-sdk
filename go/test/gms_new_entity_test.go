@@ -50,7 +50,7 @@ func TestGmsNewEntity(t *testing.T) {
 		client := setup.client
 
 		// Bootstrap entity data from existing test data (no create step in flow).
-		gmsNewRef01DataRaw := vs.Items(core.ToMapAny(vs.GetPath("existing.gms_new", setup.data)))
+		gmsNewRef01DataRaw := vs.Items(core.ToMapAny(vs.GetPath(setup.data, "existing.gms_new")))
 		var gmsNewRef01Data map[string]any
 		if len(gmsNewRef01DataRaw) > 0 {
 			gmsNewRef01Data = core.ToMapAny(gmsNewRef01DataRaw[0][1])
@@ -103,7 +103,7 @@ func gms_newBasicSetup(extra map[string]any) *entityTestSetup {
 	client := sdk.TestSDK(options, extra)
 
 	// Generate idmap via transform, matching TS pattern.
-	idmap := vs.Transform(
+	idmap, _ := vs.Transform(
 		[]any{"gms_new01", "gms_new02", "gms_new03"},
 		map[string]any{
 			"`$PACK`": []any{"", map[string]any{
@@ -131,10 +131,22 @@ func gms_newBasicSetup(extra map[string]any) *entityTestSetup {
 	}
 
 	if env["MAPLESTORY_TEST_LIVE"] == "TRUE" {
+		// An empty map, not a nil one: Merge returns nil when its last entry
+		// is nil, and BasicSetup is normally called with no extras - so a
+		// bare nil silently discarded the apikey and server values below.
+		extraOpts := extra
+		if extraOpts == nil {
+			extraOpts = map[string]any{}
+		}
+
 		mergedOpts := vs.Merge([]any{
+			// liveClientOptions() FIRST, so the generated fields below win:
+			// sdk-test-control.json's test.client.options adds to the live
+			// client, it does not redirect it.
+			liveClientOptions(),
 			map[string]any{
 			},
-			extra,
+			extraOpts,
 		})
 		client = sdk.NewMaplestorySDK(core.ToMapAny(mergedOpts))
 	}

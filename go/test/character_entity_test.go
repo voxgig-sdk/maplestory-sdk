@@ -50,7 +50,7 @@ func TestCharacterEntity(t *testing.T) {
 		client := setup.client
 
 		// Bootstrap entity data from existing test data (no create step in flow).
-		characterRef01DataRaw := vs.Items(core.ToMapAny(vs.GetPath("existing.character", setup.data)))
+		characterRef01DataRaw := vs.Items(core.ToMapAny(vs.GetPath(setup.data, "existing.character")))
 		var characterRef01Data map[string]any
 		if len(characterRef01DataRaw) > 0 {
 			characterRef01Data = core.ToMapAny(characterRef01DataRaw[0][1])
@@ -61,13 +61,19 @@ func TestCharacterEntity(t *testing.T) {
 
 		// LOAD
 		characterRef01Ent := client.Character(nil)
-		characterRef01MatchDt0 := map[string]any{}
+		characterRef01MatchDt0 := map[string]any{
+			"id": characterRef01Data["id"],
+		}
 		characterRef01DataDt0Loaded, err := characterRef01Ent.Load(characterRef01MatchDt0, nil)
 		if err != nil {
 			t.Fatalf("load failed: %v", err)
 		}
-		if characterRef01DataDt0Loaded == nil {
-			t.Fatal("expected load result to be non-nil")
+		characterRef01DataDt0LoadResult := core.ToMapAny(entityData(characterRef01DataDt0Loaded))
+		if characterRef01DataDt0LoadResult == nil {
+			t.Fatal("expected load result to be a map")
+		}
+		if characterRef01DataDt0LoadResult["id"] != characterRef01Data["id"] {
+			t.Fatal("expected load result id to match")
 		}
 
 	})
@@ -97,7 +103,7 @@ func characterBasicSetup(extra map[string]any) *entityTestSetup {
 	client := sdk.TestSDK(options, extra)
 
 	// Generate idmap via transform, matching TS pattern.
-	idmap := vs.Transform(
+	idmap, _ := vs.Transform(
 		[]any{"character01", "character02", "character03", "api01", "api02", "api03", "action01", "action02", "action03", "animated01", "animated02", "animated03", "center01", "center02", "center03", "compact01", "compact02", "compact03", "download01", "download02", "download03", "feet_center01", "feet_center02", "feet_center03", "navel_center01", "navel_center02", "navel_center03", "region01"},
 		map[string]any{
 			"`$PACK`": []any{"", map[string]any{
@@ -125,10 +131,22 @@ func characterBasicSetup(extra map[string]any) *entityTestSetup {
 	}
 
 	if env["MAPLESTORY_TEST_LIVE"] == "TRUE" {
+		// An empty map, not a nil one: Merge returns nil when its last entry
+		// is nil, and BasicSetup is normally called with no extras - so a
+		// bare nil silently discarded the apikey and server values below.
+		extraOpts := extra
+		if extraOpts == nil {
+			extraOpts = map[string]any{}
+		}
+
 		mergedOpts := vs.Merge([]any{
+			// liveClientOptions() FIRST, so the generated fields below win:
+			// sdk-test-control.json's test.client.options adds to the live
+			// client, it does not redirect it.
+			liveClientOptions(),
 			map[string]any{
 			},
-			extra,
+			extraOpts,
 		})
 		client = sdk.NewMaplestorySDK(core.ToMapAny(mergedOpts))
 	}

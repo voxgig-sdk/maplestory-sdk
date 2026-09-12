@@ -30,11 +30,19 @@ main: kit: entity: z_map: {
           }
           method: "GET"
           orig: "/api/{region}/{version}/zmap"
-          parts: [
-            "api"
-            "{region}"
-            "{version}"
-            "zmap"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              var: "region"
+            }
+            {
+              var: "version"
+            }
+            {
+              lit: "zmap"
+            }
           ]
           select: {
             exist: [
@@ -68,12 +76,22 @@ main: kit: entity: z_map: {
           }
           method: "GET"
           orig: "/api/{region}/{version}/zmap/smap"
-          parts: [
-            "api"
-            "{region}"
-            "{version}"
-            "zmap"
-            "smap"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              var: "region"
+            }
+            {
+              var: "version"
+            }
+            {
+              lit: "zmap"
+            }
+            {
+              lit: "smap"
+            }
           ]
           select: {
             exist: [

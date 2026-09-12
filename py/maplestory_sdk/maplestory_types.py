@@ -29,8 +29,8 @@ class AndroidLoadMatch(AndroidLoadMatchRequired, total=False):
     id: int
 
 
-class Avatar(TypedDict):
-    pass
+class Avatar(TypedDict, total=False):
+    id: str
 
 
 class AvatarLoadMatchRequired(TypedDict):
@@ -71,8 +71,8 @@ class CacheLoadMatch(TypedDict, total=False):
     totalEntries: int
 
 
-class Character(TypedDict):
-    pass
+class Character(TypedDict, total=False):
+    id: str
 
 
 class CharacterLoadMatchRequired(TypedDict):
@@ -148,8 +148,8 @@ class GmsNewLoadMatch(TypedDict, total=False):
     type: str
 
 
-class GuildMark(TypedDict):
-    pass
+class GuildMark(TypedDict, total=False):
+    id: str
 
 
 class GuildMarkLoadMatchRequired(TypedDict):
@@ -419,8 +419,8 @@ class TipLoadMatch(TypedDict):
     version: str
 
 
-class Wzn(TypedDict):
-    pass
+class Wzn(TypedDict, total=False):
+    id: str
 
 
 class WznLoadMatchRequired(TypedDict):

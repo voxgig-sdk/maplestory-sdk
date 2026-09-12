@@ -238,6 +238,12 @@ Return the entity name.
 avatar = client.Avatar()
 ```
 
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `str` | No |  |
+
 ### Operations
 
 #### `load(reqmatch, ctrl=None) -> dict`
@@ -338,6 +344,12 @@ Return the entity name.
 ```python
 character = client.Character()
 ```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `str` | No |  |
 
 ### Operations
 
@@ -624,6 +636,12 @@ Return the entity name.
 ```python
 guild_mark = client.GuildMark()
 ```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `str` | No |  |
 
 ### Operations
 
@@ -1422,6 +1440,12 @@ Return the entity name.
 ```python
 wzn = client.Wzn()
 ```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `str` | No |  |
 
 ### Operations
 

@@ -57,21 +57,35 @@ main: kit: entity: job: {
           }
           method: "GET"
           orig: "/api/{region}/{version}/job/{jobId}/skillbook/{skillId}"
-          parts: [
-            "api"
-            "{region}"
-            "{version}"
-            "job"
-            "{id}"
-            "skillbook"
-            "{skill_id}"
-          ]
           rename: {
             param: {
               jobId: "id"
               skillId: "skill_id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              var: "region"
+            }
+            {
+              var: "version"
+            }
+            {
+              lit: "job"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "skillbook"
+            }
+            {
+              var: "skill_id"
+            }
+          ]
           select: {
             exist: [
               "id"
@@ -113,18 +127,28 @@ main: kit: entity: job: {
           }
           method: "GET"
           orig: "/api/{region}/{version}/job/{jobId}"
-          parts: [
-            "api"
-            "{region}"
-            "{version}"
-            "job"
-            "{id}"
-          ]
           rename: {
             param: {
               jobId: "id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              var: "region"
+            }
+            {
+              var: "version"
+            }
+            {
+              lit: "job"
+            }
+            {
+              var: "id"
+            }
+          ]
           select: {
             exist: [
               "id"
@@ -165,19 +189,31 @@ main: kit: entity: job: {
           }
           method: "GET"
           orig: "/api/{region}/{version}/job/{jobId}/skillbook"
-          parts: [
-            "api"
-            "{region}"
-            "{version}"
-            "job"
-            "{id}"
-            "skillbook"
-          ]
           rename: {
             param: {
               jobId: "id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              var: "region"
+            }
+            {
+              var: "version"
+            }
+            {
+              lit: "job"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "skillbook"
+            }
+          ]
           select: {
             "$action": "skillbook"
             exist: [
@@ -219,19 +255,31 @@ main: kit: entity: job: {
           }
           method: "GET"
           orig: "/api/{region}/{version}/job/skill/{skillId}"
-          parts: [
-            "api"
-            "{region}"
-            "{version}"
-            "job"
-            "skill"
-            "{skill_id}"
-          ]
           rename: {
             param: {
               skillId: "skill_id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              var: "region"
+            }
+            {
+              var: "version"
+            }
+            {
+              lit: "job"
+            }
+            {
+              lit: "skill"
+            }
+            {
+              var: "skill_id"
+            }
+          ]
           select: {
             exist: [
               "region"
@@ -265,11 +313,19 @@ main: kit: entity: job: {
           }
           method: "GET"
           orig: "/api/{region}/{version}/job"
-          parts: [
-            "api"
-            "{region}"
-            "{version}"
-            "job"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              var: "region"
+            }
+            {
+              var: "version"
+            }
+            {
+              lit: "job"
+            }
           ]
           select: {
             exist: [
@@ -303,12 +359,22 @@ main: kit: entity: job: {
           }
           method: "GET"
           orig: "/api/{region}/{version}/job/count"
-          parts: [
-            "api"
-            "{region}"
-            "{version}"
-            "job"
-            "count"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              var: "region"
+            }
+            {
+              var: "version"
+            }
+            {
+              lit: "job"
+            }
+            {
+              lit: "count"
+            }
           ]
           select: {
             "$action": "count"
@@ -343,12 +409,22 @@ main: kit: entity: job: {
           }
           method: "GET"
           orig: "/api/{region}/{version}/job/skilltree"
-          parts: [
-            "api"
-            "{region}"
-            "{version}"
-            "job"
-            "skilltree"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              var: "region"
+            }
+            {
+              var: "version"
+            }
+            {
+              lit: "job"
+            }
+            {
+              lit: "skilltree"
+            }
           ]
           select: {
             "$action": "skilltree"

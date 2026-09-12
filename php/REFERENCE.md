@@ -244,6 +244,12 @@ Return the entity name.
 $avatar = $client->Avatar();
 ```
 
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
+
 ### Operations
 
 #### `load(array $reqmatch, ?array $ctrl = null): mixed`
@@ -346,6 +352,12 @@ Return the entity name.
 ```php
 $character = $client->Character();
 ```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
 
 ### Operations
 
@@ -636,6 +648,12 @@ Return the entity name.
 ```php
 $guild_mark = $client->GuildMark();
 ```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
 
 ### Operations
 
@@ -1450,6 +1468,12 @@ Return the entity name.
 ```php
 $wzn = $client->Wzn();
 ```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
 
 ### Operations
 

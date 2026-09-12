@@ -50,7 +50,7 @@ func TestAvatarEntity(t *testing.T) {
 		client := setup.client
 
 		// Bootstrap entity data from existing test data (no create step in flow).
-		avatarRef01DataRaw := vs.Items(core.ToMapAny(vs.GetPath("existing.avatar", setup.data)))
+		avatarRef01DataRaw := vs.Items(core.ToMapAny(vs.GetPath(setup.data, "existing.avatar")))
 		var avatarRef01Data map[string]any
 		if len(avatarRef01DataRaw) > 0 {
 			avatarRef01Data = core.ToMapAny(avatarRef01DataRaw[0][1])
@@ -61,13 +61,19 @@ func TestAvatarEntity(t *testing.T) {
 
 		// LOAD
 		avatarRef01Ent := client.Avatar(nil)
-		avatarRef01MatchDt0 := map[string]any{}
+		avatarRef01MatchDt0 := map[string]any{
+			"id": avatarRef01Data["id"],
+		}
 		avatarRef01DataDt0Loaded, err := avatarRef01Ent.Load(avatarRef01MatchDt0, nil)
 		if err != nil {
 			t.Fatalf("load failed: %v", err)
 		}
-		if avatarRef01DataDt0Loaded == nil {
-			t.Fatal("expected load result to be non-nil")
+		avatarRef01DataDt0LoadResult := core.ToMapAny(entityData(avatarRef01DataDt0Loaded))
+		if avatarRef01DataDt0LoadResult == nil {
+			t.Fatal("expected load result to be a map")
+		}
+		if avatarRef01DataDt0LoadResult["id"] != avatarRef01Data["id"] {
+			t.Fatal("expected load result id to match")
 		}
 
 	})
@@ -97,7 +103,7 @@ func avatarBasicSetup(extra map[string]any) *entityTestSetup {
 	client := sdk.TestSDK(options, extra)
 
 	// Generate idmap via transform, matching TS pattern.
-	idmap := vs.Transform(
+	idmap, _ := vs.Transform(
 		[]any{"avatar01", "avatar02", "avatar03", "character01", "character02", "character03", "animation01", "item01"},
 		map[string]any{
 			"`$PACK`": []any{"", map[string]any{
@@ -125,10 +131,22 @@ func avatarBasicSetup(extra map[string]any) *entityTestSetup {
 	}
 
 	if env["MAPLESTORY_TEST_LIVE"] == "TRUE" {
+		// An empty map, not a nil one: Merge returns nil when its last entry
+		// is nil, and BasicSetup is normally called with no extras - so a
+		// bare nil silently discarded the apikey and server values below.
+		extraOpts := extra
+		if extraOpts == nil {
+			extraOpts = map[string]any{}
+		}
+
 		mergedOpts := vs.Merge([]any{
+			// liveClientOptions() FIRST, so the generated fields below win:
+			// sdk-test-control.json's test.client.options adds to the live
+			// client, it does not redirect it.
+			liveClientOptions(),
 			map[string]any{
 			},
-			extra,
+			extraOpts,
 		})
 		client = sdk.NewMaplestorySDK(core.ToMapAny(mergedOpts))
 	}

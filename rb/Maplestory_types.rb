@@ -35,8 +35,13 @@ AndroidLoadMatch = Struct.new(
 )
 
 # Avatar entity data model.
-class Avatar
-end
+#
+# @!attribute [rw] id
+#   @return [String, nil]
+Avatar = Struct.new(
+  :id,
+  keyword_init: true
+)
 
 # Request payload for Avatar#load.
 #
@@ -158,8 +163,13 @@ CacheLoadMatch = Struct.new(
 )
 
 # Character entity data model.
-class Character
-end
+#
+# @!attribute [rw] id
+#   @return [String, nil]
+Character = Struct.new(
+  :id,
+  keyword_init: true
+)
 
 # Request payload for Character#load.
 #
@@ -333,8 +343,13 @@ GmsNewLoadMatch = Struct.new(
 )
 
 # GuildMark entity data model.
-class GuildMark
-end
+#
+# @!attribute [rw] id
+#   @return [String, nil]
+GuildMark = Struct.new(
+  :id,
+  keyword_init: true
+)
 
 # Request payload for GuildMark#load.
 #
@@ -1040,8 +1055,13 @@ TipLoadMatch = Struct.new(
 )
 
 # Wzn entity data model.
-class Wzn
-end
+#
+# @!attribute [rw] id
+#   @return [String, nil]
+Wzn = Struct.new(
+  :id,
+  keyword_init: true
+)
 
 # Request payload for Wzn#load.
 #

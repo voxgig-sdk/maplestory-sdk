@@ -47,11 +47,19 @@ main: kit: entity: name: {
           }
           method: "GET"
           orig: "/api/{region}/{version}/name"
-          parts: [
-            "api"
-            "{region}"
-            "{version}"
-            "name"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              var: "region"
+            }
+            {
+              var: "version"
+            }
+            {
+              lit: "name"
+            }
           ]
           select: {
             exist: [

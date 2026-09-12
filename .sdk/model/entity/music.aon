@@ -50,18 +50,28 @@ main: kit: entity: music: {
           }
           method: "GET"
           orig: "/api/{region}/{version}/music/{songPath}"
-          parts: [
-            "api"
-            "{region}"
-            "{version}"
-            "music"
-            "{id}"
-          ]
           rename: {
             param: {
               songPath: "id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              var: "region"
+            }
+            {
+              var: "version"
+            }
+            {
+              lit: "music"
+            }
+            {
+              var: "id"
+            }
+          ]
           select: {
             exist: [
               "id"

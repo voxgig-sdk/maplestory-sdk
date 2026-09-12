@@ -6,36 +6,43 @@ main: kit: entity: system: {
 
   fields: [
     {
+      format: "double"
       name: "cpuUsagePercent"
       req: false
       type: "`$NUMBER`"
     }
     {
+      format: "int64"
       name: "gcGen0Collections"
       req: false
       type: "`$INTEGER`"
     }
     {
+      format: "int64"
       name: "gcGen1Collections"
       req: false
       type: "`$INTEGER`"
     }
     {
+      format: "int64"
       name: "gcGen2Collections"
       req: false
       type: "`$INTEGER`"
     }
     {
+      format: "int32"
       name: "threadCount"
       req: false
       type: "`$INTEGER`"
     }
     {
+      format: "int64"
       name: "totalMemoryBytes"
       req: false
       type: "`$INTEGER`"
     }
     {
+      format: "int64"
       name: "usedMemoryBytes"
       req: false
       type: "`$INTEGER`"
@@ -50,10 +57,16 @@ main: kit: entity: system: {
         {
           method: "GET"
           orig: "/api/metrics/system"
-          parts: [
-            "api"
-            "metrics"
-            "system"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "metrics"
+            }
+            {
+              lit: "system"
+            }
           ]
           transform: {
             req: "`reqdata`"

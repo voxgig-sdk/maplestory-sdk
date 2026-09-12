@@ -474,6 +474,12 @@ Return a copy of the entity options.
 const avatar = client.Avatar()
 ```
 
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
+
 ### Operations
 
 #### `load(match: object, ctrl?: object)`
@@ -572,6 +578,12 @@ Return a copy of the entity options.
 ```ts
 const character = client.Character()
 ```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
 
 ### Operations
 
@@ -870,6 +882,12 @@ Return a copy of the entity options.
 ```ts
 const guild_mark = client.GuildMark()
 ```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
 
 ### Operations
 
@@ -1859,6 +1877,12 @@ Return a copy of the entity options.
 ```ts
 const wzn = client.Wzn()
 ```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
 
 ### Operations
 

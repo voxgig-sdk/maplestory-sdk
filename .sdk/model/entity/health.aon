@@ -12,10 +12,16 @@ main: kit: entity: health: {
         {
           method: "GET"
           orig: "/api/health/alive"
-          parts: [
-            "api"
-            "health"
-            "alive"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "health"
+            }
+            {
+              lit: "alive"
+            }
           ]
           select: {
             "$action": "alive"
@@ -28,10 +34,16 @@ main: kit: entity: health: {
         {
           method: "GET"
           orig: "/api/health/ready"
-          parts: [
-            "api"
-            "health"
-            "ready"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "health"
+            }
+            {
+              lit: "ready"
+            }
           ]
           select: {
             "$action": "ready"
@@ -44,10 +56,16 @@ main: kit: entity: health: {
         {
           method: "GET"
           orig: "/api/health/start"
-          parts: [
-            "api"
-            "health"
-            "start"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "health"
+            }
+            {
+              lit: "start"
+            }
           ]
           select: {
             "$action": "start"

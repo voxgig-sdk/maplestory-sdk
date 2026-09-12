@@ -16,6 +16,7 @@ export interface AndroidLoadMatch {
 }
 
 export interface Avatar {
+  id?: string
 }
 
 export interface AvatarLoadMatch {
@@ -54,6 +55,7 @@ export interface CacheLoadMatch {
 }
 
 export interface Character {
+  id?: string
 }
 
 export interface CharacterLoadMatch {
@@ -126,6 +128,7 @@ export interface GmsNewLoadMatch {
 }
 
 export interface GuildMark {
+  id?: string
 }
 
 export interface GuildMarkLoadMatch {
@@ -415,6 +418,7 @@ export interface TipLoadMatch {
 }
 
 export interface Wzn {
+  id?: string
 }
 
 export interface WznLoadMatch {

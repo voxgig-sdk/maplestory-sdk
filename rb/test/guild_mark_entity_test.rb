@@ -41,9 +41,13 @@ class GuildMarkEntityTest < Minitest::Test
 
     # LOAD
     guild_mark_ref01_ent = client.GuildMark(nil)
-    guild_mark_ref01_match_dt0 = {}
+    guild_mark_ref01_match_dt0 = {
+      "id" => guild_mark_ref01_data["id"],
+    }
     guild_mark_ref01_data_dt0_loaded = guild_mark_ref01_ent.load(guild_mark_ref01_match_dt0, nil)
-    assert !guild_mark_ref01_data_dt0_loaded.nil?
+    guild_mark_ref01_data_dt0_load_result = Helpers.to_map(guild_mark_ref01_data_dt0_loaded.respond_to?(:data_get) ? guild_mark_ref01_data_dt0_loaded.data_get : guild_mark_ref01_data_dt0_loaded)
+    assert !guild_mark_ref01_data_dt0_load_result.nil?
+    assert_equal guild_mark_ref01_data_dt0_load_result["id"], guild_mark_ref01_data["id"]
 
   end
 end
@@ -91,6 +95,9 @@ def guild_mark_basic_setup(extra)
 
   if env["MAPLESTORY_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
+      # FIRST, so the generated fields below win: sdk-test-control.json's
+      # test.client.options adds to the live client, it does not redirect it.
+      Runner.live_client_options,
       {
       },
       extra || {},

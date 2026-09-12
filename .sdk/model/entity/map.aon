@@ -89,22 +89,40 @@ main: kit: entity: map: {
           }
           method: "GET"
           orig: "/api/{region}/{version}/map/{mapId}/render/layer/{layer}/{frame}"
-          parts: [
-            "api"
-            "{region}"
-            "{version}"
-            "map"
-            "{map_id}"
-            "render"
-            "layer"
-            "{layer}"
-            "{frame}"
-          ]
           rename: {
             param: {
               mapId: "map_id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              var: "region"
+            }
+            {
+              var: "version"
+            }
+            {
+              lit: "map"
+            }
+            {
+              var: "map_id"
+            }
+            {
+              lit: "render"
+            }
+            {
+              lit: "layer"
+            }
+            {
+              var: "layer"
+            }
+            {
+              var: "frame"
+            }
+          ]
           select: {
             exist: [
               "filter_trash"
@@ -176,20 +194,34 @@ main: kit: entity: map: {
           }
           method: "GET"
           orig: "/api/{region}/{version}/map/{mapId}/render/{frame}"
-          parts: [
-            "api"
-            "{region}"
-            "{version}"
-            "map"
-            "{id}"
-            "render"
-            "{frame}"
-          ]
           rename: {
             param: {
               mapId: "id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              var: "region"
+            }
+            {
+              var: "version"
+            }
+            {
+              lit: "map"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "render"
+            }
+            {
+              var: "frame"
+            }
+          ]
           select: {
             exist: [
               "frame"
@@ -250,11 +282,19 @@ main: kit: entity: map: {
           }
           method: "GET"
           orig: "/api/{region}/{version}/map"
-          parts: [
-            "api"
-            "{region}"
-            "{version}"
-            "map"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              var: "region"
+            }
+            {
+              var: "version"
+            }
+            {
+              lit: "map"
+            }
           ]
           select: {
             exist: [
@@ -315,12 +355,22 @@ main: kit: entity: map: {
           }
           method: "GET"
           orig: "/api/{region}/{version}/map/count"
-          parts: [
-            "api"
-            "{region}"
-            "{version}"
-            "map"
-            "count"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              var: "region"
+            }
+            {
+              var: "version"
+            }
+            {
+              lit: "map"
+            }
+            {
+              lit: "count"
+            }
           ]
           select: {
             "$action": "count"
@@ -365,18 +415,28 @@ main: kit: entity: map: {
           }
           method: "GET"
           orig: "/api/{region}/{version}/map/{mapId}"
-          parts: [
-            "api"
-            "{region}"
-            "{version}"
-            "map"
-            "{id}"
-          ]
           rename: {
             param: {
               mapId: "id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              var: "region"
+            }
+            {
+              var: "version"
+            }
+            {
+              lit: "map"
+            }
+            {
+              var: "id"
+            }
+          ]
           select: {
             exist: [
               "id"
@@ -417,19 +477,31 @@ main: kit: entity: map: {
           }
           method: "GET"
           orig: "/api/{region}/{version}/map/{mapId}/bgm"
-          parts: [
-            "api"
-            "{region}"
-            "{version}"
-            "map"
-            "{id}"
-            "bgm"
-          ]
           rename: {
             param: {
               mapId: "id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              var: "region"
+            }
+            {
+              var: "version"
+            }
+            {
+              lit: "map"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "bgm"
+            }
+          ]
           select: {
             "$action": "bgm"
             exist: [
@@ -471,19 +543,31 @@ main: kit: entity: map: {
           }
           method: "GET"
           orig: "/api/{region}/{version}/map/{mapId}/icon"
-          parts: [
-            "api"
-            "{region}"
-            "{version}"
-            "map"
-            "{id}"
-            "icon"
-          ]
           rename: {
             param: {
               mapId: "id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              var: "region"
+            }
+            {
+              var: "version"
+            }
+            {
+              lit: "map"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "icon"
+            }
+          ]
           select: {
             "$action": "icon"
             exist: [
@@ -525,19 +609,31 @@ main: kit: entity: map: {
           }
           method: "GET"
           orig: "/api/{region}/{version}/map/{mapId}/minimap"
-          parts: [
-            "api"
-            "{region}"
-            "{version}"
-            "map"
-            "{id}"
-            "minimap"
-          ]
           rename: {
             param: {
               mapId: "id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              var: "region"
+            }
+            {
+              var: "version"
+            }
+            {
+              lit: "map"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "minimap"
+            }
+          ]
           select: {
             "$action": "minimap"
             exist: [
@@ -579,19 +675,31 @@ main: kit: entity: map: {
           }
           method: "GET"
           orig: "/api/{region}/{version}/map/{mapId}/name"
-          parts: [
-            "api"
-            "{region}"
-            "{version}"
-            "map"
-            "{id}"
-            "name"
-          ]
           rename: {
             param: {
               mapId: "id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              var: "region"
+            }
+            {
+              var: "version"
+            }
+            {
+              lit: "map"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "name"
+            }
+          ]
           select: {
             "$action": "name"
             exist: [
@@ -633,13 +741,25 @@ main: kit: entity: map: {
           }
           method: "GET"
           orig: "/api/{region}/{version}/map/worldmap/{map}"
-          parts: [
-            "api"
-            "{region}"
-            "{version}"
-            "map"
-            "worldmap"
-            "{map}"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              var: "region"
+            }
+            {
+              var: "version"
+            }
+            {
+              lit: "map"
+            }
+            {
+              lit: "worldmap"
+            }
+            {
+              var: "map"
+            }
           ]
           select: {
             exist: [
@@ -681,19 +801,31 @@ main: kit: entity: map: {
           }
           method: "GET"
           orig: "/api/{region}/{version}/map/icon/{markName}"
-          parts: [
-            "api"
-            "{region}"
-            "{version}"
-            "map"
-            "icon"
-            "{mark_name}"
-          ]
           rename: {
             param: {
               markName: "mark_name"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              var: "region"
+            }
+            {
+              var: "version"
+            }
+            {
+              lit: "map"
+            }
+            {
+              lit: "icon"
+            }
+            {
+              var: "mark_name"
+            }
+          ]
           select: {
             exist: [
               "mark_name"
@@ -727,12 +859,22 @@ main: kit: entity: map: {
           }
           method: "GET"
           orig: "/api/{region}/{version}/map/worldmap"
-          parts: [
-            "api"
-            "{region}"
-            "{version}"
-            "map"
-            "worldmap"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              var: "region"
+            }
+            {
+              var: "version"
+            }
+            {
+              lit: "map"
+            }
+            {
+              lit: "worldmap"
+            }
           ]
           select: {
             "$action": "worldmap"

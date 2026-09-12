@@ -4,6 +4,24 @@ main: kit: entity: guild_mark: {
 
   alias: field: {}
 
+  fields: [
+    {
+      name: "id"
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+    parts: [
+      "guild_mark_id"
+      "color_id"
+    ]
+    sep: "/"
+  }
+
   name: "guild_mark"
   op: {
     load: {
@@ -58,18 +76,6 @@ main: kit: entity: guild_mark: {
           }
           method: "GET"
           orig: "/api/{region}/{version}/GuildMark/background/{guildBackgroundId}/{guildBackgroundColorId}/mark/{guildMarkId}/{guildMarkColorId}"
-          parts: [
-            "api"
-            "{region}"
-            "{version}"
-            "GuildMark"
-            "background"
-            "{guild_background_id}"
-            "{guild_background_color_id}"
-            "mark"
-            "{guild_mark_id}"
-            "{guild_mark_color_id}"
-          ]
           rename: {
             param: {
               guildBackgroundColorId: "guild_background_color_id"
@@ -78,6 +84,38 @@ main: kit: entity: guild_mark: {
               guildMarkId: "guild_mark_id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              var: "region"
+            }
+            {
+              var: "version"
+            }
+            {
+              lit: "GuildMark"
+            }
+            {
+              lit: "background"
+            }
+            {
+              var: "guild_background_id"
+            }
+            {
+              var: "guild_background_color_id"
+            }
+            {
+              lit: "mark"
+            }
+            {
+              var: "guild_mark_id"
+            }
+            {
+              var: "guild_mark_color_id"
+            }
+          ]
           select: {
             exist: [
               "guild_background_color_id"
@@ -128,20 +166,32 @@ main: kit: entity: guild_mark: {
           }
           method: "GET"
           orig: "/api/{region}/{version}/GuildMark/{guildMarkId}/{colorId}"
-          parts: [
-            "api"
-            "{region}"
-            "{version}"
-            "GuildMark"
-            "{guild_mark_id}"
-            "{color_id}"
-          ]
           rename: {
             param: {
               colorId: "color_id"
               guildMarkId: "guild_mark_id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              var: "region"
+            }
+            {
+              var: "version"
+            }
+            {
+              lit: "GuildMark"
+            }
+            {
+              var: "guild_mark_id"
+            }
+            {
+              var: "color_id"
+            }
+          ]
           select: {
             exist: [
               "color_id"

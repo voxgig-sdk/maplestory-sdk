@@ -81,11 +81,19 @@ main: kit: entity: mob: {
           }
           method: "GET"
           orig: "/api/{region}/{version}/mob"
-          parts: [
-            "api"
-            "{region}"
-            "{version}"
-            "mob"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              var: "region"
+            }
+            {
+              var: "version"
+            }
+            {
+              lit: "mob"
+            }
           ]
           select: {
             exist: [
@@ -162,12 +170,22 @@ main: kit: entity: mob: {
           }
           method: "GET"
           orig: "/api/{region}/{version}/mob/count"
-          parts: [
-            "api"
-            "{region}"
-            "{version}"
-            "mob"
-            "count"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              var: "region"
+            }
+            {
+              var: "version"
+            }
+            {
+              lit: "mob"
+            }
+            {
+              lit: "count"
+            }
           ]
           select: {
             "$action": "count"
@@ -231,21 +249,37 @@ main: kit: entity: mob: {
           }
           method: "GET"
           orig: "/api/{region}/{version}/mob/{mobId}/render/animated/{animation}"
-          parts: [
-            "api"
-            "{region}"
-            "{version}"
-            "mob"
-            "{id}"
-            "render"
-            "animated"
-            "{animation}"
-          ]
           rename: {
             param: {
               mobId: "id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              var: "region"
+            }
+            {
+              var: "version"
+            }
+            {
+              lit: "mob"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "render"
+            }
+            {
+              lit: "animated"
+            }
+            {
+              var: "animation"
+            }
+          ]
           select: {
             exist: [
               "animation"
@@ -306,20 +340,34 @@ main: kit: entity: mob: {
           }
           method: "GET"
           orig: "/api/{region}/{version}/mob/{mobId}/render/{animation}"
-          parts: [
-            "api"
-            "{region}"
-            "{version}"
-            "mob"
-            "{id}"
-            "render"
-            "{animation}"
-          ]
           rename: {
             param: {
               mobId: "id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              var: "region"
+            }
+            {
+              var: "version"
+            }
+            {
+              lit: "mob"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "render"
+            }
+            {
+              var: "animation"
+            }
+          ]
           select: {
             exist: [
               "animation"
@@ -379,20 +427,34 @@ main: kit: entity: mob: {
           }
           method: "GET"
           orig: "/api/{region}/{version}/mob/animated/{mobId}/{animation}"
-          parts: [
-            "api"
-            "{region}"
-            "{version}"
-            "mob"
-            "animated"
-            "{mob_id}"
-            "{animation}"
-          ]
           rename: {
             param: {
               mobId: "mob_id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              var: "region"
+            }
+            {
+              var: "version"
+            }
+            {
+              lit: "mob"
+            }
+            {
+              lit: "animated"
+            }
+            {
+              var: "mob_id"
+            }
+            {
+              var: "animation"
+            }
+          ]
           select: {
             exist: [
               "animation"
@@ -450,21 +512,37 @@ main: kit: entity: mob: {
           }
           method: "GET"
           orig: "/api/{region}/{version}/mob/{mobId}/render/{animation}/{frame}"
-          parts: [
-            "api"
-            "{region}"
-            "{version}"
-            "mob"
-            "{mob_id}"
-            "render"
-            "{animation}"
-            "{frame}"
-          ]
           rename: {
             param: {
               mobId: "mob_id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              var: "region"
+            }
+            {
+              var: "version"
+            }
+            {
+              lit: "mob"
+            }
+            {
+              var: "mob_id"
+            }
+            {
+              lit: "render"
+            }
+            {
+              var: "animation"
+            }
+            {
+              var: "frame"
+            }
+          ]
           select: {
             exist: [
               "animation"
@@ -514,21 +592,35 @@ main: kit: entity: mob: {
           }
           method: "GET"
           orig: "/api/{region}/{version}/mob/{mobId}/sound/{soundName}"
-          parts: [
-            "api"
-            "{region}"
-            "{version}"
-            "mob"
-            "{id}"
-            "sound"
-            "{sound_name}"
-          ]
           rename: {
             param: {
               mobId: "id"
               soundName: "sound_name"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              var: "region"
+            }
+            {
+              var: "version"
+            }
+            {
+              lit: "mob"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "sound"
+            }
+            {
+              var: "sound_name"
+            }
+          ]
           select: {
             exist: [
               "id"
@@ -570,18 +662,28 @@ main: kit: entity: mob: {
           }
           method: "GET"
           orig: "/api/{region}/{version}/mob/{mobId}"
-          parts: [
-            "api"
-            "{region}"
-            "{version}"
-            "mob"
-            "{id}"
-          ]
           rename: {
             param: {
               mobId: "id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              var: "region"
+            }
+            {
+              var: "version"
+            }
+            {
+              lit: "mob"
+            }
+            {
+              var: "id"
+            }
+          ]
           select: {
             exist: [
               "id"
@@ -622,19 +724,31 @@ main: kit: entity: mob: {
           }
           method: "GET"
           orig: "/api/{region}/{version}/mob/{mobId}/download"
-          parts: [
-            "api"
-            "{region}"
-            "{version}"
-            "mob"
-            "{id}"
-            "download"
-          ]
           rename: {
             param: {
               mobId: "id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              var: "region"
+            }
+            {
+              var: "version"
+            }
+            {
+              lit: "mob"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "download"
+            }
+          ]
           select: {
             "$action": "download"
             exist: [
@@ -676,19 +790,31 @@ main: kit: entity: mob: {
           }
           method: "GET"
           orig: "/api/{region}/{version}/mob/{mobId}/icon"
-          parts: [
-            "api"
-            "{region}"
-            "{version}"
-            "mob"
-            "{id}"
-            "icon"
-          ]
           rename: {
             param: {
               mobId: "id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              var: "region"
+            }
+            {
+              var: "version"
+            }
+            {
+              lit: "mob"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "icon"
+            }
+          ]
           select: {
             "$action": "icon"
             exist: [
@@ -730,19 +856,31 @@ main: kit: entity: mob: {
           }
           method: "GET"
           orig: "/api/{region}/{version}/mob/{mobId}/name"
-          parts: [
-            "api"
-            "{region}"
-            "{version}"
-            "mob"
-            "{id}"
-            "name"
-          ]
           rename: {
             param: {
               mobId: "id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              var: "region"
+            }
+            {
+              var: "version"
+            }
+            {
+              lit: "mob"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "name"
+            }
+          ]
           select: {
             "$action": "name"
             exist: [
@@ -784,19 +922,31 @@ main: kit: entity: mob: {
           }
           method: "GET"
           orig: "/api/{region}/{version}/mob/{mobId}/sound"
-          parts: [
-            "api"
-            "{region}"
-            "{version}"
-            "mob"
-            "{id}"
-            "sound"
-          ]
           rename: {
             param: {
               mobId: "id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              var: "region"
+            }
+            {
+              var: "version"
+            }
+            {
+              lit: "mob"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "sound"
+            }
+          ]
           select: {
             "$action": "sound"
             exist: [

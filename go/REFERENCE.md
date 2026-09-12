@@ -249,6 +249,12 @@ avatar := client.Avatar(nil)
 fmt.Println(avatar.GetName()) // "avatar"
 ```
 
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
+
 ### Operations
 
 #### `Load(reqmatch, ctrl map[string]any) (any, error)`
@@ -349,6 +355,12 @@ Return the entity name.
 character := client.Character(nil)
 fmt.Println(character.GetName()) // "character"
 ```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
 
 ### Operations
 
@@ -633,6 +645,12 @@ Return the entity name.
 guildMark := client.GuildMark(nil)
 fmt.Println(guildMark.GetName()) // "guild_mark"
 ```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
 
 ### Operations
 
@@ -1431,6 +1449,12 @@ Return the entity name.
 wzn := client.Wzn(nil)
 fmt.Println(wzn.GetName()) // "wzn"
 ```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
 
 ### Operations
 

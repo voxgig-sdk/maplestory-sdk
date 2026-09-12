@@ -123,11 +123,19 @@ main: kit: entity: item: {
           }
           method: "GET"
           orig: "/api/{region}/{version}/item"
-          parts: [
-            "api"
-            "{region}"
-            "{version}"
-            "item"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              var: "region"
+            }
+            {
+              var: "version"
+            }
+            {
+              lit: "item"
+            }
           ]
           select: {
             exist: [
@@ -252,12 +260,22 @@ main: kit: entity: item: {
           }
           method: "GET"
           orig: "/api/{region}/{version}/item/count"
-          parts: [
-            "api"
-            "{region}"
-            "{version}"
-            "item"
-            "count"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              var: "region"
+            }
+            {
+              var: "version"
+            }
+            {
+              lit: "item"
+            }
+            {
+              lit: "count"
+            }
           ]
           select: {
             "$action": "count"
@@ -383,12 +401,22 @@ main: kit: entity: item: {
           }
           method: "GET"
           orig: "/api/{region}/{version}/item/list"
-          parts: [
-            "api"
-            "{region}"
-            "{version}"
-            "item"
-            "list"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              var: "region"
+            }
+            {
+              var: "version"
+            }
+            {
+              lit: "item"
+            }
+            {
+              lit: "list"
+            }
           ]
           select: {
             "$action": "list"
@@ -441,18 +469,28 @@ main: kit: entity: item: {
           }
           method: "GET"
           orig: "/api/{region}/{version}/item/{itemId}"
-          parts: [
-            "api"
-            "{region}"
-            "{version}"
-            "item"
-            "{id}"
-          ]
           rename: {
             param: {
               itemId: "id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              var: "region"
+            }
+            {
+              var: "version"
+            }
+            {
+              lit: "item"
+            }
+            {
+              var: "id"
+            }
+          ]
           select: {
             exist: [
               "id"
@@ -493,19 +531,31 @@ main: kit: entity: item: {
           }
           method: "GET"
           orig: "/api/{region}/{version}/item/{itemId}/icon"
-          parts: [
-            "api"
-            "{region}"
-            "{version}"
-            "item"
-            "{id}"
-            "icon"
-          ]
           rename: {
             param: {
               itemId: "id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              var: "region"
+            }
+            {
+              var: "version"
+            }
+            {
+              lit: "item"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "icon"
+            }
+          ]
           select: {
             "$action": "icon"
             exist: [
@@ -547,19 +597,31 @@ main: kit: entity: item: {
           }
           method: "GET"
           orig: "/api/{region}/{version}/item/{itemId}/iconRaw"
-          parts: [
-            "api"
-            "{region}"
-            "{version}"
-            "item"
-            "{id}"
-            "iconRaw"
-          ]
           rename: {
             param: {
               itemId: "id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              var: "region"
+            }
+            {
+              var: "version"
+            }
+            {
+              lit: "item"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "iconRaw"
+            }
+          ]
           select: {
             "$action": "icon_raw"
             exist: [
@@ -601,19 +663,31 @@ main: kit: entity: item: {
           }
           method: "GET"
           orig: "/api/{region}/{version}/item/{itemId}/name"
-          parts: [
-            "api"
-            "{region}"
-            "{version}"
-            "item"
-            "{id}"
-            "name"
-          ]
           rename: {
             param: {
               itemId: "id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              var: "region"
+            }
+            {
+              var: "version"
+            }
+            {
+              lit: "item"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "name"
+            }
+          ]
           select: {
             "$action": "name"
             exist: [
@@ -655,19 +729,31 @@ main: kit: entity: item: {
           }
           method: "GET"
           orig: "/api/{region}/{version}/item/category/{overallCategory}"
-          parts: [
-            "api"
-            "{region}"
-            "{version}"
-            "item"
-            "category"
-            "{overall_category}"
-          ]
           rename: {
             param: {
               overallCategory: "overall_category"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              var: "region"
+            }
+            {
+              var: "version"
+            }
+            {
+              lit: "item"
+            }
+            {
+              lit: "category"
+            }
+            {
+              var: "overall_category"
+            }
+          ]
           select: {
             exist: [
               "overall_category"
@@ -701,12 +787,22 @@ main: kit: entity: item: {
           }
           method: "GET"
           orig: "/api/{region}/{version}/item/category"
-          parts: [
-            "api"
-            "{region}"
-            "{version}"
-            "item"
-            "category"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              var: "region"
+            }
+            {
+              var: "version"
+            }
+            {
+              lit: "item"
+            }
+            {
+              lit: "category"
+            }
           ]
           select: {
             "$action": "category"

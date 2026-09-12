@@ -11,6 +11,7 @@ main: kit: entity: cluster: {
       type: "`$STRING`"
     }
     {
+      format: "date-time"
       name: "lastSeen"
       req: false
       type: "`$STRING`"
@@ -30,10 +31,16 @@ main: kit: entity: cluster: {
         {
           method: "GET"
           orig: "/api/metrics/cluster"
-          parts: [
-            "api"
-            "metrics"
-            "cluster"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "metrics"
+            }
+            {
+              lit: "cluster"
+            }
           ]
           transform: {
             req: "`reqdata`"

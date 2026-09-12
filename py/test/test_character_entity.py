@@ -48,9 +48,13 @@ class TestCharacterEntity:
 
         # LOAD
         character_ref01_ent = client.Character(None)
-        character_ref01_match_dt0 = {}
+        character_ref01_match_dt0 = {
+            "id": character_ref01_data["id"],
+        }
         character_ref01_data_dt0_loaded = character_ref01_ent.load(character_ref01_match_dt0, None)
-        assert character_ref01_data_dt0_loaded is not None
+        character_ref01_data_dt0_load_result = helpers.to_map(runner.entity_data(character_ref01_data_dt0_loaded))
+        assert character_ref01_data_dt0_load_result is not None
+        assert character_ref01_data_dt0_load_result["id"] == character_ref01_data["id"]
 
 
 
@@ -99,6 +103,10 @@ def _character_basic_setup(extra):
 
     if env.get("MAPLESTORY_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
+            # FIRST, so the generated fields below win: sdk-test-control.json's
+            # test.client.options adds to the live client, it does not
+            # redirect it.
+            runner.live_client_options(),
             {
             },
             extra or {},

@@ -41,9 +41,13 @@ class CharacterEntityTest < Minitest::Test
 
     # LOAD
     character_ref01_ent = client.Character(nil)
-    character_ref01_match_dt0 = {}
+    character_ref01_match_dt0 = {
+      "id" => character_ref01_data["id"],
+    }
     character_ref01_data_dt0_loaded = character_ref01_ent.load(character_ref01_match_dt0, nil)
-    assert !character_ref01_data_dt0_loaded.nil?
+    character_ref01_data_dt0_load_result = Helpers.to_map(character_ref01_data_dt0_loaded.respond_to?(:data_get) ? character_ref01_data_dt0_loaded.data_get : character_ref01_data_dt0_loaded)
+    assert !character_ref01_data_dt0_load_result.nil?
+    assert_equal character_ref01_data_dt0_load_result["id"], character_ref01_data["id"]
 
   end
 end
@@ -91,6 +95,9 @@ def character_basic_setup(extra)
 
   if env["MAPLESTORY_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
+      # FIRST, so the generated fields below win: sdk-test-control.json's
+      # test.client.options adds to the live client, it does not redirect it.
+      Runner.live_client_options,
       {
       },
       extra || {},

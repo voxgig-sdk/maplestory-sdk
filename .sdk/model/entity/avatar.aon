@@ -4,6 +4,25 @@ main: kit: entity: avatar: {
 
   alias: field: {}
 
+  fields: [
+    {
+      name: "id"
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+    parts: [
+      "item"
+      "animation"
+      "frame"
+    ]
+    sep: "/"
+  }
+
   name: "avatar"
   op: {
     load: {
@@ -103,18 +122,28 @@ main: kit: entity: avatar: {
           }
           method: "GET"
           orig: "/api/character/{items}/{animation}/animated"
-          parts: [
-            "api"
-            "character"
-            "{character_id}"
-            "{animation}"
-            "animated"
-          ]
           rename: {
             param: {
               items: "character_id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "character"
+            }
+            {
+              var: "character_id"
+            }
+            {
+              var: "animation"
+            }
+            {
+              lit: "animated"
+            }
+          ]
           select: {
             exist: [
               "animation"
@@ -230,19 +259,31 @@ main: kit: entity: avatar: {
           }
           method: "GET"
           orig: "/api/character/{items}/{animation}/{frame}/download"
-          parts: [
-            "api"
-            "character"
-            "{character_id}"
-            "{animation}"
-            "{frame}"
-            "download"
-          ]
           rename: {
             param: {
               items: "character_id"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "character"
+            }
+            {
+              var: "character_id"
+            }
+            {
+              var: "animation"
+            }
+            {
+              var: "frame"
+            }
+            {
+              lit: "download"
+            }
+          ]
           select: {
             exist: [
               "animation"
@@ -358,17 +399,25 @@ main: kit: entity: avatar: {
           }
           method: "GET"
           orig: "/api/character/{items}/download"
-          parts: [
-            "api"
-            "character"
-            "{item}"
-            "download"
-          ]
           rename: {
             param: {
               items: "item"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "character"
+            }
+            {
+              var: "item"
+            }
+            {
+              lit: "download"
+            }
+          ]
           select: {
             exist: [
               "animation"
@@ -476,17 +525,25 @@ main: kit: entity: avatar: {
           }
           method: "GET"
           orig: "/api/character/{items}/actions"
-          parts: [
-            "api"
-            "character"
-            "{item}"
-            "actions"
-          ]
           rename: {
             param: {
               items: "item"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "character"
+            }
+            {
+              var: "item"
+            }
+            {
+              lit: "actions"
+            }
+          ]
           select: {
             exist: [
               "animation"
@@ -593,18 +650,28 @@ main: kit: entity: avatar: {
           }
           method: "GET"
           orig: "/api/character/{items}/{animation}/{frame}"
-          parts: [
-            "api"
-            "character"
-            "{item}"
-            "{animation}"
-            "{frame}"
-          ]
           rename: {
             param: {
               items: "item"
             }
           }
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "character"
+            }
+            {
+              var: "item"
+            }
+            {
+              var: "animation"
+            }
+            {
+              var: "frame"
+            }
+          ]
           select: {
             exist: [
               "animation"

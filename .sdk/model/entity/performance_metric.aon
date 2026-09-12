@@ -6,11 +6,13 @@ main: kit: entity: performance_metric: {
 
   fields: [
     {
+      format: "int64"
       name: "activeRequests"
       req: false
       type: "`$INTEGER`"
     }
     {
+      format: "double"
       name: "averageResponseTimeMs"
       req: false
       type: "`$NUMBER`"
@@ -26,11 +28,13 @@ main: kit: entity: performance_metric: {
       type: "`$OBJECT`"
     }
     {
+      format: "date-time"
       name: "lastUpdated"
       req: false
       type: "`$STRING`"
     }
     {
+      format: "int64"
       name: "memoryUsedBytes"
       req: false
       type: "`$INTEGER`"
@@ -41,11 +45,13 @@ main: kit: entity: performance_metric: {
       type: "`$OBJECT`"
     }
     {
+      format: "double"
       name: "requestsPerSecond"
       req: false
       type: "`$NUMBER`"
     }
     {
+      format: "date-time"
       name: "startTime"
       req: false
       type: "`$STRING`"
@@ -56,16 +62,19 @@ main: kit: entity: performance_metric: {
       type: "`$OBJECT`"
     }
     {
+      format: "int64"
       name: "totalErrors"
       req: false
       type: "`$INTEGER`"
     }
     {
+      format: "int64"
       name: "totalRequests"
       req: false
       type: "`$INTEGER`"
     }
     {
+      format: "int64"
       name: "wzPropertiesLoaded"
       req: false
       type: "`$INTEGER`"
@@ -80,9 +89,13 @@ main: kit: entity: performance_metric: {
         {
           method: "GET"
           orig: "/api/metrics"
-          parts: [
-            "api"
-            "metrics"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "metrics"
+            }
           ]
           transform: {
             req: "`reqdata`"

@@ -29,6 +29,7 @@ class AndroidLoadMatch
 /** Avatar entity data model. */
 class Avatar
 {
+    public ?string $id = null;
 }
 
 /** Request payload for Avatar#load. */
@@ -75,6 +76,7 @@ class CacheLoadMatch
 /** Character entity data model. */
 class Character
 {
+    public ?string $id = null;
 }
 
 /** Request payload for Character#load. */
@@ -165,6 +167,7 @@ class GmsNewLoadMatch
 /** GuildMark entity data model. */
 class GuildMark
 {
+    public ?string $id = null;
 }
 
 /** Request payload for GuildMark#load. */
@@ -464,6 +467,7 @@ class TipLoadMatch
 /** Wzn entity data model. */
 class Wzn
 {
+    public ?string $id = null;
 }
 
 /** Request payload for Wzn#load. */

@@ -30,11 +30,19 @@ main: kit: entity: diff: {
           }
           method: "GET"
           orig: "/api/{region}/{version}/diff"
-          parts: [
-            "api"
-            "{region}"
-            "{version}"
-            "diff"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              var: "region"
+            }
+            {
+              var: "version"
+            }
+            {
+              lit: "diff"
+            }
           ]
           select: {
             exist: [
@@ -68,12 +76,22 @@ main: kit: entity: diff: {
           }
           method: "GET"
           orig: "/api/{region}/{version}/diff/grouped"
-          parts: [
-            "api"
-            "{region}"
-            "{version}"
-            "diff"
-            "grouped"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              var: "region"
+            }
+            {
+              var: "version"
+            }
+            {
+              lit: "diff"
+            }
+            {
+              lit: "grouped"
+            }
           ]
           select: {
             "$action": "grouped"

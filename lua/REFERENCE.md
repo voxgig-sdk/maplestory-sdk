@@ -242,6 +242,12 @@ Return the entity name.
 local avatar = client:Avatar(nil)
 ```
 
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
+
 ### Operations
 
 #### `load(reqmatch, ctrl) -> any, err`
@@ -344,6 +350,12 @@ Return the entity name.
 ```lua
 local character = client:Character(nil)
 ```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
 
 ### Operations
 
@@ -634,6 +646,12 @@ Return the entity name.
 ```lua
 local guild_mark = client:GuildMark(nil)
 ```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
 
 ### Operations
 
@@ -1448,6 +1466,12 @@ Return the entity name.
 ```lua
 local wzn = client:Wzn(nil)
 ```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `id` | `string` | No |  |
 
 ### Operations
 

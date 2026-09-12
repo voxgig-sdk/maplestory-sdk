@@ -1,6 +1,14 @@
 # Maplestory SDK configuration
 
 
+# The sekreto plugin DEFINITIONS the model selected per feature, imported
+# above by name from the modules the catalogue's active `plugin.def`
+# entries declare. Handed to each feature (secrets builds its Sekreto
+# with them): a provider kind not listed here is unknown to that SDK.
+FEATURE_PLUGINS = {
+}
+
+
 _shared_config = None
 
 
@@ -83,6 +91,10 @@ def make_config():
             "type": "`$STRING`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "android",
         "op": {
           "load": {
@@ -118,18 +130,28 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/{region}/{version}/android/{androidId}",
-                "parts": [
-                  "api",
-                  "{region}",
-                  "{version}",
-                  "android",
-                  "{id}",
-                ],
                 "rename": {
                   "param": {
                     "androidId": "id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "var": "region",
+                  },
+                  {
+                    "var": "version",
+                  },
+                  {
+                    "lit": "android",
+                  },
+                  {
+                    "var": "id",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "id",
@@ -141,6 +163,13 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "{region}",
+                  "{version}",
+                  "android",
+                  "{id}",
+                ],
               },
               {
                 "args": {
@@ -164,11 +193,19 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/{region}/{version}/android",
-                "parts": [
-                  "api",
-                  "{region}",
-                  "{version}",
-                  "android",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "var": "region",
+                  },
+                  {
+                    "var": "version",
+                  },
+                  {
+                    "lit": "android",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -180,6 +217,12 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "{region}",
+                  "{version}",
+                  "android",
+                ],
               },
             ],
           },
@@ -193,7 +236,22 @@ def make_config():
         },
       },
       "avatar": {
-        "fields": [],
+        "fields": [
+          {
+            "name": "id",
+            "type": "`$STRING`",
+          },
+        ],
+        "id": {
+          "field": "id",
+          "name": "id",
+          "parts": [
+            "item",
+            "animation",
+            "frame",
+          ],
+          "sep": "/",
+        },
         "name": "avatar",
         "op": {
           "load": {
@@ -286,18 +344,28 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/character/{items}/{animation}/animated",
-                "parts": [
-                  "api",
-                  "character",
-                  "{character_id}",
-                  "{animation}",
-                  "animated",
-                ],
                 "rename": {
                   "param": {
                     "items": "character_id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "character",
+                  },
+                  {
+                    "var": "character_id",
+                  },
+                  {
+                    "var": "animation",
+                  },
+                  {
+                    "lit": "animated",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "animation",
@@ -318,6 +386,13 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "character",
+                  "{character_id}",
+                  "{animation}",
+                  "animated",
+                ],
               },
               {
                 "args": {
@@ -405,19 +480,31 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/character/{items}/{animation}/{frame}/download",
-                "parts": [
-                  "api",
-                  "character",
-                  "{character_id}",
-                  "{animation}",
-                  "{frame}",
-                  "download",
-                ],
                 "rename": {
                   "param": {
                     "items": "character_id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "character",
+                  },
+                  {
+                    "var": "character_id",
+                  },
+                  {
+                    "var": "animation",
+                  },
+                  {
+                    "var": "frame",
+                  },
+                  {
+                    "lit": "download",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "animation",
@@ -438,6 +525,14 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "character",
+                  "{character_id}",
+                  "{animation}",
+                  "{frame}",
+                  "download",
+                ],
               },
               {
                 "args": {
@@ -525,17 +620,25 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/character/{items}/download",
-                "parts": [
-                  "api",
-                  "character",
-                  "{item}",
-                  "download",
-                ],
                 "rename": {
                   "param": {
                     "items": "item",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "character",
+                  },
+                  {
+                    "var": "item",
+                  },
+                  {
+                    "lit": "download",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "animation",
@@ -556,6 +659,12 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "character",
+                  "{item}",
+                  "download",
+                ],
               },
               {
                 "args": {
@@ -636,17 +745,25 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/character/{items}/actions",
-                "parts": [
-                  "api",
-                  "character",
-                  "{item}",
-                  "actions",
-                ],
                 "rename": {
                   "param": {
                     "items": "item",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "character",
+                  },
+                  {
+                    "var": "item",
+                  },
+                  {
+                    "lit": "actions",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "animation",
@@ -666,6 +783,12 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "character",
+                  "{item}",
+                  "actions",
+                ],
               },
               {
                 "args": {
@@ -746,18 +869,28 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/character/{items}/{animation}/{frame}",
-                "parts": [
-                  "api",
-                  "character",
-                  "{item}",
-                  "{animation}",
-                  "{frame}",
-                ],
                 "rename": {
                   "param": {
                     "items": "item",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "character",
+                  },
+                  {
+                    "var": "item",
+                  },
+                  {
+                    "var": "animation",
+                  },
+                  {
+                    "var": "frame",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "animation",
@@ -777,6 +910,13 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "character",
+                  "{item}",
+                  "{animation}",
+                  "{frame}",
+                ],
               },
             ],
           },
@@ -792,26 +932,32 @@ def make_config():
       "cache": {
         "fields": [
           {
+            "format": "int64",
             "name": "evictionCount",
             "type": "`$INTEGER`",
           },
           {
+            "format": "int64",
             "name": "hitCount",
             "type": "`$INTEGER`",
           },
           {
+            "format": "double",
             "name": "hitRatio",
             "type": "`$NUMBER`",
           },
           {
+            "format": "int64",
             "name": "memoryUsage",
             "type": "`$INTEGER`",
           },
           {
+            "format": "int64",
             "name": "missCount",
             "type": "`$INTEGER`",
           },
           {
+            "format": "int64",
             "name": "totalEntries",
             "type": "`$INTEGER`",
           },
@@ -827,16 +973,27 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/metrics/cache",
-                "parts": [
-                  "api",
-                  "metrics",
-                  "cache",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "metrics",
+                  },
+                  {
+                    "lit": "cache",
+                  },
                 ],
                 "select": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "metrics",
+                  "cache",
+                ],
               },
             ],
           },
@@ -846,7 +1003,23 @@ def make_config():
         },
       },
       "character": {
-        "fields": [],
+        "fields": [
+          {
+            "name": "id",
+            "type": "`$STRING`",
+          },
+        ],
+        "id": {
+          "field": "id",
+          "name": "id",
+          "parts": [
+            "skin_id",
+            "item",
+            "animation",
+            "frame",
+          ],
+          "sep": "/",
+        },
         "name": "character",
         "op": {
           "load": {
@@ -982,23 +1155,41 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/{region}/{version}/Character/animated/{skinId}/{items}/{animation}/{frame}",
-                "parts": [
-                  "api",
-                  "{region}",
-                  "{version}",
-                  "Character",
-                  "animated",
-                  "{skin_id}",
-                  "{item}",
-                  "{animation}",
-                  "{frame}",
-                ],
                 "rename": {
                   "param": {
                     "items": "item",
                     "skinId": "skin_id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "var": "region",
+                  },
+                  {
+                    "var": "version",
+                  },
+                  {
+                    "lit": "Character",
+                  },
+                  {
+                    "lit": "animated",
+                  },
+                  {
+                    "var": "skin_id",
+                  },
+                  {
+                    "var": "item",
+                  },
+                  {
+                    "var": "animation",
+                  },
+                  {
+                    "var": "frame",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "animation",
@@ -1022,6 +1213,17 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "{region}",
+                  "{version}",
+                  "Character",
+                  "animated",
+                  "{skin_id}",
+                  "{item}",
+                  "{animation}",
+                  "{frame}",
+                ],
               },
               {
                 "args": {
@@ -1122,22 +1324,38 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/{region}/{version}/Character/{skinId}/{items}/{animation}/{frame}",
-                "parts": [
-                  "api",
-                  "{region}",
-                  "{version}",
-                  "Character",
-                  "{skin_id}",
-                  "{item}",
-                  "{animation}",
-                  "{frame}",
-                ],
                 "rename": {
                   "param": {
                     "items": "item",
                     "skinId": "skin_id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "var": "region",
+                  },
+                  {
+                    "var": "version",
+                  },
+                  {
+                    "lit": "Character",
+                  },
+                  {
+                    "var": "skin_id",
+                  },
+                  {
+                    "var": "item",
+                  },
+                  {
+                    "var": "animation",
+                  },
+                  {
+                    "var": "frame",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "animation",
@@ -1160,6 +1378,16 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "{region}",
+                  "{version}",
+                  "Character",
+                  "{skin_id}",
+                  "{item}",
+                  "{animation}",
+                  "{frame}",
+                ],
               },
               {
                 "args": {
@@ -1254,23 +1482,41 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/{region}/{version}/Character/center/{skinId}/{items}/{animation}/{frame}",
-                "parts": [
-                  "api",
-                  "{region}",
-                  "{version}",
-                  "Character",
-                  "center",
-                  "{skin_id}",
-                  "{item}",
-                  "{animation}",
-                  "{frame}",
-                ],
                 "rename": {
                   "param": {
                     "items": "item",
                     "skinId": "skin_id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "var": "region",
+                  },
+                  {
+                    "var": "version",
+                  },
+                  {
+                    "lit": "Character",
+                  },
+                  {
+                    "lit": "center",
+                  },
+                  {
+                    "var": "skin_id",
+                  },
+                  {
+                    "var": "item",
+                  },
+                  {
+                    "var": "animation",
+                  },
+                  {
+                    "var": "frame",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "animation",
@@ -1292,6 +1538,17 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "{region}",
+                  "{version}",
+                  "Character",
+                  "center",
+                  "{skin_id}",
+                  "{item}",
+                  "{animation}",
+                  "{frame}",
+                ],
               },
               {
                 "args": {
@@ -1393,23 +1650,41 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/{region}/{version}/Character/compact/{skinId}/{items}/{animation}/{frame}",
-                "parts": [
-                  "api",
-                  "{region}",
-                  "{version}",
-                  "Character",
-                  "compact",
-                  "{skin_id}",
-                  "{item}",
-                  "{animation}",
-                  "{frame}",
-                ],
                 "rename": {
                   "param": {
                     "items": "item",
                     "skinId": "skin_id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "var": "region",
+                  },
+                  {
+                    "var": "version",
+                  },
+                  {
+                    "lit": "Character",
+                  },
+                  {
+                    "lit": "compact",
+                  },
+                  {
+                    "var": "skin_id",
+                  },
+                  {
+                    "var": "item",
+                  },
+                  {
+                    "var": "animation",
+                  },
+                  {
+                    "var": "frame",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "animation",
@@ -1431,6 +1706,17 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "{region}",
+                  "{version}",
+                  "Character",
+                  "compact",
+                  "{skin_id}",
+                  "{item}",
+                  "{animation}",
+                  "{frame}",
+                ],
               },
               {
                 "args": {
@@ -1525,23 +1811,41 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/{region}/{version}/Character/feetCenter/{skinId}/{items}/{animation}/{frame}",
-                "parts": [
-                  "api",
-                  "{region}",
-                  "{version}",
-                  "Character",
-                  "feetCenter",
-                  "{skin_id}",
-                  "{item}",
-                  "{animation}",
-                  "{frame}",
-                ],
                 "rename": {
                   "param": {
                     "items": "item",
                     "skinId": "skin_id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "var": "region",
+                  },
+                  {
+                    "var": "version",
+                  },
+                  {
+                    "lit": "Character",
+                  },
+                  {
+                    "lit": "feetCenter",
+                  },
+                  {
+                    "var": "skin_id",
+                  },
+                  {
+                    "var": "item",
+                  },
+                  {
+                    "var": "animation",
+                  },
+                  {
+                    "var": "frame",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "animation",
@@ -1563,6 +1867,17 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "{region}",
+                  "{version}",
+                  "Character",
+                  "feetCenter",
+                  "{skin_id}",
+                  "{item}",
+                  "{animation}",
+                  "{frame}",
+                ],
               },
               {
                 "args": {
@@ -1657,23 +1972,41 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/{region}/{version}/Character/navelCenter/{skinId}/{items}/{animation}/{frame}",
-                "parts": [
-                  "api",
-                  "{region}",
-                  "{version}",
-                  "Character",
-                  "navelCenter",
-                  "{skin_id}",
-                  "{item}",
-                  "{animation}",
-                  "{frame}",
-                ],
                 "rename": {
                   "param": {
                     "items": "item",
                     "skinId": "skin_id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "var": "region",
+                  },
+                  {
+                    "var": "version",
+                  },
+                  {
+                    "lit": "Character",
+                  },
+                  {
+                    "lit": "navelCenter",
+                  },
+                  {
+                    "var": "skin_id",
+                  },
+                  {
+                    "var": "item",
+                  },
+                  {
+                    "var": "animation",
+                  },
+                  {
+                    "var": "frame",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "animation",
@@ -1695,6 +2028,17 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "{region}",
+                  "{version}",
+                  "Character",
+                  "navelCenter",
+                  "{skin_id}",
+                  "{item}",
+                  "{animation}",
+                  "{frame}",
+                ],
               },
               {
                 "args": {
@@ -1816,21 +2160,35 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/{region}/{version}/Character/download/{skinId}/{items}",
-                "parts": [
-                  "api",
-                  "{region}",
-                  "{version}",
-                  "Character",
-                  "download",
-                  "{skin_id}",
-                  "{item}",
-                ],
                 "rename": {
                   "param": {
                     "items": "item",
                     "skinId": "skin_id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "var": "region",
+                  },
+                  {
+                    "var": "version",
+                  },
+                  {
+                    "lit": "Character",
+                  },
+                  {
+                    "lit": "download",
+                  },
+                  {
+                    "var": "skin_id",
+                  },
+                  {
+                    "var": "item",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "flip_x",
@@ -1852,6 +2210,15 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "{region}",
+                  "{version}",
+                  "Character",
+                  "download",
+                  "{skin_id}",
+                  "{item}",
+                ],
               },
               {
                 "args": {
@@ -1926,19 +2293,31 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/{region}/{version}/Character/actions/{items}",
-                "parts": [
-                  "api",
-                  "{region}",
-                  "{version}",
-                  "Character",
-                  "actions",
-                  "{item}",
-                ],
                 "rename": {
                   "param": {
                     "items": "item",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "var": "region",
+                  },
+                  {
+                    "var": "version",
+                  },
+                  {
+                    "lit": "Character",
+                  },
+                  {
+                    "lit": "actions",
+                  },
+                  {
+                    "var": "item",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "flip_x",
@@ -1957,6 +2336,14 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "{region}",
+                  "{version}",
+                  "Character",
+                  "actions",
+                  "{item}",
+                ],
               },
               {
                 "args": {
@@ -2024,11 +2411,19 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/{region}/{version}/Character",
-                "parts": [
-                  "api",
-                  "{region}",
-                  "{version}",
-                  "Character",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "var": "region",
+                  },
+                  {
+                    "var": "version",
+                  },
+                  {
+                    "lit": "Character",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -2047,6 +2442,12 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "{region}",
+                  "{version}",
+                  "Character",
+                ],
               },
             ],
           },
@@ -2135,11 +2536,19 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/{region}/{version}/chat",
-                "parts": [
-                  "api",
-                  "{region}",
-                  "{version}",
-                  "chat",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "var": "region",
+                  },
+                  {
+                    "var": "version",
+                  },
+                  {
+                    "lit": "chat",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -2153,6 +2562,12 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "{region}",
+                  "{version}",
+                  "chat",
+                ],
               },
             ],
           },
@@ -2172,6 +2587,7 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "date-time",
             "name": "lastSeen",
             "type": "`$STRING`",
           },
@@ -2191,16 +2607,27 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/metrics/cluster",
-                "parts": [
-                  "api",
-                  "metrics",
-                  "cluster",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "metrics",
+                  },
+                  {
+                    "lit": "cluster",
+                  },
                 ],
                 "select": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body.cluster`",
                 },
+                "parts": [
+                  "api",
+                  "metrics",
+                  "cluster",
+                ],
               },
             ],
           },
@@ -2239,11 +2666,19 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/{region}/{version}/diff",
-                "parts": [
-                  "api",
-                  "{region}",
-                  "{version}",
-                  "diff",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "var": "region",
+                  },
+                  {
+                    "var": "version",
+                  },
+                  {
+                    "lit": "diff",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -2255,6 +2690,12 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "{region}",
+                  "{version}",
+                  "diff",
+                ],
               },
               {
                 "args": {
@@ -2278,12 +2719,22 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/{region}/{version}/diff/grouped",
-                "parts": [
-                  "api",
-                  "{region}",
-                  "{version}",
-                  "diff",
-                  "grouped",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "var": "region",
+                  },
+                  {
+                    "var": "version",
+                  },
+                  {
+                    "lit": "diff",
+                  },
+                  {
+                    "lit": "grouped",
+                  },
                 ],
                 "select": {
                   "$action": "grouped",
@@ -2296,6 +2747,13 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "{region}",
+                  "{version}",
+                  "diff",
+                  "grouped",
+                ],
               },
             ],
           },
@@ -2321,12 +2779,13 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/",
-                "parts": [],
+                "segments": [],
                 "select": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [],
               },
             ],
           },
@@ -2342,6 +2801,10 @@ def make_config():
             "type": "`$STRING`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "gms_new",
         "op": {
           "load": {
@@ -2363,13 +2826,25 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/gms/latest/news/article/{id}",
-                "parts": [
-                  "api",
-                  "gms",
-                  "latest",
-                  "news",
-                  "article",
-                  "{id}",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "gms",
+                  },
+                  {
+                    "lit": "latest",
+                  },
+                  {
+                    "lit": "news",
+                  },
+                  {
+                    "lit": "article",
+                  },
+                  {
+                    "var": "id",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -2380,6 +2855,14 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "gms",
+                  "latest",
+                  "news",
+                  "article",
+                  "{id}",
+                ],
               },
               {
                 "args": {
@@ -2396,18 +2879,28 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/gms/latest/news/{type}",
-                "parts": [
-                  "api",
-                  "gms",
-                  "latest",
-                  "news",
-                  "{id}",
-                ],
                 "rename": {
                   "param": {
                     "type": "id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "gms",
+                  },
+                  {
+                    "lit": "latest",
+                  },
+                  {
+                    "lit": "news",
+                  },
+                  {
+                    "var": "id",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "type",
@@ -2417,6 +2910,13 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "gms",
+                  "latest",
+                  "news",
+                  "{id}",
+                ],
               },
             ],
           },
@@ -2426,7 +2926,21 @@ def make_config():
         },
       },
       "guild_mark": {
-        "fields": [],
+        "fields": [
+          {
+            "name": "id",
+            "type": "`$STRING`",
+          },
+        ],
+        "id": {
+          "field": "id",
+          "name": "id",
+          "parts": [
+            "guild_mark_id",
+            "color_id",
+          ],
+          "sep": "/",
+        },
         "name": "guild_mark",
         "op": {
           "load": {
@@ -2483,18 +2997,6 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/{region}/{version}/GuildMark/background/{guildBackgroundId}/{guildBackgroundColorId}/mark/{guildMarkId}/{guildMarkColorId}",
-                "parts": [
-                  "api",
-                  "{region}",
-                  "{version}",
-                  "GuildMark",
-                  "background",
-                  "{guild_background_id}",
-                  "{guild_background_color_id}",
-                  "mark",
-                  "{guild_mark_id}",
-                  "{guild_mark_color_id}",
-                ],
                 "rename": {
                   "param": {
                     "guildBackgroundColorId": "guild_background_color_id",
@@ -2503,6 +3005,38 @@ def make_config():
                     "guildMarkId": "guild_mark_id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "var": "region",
+                  },
+                  {
+                    "var": "version",
+                  },
+                  {
+                    "lit": "GuildMark",
+                  },
+                  {
+                    "lit": "background",
+                  },
+                  {
+                    "var": "guild_background_id",
+                  },
+                  {
+                    "var": "guild_background_color_id",
+                  },
+                  {
+                    "lit": "mark",
+                  },
+                  {
+                    "var": "guild_mark_id",
+                  },
+                  {
+                    "var": "guild_mark_color_id",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "guild_background_color_id",
@@ -2517,6 +3051,18 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "{region}",
+                  "{version}",
+                  "GuildMark",
+                  "background",
+                  "{guild_background_id}",
+                  "{guild_background_color_id}",
+                  "mark",
+                  "{guild_mark_id}",
+                  "{guild_mark_color_id}",
+                ],
               },
               {
                 "args": {
@@ -2554,20 +3100,32 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/{region}/{version}/GuildMark/{guildMarkId}/{colorId}",
-                "parts": [
-                  "api",
-                  "{region}",
-                  "{version}",
-                  "GuildMark",
-                  "{guild_mark_id}",
-                  "{color_id}",
-                ],
                 "rename": {
                   "param": {
                     "colorId": "color_id",
                     "guildMarkId": "guild_mark_id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "var": "region",
+                  },
+                  {
+                    "var": "version",
+                  },
+                  {
+                    "lit": "GuildMark",
+                  },
+                  {
+                    "var": "guild_mark_id",
+                  },
+                  {
+                    "var": "color_id",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "color_id",
@@ -2580,6 +3138,14 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "{region}",
+                  "{version}",
+                  "GuildMark",
+                  "{guild_mark_id}",
+                  "{color_id}",
+                ],
               },
             ],
           },
@@ -2611,10 +3177,16 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/health/alive",
-                "parts": [
-                  "api",
-                  "health",
-                  "alive",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "health",
+                  },
+                  {
+                    "lit": "alive",
+                  },
                 ],
                 "select": {
                   "$action": "alive",
@@ -2623,16 +3195,27 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "health",
+                  "alive",
+                ],
               },
               {
                 "args": {},
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/health/ready",
-                "parts": [
-                  "api",
-                  "health",
-                  "ready",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "health",
+                  },
+                  {
+                    "lit": "ready",
+                  },
                 ],
                 "select": {
                   "$action": "ready",
@@ -2641,16 +3224,27 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "health",
+                  "ready",
+                ],
               },
               {
                 "args": {},
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/health/start",
-                "parts": [
-                  "api",
-                  "health",
-                  "start",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "health",
+                  },
+                  {
+                    "lit": "start",
+                  },
                 ],
                 "select": {
                   "$action": "start",
@@ -2659,6 +3253,11 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "health",
+                  "start",
+                ],
               },
             ],
           },
@@ -2674,6 +3273,10 @@ def make_config():
             "type": "`$STRING`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "item",
         "op": {
           "load": {
@@ -2771,11 +3374,19 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/{region}/{version}/item",
-                "parts": [
-                  "api",
-                  "{region}",
-                  "{version}",
-                  "item",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "var": "region",
+                  },
+                  {
+                    "var": "version",
+                  },
+                  {
+                    "lit": "item",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -2798,6 +3409,12 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "{region}",
+                  "{version}",
+                  "item",
+                ],
               },
               {
                 "args": {
@@ -2890,12 +3507,22 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/{region}/{version}/item/count",
-                "parts": [
-                  "api",
-                  "{region}",
-                  "{version}",
-                  "item",
-                  "count",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "var": "region",
+                  },
+                  {
+                    "var": "version",
+                  },
+                  {
+                    "lit": "item",
+                  },
+                  {
+                    "lit": "count",
+                  },
                 ],
                 "select": {
                   "$action": "count",
@@ -2919,6 +3546,13 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "{region}",
+                  "{version}",
+                  "item",
+                  "count",
+                ],
               },
               {
                 "args": {
@@ -3011,12 +3645,22 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/{region}/{version}/item/list",
-                "parts": [
-                  "api",
-                  "{region}",
-                  "{version}",
-                  "item",
-                  "list",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "var": "region",
+                  },
+                  {
+                    "var": "version",
+                  },
+                  {
+                    "lit": "item",
+                  },
+                  {
+                    "lit": "list",
+                  },
                 ],
                 "select": {
                   "$action": "list",
@@ -3040,6 +3684,13 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "{region}",
+                  "{version}",
+                  "item",
+                  "list",
+                ],
               },
               {
                 "args": {
@@ -3070,18 +3721,28 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/{region}/{version}/item/{itemId}",
-                "parts": [
-                  "api",
-                  "{region}",
-                  "{version}",
-                  "item",
-                  "{id}",
-                ],
                 "rename": {
                   "param": {
                     "itemId": "id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "var": "region",
+                  },
+                  {
+                    "var": "version",
+                  },
+                  {
+                    "lit": "item",
+                  },
+                  {
+                    "var": "id",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "id",
@@ -3093,6 +3754,13 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "{region}",
+                  "{version}",
+                  "item",
+                  "{id}",
+                ],
               },
               {
                 "args": {
@@ -3123,19 +3791,31 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/{region}/{version}/item/{itemId}/icon",
-                "parts": [
-                  "api",
-                  "{region}",
-                  "{version}",
-                  "item",
-                  "{id}",
-                  "icon",
-                ],
                 "rename": {
                   "param": {
                     "itemId": "id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "var": "region",
+                  },
+                  {
+                    "var": "version",
+                  },
+                  {
+                    "lit": "item",
+                  },
+                  {
+                    "var": "id",
+                  },
+                  {
+                    "lit": "icon",
+                  },
+                ],
                 "select": {
                   "$action": "icon",
                   "exist": [
@@ -3148,6 +3828,14 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "{region}",
+                  "{version}",
+                  "item",
+                  "{id}",
+                  "icon",
+                ],
               },
               {
                 "args": {
@@ -3178,19 +3866,31 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/{region}/{version}/item/{itemId}/iconRaw",
-                "parts": [
-                  "api",
-                  "{region}",
-                  "{version}",
-                  "item",
-                  "{id}",
-                  "iconRaw",
-                ],
                 "rename": {
                   "param": {
                     "itemId": "id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "var": "region",
+                  },
+                  {
+                    "var": "version",
+                  },
+                  {
+                    "lit": "item",
+                  },
+                  {
+                    "var": "id",
+                  },
+                  {
+                    "lit": "iconRaw",
+                  },
+                ],
                 "select": {
                   "$action": "icon_raw",
                   "exist": [
@@ -3203,6 +3903,14 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "{region}",
+                  "{version}",
+                  "item",
+                  "{id}",
+                  "iconRaw",
+                ],
               },
               {
                 "args": {
@@ -3233,19 +3941,31 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/{region}/{version}/item/{itemId}/name",
-                "parts": [
-                  "api",
-                  "{region}",
-                  "{version}",
-                  "item",
-                  "{id}",
-                  "name",
-                ],
                 "rename": {
                   "param": {
                     "itemId": "id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "var": "region",
+                  },
+                  {
+                    "var": "version",
+                  },
+                  {
+                    "lit": "item",
+                  },
+                  {
+                    "var": "id",
+                  },
+                  {
+                    "lit": "name",
+                  },
+                ],
                 "select": {
                   "$action": "name",
                   "exist": [
@@ -3258,6 +3978,14 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "{region}",
+                  "{version}",
+                  "item",
+                  "{id}",
+                  "name",
+                ],
               },
               {
                 "args": {
@@ -3288,19 +4016,31 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/{region}/{version}/item/category/{overallCategory}",
-                "parts": [
-                  "api",
-                  "{region}",
-                  "{version}",
-                  "item",
-                  "category",
-                  "{overall_category}",
-                ],
                 "rename": {
                   "param": {
                     "overallCategory": "overall_category",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "var": "region",
+                  },
+                  {
+                    "var": "version",
+                  },
+                  {
+                    "lit": "item",
+                  },
+                  {
+                    "lit": "category",
+                  },
+                  {
+                    "var": "overall_category",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "overall_category",
@@ -3312,6 +4052,14 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "{region}",
+                  "{version}",
+                  "item",
+                  "category",
+                  "{overall_category}",
+                ],
               },
               {
                 "args": {
@@ -3335,12 +4083,22 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/{region}/{version}/item/category",
-                "parts": [
-                  "api",
-                  "{region}",
-                  "{version}",
-                  "item",
-                  "category",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "var": "region",
+                  },
+                  {
+                    "var": "version",
+                  },
+                  {
+                    "lit": "item",
+                  },
+                  {
+                    "lit": "category",
+                  },
                 ],
                 "select": {
                   "$action": "category",
@@ -3353,6 +4111,13 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "{region}",
+                  "{version}",
+                  "item",
+                  "category",
+                ],
               },
             ],
           },
@@ -3376,6 +4141,10 @@ def make_config():
             "type": "`$STRING`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "job",
         "op": {
           "load": {
@@ -3418,21 +4187,35 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/{region}/{version}/job/{jobId}/skillbook/{skillId}",
-                "parts": [
-                  "api",
-                  "{region}",
-                  "{version}",
-                  "job",
-                  "{id}",
-                  "skillbook",
-                  "{skill_id}",
-                ],
                 "rename": {
                   "param": {
                     "jobId": "id",
                     "skillId": "skill_id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "var": "region",
+                  },
+                  {
+                    "var": "version",
+                  },
+                  {
+                    "lit": "job",
+                  },
+                  {
+                    "var": "id",
+                  },
+                  {
+                    "lit": "skillbook",
+                  },
+                  {
+                    "var": "skill_id",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "id",
@@ -3445,6 +4228,15 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "{region}",
+                  "{version}",
+                  "job",
+                  "{id}",
+                  "skillbook",
+                  "{skill_id}",
+                ],
               },
               {
                 "args": {
@@ -3475,18 +4267,28 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/{region}/{version}/job/{jobId}",
-                "parts": [
-                  "api",
-                  "{region}",
-                  "{version}",
-                  "job",
-                  "{id}",
-                ],
                 "rename": {
                   "param": {
                     "jobId": "id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "var": "region",
+                  },
+                  {
+                    "var": "version",
+                  },
+                  {
+                    "lit": "job",
+                  },
+                  {
+                    "var": "id",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "id",
@@ -3498,6 +4300,13 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "{region}",
+                  "{version}",
+                  "job",
+                  "{id}",
+                ],
               },
               {
                 "args": {
@@ -3528,19 +4337,31 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/{region}/{version}/job/{jobId}/skillbook",
-                "parts": [
-                  "api",
-                  "{region}",
-                  "{version}",
-                  "job",
-                  "{id}",
-                  "skillbook",
-                ],
                 "rename": {
                   "param": {
                     "jobId": "id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "var": "region",
+                  },
+                  {
+                    "var": "version",
+                  },
+                  {
+                    "lit": "job",
+                  },
+                  {
+                    "var": "id",
+                  },
+                  {
+                    "lit": "skillbook",
+                  },
+                ],
                 "select": {
                   "$action": "skillbook",
                   "exist": [
@@ -3553,6 +4374,14 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "{region}",
+                  "{version}",
+                  "job",
+                  "{id}",
+                  "skillbook",
+                ],
               },
               {
                 "args": {
@@ -3583,19 +4412,31 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/{region}/{version}/job/skill/{skillId}",
-                "parts": [
-                  "api",
-                  "{region}",
-                  "{version}",
-                  "job",
-                  "skill",
-                  "{skill_id}",
-                ],
                 "rename": {
                   "param": {
                     "skillId": "skill_id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "var": "region",
+                  },
+                  {
+                    "var": "version",
+                  },
+                  {
+                    "lit": "job",
+                  },
+                  {
+                    "lit": "skill",
+                  },
+                  {
+                    "var": "skill_id",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "region",
@@ -3607,6 +4448,14 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "{region}",
+                  "{version}",
+                  "job",
+                  "skill",
+                  "{skill_id}",
+                ],
               },
               {
                 "args": {
@@ -3630,11 +4479,19 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/{region}/{version}/job",
-                "parts": [
-                  "api",
-                  "{region}",
-                  "{version}",
-                  "job",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "var": "region",
+                  },
+                  {
+                    "var": "version",
+                  },
+                  {
+                    "lit": "job",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -3646,6 +4503,12 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "{region}",
+                  "{version}",
+                  "job",
+                ],
               },
               {
                 "args": {
@@ -3669,12 +4532,22 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/{region}/{version}/job/count",
-                "parts": [
-                  "api",
-                  "{region}",
-                  "{version}",
-                  "job",
-                  "count",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "var": "region",
+                  },
+                  {
+                    "var": "version",
+                  },
+                  {
+                    "lit": "job",
+                  },
+                  {
+                    "lit": "count",
+                  },
                 ],
                 "select": {
                   "$action": "count",
@@ -3687,6 +4560,13 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "{region}",
+                  "{version}",
+                  "job",
+                  "count",
+                ],
               },
               {
                 "args": {
@@ -3710,12 +4590,22 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/{region}/{version}/job/skilltree",
-                "parts": [
-                  "api",
-                  "{region}",
-                  "{version}",
-                  "job",
-                  "skilltree",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "var": "region",
+                  },
+                  {
+                    "var": "version",
+                  },
+                  {
+                    "lit": "job",
+                  },
+                  {
+                    "lit": "skilltree",
+                  },
                 ],
                 "select": {
                   "$action": "skilltree",
@@ -3728,6 +4618,13 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "{region}",
+                  "{version}",
+                  "job",
+                  "skilltree",
+                ],
               },
             ],
           },
@@ -3755,6 +4652,10 @@ def make_config():
             "type": "`$STRING`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "map",
         "op": {
           "load": {
@@ -3826,22 +4727,40 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/{region}/{version}/map/{mapId}/render/layer/{layer}/{frame}",
-                "parts": [
-                  "api",
-                  "{region}",
-                  "{version}",
-                  "map",
-                  "{map_id}",
-                  "render",
-                  "layer",
-                  "{layer}",
-                  "{frame}",
-                ],
                 "rename": {
                   "param": {
                     "mapId": "map_id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "var": "region",
+                  },
+                  {
+                    "var": "version",
+                  },
+                  {
+                    "lit": "map",
+                  },
+                  {
+                    "var": "map_id",
+                  },
+                  {
+                    "lit": "render",
+                  },
+                  {
+                    "lit": "layer",
+                  },
+                  {
+                    "var": "layer",
+                  },
+                  {
+                    "var": "frame",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "filter_trash",
@@ -3858,6 +4777,17 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "{region}",
+                  "{version}",
+                  "map",
+                  "{map_id}",
+                  "render",
+                  "layer",
+                  "{layer}",
+                  "{frame}",
+                ],
               },
               {
                 "args": {
@@ -3912,20 +4842,34 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/{region}/{version}/map/{mapId}/render/{frame}",
-                "parts": [
-                  "api",
-                  "{region}",
-                  "{version}",
-                  "map",
-                  "{id}",
-                  "render",
-                  "{frame}",
-                ],
                 "rename": {
                   "param": {
                     "mapId": "id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "var": "region",
+                  },
+                  {
+                    "var": "version",
+                  },
+                  {
+                    "lit": "map",
+                  },
+                  {
+                    "var": "id",
+                  },
+                  {
+                    "lit": "render",
+                  },
+                  {
+                    "var": "frame",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "frame",
@@ -3940,6 +4884,15 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "{region}",
+                  "{version}",
+                  "map",
+                  "{id}",
+                  "render",
+                  "{frame}",
+                ],
               },
               {
                 "args": {
@@ -3984,11 +4937,19 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/{region}/{version}/map",
-                "parts": [
-                  "api",
-                  "{region}",
-                  "{version}",
-                  "map",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "var": "region",
+                  },
+                  {
+                    "var": "version",
+                  },
+                  {
+                    "lit": "map",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -4003,6 +4964,12 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "{region}",
+                  "{version}",
+                  "map",
+                ],
               },
               {
                 "args": {
@@ -4047,12 +5014,22 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/{region}/{version}/map/count",
-                "parts": [
-                  "api",
-                  "{region}",
-                  "{version}",
-                  "map",
-                  "count",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "var": "region",
+                  },
+                  {
+                    "var": "version",
+                  },
+                  {
+                    "lit": "map",
+                  },
+                  {
+                    "lit": "count",
+                  },
                 ],
                 "select": {
                   "$action": "count",
@@ -4068,6 +5045,13 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "{region}",
+                  "{version}",
+                  "map",
+                  "count",
+                ],
               },
               {
                 "args": {
@@ -4098,18 +5082,28 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/{region}/{version}/map/{mapId}",
-                "parts": [
-                  "api",
-                  "{region}",
-                  "{version}",
-                  "map",
-                  "{id}",
-                ],
                 "rename": {
                   "param": {
                     "mapId": "id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "var": "region",
+                  },
+                  {
+                    "var": "version",
+                  },
+                  {
+                    "lit": "map",
+                  },
+                  {
+                    "var": "id",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "id",
@@ -4121,6 +5115,13 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "{region}",
+                  "{version}",
+                  "map",
+                  "{id}",
+                ],
               },
               {
                 "args": {
@@ -4151,19 +5152,31 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/{region}/{version}/map/{mapId}/bgm",
-                "parts": [
-                  "api",
-                  "{region}",
-                  "{version}",
-                  "map",
-                  "{id}",
-                  "bgm",
-                ],
                 "rename": {
                   "param": {
                     "mapId": "id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "var": "region",
+                  },
+                  {
+                    "var": "version",
+                  },
+                  {
+                    "lit": "map",
+                  },
+                  {
+                    "var": "id",
+                  },
+                  {
+                    "lit": "bgm",
+                  },
+                ],
                 "select": {
                   "$action": "bgm",
                   "exist": [
@@ -4176,6 +5189,14 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "{region}",
+                  "{version}",
+                  "map",
+                  "{id}",
+                  "bgm",
+                ],
               },
               {
                 "args": {
@@ -4206,19 +5227,31 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/{region}/{version}/map/{mapId}/icon",
-                "parts": [
-                  "api",
-                  "{region}",
-                  "{version}",
-                  "map",
-                  "{id}",
-                  "icon",
-                ],
                 "rename": {
                   "param": {
                     "mapId": "id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "var": "region",
+                  },
+                  {
+                    "var": "version",
+                  },
+                  {
+                    "lit": "map",
+                  },
+                  {
+                    "var": "id",
+                  },
+                  {
+                    "lit": "icon",
+                  },
+                ],
                 "select": {
                   "$action": "icon",
                   "exist": [
@@ -4231,6 +5264,14 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "{region}",
+                  "{version}",
+                  "map",
+                  "{id}",
+                  "icon",
+                ],
               },
               {
                 "args": {
@@ -4261,19 +5302,31 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/{region}/{version}/map/{mapId}/minimap",
-                "parts": [
-                  "api",
-                  "{region}",
-                  "{version}",
-                  "map",
-                  "{id}",
-                  "minimap",
-                ],
                 "rename": {
                   "param": {
                     "mapId": "id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "var": "region",
+                  },
+                  {
+                    "var": "version",
+                  },
+                  {
+                    "lit": "map",
+                  },
+                  {
+                    "var": "id",
+                  },
+                  {
+                    "lit": "minimap",
+                  },
+                ],
                 "select": {
                   "$action": "minimap",
                   "exist": [
@@ -4286,6 +5339,14 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "{region}",
+                  "{version}",
+                  "map",
+                  "{id}",
+                  "minimap",
+                ],
               },
               {
                 "args": {
@@ -4316,19 +5377,31 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/{region}/{version}/map/{mapId}/name",
-                "parts": [
-                  "api",
-                  "{region}",
-                  "{version}",
-                  "map",
-                  "{id}",
-                  "name",
-                ],
                 "rename": {
                   "param": {
                     "mapId": "id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "var": "region",
+                  },
+                  {
+                    "var": "version",
+                  },
+                  {
+                    "lit": "map",
+                  },
+                  {
+                    "var": "id",
+                  },
+                  {
+                    "lit": "name",
+                  },
+                ],
                 "select": {
                   "$action": "name",
                   "exist": [
@@ -4341,6 +5414,14 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "{region}",
+                  "{version}",
+                  "map",
+                  "{id}",
+                  "name",
+                ],
               },
               {
                 "args": {
@@ -4371,13 +5452,25 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/{region}/{version}/map/worldmap/{map}",
-                "parts": [
-                  "api",
-                  "{region}",
-                  "{version}",
-                  "map",
-                  "worldmap",
-                  "{map}",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "var": "region",
+                  },
+                  {
+                    "var": "version",
+                  },
+                  {
+                    "lit": "map",
+                  },
+                  {
+                    "lit": "worldmap",
+                  },
+                  {
+                    "var": "map",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -4390,6 +5483,14 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "{region}",
+                  "{version}",
+                  "map",
+                  "worldmap",
+                  "{map}",
+                ],
               },
               {
                 "args": {
@@ -4420,19 +5521,31 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/{region}/{version}/map/icon/{markName}",
-                "parts": [
-                  "api",
-                  "{region}",
-                  "{version}",
-                  "map",
-                  "icon",
-                  "{mark_name}",
-                ],
                 "rename": {
                   "param": {
                     "markName": "mark_name",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "var": "region",
+                  },
+                  {
+                    "var": "version",
+                  },
+                  {
+                    "lit": "map",
+                  },
+                  {
+                    "lit": "icon",
+                  },
+                  {
+                    "var": "mark_name",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "mark_name",
@@ -4444,6 +5557,14 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "{region}",
+                  "{version}",
+                  "map",
+                  "icon",
+                  "{mark_name}",
+                ],
               },
               {
                 "args": {
@@ -4467,12 +5588,22 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/{region}/{version}/map/worldmap",
-                "parts": [
-                  "api",
-                  "{region}",
-                  "{version}",
-                  "map",
-                  "worldmap",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "var": "region",
+                  },
+                  {
+                    "var": "version",
+                  },
+                  {
+                    "lit": "map",
+                  },
+                  {
+                    "lit": "worldmap",
+                  },
                 ],
                 "select": {
                   "$action": "worldmap",
@@ -4485,6 +5616,13 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "{region}",
+                  "{version}",
+                  "map",
+                  "worldmap",
+                ],
               },
             ],
           },
@@ -4527,10 +5665,16 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/metrics/health",
-                "parts": [
-                  "api",
-                  "metrics",
-                  "health",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "metrics",
+                  },
+                  {
+                    "lit": "health",
+                  },
                 ],
                 "select": {
                   "$action": "health",
@@ -4539,6 +5683,11 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "metrics",
+                  "health",
+                ],
               },
             ],
           },
@@ -4554,6 +5703,10 @@ def make_config():
             "type": "`$STRING`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "mob",
         "op": {
           "load": {
@@ -4615,11 +5768,19 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/{region}/{version}/mob",
-                "parts": [
-                  "api",
-                  "{region}",
-                  "{version}",
-                  "mob",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "var": "region",
+                  },
+                  {
+                    "var": "version",
+                  },
+                  {
+                    "lit": "mob",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -4636,6 +5797,12 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "{region}",
+                  "{version}",
+                  "mob",
+                ],
               },
               {
                 "args": {
@@ -4692,12 +5859,22 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/{region}/{version}/mob/count",
-                "parts": [
-                  "api",
-                  "{region}",
-                  "{version}",
-                  "mob",
-                  "count",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "var": "region",
+                  },
+                  {
+                    "var": "version",
+                  },
+                  {
+                    "lit": "mob",
+                  },
+                  {
+                    "lit": "count",
+                  },
                 ],
                 "select": {
                   "$action": "count",
@@ -4715,6 +5892,13 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "{region}",
+                  "{version}",
+                  "mob",
+                  "count",
+                ],
               },
               {
                 "args": {
@@ -4761,21 +5945,37 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/{region}/{version}/mob/{mobId}/render/animated/{animation}",
-                "parts": [
-                  "api",
-                  "{region}",
-                  "{version}",
-                  "mob",
-                  "{id}",
-                  "render",
-                  "animated",
-                  "{animation}",
-                ],
                 "rename": {
                   "param": {
                     "mobId": "id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "var": "region",
+                  },
+                  {
+                    "var": "version",
+                  },
+                  {
+                    "lit": "mob",
+                  },
+                  {
+                    "var": "id",
+                  },
+                  {
+                    "lit": "render",
+                  },
+                  {
+                    "lit": "animated",
+                  },
+                  {
+                    "var": "animation",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "animation",
@@ -4789,6 +5989,16 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "{region}",
+                  "{version}",
+                  "mob",
+                  "{id}",
+                  "render",
+                  "animated",
+                  "{animation}",
+                ],
               },
               {
                 "args": {
@@ -4836,20 +6046,34 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/{region}/{version}/mob/{mobId}/render/{animation}",
-                "parts": [
-                  "api",
-                  "{region}",
-                  "{version}",
-                  "mob",
-                  "{id}",
-                  "render",
-                  "{animation}",
-                ],
                 "rename": {
                   "param": {
                     "mobId": "id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "var": "region",
+                  },
+                  {
+                    "var": "version",
+                  },
+                  {
+                    "lit": "mob",
+                  },
+                  {
+                    "var": "id",
+                  },
+                  {
+                    "lit": "render",
+                  },
+                  {
+                    "var": "animation",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "animation",
@@ -4863,6 +6087,15 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "{region}",
+                  "{version}",
+                  "mob",
+                  "{id}",
+                  "render",
+                  "{animation}",
+                ],
               },
               {
                 "args": {
@@ -4909,20 +6142,34 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/{region}/{version}/mob/animated/{mobId}/{animation}",
-                "parts": [
-                  "api",
-                  "{region}",
-                  "{version}",
-                  "mob",
-                  "animated",
-                  "{mob_id}",
-                  "{animation}",
-                ],
                 "rename": {
                   "param": {
                     "mobId": "mob_id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "var": "region",
+                  },
+                  {
+                    "var": "version",
+                  },
+                  {
+                    "lit": "mob",
+                  },
+                  {
+                    "lit": "animated",
+                  },
+                  {
+                    "var": "mob_id",
+                  },
+                  {
+                    "var": "animation",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "animation",
@@ -4936,6 +6183,15 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "{region}",
+                  "{version}",
+                  "mob",
+                  "animated",
+                  "{mob_id}",
+                  "{animation}",
+                ],
               },
               {
                 "args": {
@@ -4981,21 +6237,37 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/{region}/{version}/mob/{mobId}/render/{animation}/{frame}",
-                "parts": [
-                  "api",
-                  "{region}",
-                  "{version}",
-                  "mob",
-                  "{mob_id}",
-                  "render",
-                  "{animation}",
-                  "{frame}",
-                ],
                 "rename": {
                   "param": {
                     "mobId": "mob_id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "var": "region",
+                  },
+                  {
+                    "var": "version",
+                  },
+                  {
+                    "lit": "mob",
+                  },
+                  {
+                    "var": "mob_id",
+                  },
+                  {
+                    "lit": "render",
+                  },
+                  {
+                    "var": "animation",
+                  },
+                  {
+                    "var": "frame",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "animation",
@@ -5009,6 +6281,16 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "{region}",
+                  "{version}",
+                  "mob",
+                  "{mob_id}",
+                  "render",
+                  "{animation}",
+                  "{frame}",
+                ],
               },
               {
                 "args": {
@@ -5046,21 +6328,35 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/{region}/{version}/mob/{mobId}/sound/{soundName}",
-                "parts": [
-                  "api",
-                  "{region}",
-                  "{version}",
-                  "mob",
-                  "{id}",
-                  "sound",
-                  "{sound_name}",
-                ],
                 "rename": {
                   "param": {
                     "mobId": "id",
                     "soundName": "sound_name",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "var": "region",
+                  },
+                  {
+                    "var": "version",
+                  },
+                  {
+                    "lit": "mob",
+                  },
+                  {
+                    "var": "id",
+                  },
+                  {
+                    "lit": "sound",
+                  },
+                  {
+                    "var": "sound_name",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "id",
@@ -5073,6 +6369,15 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "{region}",
+                  "{version}",
+                  "mob",
+                  "{id}",
+                  "sound",
+                  "{sound_name}",
+                ],
               },
               {
                 "args": {
@@ -5103,18 +6408,28 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/{region}/{version}/mob/{mobId}",
-                "parts": [
-                  "api",
-                  "{region}",
-                  "{version}",
-                  "mob",
-                  "{id}",
-                ],
                 "rename": {
                   "param": {
                     "mobId": "id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "var": "region",
+                  },
+                  {
+                    "var": "version",
+                  },
+                  {
+                    "lit": "mob",
+                  },
+                  {
+                    "var": "id",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "id",
@@ -5126,6 +6441,13 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "{region}",
+                  "{version}",
+                  "mob",
+                  "{id}",
+                ],
               },
               {
                 "args": {
@@ -5156,19 +6478,31 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/{region}/{version}/mob/{mobId}/download",
-                "parts": [
-                  "api",
-                  "{region}",
-                  "{version}",
-                  "mob",
-                  "{id}",
-                  "download",
-                ],
                 "rename": {
                   "param": {
                     "mobId": "id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "var": "region",
+                  },
+                  {
+                    "var": "version",
+                  },
+                  {
+                    "lit": "mob",
+                  },
+                  {
+                    "var": "id",
+                  },
+                  {
+                    "lit": "download",
+                  },
+                ],
                 "select": {
                   "$action": "download",
                   "exist": [
@@ -5181,6 +6515,14 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "{region}",
+                  "{version}",
+                  "mob",
+                  "{id}",
+                  "download",
+                ],
               },
               {
                 "args": {
@@ -5211,19 +6553,31 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/{region}/{version}/mob/{mobId}/icon",
-                "parts": [
-                  "api",
-                  "{region}",
-                  "{version}",
-                  "mob",
-                  "{id}",
-                  "icon",
-                ],
                 "rename": {
                   "param": {
                     "mobId": "id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "var": "region",
+                  },
+                  {
+                    "var": "version",
+                  },
+                  {
+                    "lit": "mob",
+                  },
+                  {
+                    "var": "id",
+                  },
+                  {
+                    "lit": "icon",
+                  },
+                ],
                 "select": {
                   "$action": "icon",
                   "exist": [
@@ -5236,6 +6590,14 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "{region}",
+                  "{version}",
+                  "mob",
+                  "{id}",
+                  "icon",
+                ],
               },
               {
                 "args": {
@@ -5266,19 +6628,31 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/{region}/{version}/mob/{mobId}/name",
-                "parts": [
-                  "api",
-                  "{region}",
-                  "{version}",
-                  "mob",
-                  "{id}",
-                  "name",
-                ],
                 "rename": {
                   "param": {
                     "mobId": "id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "var": "region",
+                  },
+                  {
+                    "var": "version",
+                  },
+                  {
+                    "lit": "mob",
+                  },
+                  {
+                    "var": "id",
+                  },
+                  {
+                    "lit": "name",
+                  },
+                ],
                 "select": {
                   "$action": "name",
                   "exist": [
@@ -5291,6 +6665,14 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "{region}",
+                  "{version}",
+                  "mob",
+                  "{id}",
+                  "name",
+                ],
               },
               {
                 "args": {
@@ -5321,19 +6703,31 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/{region}/{version}/mob/{mobId}/sound",
-                "parts": [
-                  "api",
-                  "{region}",
-                  "{version}",
-                  "mob",
-                  "{id}",
-                  "sound",
-                ],
                 "rename": {
                   "param": {
                     "mobId": "id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "var": "region",
+                  },
+                  {
+                    "var": "version",
+                  },
+                  {
+                    "lit": "mob",
+                  },
+                  {
+                    "var": "id",
+                  },
+                  {
+                    "lit": "sound",
+                  },
+                ],
                 "select": {
                   "$action": "sound",
                   "exist": [
@@ -5346,6 +6740,14 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "{region}",
+                  "{version}",
+                  "mob",
+                  "{id}",
+                  "sound",
+                ],
               },
             ],
           },
@@ -5382,6 +6784,10 @@ def make_config():
             "type": "`$STRING`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "music",
         "op": {
           "load": {
@@ -5417,18 +6823,28 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/{region}/{version}/music/{songPath}",
-                "parts": [
-                  "api",
-                  "{region}",
-                  "{version}",
-                  "music",
-                  "{id}",
-                ],
                 "rename": {
                   "param": {
                     "songPath": "id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "var": "region",
+                  },
+                  {
+                    "var": "version",
+                  },
+                  {
+                    "lit": "music",
+                  },
+                  {
+                    "var": "id",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "id",
@@ -5440,6 +6856,13 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "{region}",
+                  "{version}",
+                  "music",
+                  "{id}",
+                ],
               },
             ],
           },
@@ -5497,11 +6920,19 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/{region}/{version}/name",
-                "parts": [
-                  "api",
-                  "{region}",
-                  "{version}",
-                  "name",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "var": "region",
+                  },
+                  {
+                    "var": "version",
+                  },
+                  {
+                    "lit": "name",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -5515,6 +6946,12 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "{region}",
+                  "{version}",
+                  "name",
+                ],
               },
             ],
           },
@@ -5534,6 +6971,10 @@ def make_config():
             "type": "`$STRING`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "npc",
         "op": {
           "load": {
@@ -5590,21 +7031,37 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/{region}/{version}/npc/{npcId}/render/animated/{framebook}",
-                "parts": [
-                  "api",
-                  "{region}",
-                  "{version}",
-                  "npc",
-                  "{id}",
-                  "render",
-                  "animated",
-                  "{framebook}",
-                ],
                 "rename": {
                   "param": {
                     "npcId": "id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "var": "region",
+                  },
+                  {
+                    "var": "version",
+                  },
+                  {
+                    "lit": "npc",
+                  },
+                  {
+                    "var": "id",
+                  },
+                  {
+                    "lit": "render",
+                  },
+                  {
+                    "lit": "animated",
+                  },
+                  {
+                    "var": "framebook",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "animation",
@@ -5619,6 +7076,16 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "{region}",
+                  "{version}",
+                  "npc",
+                  "{id}",
+                  "render",
+                  "animated",
+                  "{framebook}",
+                ],
               },
               {
                 "args": {
@@ -5670,21 +7137,37 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/{region}/{version}/npc/{npcId}/render/{framebook}/{frame}",
-                "parts": [
-                  "api",
-                  "{region}",
-                  "{version}",
-                  "npc",
-                  "{npc_id}",
-                  "render",
-                  "{framebook}",
-                  "{frame}",
-                ],
                 "rename": {
                   "param": {
                     "npcId": "npc_id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "var": "region",
+                  },
+                  {
+                    "var": "version",
+                  },
+                  {
+                    "lit": "npc",
+                  },
+                  {
+                    "var": "npc_id",
+                  },
+                  {
+                    "lit": "render",
+                  },
+                  {
+                    "var": "framebook",
+                  },
+                  {
+                    "var": "frame",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "bg_color",
@@ -5699,6 +7182,16 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "{region}",
+                  "{version}",
+                  "npc",
+                  "{npc_id}",
+                  "render",
+                  "{framebook}",
+                  "{frame}",
+                ],
               },
               {
                 "args": {
@@ -5745,11 +7238,19 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/{region}/{version}/npc",
-                "parts": [
-                  "api",
-                  "{region}",
-                  "{version}",
-                  "npc",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "var": "region",
+                  },
+                  {
+                    "var": "version",
+                  },
+                  {
+                    "lit": "npc",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -5764,6 +7265,12 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "{region}",
+                  "{version}",
+                  "npc",
+                ],
               },
               {
                 "args": {
@@ -5810,12 +7317,22 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/{region}/{version}/npc/count",
-                "parts": [
-                  "api",
-                  "{region}",
-                  "{version}",
-                  "npc",
-                  "count",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "var": "region",
+                  },
+                  {
+                    "var": "version",
+                  },
+                  {
+                    "lit": "npc",
+                  },
+                  {
+                    "lit": "count",
+                  },
                 ],
                 "select": {
                   "$action": "count",
@@ -5831,6 +7348,13 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "{region}",
+                  "{version}",
+                  "npc",
+                  "count",
+                ],
               },
               {
                 "args": {
@@ -5861,18 +7385,28 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/{region}/{version}/npc/{npcId}",
-                "parts": [
-                  "api",
-                  "{region}",
-                  "{version}",
-                  "npc",
-                  "{id}",
-                ],
                 "rename": {
                   "param": {
                     "npcId": "id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "var": "region",
+                  },
+                  {
+                    "var": "version",
+                  },
+                  {
+                    "lit": "npc",
+                  },
+                  {
+                    "var": "id",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "id",
@@ -5884,6 +7418,13 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "{region}",
+                  "{version}",
+                  "npc",
+                  "{id}",
+                ],
               },
               {
                 "args": {
@@ -5914,19 +7455,31 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/{region}/{version}/npc/{npcId}/download",
-                "parts": [
-                  "api",
-                  "{region}",
-                  "{version}",
-                  "npc",
-                  "{id}",
-                  "download",
-                ],
                 "rename": {
                   "param": {
                     "npcId": "id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "var": "region",
+                  },
+                  {
+                    "var": "version",
+                  },
+                  {
+                    "lit": "npc",
+                  },
+                  {
+                    "var": "id",
+                  },
+                  {
+                    "lit": "download",
+                  },
+                ],
                 "select": {
                   "$action": "download",
                   "exist": [
@@ -5939,6 +7492,14 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "{region}",
+                  "{version}",
+                  "npc",
+                  "{id}",
+                  "download",
+                ],
               },
               {
                 "args": {
@@ -5969,19 +7530,31 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/{region}/{version}/npc/{npcId}/icon",
-                "parts": [
-                  "api",
-                  "{region}",
-                  "{version}",
-                  "npc",
-                  "{id}",
-                  "icon",
-                ],
                 "rename": {
                   "param": {
                     "npcId": "id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "var": "region",
+                  },
+                  {
+                    "var": "version",
+                  },
+                  {
+                    "lit": "npc",
+                  },
+                  {
+                    "var": "id",
+                  },
+                  {
+                    "lit": "icon",
+                  },
+                ],
                 "select": {
                   "$action": "icon",
                   "exist": [
@@ -5994,6 +7567,14 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "{region}",
+                  "{version}",
+                  "npc",
+                  "{id}",
+                  "icon",
+                ],
               },
               {
                 "args": {
@@ -6024,19 +7605,31 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/{region}/{version}/npc/{npcId}/name",
-                "parts": [
-                  "api",
-                  "{region}",
-                  "{version}",
-                  "npc",
-                  "{id}",
-                  "name",
-                ],
                 "rename": {
                   "param": {
                     "npcId": "id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "var": "region",
+                  },
+                  {
+                    "var": "version",
+                  },
+                  {
+                    "lit": "npc",
+                  },
+                  {
+                    "var": "id",
+                  },
+                  {
+                    "lit": "name",
+                  },
+                ],
                 "select": {
                   "$action": "name",
                   "exist": [
@@ -6049,6 +7642,14 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "{region}",
+                  "{version}",
+                  "npc",
+                  "{id}",
+                  "name",
+                ],
               },
             ],
           },
@@ -6083,30 +7684,46 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/about",
-                "parts": [
-                  "api",
-                  "about",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "about",
+                  },
                 ],
                 "select": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "about",
+                ],
               },
               {
                 "args": {},
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/banners",
-                "parts": [
-                  "api",
-                  "banners",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "banners",
+                  },
                 ],
                 "select": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "banners",
+                ],
               },
             ],
           },
@@ -6118,10 +7735,12 @@ def make_config():
       "performance_metric": {
         "fields": [
           {
+            "format": "int64",
             "name": "activeRequests",
             "type": "`$INTEGER`",
           },
           {
+            "format": "double",
             "name": "averageResponseTimeMs",
             "type": "`$NUMBER`",
           },
@@ -6134,10 +7753,12 @@ def make_config():
             "type": "`$OBJECT`",
           },
           {
+            "format": "date-time",
             "name": "lastUpdated",
             "type": "`$STRING`",
           },
           {
+            "format": "int64",
             "name": "memoryUsedBytes",
             "type": "`$INTEGER`",
           },
@@ -6146,10 +7767,12 @@ def make_config():
             "type": "`$OBJECT`",
           },
           {
+            "format": "double",
             "name": "requestsPerSecond",
             "type": "`$NUMBER`",
           },
           {
+            "format": "date-time",
             "name": "startTime",
             "type": "`$STRING`",
           },
@@ -6158,14 +7781,17 @@ def make_config():
             "type": "`$OBJECT`",
           },
           {
+            "format": "int64",
             "name": "totalErrors",
             "type": "`$INTEGER`",
           },
           {
+            "format": "int64",
             "name": "totalRequests",
             "type": "`$INTEGER`",
           },
           {
+            "format": "int64",
             "name": "wzPropertiesLoaded",
             "type": "`$INTEGER`",
           },
@@ -6181,15 +7807,23 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/metrics",
-                "parts": [
-                  "api",
-                  "metrics",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "metrics",
+                  },
                 ],
                 "select": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "metrics",
+                ],
               },
             ],
           },
@@ -6205,6 +7839,10 @@ def make_config():
             "type": "`$STRING`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "pet",
         "op": {
           "load": {
@@ -6264,23 +7902,41 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/{region}/{version}/pet/{petId}/render/{animation}/{frame}/{petEquip}",
-                "parts": [
-                  "api",
-                  "{region}",
-                  "{version}",
-                  "pet",
-                  "{pet_id}",
-                  "render",
-                  "{animation}",
-                  "{frame}",
-                  "{pet_equip}",
-                ],
                 "rename": {
                   "param": {
                     "petEquip": "pet_equip",
                     "petId": "pet_id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "var": "region",
+                  },
+                  {
+                    "var": "version",
+                  },
+                  {
+                    "lit": "pet",
+                  },
+                  {
+                    "var": "pet_id",
+                  },
+                  {
+                    "lit": "render",
+                  },
+                  {
+                    "var": "animation",
+                  },
+                  {
+                    "var": "frame",
+                  },
+                  {
+                    "var": "pet_equip",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "animation",
@@ -6295,6 +7951,17 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "{region}",
+                  "{version}",
+                  "pet",
+                  "{pet_id}",
+                  "render",
+                  "{animation}",
+                  "{frame}",
+                  "{pet_equip}",
+                ],
               },
               {
                 "args": {
@@ -6349,17 +8016,6 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/{region}/{version}/pet/{petId}/render/{animation}/animated/{petEquip}",
-                "parts": [
-                  "api",
-                  "{region}",
-                  "{version}",
-                  "pet",
-                  "{id}",
-                  "render",
-                  "{render_id}",
-                  "animated",
-                  "{pet_equip}",
-                ],
                 "rename": {
                   "param": {
                     "animation": "render_id",
@@ -6367,6 +8023,35 @@ def make_config():
                     "petId": "id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "var": "region",
+                  },
+                  {
+                    "var": "version",
+                  },
+                  {
+                    "lit": "pet",
+                  },
+                  {
+                    "var": "id",
+                  },
+                  {
+                    "lit": "render",
+                  },
+                  {
+                    "var": "render_id",
+                  },
+                  {
+                    "lit": "animated",
+                  },
+                  {
+                    "var": "pet_equip",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "bg_color",
@@ -6381,6 +8066,17 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "{region}",
+                  "{version}",
+                  "pet",
+                  "{id}",
+                  "render",
+                  "{render_id}",
+                  "animated",
+                  "{pet_equip}",
+                ],
               },
               {
                 "args": {
@@ -6411,18 +8107,28 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/{region}/{version}/pet/{petId}",
-                "parts": [
-                  "api",
-                  "{region}",
-                  "{version}",
-                  "pet",
-                  "{id}",
-                ],
                 "rename": {
                   "param": {
                     "petId": "id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "var": "region",
+                  },
+                  {
+                    "var": "version",
+                  },
+                  {
+                    "lit": "pet",
+                  },
+                  {
+                    "var": "id",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "id",
@@ -6434,6 +8140,13 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "{region}",
+                  "{version}",
+                  "pet",
+                  "{id}",
+                ],
               },
               {
                 "args": {
@@ -6464,19 +8177,31 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/{region}/{version}/pet/{petId}/actions",
-                "parts": [
-                  "api",
-                  "{region}",
-                  "{version}",
-                  "pet",
-                  "{id}",
-                  "actions",
-                ],
                 "rename": {
                   "param": {
                     "petId": "id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "var": "region",
+                  },
+                  {
+                    "var": "version",
+                  },
+                  {
+                    "lit": "pet",
+                  },
+                  {
+                    "var": "id",
+                  },
+                  {
+                    "lit": "actions",
+                  },
+                ],
                 "select": {
                   "$action": "action",
                   "exist": [
@@ -6489,6 +8214,14 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "{region}",
+                  "{version}",
+                  "pet",
+                  "{id}",
+                  "actions",
+                ],
               },
               {
                 "args": {
@@ -6519,19 +8252,31 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/{region}/{version}/pet/{petId}/download",
-                "parts": [
-                  "api",
-                  "{region}",
-                  "{version}",
-                  "pet",
-                  "{id}",
-                  "download",
-                ],
                 "rename": {
                   "param": {
                     "petId": "id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "var": "region",
+                  },
+                  {
+                    "var": "version",
+                  },
+                  {
+                    "lit": "pet",
+                  },
+                  {
+                    "var": "id",
+                  },
+                  {
+                    "lit": "download",
+                  },
+                ],
                 "select": {
                   "$action": "download",
                   "exist": [
@@ -6544,6 +8289,14 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "{region}",
+                  "{version}",
+                  "pet",
+                  "{id}",
+                  "download",
+                ],
               },
               {
                 "args": {
@@ -6574,19 +8327,31 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/{region}/{version}/pet/{petId}/name",
-                "parts": [
-                  "api",
-                  "{region}",
-                  "{version}",
-                  "pet",
-                  "{id}",
-                  "name",
-                ],
                 "rename": {
                   "param": {
                     "petId": "id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "var": "region",
+                  },
+                  {
+                    "var": "version",
+                  },
+                  {
+                    "lit": "pet",
+                  },
+                  {
+                    "var": "id",
+                  },
+                  {
+                    "lit": "name",
+                  },
+                ],
                 "select": {
                   "$action": "name",
                   "exist": [
@@ -6599,6 +8364,14 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "{region}",
+                  "{version}",
+                  "pet",
+                  "{id}",
+                  "name",
+                ],
               },
               {
                 "args": {
@@ -6622,11 +8395,19 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/{region}/{version}/pet",
-                "parts": [
-                  "api",
-                  "{region}",
-                  "{version}",
-                  "pet",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "var": "region",
+                  },
+                  {
+                    "var": "version",
+                  },
+                  {
+                    "lit": "pet",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -6638,6 +8419,12 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "{region}",
+                  "{version}",
+                  "pet",
+                ],
               },
               {
                 "args": {
@@ -6661,12 +8448,22 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/{region}/{version}/pet/count",
-                "parts": [
-                  "api",
-                  "{region}",
-                  "{version}",
-                  "pet",
-                  "count",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "var": "region",
+                  },
+                  {
+                    "var": "version",
+                  },
+                  {
+                    "lit": "pet",
+                  },
+                  {
+                    "lit": "count",
+                  },
                 ],
                 "select": {
                   "$action": "count",
@@ -6679,6 +8476,13 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "{region}",
+                  "{version}",
+                  "pet",
+                  "count",
+                ],
               },
             ],
           },
@@ -6708,6 +8512,10 @@ def make_config():
             "type": "`$STRING`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "quest",
         "op": {
           "load": {
@@ -6757,11 +8565,19 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/{region}/{version}/quest",
-                "parts": [
-                  "api",
-                  "{region}",
-                  "{version}",
-                  "quest",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "var": "region",
+                  },
+                  {
+                    "var": "version",
+                  },
+                  {
+                    "lit": "quest",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -6776,6 +8592,12 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "{region}",
+                  "{version}",
+                  "quest",
+                ],
               },
               {
                 "args": {
@@ -6820,12 +8642,22 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/{region}/{version}/quest/count",
-                "parts": [
-                  "api",
-                  "{region}",
-                  "{version}",
-                  "quest",
-                  "count",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "var": "region",
+                  },
+                  {
+                    "var": "version",
+                  },
+                  {
+                    "lit": "quest",
+                  },
+                  {
+                    "lit": "count",
+                  },
                 ],
                 "select": {
                   "$action": "count",
@@ -6841,6 +8673,13 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "{region}",
+                  "{version}",
+                  "quest",
+                  "count",
+                ],
               },
               {
                 "args": {
@@ -6871,13 +8710,25 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/{region}/{version}/quest/category/{category}",
-                "parts": [
-                  "api",
-                  "{region}",
-                  "{version}",
-                  "quest",
-                  "category",
-                  "{category}",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "var": "region",
+                  },
+                  {
+                    "var": "version",
+                  },
+                  {
+                    "lit": "quest",
+                  },
+                  {
+                    "lit": "category",
+                  },
+                  {
+                    "var": "category",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -6890,6 +8741,14 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "{region}",
+                  "{version}",
+                  "quest",
+                  "category",
+                  "{category}",
+                ],
               },
               {
                 "args": {
@@ -6920,18 +8779,28 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/{region}/{version}/quest/{questId}",
-                "parts": [
-                  "api",
-                  "{region}",
-                  "{version}",
-                  "quest",
-                  "{id}",
-                ],
                 "rename": {
                   "param": {
                     "questId": "id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "var": "region",
+                  },
+                  {
+                    "var": "version",
+                  },
+                  {
+                    "lit": "quest",
+                  },
+                  {
+                    "var": "id",
+                  },
+                ],
                 "select": {
                   "exist": [
                     "id",
@@ -6943,6 +8812,13 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "{region}",
+                  "{version}",
+                  "quest",
+                  "{id}",
+                ],
               },
               {
                 "args": {
@@ -6973,19 +8849,31 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/{region}/{version}/quest/{questId}/icon",
-                "parts": [
-                  "api",
-                  "{region}",
-                  "{version}",
-                  "quest",
-                  "{id}",
-                  "icon",
-                ],
                 "rename": {
                   "param": {
                     "questId": "id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "var": "region",
+                  },
+                  {
+                    "var": "version",
+                  },
+                  {
+                    "lit": "quest",
+                  },
+                  {
+                    "var": "id",
+                  },
+                  {
+                    "lit": "icon",
+                  },
+                ],
                 "select": {
                   "$action": "icon",
                   "exist": [
@@ -6998,6 +8886,14 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "{region}",
+                  "{version}",
+                  "quest",
+                  "{id}",
+                  "icon",
+                ],
               },
               {
                 "args": {
@@ -7028,19 +8924,31 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/{region}/{version}/quest/{questId}/name",
-                "parts": [
-                  "api",
-                  "{region}",
-                  "{version}",
-                  "quest",
-                  "{id}",
-                  "name",
-                ],
                 "rename": {
                   "param": {
                     "questId": "id",
                   },
                 },
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "var": "region",
+                  },
+                  {
+                    "var": "version",
+                  },
+                  {
+                    "lit": "quest",
+                  },
+                  {
+                    "var": "id",
+                  },
+                  {
+                    "lit": "name",
+                  },
+                ],
                 "select": {
                   "$action": "name",
                   "exist": [
@@ -7053,6 +8961,14 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "{region}",
+                  "{version}",
+                  "quest",
+                  "{id}",
+                  "name",
+                ],
               },
               {
                 "args": {
@@ -7076,12 +8992,22 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/{region}/{version}/quest/category",
-                "parts": [
-                  "api",
-                  "{region}",
-                  "{version}",
-                  "quest",
-                  "category",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "var": "region",
+                  },
+                  {
+                    "var": "version",
+                  },
+                  {
+                    "lit": "quest",
+                  },
+                  {
+                    "lit": "category",
+                  },
                 ],
                 "select": {
                   "$action": "category",
@@ -7094,6 +9020,13 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "{region}",
+                  "{version}",
+                  "quest",
+                  "category",
+                ],
               },
             ],
           },
@@ -7113,30 +9046,37 @@ def make_config():
       "system": {
         "fields": [
           {
+            "format": "double",
             "name": "cpuUsagePercent",
             "type": "`$NUMBER`",
           },
           {
+            "format": "int64",
             "name": "gcGen0Collections",
             "type": "`$INTEGER`",
           },
           {
+            "format": "int64",
             "name": "gcGen1Collections",
             "type": "`$INTEGER`",
           },
           {
+            "format": "int64",
             "name": "gcGen2Collections",
             "type": "`$INTEGER`",
           },
           {
+            "format": "int32",
             "name": "threadCount",
             "type": "`$INTEGER`",
           },
           {
+            "format": "int64",
             "name": "totalMemoryBytes",
             "type": "`$INTEGER`",
           },
           {
+            "format": "int64",
             "name": "usedMemoryBytes",
             "type": "`$INTEGER`",
           },
@@ -7152,16 +9092,27 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/metrics/system",
-                "parts": [
-                  "api",
-                  "metrics",
-                  "system",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "metrics",
+                  },
+                  {
+                    "lit": "system",
+                  },
                 ],
                 "select": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "metrics",
+                  "system",
+                ],
               },
             ],
           },
@@ -7200,11 +9151,19 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/{region}/{version}/tips",
-                "parts": [
-                  "api",
-                  "{region}",
-                  "{version}",
-                  "tips",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "var": "region",
+                  },
+                  {
+                    "var": "version",
+                  },
+                  {
+                    "lit": "tips",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -7216,6 +9175,12 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "{region}",
+                  "{version}",
+                  "tips",
+                ],
               },
             ],
           },
@@ -7229,7 +9194,22 @@ def make_config():
         },
       },
       "wzn": {
-        "fields": [],
+        "fields": [
+          {
+            "name": "id",
+            "type": "`$STRING`",
+          },
+        ],
+        "id": {
+          "field": "id",
+          "name": "id",
+          "parts": [
+            "region",
+            "version",
+            "path",
+          ],
+          "sep": "/",
+        },
         "name": "wzn",
         "op": {
           "load": {
@@ -7286,13 +9266,25 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/wz/export/{region}/{version}/{path}",
-                "parts": [
-                  "api",
-                  "wz",
-                  "export",
-                  "{region}",
-                  "{version}",
-                  "{path}",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "wz",
+                  },
+                  {
+                    "lit": "export",
+                  },
+                  {
+                    "var": "region",
+                  },
+                  {
+                    "var": "version",
+                  },
+                  {
+                    "var": "path",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -7306,6 +9298,14 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "wz",
+                  "export",
+                  "{region}",
+                  "{version}",
+                  "{path}",
+                ],
               },
               {
                 "args": {
@@ -7350,13 +9350,25 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/wz/audio/{region}/{version}/{path}",
-                "parts": [
-                  "api",
-                  "wz",
-                  "audio",
-                  "{region}",
-                  "{version}",
-                  "{path}",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "wz",
+                  },
+                  {
+                    "lit": "audio",
+                  },
+                  {
+                    "var": "region",
+                  },
+                  {
+                    "var": "version",
+                  },
+                  {
+                    "var": "path",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -7369,6 +9381,14 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "wz",
+                  "audio",
+                  "{region}",
+                  "{version}",
+                  "{path}",
+                ],
               },
               {
                 "args": {
@@ -7413,13 +9433,25 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/wz/img/{region}/{version}/{path}",
-                "parts": [
-                  "api",
-                  "wz",
-                  "img",
-                  "{region}",
-                  "{version}",
-                  "{path}",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "wz",
+                  },
+                  {
+                    "lit": "img",
+                  },
+                  {
+                    "var": "region",
+                  },
+                  {
+                    "var": "version",
+                  },
+                  {
+                    "var": "path",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -7432,6 +9464,14 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "wz",
+                  "img",
+                  "{region}",
+                  "{version}",
+                  "{path}",
+                ],
               },
               {
                 "args": {
@@ -7476,13 +9516,25 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/wz/lookup/{region}/{version}/{path}",
-                "parts": [
-                  "api",
-                  "wz",
-                  "lookup",
-                  "{region}",
-                  "{version}",
-                  "{path}",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "wz",
+                  },
+                  {
+                    "lit": "lookup",
+                  },
+                  {
+                    "var": "region",
+                  },
+                  {
+                    "var": "version",
+                  },
+                  {
+                    "var": "path",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -7495,6 +9547,14 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "wz",
+                  "lookup",
+                  "{region}",
+                  "{version}",
+                  "{path}",
+                ],
               },
               {
                 "args": {
@@ -7539,12 +9599,22 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/wz/{region}/{version}/{path}",
-                "parts": [
-                  "api",
-                  "wz",
-                  "{region}",
-                  "{version}",
-                  "{path}",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "wz",
+                  },
+                  {
+                    "var": "region",
+                  },
+                  {
+                    "var": "version",
+                  },
+                  {
+                    "var": "path",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -7557,6 +9627,13 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "wz",
+                  "{region}",
+                  "{version}",
+                  "{path}",
+                ],
               },
               {
                 "args": {
@@ -7580,9 +9657,13 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/wz",
-                "parts": [
-                  "api",
-                  "wz",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "lit": "wz",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -7594,6 +9675,10 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "wz",
+                ],
               },
             ],
           },
@@ -7648,11 +9733,19 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/{region}/{version}/zmap",
-                "parts": [
-                  "api",
-                  "{region}",
-                  "{version}",
-                  "zmap",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "var": "region",
+                  },
+                  {
+                    "var": "version",
+                  },
+                  {
+                    "lit": "zmap",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -7664,6 +9757,12 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "{region}",
+                  "{version}",
+                  "zmap",
+                ],
               },
               {
                 "args": {
@@ -7687,12 +9786,22 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/{region}/{version}/zmap/smap",
-                "parts": [
-                  "api",
-                  "{region}",
-                  "{version}",
-                  "zmap",
-                  "smap",
+                "segments": [
+                  {
+                    "lit": "api",
+                  },
+                  {
+                    "var": "region",
+                  },
+                  {
+                    "var": "version",
+                  },
+                  {
+                    "lit": "zmap",
+                  },
+                  {
+                    "lit": "smap",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -7704,6 +9813,13 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "api",
+                  "{region}",
+                  "{version}",
+                  "zmap",
+                  "smap",
+                ],
               },
             ],
           },

@@ -12,10 +12,16 @@ main: kit: entity: metric: {
         {
           method: "GET"
           orig: "/api/metrics/health"
-          parts: [
-            "api"
-            "metrics"
-            "health"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "metrics"
+            }
+            {
+              lit: "health"
+            }
           ]
           select: {
             "$action": "health"

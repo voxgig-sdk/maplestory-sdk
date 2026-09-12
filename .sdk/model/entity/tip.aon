@@ -30,11 +30,19 @@ main: kit: entity: tip: {
           }
           method: "GET"
           orig: "/api/{region}/{version}/tips"
-          parts: [
-            "api"
-            "{region}"
-            "{version}"
-            "tips"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              var: "region"
+            }
+            {
+              var: "version"
+            }
+            {
+              lit: "tips"
+            }
           ]
           select: {
             exist: [
