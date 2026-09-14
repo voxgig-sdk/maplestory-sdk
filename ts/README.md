@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { MaplestorySDK } from '@voxgig-sdk/maplestory'
+import { MaplestorySDK } from '@voxgig-sdk/maplestory-sdk'
 
 const client = new MaplestorySDK()
 ```
@@ -1279,7 +1279,7 @@ maplestory/
 Import the SDK from the package root:
 
 ```ts
-import { MaplestorySDK } from '@voxgig-sdk/maplestory'
+import { MaplestorySDK } from '@voxgig-sdk/maplestory-sdk'
 ```
 
 ### Entity state

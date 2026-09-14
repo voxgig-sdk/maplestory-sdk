@@ -105,7 +105,7 @@ local result, err = client:Music():load({ id = "test01", region = "example", ver
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/maplestory` | publish pending — [install from git tag](https://github.com/voxgig-sdk/maplestory-sdk/releases) |
+| TypeScript | `@voxgig-sdk/maplestory-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/maplestory-sdk/releases) |
 | Python | `voxgig-sdk-maplestory` | publish pending — [install from git tag](https://github.com/voxgig-sdk/maplestory-sdk/releases) |
 | PHP | `voxgig-sdk/maplestory` | publish pending — [install from git tag](https://github.com/voxgig-sdk/maplestory-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/maplestory-sdk/go` | `go get github.com/voxgig-sdk/maplestory-sdk/go@latest` |
@@ -119,7 +119,7 @@ local result, err = client:Music():load({ id = "test01", region = "example", ver
 ### TypeScript
 
 ```ts
-import { MaplestorySDK } from '@voxgig-sdk/maplestory'
+import { MaplestorySDK } from '@voxgig-sdk/maplestory-sdk'
 
 const client = new MaplestorySDK()
 
